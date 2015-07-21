@@ -1,4 +1,4 @@
-package com.github.florent37.badview;
+package com.github.florent37.badview.sample;
 
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;

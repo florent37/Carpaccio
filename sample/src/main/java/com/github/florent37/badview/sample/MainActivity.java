@@ -1,4 +1,4 @@
-package com.github.florent37.badview;
+package com.github.florent37.badview.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

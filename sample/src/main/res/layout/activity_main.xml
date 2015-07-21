@@ -7,8 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
-            com.github.florent37.badview.ImageBadView;
-            com.github.florent37.badview.TextBadView
+            com.github.florent37.badview.sample.ImageBadView;
+            com.github.florent37.badview.sample.TextBadView
         ">
 
         <LinearLayout

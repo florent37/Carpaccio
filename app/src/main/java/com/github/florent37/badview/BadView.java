@@ -73,11 +73,14 @@ public class BadView extends FrameLayout {
         findBadViews(this);
 
         for(View view : badViews){
-            String tag = view.getTag().toString();
-            String function = BadViewHelper.getFunctionName(tag);
-            String[] args = BadViewHelper.getAttributes(tag);
-            for(Object registerObject : registerObjects)
-                BadViewHelper.callFunction(registerObject,function,view,args);
+            String tag = view.getTag().toString().trim();
+            String[] calls = tag.split(";");
+            for(String call : calls) {
+                String function = BadViewHelper.getFunctionName(call);
+                String[] args = BadViewHelper.getAttributes(tag);
+                for (Object registerObject : registerObjects)
+                    BadViewHelper.callFunction(registerObject, function, view, args);
+            }
         }
     }
 }

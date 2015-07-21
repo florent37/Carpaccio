@@ -1,8 +1,7 @@
-package com.github.florent37.badview;
+package com.github.florent37.badview.sample;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
