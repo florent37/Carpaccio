@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.github.florent37.badview.BadViewHelper.construct;
+import static com.github.florent37.badview.BadViewHelper.trim;
 
 /**
  * Created by florentchampigny on 21/07/15.
@@ -74,10 +75,10 @@ public class BadView extends FrameLayout {
 
         for(View view : badViews){
             String tag = view.getTag().toString().trim();
-            String[] calls = tag.split(";");
+            String[] calls = trim(tag.split(";"));
             for(String call : calls) {
                 String function = BadViewHelper.getFunctionName(call);
-                String[] args = BadViewHelper.getAttributes(tag);
+                String[] args = BadViewHelper.getAttributes(call);
                 for (Object registerObject : registerObjects)
                     BadViewHelper.callFunction(registerObject, function, view, args);
             }

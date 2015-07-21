@@ -36,12 +36,20 @@ class BadViewHelper {
     }
 
     protected static String getFunctionName(String tag){
-        return tag.substring(0, tag.indexOf('('));
+        return tag.substring(0, tag.indexOf('(')).trim();
     }
 
     protected static String[] getAttributes(String tag){
         String attributes = tag.substring(tag.indexOf('(') + 1, tag.indexOf(')'));
-        return attributes.split(",");
+        if(attributes.isEmpty())
+            return new String[0];
+        return trim(attributes.split(","));
+    }
+
+    protected static String[] trim(String[] strings){
+        for(int i=0;i<strings.length;++i)
+            strings[i]=strings[i].trim();
+        return strings;
     }
 
     protected static void callFunction(Object object, String name, View view, Object[] args){
@@ -50,7 +58,7 @@ class BadViewHelper {
         try {
             method = object.getClass().getMethod(name, getClasses(args));
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         if(method != null) {
