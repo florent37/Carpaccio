@@ -19,23 +19,30 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:tag="url(http://i.imgur.com/DvpvklR.png)" />
+                android:tag="
+                    url(http://i.imgur.com/DvpvklR.png)
+                " />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tag="font(Roboto-Light.ttf)"
                 android:text="Hi, how are you ?"
                 android:layout_margin="20dp"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:tag="
+                    font(Roboto-Light.ttf)
+                "/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tag="font(Roboto-Black.ttf)"
                 android:text="Fine and you ?"
                 android:layout_margin="20dp"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:tag="
+                    font(Roboto-Black.ttf)
+                "/>
+
 
         </LinearLayout>
 
