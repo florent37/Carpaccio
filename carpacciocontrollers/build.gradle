@@ -20,6 +20,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':carpaccio')
+
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.2'
 }

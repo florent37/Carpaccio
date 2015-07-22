@@ -15,7 +15,9 @@ class CarpaccioHelper {
 
     protected static Object construct(String name){
         try {
-            return Class.forName(name).newInstance();
+            Object object = Class.forName(name).newInstance();
+            if( object instanceof CarpaccioViewController) //filter only CarpaccioViewControllers
+                return object;
         }catch (Exception e){
             Log.e(TAG, "Cannot construct " + name, e);
         }

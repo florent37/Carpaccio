@@ -2,6 +2,7 @@ package com.github.florent37.carpacciocontrollers;
 
 import android.view.View;
 
+import com.github.florent37.carpaccio.CarpaccioViewController;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -12,7 +13,7 @@ import java.util.Map;
 /**
  * Created by florentchampigny on 22/07/15.
  */
-public class ParallaxViewController implements ObservableScrollViewCallbacks {
+public class ParallaxViewController extends CarpaccioViewController implements ObservableScrollViewCallbacks {
 
     Map<View,Float> viewsToMove = new HashMap<>();
 
