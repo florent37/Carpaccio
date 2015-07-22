@@ -45,7 +45,7 @@ public class ImageViewController {
             Picasso.with(imageView.getContext()).load(url).into(imageView, new Callback() {
                 @Override
                 public void onSuccess() {
-                    startWaitingAnimateMaterialImageView(imageView);
+                    onImageLoadedFromUrl(imageView)
                 }
 
                 @Override
@@ -54,6 +54,11 @@ public class ImageViewController {
                 }
             });
         }
+    }
+
+    //can be overrided
+    protected void onImageLoadedFromUrl(ImageView imageView){
+        startWaitingAnimateMaterialImageView(imageView);
     }
 
     protected void startWaitingAnimateMaterialImageView(ImageView imageView) {
