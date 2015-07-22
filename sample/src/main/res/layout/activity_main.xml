@@ -32,7 +32,7 @@
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 android:tag="
-                    animateEnterX(-1000,3000);
+                    animateEnterX(-1000,1000,easeIn);
                     font(Roboto-Light.ttf);
                 "/>
 
@@ -43,7 +43,7 @@
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 android:tag="
-                    animateAphaIn(3000);
+                    animateAphaIn(3000,easeOut);
                     font(Roboto-Black.ttf);
                 "/>
 

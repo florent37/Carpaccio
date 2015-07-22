@@ -45,7 +45,7 @@ public class ImageViewController {
             Picasso.with(imageView.getContext()).load(url).into(imageView, new Callback() {
                 @Override
                 public void onSuccess() {
-                    onImageLoadedFromUrl(imageView)
+                    onImageLoadedFromUrl(imageView);
                 }
 
                 @Override
