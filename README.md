@@ -58,6 +58,8 @@ compile ('com.github.florent37:carpacciocontrollers:1.0.0){
 
 ImageViewController can directly set an image source from an url
 
+Usage : **url(imageUrl)**
+
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         app:register="
@@ -75,6 +77,8 @@ ImageViewController can directly set an image source from an url
 
 TextViewController can set a custom font (from assets/fonts/) to a TextView
 
+Usage : **font(fontName)**
+
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         app:register="
@@ -91,6 +95,11 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView
 ##ParallaxViewController
 
 ParallaxViewController can add a paralax effect on ObservableScrollView childs
+
+Usage :
+
+* ObservableScrollView : **registerParallax()**
+* ObservableScrollView childs : **parallaxY(float)**
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
