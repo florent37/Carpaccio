@@ -8,7 +8,8 @@
         android:layout_height="match_parent"
         app:register="
             com.github.florent37.carpacciocontrollers.ImageViewController;
-            com.github.florent37.carpacciocontrollers.TextViewController
+            com.github.florent37.carpacciocontrollers.TextViewController;
+            com.github.florent37.carpacciocontrollers.AnimationViewController;
         ">
 
         <LinearLayout
@@ -20,7 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:tag="
-                    url(http://i.imgur.com/DvpvklR.png)
+                    animateMaterial(3000);
+                    url(http://i.imgur.com/DvpvklR.png);
                 " />
 
             <TextView
@@ -30,7 +32,8 @@
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 android:tag="
-                    font(Roboto-Light.ttf)
+                    animateEnterX(-1000,3000);
+                    font(Roboto-Light.ttf);
                 "/>
 
             <TextView
@@ -40,7 +43,8 @@
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 android:tag="
-                    font(Roboto-Black.ttf)
+                    animateAphaIn(3000);
+                    font(Roboto-Black.ttf);
                 "/>
 
 
