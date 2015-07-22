@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.florent37.badview.BadView
+    <com.github.florent37.carpaccio.Carpaccio
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
-            com.github.florent37.badview.sample.ParallaxBadView;
-            com.github.florent37.badview.sample.ImageBadView
+            com.github.florent37.carpacciocontrollers.ParallaxViewController;
+            com.github.florent37.carpacciocontrollers.ImageViewController;
         ">
 
         <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
@@ -17,53 +17,43 @@
             android:orientation="vertical"
             android:tag="registerParallax()">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
                     android:tag="
-                    url(http://i.imgur.com/DvpvklR.png);
+                    url(http://i.imgur.com/ni8LOjE.jpg);
                     parallaxY(0.5);
                 " />
 
-                <View
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="20dp"
-                    android:background="@android:color/black" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="150dp"
+                    android:orientation="vertical">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="20dp"
-                    android:background="@android:color/black" />
+                    <include layout="@layout/card_view" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="20dp"
-                    android:background="@android:color/black" />
+                    <include layout="@layout/card_view" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="20dp"
-                    android:background="@android:color/black" />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="20dp"
-                    android:background="@android:color/black" />
+                    <include layout="@layout/card_view" />
 
-            </LinearLayout>
+                    <include layout="@layout/card_view" />
+
+                    <include layout="@layout/card_view" />
+
+                </LinearLayout>
+
+            </FrameLayout>
 
 
         </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
 
-    </com.github.florent37.badview.BadView>
+    </com.github.florent37.carpaccio.Carpaccio>
 
 </RelativeLayout>

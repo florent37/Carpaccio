@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.florent37.badview.BadView
+    <com.github.florent37.carpaccio.Carpaccio
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
-            com.github.florent37.badview.sample.ImageBadView;
-            com.github.florent37.badview.sample.TextBadView
+            com.github.florent37.carpacciocontrollers.ImageViewController;
+            com.github.florent37.carpacciocontrollers.TextViewController
         ">
 
         <LinearLayout
@@ -39,6 +39,6 @@
 
         </LinearLayout>
 
-    </com.github.florent37.badview.BadView>
+    </com.github.florent37.carpaccio.Carpaccio>
 
 </RelativeLayout>
