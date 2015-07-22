@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by florentchampigny on 22/07/15.
  */
-public class ParallaxViewController extends CarpaccioViewController implements ObservableScrollViewCallbacks {
+public class ParallaxViewController implements ObservableScrollViewCallbacks {
 
     Map<View,Float> viewsToMove = new HashMap<>();
 

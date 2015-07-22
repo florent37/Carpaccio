@@ -11,7 +11,7 @@ import com.github.florent37.carpaccio.CarpaccioViewController;
 /**
  * Created by florentchampigny on 21/07/15.
  */
-public class TextViewController extends CarpaccioViewController {
+public class TextViewController {
 
     private static LruCache<String, Typeface> TYPEFACE_CACHE = new LruCache<String, Typeface>(12);
 

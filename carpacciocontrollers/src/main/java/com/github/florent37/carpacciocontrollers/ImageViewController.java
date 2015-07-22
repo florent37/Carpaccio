@@ -9,7 +9,7 @@ import com.squareup.picasso.Picasso;
 /**
  * Created by florentchampigny on 21/07/15.
  */
-public class ImageViewController extends CarpaccioViewController {
+public class ImageViewController {
 
     public void url(View view, String url) {
         if(view instanceof ImageView) {

@@ -90,13 +90,12 @@
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 22 Platform (2)" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="recyclerview-v7-21.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="android-observablescrollview-1.5.2" level="project" />
-    <orderEntry type="module" module-name="carpaccio" exported="" />
   </component>
 </module>

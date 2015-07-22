@@ -23,7 +23,7 @@ import retrofit.client.Response;
 /**
  * Created by florentchampigny on 22/07/15.
  */
-public class AndroidVersionsViewController extends CarpaccioViewController{
+public class AndroidVersionsViewController {
 
     public void displayAndroidVersions(View view) {
         if (view instanceof RecyclerView) {
