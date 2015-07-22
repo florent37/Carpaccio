@@ -44,9 +44,9 @@ compile ('com.github.florent37:carpaccio:1.0.0){
 
 If you want to use the carpaccio default view controllers :
 
--ImageViewController : url(imageUrl)
--TextViewController : font(fontName)
--ParallaxViewController : registerParallax() & parallax(float)
+* ImageViewController : url(imageUrl)
+* TextViewController : font(fontName)
+* ParallaxViewController : registerParallax() & parallax(float)
 
 ```groovy
 compile ('com.github.florent37:carpacciocontrollers:1.0.0){
