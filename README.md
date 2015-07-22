@@ -88,7 +88,7 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
-##TextViewController
+##ParallaxViewController
 
 ParallaxViewController can add a paralax effect on ObservableScrollView childs
 
