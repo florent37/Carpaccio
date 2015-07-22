@@ -36,6 +36,8 @@ Usage
 Download
 --------
 
+Add into your **build.gradle**
+
 ```groovy
 compile ('com.github.florent37:carpaccio:1.0.0){
     transitive=true
@@ -47,6 +49,8 @@ If you want to use the carpaccio default view controllers :
 * ImageViewController : url(imageUrl)
 * TextViewController : font(fontName)
 * ParallaxViewController : registerParallax() & parallax(float)
+
+Add into your **build.gradle**
 
 ```groovy
 compile ('com.github.florent37:carpacciocontrollers:1.0.0){
