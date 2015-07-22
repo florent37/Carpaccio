@@ -3,7 +3,6 @@ package com.github.florent37.carpacciocontrollers;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.github.florent37.carpaccio.CarpaccioViewController;
 import com.squareup.picasso.Picasso;
 
 /**
