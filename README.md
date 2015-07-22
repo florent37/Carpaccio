@@ -2,8 +2,7 @@
 
 Make your view smarter !
 
-Usage
---------
+#Usage
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
@@ -33,8 +32,7 @@ Usage
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
-Download
---------
+#Download
 
 Add into your **build.gradle**
 
@@ -44,11 +42,9 @@ compile ('com.github.florent37:carpaccio:1.0.0){
 }
 ```
 
-If you want to use the carpaccio default view controllers :
+#ViewControllers
 
-* ImageViewController : url(imageUrl)
-* TextViewController : font(fontName)
-* ParallaxViewController : registerParallax() & parallax(float)
+Carpaccio provide some ViewControllers, you can import them directly into your project
 
 Add into your **build.gradle**
 
@@ -56,4 +52,66 @@ Add into your **build.gradle**
 compile ('com.github.florent37:carpacciocontrollers:1.0.0){
     transitive=true
 }
+```
+
+##ImageViewController
+
+ImageViewController can directly set an image source from an url
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.github.florent37.carpacciocontrollers.ImageViewController;
+        ">
+
+        <ImageView
+             android:tag="
+                 url(http://i.imgur.com/DvpvklR.png)
+             " />
+</com.github.florent37.carpaccio.Carpaccio>
+```
+
+##TextViewController
+
+TextViewController can set a custom font (from assets/fonts/) to a TextView
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.github.florent37.carpacciocontrollers.TextViewController;
+        ">
+
+        <TextView
+             android:tag="
+                 font(Roboto-Light.ttf)
+             "/>
+</com.github.florent37.carpaccio.Carpaccio>
+```
+
+##TextViewController
+
+ParallaxViewController can add a paralax effect on ObservableScrollView childs
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.github.florent37.carpacciocontrollers.ParallaxViewController;
+        ">
+
+        <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+                    android:tag="registerParallax()">
+
+              <View
+                    android:tag="
+                        parallaxY(0.5);
+                    " />
+
+              <View
+                    android:tag="
+                        parallaxY(1.5);
+                    " />
+
+        </com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+
+</com.github.florent37.carpaccio.Carpaccio>
 ```
