@@ -2,6 +2,9 @@
 
 Make your view smarter !
 
+Usage
+--------
+
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         android:layout_width="match_parent"
@@ -29,6 +32,9 @@ Make your view smarter !
 
 </com.github.florent37.carpaccio.Carpaccio>
 ```
+
+Download
+--------
 
 ```groovy
 compile ('com.github.florent37:carpaccio:1.0.0){
