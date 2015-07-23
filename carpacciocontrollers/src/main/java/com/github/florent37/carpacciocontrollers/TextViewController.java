@@ -22,6 +22,13 @@ public class TextViewController extends CarpaccioViewController {
         }
     }
 
+    public void setText(View view, String value){
+        if(view instanceof TextView) {
+            TextView textView = (TextView) view;
+            textView.setText(value);
+        }
+    }
+
     protected void setTypeFace(TextView textView, String fontName) {
         if(fontName != null){
             try {

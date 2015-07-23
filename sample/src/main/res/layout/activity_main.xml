@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <com.github.florent37.carpaccio.Carpaccio
+        android:id="@+id/carpaccio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
@@ -30,7 +31,8 @@
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 android:tag="
-                    font(Roboto-Light.ttf)
+                    font(Roboto-Light.ttf);
+                    setText($user);
                 "/>
 
             <TextView
