@@ -26,7 +26,8 @@ Make your view smarter !
             android:text="Hi, how are you ?"
             android:textSize="20sp"
             android:tag="
-                font(Roboto-Light.ttf)
+                font(Roboto-Light.ttf);
+                setText($user.getName())
             "/>
 
 </com.github.florent37.carpaccio.Carpaccio>
@@ -42,6 +43,59 @@ compile ('com.github.florent37:carpaccio:1.0.0){
 }
 ```
 
+#DataBinding
+
+```xml
+<TextView
+       android:tag="
+            setText($user)
+       "/>
+```
+
+In your activity / fragment :
+
+```java`
+carpaccio.mapObject("user1",new User("florent"));
+``
+
+You can also specify the called method (must return a String)
+
+```xml
+<TextView
+       android:tag="
+            setText($user.getName())
+       "/>
+```
+
+#Customize
+
+Create a custom ViewControllers, for example MyViewController
+
+```java
+public class MyViewController{
+
+    public void myFunction(View view, String argument1){
+        //your usage
+    }
+
+}
+```
+
+Then you can use it in your layout
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.mypackage.MyViewController
+        ">
+
+        <View
+            android:tag="
+               myFunction(theValueOfMyArgument)
+            "/>
+```
+
+
 #ViewControllers
 
 Carpaccio provide some ViewControllers, you can import them directly into your project
@@ -53,6 +107,7 @@ compile ('com.github.florent37:carpacciocontrollers:1.0.0){
     transitive=true
 }
 ```
+
 
 ##ImageViewController
 
