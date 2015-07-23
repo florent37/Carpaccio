@@ -16,9 +16,8 @@ public class ParallaxViewController implements ObservableScrollViewCallbacks {
 
     Map<View,Float> viewsToMove = new HashMap<>();
 
-    public void registerParallax(View view){
-        if(view instanceof ObservableScrollView)
-            ((ObservableScrollView) view).setScrollViewCallbacks(this);
+    public void registerParallax(ObservableScrollView view){
+         view.setScrollViewCallbacks(this);
     }
 
     public void parallaxY(View view, String y){
