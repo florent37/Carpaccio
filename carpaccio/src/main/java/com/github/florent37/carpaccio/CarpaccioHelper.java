@@ -75,4 +75,23 @@ class CarpaccioHelper {
         }
     }
 
+    protected static <T> T callFunction(Object object, String name){
+        Method method = null;
+
+        try {
+            method = object.getClass().getMethod(name);
+        }catch (Exception e){
+            Log.v(TAG,object.getClass()+" does not contains the method "+name);
+        }
+
+        if(method != null) {
+            try {
+                return (T)method.invoke(object);
+            }catch (Exception e){
+                Log.e(TAG,object.getClass()+" cannot invoke method "+name);
+            }
+        }
+        return null;
+    }
+
 }

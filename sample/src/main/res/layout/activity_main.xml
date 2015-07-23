@@ -32,7 +32,7 @@
                 android:textSize="20sp"
                 android:tag="
                     font(Roboto-Light.ttf);
-                    setText($user);
+                    setText($user1);
                 "/>
 
             <TextView
@@ -42,7 +42,8 @@
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 android:tag="
-                    font(Roboto-Black.ttf)
+                    font(Roboto-Black.ttf);
+                    setText($user2.getName());
                 "/>
 
 
