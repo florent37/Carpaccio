@@ -5,26 +5,25 @@ import android.view.View;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * Created by florentchampigny on 21/07/15.
  */
-class CarpaccioHelper {
+public class CarpaccioHelper {
 
-    protected static String TAG = "CarpaccioHelper";
+    public static String TAG = "CarpaccioHelper";
 
-    protected static Object construct(String name){
+    public static Object construct(String name){
         try {
-            Object object = Class.forName(name).newInstance();
-            if( object instanceof CarpaccioViewController) //filter only CarpaccioViewControllers
-                return object;
+            return Class.forName(name).newInstance();
         }catch (Exception e){
             Log.e(TAG, "Cannot construct " + name, e);
         }
         return null;
     }
 
-    protected static Class[] getClasses(Object[] args){
+    public static Class[] getClasses(Object[] args){
         Class[] classes = new Class[args.length+1];
         classes[0] = View.class;
         for(int i=0;i<args.length;++i)
@@ -32,7 +31,7 @@ class CarpaccioHelper {
         return classes;
     }
 
-    protected static Object[] getArguments(View view, Object[] args){
+    public static Object[] getArguments(View view, Object[] args){
         Object[] out = new Object[args.length+1];
         out[0] = view;
         for(int i=0;i<args.length;++i)
@@ -40,24 +39,31 @@ class CarpaccioHelper {
         return out;
     }
 
-    protected static String getFunctionName(String tag){
+    public static String getFunctionName(String tag){
         return tag.substring(0, tag.indexOf('(')).trim();
     }
 
-    protected static String[] getAttributes(String tag){
+    public static String[] getAttributes(String tag){
         String attributes = tag.substring(tag.indexOf('(') + 1, tag.indexOf(')'));
         if(attributes.isEmpty())
             return new String[0];
         return trim(attributes.split(","));
     }
 
-    protected static String[] trim(String[] strings){
+    public static String[] trim(String[] strings){
         for(int i=0;i<strings.length;++i)
             strings[i]=strings[i].trim();
         return strings;
     }
 
-    protected static void callFunction(Object object, String name, View view, Object[] args){
+    public static void callFunctionOnObjects(List<Object> objects, final String function, final View view, final String[] args) {
+        for (Object registerObject : objects) {
+            if (registerObject != null)
+                CarpaccioHelper.callFunction(registerObject, function, view, args);
+        }
+    }
+
+    public static void callFunction(Object object, String name, View view, Object[] args){
         Method method = null;
 
         try {
@@ -75,7 +81,7 @@ class CarpaccioHelper {
         }
     }
 
-    protected static <T> T callFunction(Object object, String name){
+    public static <T> T callFunction(Object object, String name){
         Method method = null;
 
         try {

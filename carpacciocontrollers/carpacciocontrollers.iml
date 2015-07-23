@@ -97,6 +97,5 @@
     <orderEntry type="library" exported="" name="support-v4-21.0.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="android-observablescrollview-1.5.2" level="project" />
-    <orderEntry type="module" module-name="carpaccio" exported="" />
   </component>
 </module>

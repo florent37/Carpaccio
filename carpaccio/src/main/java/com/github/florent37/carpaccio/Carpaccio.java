@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.github.florent37.carpaccio.mapping.MappingManager;
+import com.github.florent37.carpaccio.mapping.MappingWaiting;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,12 +20,14 @@ import java.util.Map;
  */
 public class Carpaccio extends FrameLayout {
 
-    List<View> badViews = new ArrayList<>();
-    List<Object> registerObjects = new ArrayList<>();
+    protected List<View> carpaccioViews = new ArrayList<>();
+    protected List<Object> registerControllers = new ArrayList<>();
+
+    protected MappingManager mappingManager;
 
     protected void findBadViews(View view) {
         if (view.getTag() != null && !view.getTag().toString().isEmpty())
-            badViews.add(view);
+            carpaccioViews.add(view);
 
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = ViewGroup.class.cast(view);
@@ -43,9 +48,9 @@ public class Carpaccio extends FrameLayout {
                 String[] registers = register.split(";");
                 for (String s : registers) {
                     String reg = s.trim().replace(";", "");
-                    Object registerObject = CarpaccioHelper.construct(reg);
-                    if (registerObject != null)
-                        registerObjects.add(registerObject);
+                    Object registerController = CarpaccioHelper.construct(reg);
+                    if (registerController != null)
+                        registerControllers.add(registerController);
                 }
             }
 
@@ -74,89 +79,28 @@ public class Carpaccio extends FrameLayout {
         super.onFinishInflate();
         findBadViews(this);
 
-        for (View view : badViews) {
+        mappingManager = new MappingManager(this);
+
+        for (View view : carpaccioViews) {
             String tag = view.getTag().toString().trim();
             String[] calls = CarpaccioHelper.trim(tag.split(";"));
             for (String call : calls) {
                 String function = CarpaccioHelper.getFunctionName(call);
                 String[] args = CarpaccioHelper.getAttributes(call);
-                if (isCallMapping(args))
-                    callMapping(function, view, args);
+                if (mappingManager.isCallMapping(args))
+                    mappingManager.callMapping(function, view, args);
                 else
-                    callFunction(function, view, args);
+                    callFunctionOnControllers(function, view, args);
             }
         }
     }
 
-    protected void callFunction(final String function, final View view, final String[] args) {
-        for (Object registerObject : registerObjects) {
-            if (registerObject != null)
-                CarpaccioHelper.callFunction(registerObject, function, view, args);
-        }
+    public void callFunctionOnControllers(final String function, final View view, final String[] args) {
+        CarpaccioHelper.callFunctionOnObjects(this.registerControllers,function,view,args);
     }
-
-    public class MappingWaiting {
-        public View view;
-        public String function;
-        public String arg;
-        public String objectName;
-
-        public MappingWaiting(View view, String function, String arg, String objectName) {
-            this.view = view;
-            this.function = function;
-            this.arg = arg;
-            this.objectName = objectName;
-        }
-    }
-
-    protected Map<String, Object> mappedObjects = new HashMap<>();
-    protected Map<String, List<MappingWaiting>> mappingWaitings = new HashMap<>();
 
     public void mapObject(String name, Object object) {
-        mappedObjects.put(name, object);
-
-        //call the waiting objects
-        List<MappingWaiting> waitings = mappingWaitings.get(name);
-        if (waitings != null) {
-            for (MappingWaiting mappingWaiting : waitings) {
-                String value = null;
-                if(mappingWaiting.objectName.equals(name)) { //"user"
-                    value = object.toString();
-                }else if(mappingWaiting.objectName.startsWith(name)){ //"user.getName()"
-                    String functionName = mappingWaiting.objectName.substring(mappingWaiting.objectName.indexOf(".") + 1, mappingWaiting.objectName.indexOf("("));
-                    value = CarpaccioHelper.callFunction(object,functionName);
-                }
-
-                if(value != null) {
-                    callFunction(mappingWaiting.function, mappingWaiting.view, new String[]{value});
-                    mappingWaitings.remove(name);
-                }
-            }
-        }
+        mappingManager.mapObject(name,object);
     }
 
-    protected boolean isCallMapping(String[] args) {
-        return args.length == 1 && args[0].startsWith("$");
-    }
-
-    protected void callMapping(String function, View view, String[] args) {
-        if (isCallMapping(args)) {
-            String arg = args[0];
-
-            String objectName = null;
-
-            if(arg.contains(".")) //"$user.getName()"
-                objectName = arg.substring(1,arg.indexOf("."));
-            else //"user"
-                objectName = arg.substring(1, arg.length());
-
-            { //add to waiting
-                List<MappingWaiting> waitings = mappingWaitings.get(objectName);
-                if (waitings == null)
-                    waitings = new ArrayList<>();
-                waitings.add(new MappingWaiting(view, function, arg, objectName));
-                mappingWaitings.put(objectName, waitings);
-            }
-        }
-    }
 }
