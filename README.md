@@ -56,7 +56,7 @@ In your activity / fragment :
 
 ```java`
 carpaccio.mapObject("user1",new User("florent"));
-``
+```
 
 You can also specify the called method (must return a String)
 
