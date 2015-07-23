@@ -31,11 +31,20 @@ public class CarpaccioHelper {
         return classes;
     }
 
-    public static Object[] getArguments(View view, Object[] args){
+    public static Object[] getArguments(Class viewClass, View view, Object[] args){
         Object[] out = new Object[args.length+1];
-        out[0] = view;
+
+        //add the view on the first parameter
+        try {
+            out[0] = viewClass.cast(view);
+        }catch (ClassCastException e){
+            Log.e(TAG,view.getClass().toString()+" cannot be cast to "+viewClass.toString(),e);
+            out[0] = view;
+        }
+
         for(int i=0;i<args.length;++i)
             out[i+1] = args[i];
+
         return out;
     }
 
@@ -65,19 +74,33 @@ public class CarpaccioHelper {
 
     public static void callFunction(Object object, String name, View view, Object[] args){
         Method method = null;
+        Class viewClass = View.class;
 
-        try {
-            method = object.getClass().getMethod(name, getClasses(args));
-        }catch (Exception e){
-            Log.v(TAG,object.getClass()+" does not contains the method "+name);
+        //if name = font(Roboto.ttf) with a TextView
+        //try to find the font(TextView,String)
+        for(Method containedMethods : object.getClass().getMethods()){
+            if(name.equals(containedMethods.getName()) && containedMethods.getParameterTypes().length == args.length+1) { //+1 for the view
+                method = containedMethods;
+                viewClass = method.getParameterTypes()[0];
+                break;
+            }
         }
+
+        //try {
+        //    method = object.getClass().getMethod(name, getClasses(args));
+        //}catch (Exception e){
+        //    Log.v(TAG,object.getClass()+" does not contains the method "+name);
+        //}
 
         if(method != null) {
             try {
-                method.invoke(object, getArguments(view, args));
-            }catch (Exception e){
+                method.invoke(object, getArguments(viewClass,view, args));
+            }
+            catch (Exception e){
                 Log.e(TAG,object.getClass()+" cannot invoke method "+name);
             }
+        }else{
+            Log.v(TAG,object.getClass()+" does not contains the method "+name);
         }
     }
 

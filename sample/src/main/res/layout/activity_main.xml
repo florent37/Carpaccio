@@ -19,7 +19,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:tag="
                     url(http://i.imgur.com/DvpvklR.png)
                 " />
@@ -45,7 +45,6 @@
                     font(Roboto-Black.ttf);
                     setText($user2.getName());
                 "/>
-
 
         </LinearLayout>
 

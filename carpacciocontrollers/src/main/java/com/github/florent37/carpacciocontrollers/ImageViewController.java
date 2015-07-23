@@ -1,6 +1,5 @@
 package com.github.florent37.carpacciocontrollers;
 
-import android.view.View;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -10,11 +9,9 @@ import com.squareup.picasso.Picasso;
  */
 public class ImageViewController {
 
-    public void url(View view, String url) {
-        if(view instanceof ImageView) {
-            ImageView imageView = (ImageView) view;
-            Picasso.with(imageView.getContext()).load(url).into(imageView);
-        }
+    public void url(ImageView view, String url) {
+        ImageView imageView = (ImageView) view;
+        Picasso.with(imageView.getContext()).load(url).into(imageView);
     }
 
 }

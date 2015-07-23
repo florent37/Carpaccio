@@ -23,10 +23,20 @@ public class MappingManager {
         this.carpaccio = carpaccio;
     }
 
+    /**
+     * All mapping call must start with $
+     * ex : function($user)   function($user.getText())
+     */
     public boolean isCallMapping(String[] args) {
         return args.length == 1 && args[0].startsWith("$");
     }
 
+    /**
+     * Add an object to the mapper
+     * When the object is added, call all the mappingWaitings (views which need this object)
+     * @param name the mapped object name, ex : for function($user), the name will be "user"
+     * @param object the mapped object
+     */
     public void mapObject(String name, Object object) {
         mappedObjects.put(name, object);
 
@@ -50,6 +60,12 @@ public class MappingManager {
         }
     }
 
+    /**
+     * Called when a view loaded and call a mapping function
+     * @param function the function name, eg "setText($user)"
+     * @param view the calling view
+     * @param args args, eg : [$user]
+     */
     public void callMapping(String function, View view, String[] args) {
         if (isCallMapping(args)) {
             String arg = args[0];
