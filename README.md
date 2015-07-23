@@ -58,7 +58,7 @@ In your activity / fragment :
 carpaccio.mapObject("user1",new User("florent"));
 ```
 
-You can also specify the called method (must return a String)
+You can also specify a method (must return a String)
 
 ```xml
 <TextView
@@ -93,6 +93,7 @@ Then you can use it in your layout
             android:tag="
                myFunction(theValueOfMyArgument)
             "/>
+</com.github.florent37.carpaccio.Carpaccio>
 ```
 
 
