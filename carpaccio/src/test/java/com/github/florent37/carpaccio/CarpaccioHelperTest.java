@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -20,6 +21,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
@@ -139,6 +141,11 @@ public class CarpaccioHelperTest {
         public String getFamily(String family){return "hello "+family;}
     }
 
+    public class TestObjectFail{
+        public void getName(View view, String argument1){throw new UnknownError();}
+        public String getPseudo(){throw new UnknownError();}
+    }
+
     @Test
     public void testCallFunctionOnObjects() throws Exception {
         View mockView = Mockito.mock(View.class);
@@ -203,6 +210,16 @@ public class CarpaccioHelperTest {
     }
 
     @Test
+    public void testCallFunction_fail() throws Exception {
+        View mockView = Mockito.mock(View.class);
+
+        TestObjectFail spyObject = Mockito.spy(new TestObjectFail());
+
+        assertFalse(CarpaccioHelper.callFunction(spyObject, "getName", mockView, new String[]{"florent"}));
+
+    }
+
+    @Test
     public void testCallFunction1() throws Exception {
         TestObject spyObject = Mockito.spy(new TestObject());
 
@@ -252,6 +269,20 @@ public class CarpaccioHelperTest {
         assertNull(pseudo);
 
         verify(spyObject, never()).getFamily(eq("florent"));
+        verify(spyObject, never()).getPseudo();
+        verify(spyObject, never()).getName(any(View.class), anyString());
+    }
+
+    @Test
+    public void testCallFunction2_fail2() throws Exception {
+        TestObjectFail spyObject = Mockito.spy(new TestObjectFail());
+
+        String[] args = new String[]{"florent","florent"};
+
+        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily",args);
+
+        assertNull(pseudo);
+
         verify(spyObject, never()).getPseudo();
         verify(spyObject, never()).getName(any(View.class), anyString());
     }

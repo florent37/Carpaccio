@@ -17,10 +17,13 @@ public class MappingManager {
     protected Map<String, Object> mappedObjects = new HashMap<>();
     protected Map<String, List<MappingWaiting>> mappingWaitings = new HashMap<>();
 
-    protected Carpaccio carpaccio;
+    public interface MappingManagerCallback{
+        void callFunctionOnControllers(String function, View view, String[] args);
+    }
 
-    public MappingManager(Carpaccio carpaccio) {
-        this.carpaccio = carpaccio;
+    protected MappingManagerCallback mappingManagerCallback;
+
+    public MappingManager() {
     }
 
     /**
@@ -52,8 +55,8 @@ public class MappingManager {
                     value = CarpaccioHelper.callFunction(object, functionName);
                 }
 
-                if(value != null) {
-                    carpaccio.callFunctionOnControllers(mappingWaiting.function, mappingWaiting.view, new String[]{value});
+                if(value != null && mappingManagerCallback != null) {
+                    mappingManagerCallback.callFunctionOnControllers(mappingWaiting.function, mappingWaiting.view, new String[]{value});
                     mappingWaitings.remove(name);
                 }
             }
@@ -87,5 +90,12 @@ public class MappingManager {
         }
     }
 
+    public MappingManagerCallback getMappingManagerCallback() {
+        return mappingManagerCallback;
+    }
+
+    public void setMappingManagerCallback(MappingManagerCallback mappingManagerCallback) {
+        this.mappingManagerCallback = mappingManagerCallback;
+    }
 
 }
