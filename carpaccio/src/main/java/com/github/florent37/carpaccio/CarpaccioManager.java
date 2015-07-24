@@ -26,7 +26,11 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     }
 
     public boolean isCarpaccioControlledView(View view) {
-        return view.getTag() != null && !view.getTag().toString().isEmpty();
+        if(view.getTag() != null){
+            String tag = view.getTag().toString();
+            return !tag.isEmpty() && tag.contains("(") && tag.contains(")"); //TODO use matcher
+        }else
+            return false;
     }
 
     public void registerController(Object controller) {

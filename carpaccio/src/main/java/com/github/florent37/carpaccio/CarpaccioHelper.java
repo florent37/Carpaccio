@@ -26,7 +26,7 @@ public class CarpaccioHelper {
             }
             return objectClass.newInstance();
         } catch (Exception e) {
-                Log.e(TAG, "Cannot construct " + name, e);
+            Log.e(TAG, "Cannot construct " + name, e);
         }
         return null;
     }
