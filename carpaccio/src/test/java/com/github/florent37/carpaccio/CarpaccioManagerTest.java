@@ -196,7 +196,12 @@ public class CarpaccioManagerTest {
 
     @Test
     public void testCallFunctionOnControllers() throws Exception {
-        throw new UnknownError();
+        Controller controller = spy(new Controller());
+        TextView textView = mock(TextView.class);
+
+        carpaccioManager.callFunctionOnControllers("setText",textView,new String[]{"florent"});
+
+        verify(controller, never()).setText(eq(textView), eq("florent"));
     }
 
     @Test
