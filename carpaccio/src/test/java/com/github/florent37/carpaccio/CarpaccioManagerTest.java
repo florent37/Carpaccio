@@ -1,6 +1,7 @@
 package com.github.florent37.carpaccio;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
@@ -14,6 +15,8 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -153,9 +156,42 @@ public class CarpaccioManagerTest {
         assertTrue(carpaccioManager.registerControllers.get(1) instanceof java.util.HashMap);
     }
 
+    public class Controller{
+        public void setText(TextView textView, String text){
+            textView.setText(text);
+        }
+    }
+
     @Test
     public void testExecuteActionsOnViews() throws Exception {
-        throw new UnknownError();
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("setText(florent)").when(textView).getTag();
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnViews();
+
+        verify(controller,atLeastOnce()).setText(eq(textView), eq("florent"));
+        verify(textView,atLeastOnce()).setText(eq("florent"));
+    }
+
+    @Test
+    public void testExecuteActionsOnViews2() throws Exception {
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("setFont(florent)").when(textView).getTag();
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnViews();
+
+        verify(controller,never()).setText(eq(textView), eq("florent"));
+        verify(textView,never()).setText(eq("florent"));
     }
 
     @Test
