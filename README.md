@@ -6,6 +6,7 @@ Make your view smarter !
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
+        android:id="@+id/carpaccio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
@@ -55,6 +56,7 @@ compile ('com.github.florent37:carpaccio:1.0.0'){
 In your activity / fragment :
 
 ```java
+Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
 carpaccio.mapObject("user1",new User("florent"));
 ```
 
