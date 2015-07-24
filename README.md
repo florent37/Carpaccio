@@ -38,7 +38,7 @@ Make your view smarter !
 Add into your **build.gradle**
 
 ```groovy
-compile ('com.github.florent37:carpaccio:1.0.0){
+compile ('com.github.florent37:carpaccio:1.0.0'){
     transitive=true
 }
 ```
@@ -105,7 +105,7 @@ Carpaccio provide some ViewControllers, you can import them directly into your p
 Add into your **build.gradle**
 
 ```groovy
-compile ('com.github.florent37:carpacciocontrollers:1.0.0){
+compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
     transitive=true
 }
 ```
