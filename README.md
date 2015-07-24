@@ -6,6 +6,7 @@ Make your view smarter !
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
+        android:id="@+id/carpaccio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
@@ -26,7 +27,8 @@ Make your view smarter !
             android:text="Hi, how are you ?"
             android:textSize="20sp"
             android:tag="
-                font(Roboto-Light.ttf)
+                font(Roboto-Light.ttf);
+                setText($user.getName())
             "/>
 
 </com.github.florent37.carpaccio.Carpaccio>
@@ -37,10 +39,66 @@ Make your view smarter !
 Add into your **build.gradle**
 
 ```groovy
-compile ('com.github.florent37:carpaccio:1.0.0){
+compile ('com.github.florent37:carpaccio:1.0.0'){
     transitive=true
 }
 ```
+
+#DataBinding
+
+```xml
+<TextView
+       android:tag="
+            setText($user)
+       "/>
+```
+
+In your activity / fragment :
+
+```java
+Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
+carpaccio.mapObject("user1",new User("florent"));
+```
+
+You can also specify a method (must return a String)
+
+```xml
+<TextView
+       android:tag="
+            setText($user.getName())
+       "/>
+```
+
+#Customize
+
+Create a custom ViewControllers, for example **MyViewController**
+
+```java
+public class MyViewController{
+
+    public void myFunction(View view, String argument1){
+        //your usage
+    }
+
+}
+```
+
+Then you can use it into your layout
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.mypackage.MyViewController
+        ">
+
+        <View
+            android:tag="
+               myFunction(theValueOfMyArgument)
+            "/>
+
+</com.github.florent37.carpaccio.Carpaccio>
+```
+
 
 #ViewControllers
 
@@ -49,10 +107,11 @@ Carpaccio provide some ViewControllers, you can import them directly into your p
 Add into your **build.gradle**
 
 ```groovy
-compile ('com.github.florent37:carpacciocontrollers:1.0.0){
+compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
     transitive=true
 }
 ```
+
 
 ##ImageViewController
 
@@ -88,6 +147,23 @@ Usage : **font(fontName)**
         <TextView
              android:tag="
                  font(Roboto-Light.ttf)
+             "/>
+</com.github.florent37.carpaccio.Carpaccio>
+```
+
+And provides a data binding setText
+
+Usage : **setText($variable)** or **setText($variable.function())**
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.github.florent37.carpacciocontrollers.TextViewController;
+        ">
+
+        <TextView
+             android:tag="
+                 setText($user)
              "/>
 </com.github.florent37.carpaccio.Carpaccio>
 ```

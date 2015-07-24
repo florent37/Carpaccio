@@ -6,6 +6,9 @@ import android.widget.ImageView;
 
 import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.squareup.picasso.Callback;
+
+import android.widget.ImageView;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -39,25 +42,22 @@ public class ImageViewController {
         }
     }
 
-    public void url(View view, String url) {
-        if (view instanceof ImageView) {
-            final ImageView imageView = (ImageView) view;
-            Picasso.with(imageView.getContext()).load(url).into(imageView, new Callback() {
-                @Override
-                public void onSuccess() {
-                    onImageLoadedFromUrl(imageView);
-                }
+    public void url(final ImageView imageView, String url) {
+        Picasso.with(imageView.getContext()).load(url).into(imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                onImageLoadedFromUrl(imageView);
+            }
 
-                @Override
-                public void onError() {
+            @Override
+            public void onError() {
 
-                }
-            });
-        }
+            }
+        });
     }
 
     //can be overrided
-    protected void onImageLoadedFromUrl(ImageView imageView){
+    protected void onImageLoadedFromUrl(ImageView imageView) {
         startWaitingAnimateMaterialImageView(imageView);
     }
 
@@ -82,20 +82,15 @@ public class ImageViewController {
         }
     }
 
-    public void animateMaterial(View view, String duration) {
-        if (view instanceof ImageView) {
-            ImageView imageView = (ImageView) view;
-
-            Integer dur = stringToInt(duration);
-            if (dur != null) {
-                if (imageView.getDrawable() == null) {
-                    imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, dur));
-                } else {
-                    startAnimateMaterialImageView(imageView, dur);
-                }
+    public void animateMaterial(ImageView imageView, String duration) {
+        Integer dur = stringToInt(duration);
+        if (dur != null) {
+            if (imageView.getDrawable() == null) {
+                imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, dur));
+            } else {
+                startAnimateMaterialImageView(imageView, dur);
             }
         }
-
     }
 
 }

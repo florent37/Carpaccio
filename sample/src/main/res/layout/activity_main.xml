@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <com.github.florent37.carpaccio.Carpaccio
+        android:id="@+id/carpaccio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
@@ -19,7 +20,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:tag="
                     animateMaterial(3000);
                     url(http://i.imgur.com/DvpvklR.png);
@@ -34,6 +35,7 @@
                 android:tag="
                     animateEnterX(-1000,1000,easeIn);
                     font(Roboto-Light.ttf);
+                    setText($user1);
                 "/>
 
             <TextView
@@ -45,8 +47,8 @@
                 android:tag="
                     animateAphaIn(3000,easeOut);
                     font(Roboto-Black.ttf);
+                    setText($user2.getName());
                 "/>
-
 
         </LinearLayout>
 
