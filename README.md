@@ -54,7 +54,7 @@ compile ('com.github.florent37:carpaccio:1.0.0){
 
 In your activity / fragment :
 
-```java`
+```java
 carpaccio.mapObject("user1",new User("florent"));
 ```
 
@@ -93,6 +93,7 @@ Then you can use it in your layout
             android:tag="
                myFunction(theValueOfMyArgument)
             "/>
+
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
