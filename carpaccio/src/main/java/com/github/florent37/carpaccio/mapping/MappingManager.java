@@ -29,8 +29,9 @@ public class MappingManager {
     /**
      * All mapping call must start with $
      * ex : function($user)   function($user.getText())
+     * CAN ONLY MAP 1 OBJECT, function($user1,$user2) will be rejected
      */
-    public boolean isCallMapping(String[] args) {
+    public static boolean isCallMapping(String[] args) {
         return args.length == 1 && args[0].startsWith("$");
     }
 
@@ -48,10 +49,10 @@ public class MappingManager {
         if (waitings != null) {
             for (MappingWaiting mappingWaiting : waitings) {
                 String value = null;
-                if(mappingWaiting.objectName.equals(name)) { //"user"
+                if(mappingWaiting.call.equals(name)) { //"user"
                     value = object.toString();
-                }else if(mappingWaiting.objectName.startsWith(name)){ //"user.getName()"
-                    String functionName = mappingWaiting.objectName.substring(mappingWaiting.objectName.indexOf(".") + 1, mappingWaiting.objectName.indexOf("("));
+                }else if(mappingWaiting.call.startsWith(name)){ //"user.getName()"
+                    String functionName = getFunctionName(mappingWaiting.call);
                     value = CarpaccioHelper.callFunction(object, functionName);
                 }
 
@@ -64,10 +65,17 @@ public class MappingManager {
     }
 
     /**
+     * From user.getName() return "getName"
+     */
+    protected static String getFunctionName(String call){
+        return call.substring(call.indexOf(".") + 1, call.indexOf("("));
+    }
+
+    /**
      * Called when a view loaded and call a mapping function
      * @param function the function name, eg "setText($user)"
      * @param view the calling view
-     * @param args args, eg : [$user]
+     * @param args args, eg : [$user] or [$user.getName()]
      */
     public void callMapping(String function, View view, String[] args) {
         if (isCallMapping(args)) {
@@ -75,16 +83,22 @@ public class MappingManager {
 
             String objectName = null;
 
-            if(arg.contains(".")) //"$user.getName()"
-                objectName = arg.substring(1,arg.indexOf("."));
-            else //"user"
-                objectName = arg.substring(1, arg.length());
+            String call;
+            if(arg.contains(".")) { //"$user.getName()"
+                call = arg.substring(1, arg.length()); // "user.getName()"
+                objectName = call.substring(0, arg.indexOf(".")-1); // "user"
+            }
+            else {
+                objectName = arg.substring(1, arg.length()); // "user"
+                call = objectName; // "user"
+            }
+
 
             { //add to waiting
                 List<MappingWaiting> waitings = mappingWaitings.get(objectName);
                 if (waitings == null)
                     waitings = new ArrayList<>();
-                waitings.add(new MappingWaiting(view, function, arg, objectName));
+                waitings.add(new MappingWaiting(view, function, call, objectName));
                 mappingWaitings.put(objectName, waitings);
             }
         }
