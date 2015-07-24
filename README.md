@@ -69,7 +69,7 @@ You can also specify a method (must return a String)
 
 #Customize
 
-Create a custom ViewControllers, for example MyViewController
+Create a custom ViewControllers, for example **MyViewController**
 
 ```java
 public class MyViewController{
@@ -81,7 +81,7 @@ public class MyViewController{
 }
 ```
 
-Then you can use it in your layout
+Then you can use it into your layout
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
@@ -145,6 +145,23 @@ Usage : **font(fontName)**
         <TextView
              android:tag="
                  font(Roboto-Light.ttf)
+             "/>
+</com.github.florent37.carpaccio.Carpaccio>
+```
+
+And provides a data binding setText
+
+Usage : **setText($variable)** or **setText($variable.function())**
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.github.florent37.carpacciocontrollers.TextViewController;
+        ">
+
+        <TextView
+             android:tag="
+                 setText($user)
              "/>
 </com.github.florent37.carpaccio.Carpaccio>
 ```
