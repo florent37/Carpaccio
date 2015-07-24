@@ -51,11 +51,21 @@ public class CarpaccioHelperTest {
 
     @Test
     public void testGetClasses() throws Exception {
-        Class[] expectedClasses = new Class[]{View.class, String.class,Integer.class,Float.class};
+        Class[] expectedClasses = new Class[]{String.class,Integer.class,Float.class};
 
         Object[] objects = new Object[]{"florent",Integer.valueOf(1),Float.valueOf(2.0f)};
 
         Class[] outClasses = CarpaccioHelper.getClasses(objects);
+        assertArrayEquals(expectedClasses, outClasses);
+    }
+
+    @Test
+    public void testGetClassesWithHeaderClass() throws Exception {
+        Class[] expectedClasses = new Class[]{View.class, String.class,Integer.class,Float.class};
+
+        Object[] objects = new Object[]{"florent",Integer.valueOf(1),Float.valueOf(2.0f)};
+
+        Class[] outClasses = CarpaccioHelper.getClassesWithHeaderClass(objects,View.class);
         assertArrayEquals(expectedClasses, outClasses);
     }
 
@@ -90,6 +100,7 @@ public class CarpaccioHelperTest {
     public class TestObject{
         public void getName(View view, String argument1){}
         public String getPseudo(){return "florent";}
+        public String getFamily(String family){return "hello "+family;}
     }
 
     @Test
@@ -151,6 +162,8 @@ public class CarpaccioHelperTest {
         assertTrue(called);
 
         verify(spyObject, atLeastOnce()).getName(eq(mockView), eq("value1"));
+        verify(spyObject, never()).getFamily(anyString());
+        verify(spyObject, never()).getPseudo();
     }
 
     @Test
@@ -162,6 +175,7 @@ public class CarpaccioHelperTest {
         assertEquals("florent", pseudo);
         verify(spyObject, atLeastOnce()).getPseudo();
         verify(spyObject, never()).getName(any(View.class), anyString());
+        verify(spyObject, never()).getFamily(anyString());
     }
 
     @Test
@@ -172,6 +186,22 @@ public class CarpaccioHelperTest {
         assertNull(pseudo);
 
         verify(spyObject, never()).getPseudo();
-        verify(spyObject, never()).getName(any(View.class),anyString());
+        verify(spyObject, never()).getName(any(View.class), anyString());
+        verify(spyObject, never()).getFamily(anyString());
+    }
+
+    @Test
+    public void testCallFunction2() throws Exception {
+        TestObject spyObject = Mockito.spy(new TestObject());
+
+        String[] args = new String[]{"florent"};
+
+        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily",args);
+
+        assertEquals("hello florent", pseudo);
+
+        verify(spyObject, atLeastOnce()).getFamily(eq("florent"));
+        verify(spyObject, never()).getPseudo();
+        verify(spyObject, never()).getName(any(View.class), anyString());
     }
 }

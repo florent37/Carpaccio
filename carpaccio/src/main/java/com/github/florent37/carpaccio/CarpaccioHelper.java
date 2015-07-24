@@ -35,14 +35,25 @@ public class CarpaccioHelper {
     }
 
     /**
-     * Return an array of classes from the args[], with View.class on the first position
-     * From [object1,object2,object3] return [view.class, object1.class, object2.class, object3.class]
+     * Return an array of classes from the args[], with headerClass on the first position
+     * From [object1,object2,object3] with headerClass=View.class return [View.class, object1.class, object2.class, object3.class]
      */
-    public static Class[] getClasses(Object[] args) {
+    public static Class[] getClassesWithHeaderClass(Object[] args, Class headerClass) {
         Class[] classes = new Class[args.length + 1];
-        classes[0] = View.class;
+        classes[0] = headerClass;
         for (int i = 0; i < args.length; ++i)
             classes[i + 1] = args[i].getClass();
+        return classes;
+    }
+
+    /**
+     * Return an array of classes from the args[]
+     * From [object1,object2,object3] return [object1.class, object2.class, object3.class]
+     */
+    public static Class[] getClasses(Object[] args) {
+        Class[] classes = new Class[args.length];
+        for (int i = 0; i < args.length; ++i)
+            classes[i] = args[i].getClass();
         return classes;
     }
 
@@ -148,6 +159,10 @@ public class CarpaccioHelper {
         return false;
     }
 
+    /**
+     * Invoke the function object.name() with no arguments
+     * Then return the result (with cast)
+     */
     public static <T> T callFunction(Object object, String name) {
         Method method = null;
 
@@ -161,6 +176,31 @@ public class CarpaccioHelper {
         if (method != null) {
             try {
                 return (T) method.invoke(object);
+            } catch (Exception e) {
+                if (ENABLE_LOG)
+                    Log.e(TAG, object.getClass() + " cannot invoke method " + name);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Invoke the function object.name() with no arguments
+     * Then return the result (with cast)
+     */
+    public static <T> T callFunction(Object object, String name, Object[] args) {
+        Method method = null;
+
+        try {
+            method = object.getClass().getMethod(name,getClasses(args));
+        } catch (Exception e) {
+            if (LOG_FAILURES && ENABLE_LOG)
+                Log.v(TAG, object.getClass() + " does not contains the method " + name);
+        }
+
+        if (method != null) {
+            try {
+                return (T) method.invoke(object,args);
             } catch (Exception e) {
                 if (ENABLE_LOG)
                     Log.e(TAG, object.getClass() + " cannot invoke method " + name);
