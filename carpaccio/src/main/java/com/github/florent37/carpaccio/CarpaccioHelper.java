@@ -1,7 +1,6 @@
 package com.github.florent37.carpaccio;
 
 import android.support.v4.util.LruCache;
-import android.util.Log;
 import android.view.View;
 
 import java.lang.reflect.Method;
@@ -14,7 +13,6 @@ public class CarpaccioHelper {
 
     public static String TAG = "CarpaccioHelper";
 
-    public static boolean ENABLE_LOG = true;
     public static boolean LOG_FAILURES = false;
 
     protected static LruCache<String, Class> classesCache = new LruCache<>(15);
@@ -28,7 +26,6 @@ public class CarpaccioHelper {
             }
             return objectClass.newInstance();
         } catch (Exception e) {
-            if (ENABLE_LOG)
                 Log.e(TAG, "Cannot construct " + name, e);
         }
         return null;
@@ -57,14 +54,18 @@ public class CarpaccioHelper {
         return classes;
     }
 
-    public static Object[] getArguments(Class viewClass, View view, Object[] args) {
+    /**
+     * From arg=["arg1","arg2"] and viewClass= TextView.class and view instance of TextView (but given as a view)
+     * return [(TextView)view,"arg1","arg2")];
+     */
+    public static Object[] getArgumentsWithView(Class viewClass, View view, Object[] args) {
         Object[] out = new Object[args.length + 1];
 
         //add the view on the first parameter
         try {
             out[0] = viewClass.cast(view);
         } catch (ClassCastException e) {
-            if (LOG_FAILURES && ENABLE_LOG)
+            if (LOG_FAILURES)
                 Log.e(TAG, view.getClass().toString() + " cannot be cast to " + viewClass.toString(), e);
             out[0] = view;
         }
@@ -107,7 +108,6 @@ public class CarpaccioHelper {
                 if (registerObject != null) {
                     boolean called = CarpaccioHelper.callFunction(registerObject, function, view, args);
                     if (called) {
-                        if (ENABLE_LOG)
                             Log.d(TAG, "Called " + function + " on " + registerObject.getClass().getName());
                         return true;
                     }
@@ -144,14 +144,13 @@ public class CarpaccioHelper {
 
             if (method != null) {
                 try {
-                    method.invoke(object, getArguments(viewClass, view, args));
+                    method.invoke(object, getArgumentsWithView(viewClass, view, args));
                     return true;
                 } catch (Exception e) {
-                    if (ENABLE_LOG)
                         Log.e(TAG, object.getClass() + " cannot invoke method " + name);
                 }
             } else {
-                if (LOG_FAILURES && ENABLE_LOG)
+                if (LOG_FAILURES)
                     Log.v(TAG, object.getClass() + " does not contains the method " + name);
             }
         }
@@ -169,7 +168,7 @@ public class CarpaccioHelper {
         try {
             method = object.getClass().getMethod(name);
         } catch (Exception e) {
-            if (LOG_FAILURES && ENABLE_LOG)
+            if (LOG_FAILURES)
                 Log.v(TAG, object.getClass() + " does not contains the method " + name);
         }
 
@@ -177,7 +176,6 @@ public class CarpaccioHelper {
             try {
                 return (T) method.invoke(object);
             } catch (Exception e) {
-                if (ENABLE_LOG)
                     Log.e(TAG, object.getClass() + " cannot invoke method " + name);
             }
         }
@@ -194,7 +192,7 @@ public class CarpaccioHelper {
         try {
             method = object.getClass().getMethod(name,getClasses(args));
         } catch (Exception e) {
-            if (LOG_FAILURES && ENABLE_LOG)
+            if (LOG_FAILURES)
                 Log.v(TAG, object.getClass() + " does not contains the method " + name);
         }
 
@@ -202,7 +200,6 @@ public class CarpaccioHelper {
             try {
                 return (T) method.invoke(object,args);
             } catch (Exception e) {
-                if (ENABLE_LOG)
                     Log.e(TAG, object.getClass() + " cannot invoke method " + name);
             }
         }
