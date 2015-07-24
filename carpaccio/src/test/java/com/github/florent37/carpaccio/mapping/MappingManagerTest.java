@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 /**
@@ -76,6 +77,11 @@ public class MappingManagerTest {
         public void setName(String name) {
             this.name = name;
         }
+
+        @Override
+        public String toString() {
+            return "nameToString";
+        }
     }
 
     public class Controller {
@@ -102,6 +108,46 @@ public class MappingManagerTest {
         assertEquals(user, mappingManager.mappedObjects.get(name));
 
         verify(callback,atLeastOnce()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"florent"}));
+    }
+
+    @Test
+    public void testMapObject_noFunction() throws Exception {
+        User user = new User("florent");
+        String name = "user";
+
+        View view = mock(View.class);
+        {
+            mappingManager.mappingWaitings.put("user", Arrays.asList(
+                    new MappingWaiting(view,"setText","user","user")
+            ));
+        }
+
+        mappingManager.mapObject(name,user);
+
+        assertTrue(mappingManager.mappedObjects.containsKey(name));
+        assertEquals(user, mappingManager.mappedObjects.get(name));
+
+        verify(callback,atLeastOnce()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"nameToString"}));
+    }
+
+    @Test
+    public void testMapObject_fail() throws Exception {
+        User user = new User("florent");
+        String name = "user";
+
+        View view = mock(View.class);
+        {
+            mappingManager.mappingWaitings.put("user", Arrays.asList(
+                    new MappingWaiting(view,"setTexteu","user.getName()","user")
+            ));
+        }
+
+        mappingManager.mapObject(name,user);
+
+        assertTrue(mappingManager.mappedObjects.containsKey(name));
+        assertEquals(user, mappingManager.mappedObjects.get(name));
+
+        verify(callback,never()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"florent"}));
     }
 
     @Test

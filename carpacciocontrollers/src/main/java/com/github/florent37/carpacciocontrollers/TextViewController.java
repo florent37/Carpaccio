@@ -3,7 +3,6 @@ package com.github.florent37.carpacciocontrollers;
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -20,16 +19,12 @@ public class TextViewController {
     //    }
     //}
 
-    public void font(TextView view, String typeface) {
-        TextView textView = (TextView) view;
+    public void font(TextView textView, String typeface) {
         setTypeFace(textView, typeface);
     }
 
-    public void setText(TextView view, String value) {
-        if (view instanceof TextView) {
-            TextView textView = (TextView) view;
-            textView.setText(value);
-        }
+    public void setText(TextView textView, String value) {
+        textView.setText(value);
     }
 
     protected void setTypeFace(TextView textView, String fontName) {

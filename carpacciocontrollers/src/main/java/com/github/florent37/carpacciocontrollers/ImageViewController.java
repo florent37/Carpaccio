@@ -9,8 +9,7 @@ import com.squareup.picasso.Picasso;
  */
 public class ImageViewController {
 
-    public void url(ImageView view, String url) {
-        ImageView imageView = (ImageView) view;
+    public void url(ImageView imageView, String url) {
         Picasso.with(imageView.getContext()).load(url).into(imageView);
     }
 

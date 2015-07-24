@@ -5,6 +5,7 @@ import android.view.View;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
+import com.nineoldandroids.view.ViewHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class ParallaxViewController implements ObservableScrollViewCallbacks {
     @Override
     public void onScrollChanged(int i, boolean b, boolean b1) {
         for(View view : viewsToMove.keySet()){
-            view.setTranslationY(i*viewsToMove.get(view));
+            ViewHelper.setTranslationY(view, i * viewsToMove.get(view));
         }
     }
 
