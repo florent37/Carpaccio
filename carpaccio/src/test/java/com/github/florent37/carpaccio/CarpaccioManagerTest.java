@@ -10,15 +10,18 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 /**
  * Created by florentchampigny on 24/07/15.
@@ -80,6 +83,13 @@ public class CarpaccioManagerTest {
     public void testIsCarpaccioControlledView_false() throws Exception {
         View view = mock(View.class);
         doReturn("setColor").when(view).getTag();
+        assertFalse(carpaccioManager.isCarpaccioControlledView(view));
+    }
+
+    @Test
+    public void testIsCarpaccioControlledView_false_emptyTag() throws Exception {
+        View view = mock(View.class);
+        doReturn(null).when(view).getTag();
         assertFalse(carpaccioManager.isCarpaccioControlledView(view));
     }
 
@@ -156,8 +166,8 @@ public class CarpaccioManagerTest {
         assertTrue(carpaccioManager.registerControllers.get(1) instanceof java.util.HashMap);
     }
 
-    public class Controller{
-        public void setText(TextView textView, String text){
+    public class Controller {
+        public void setText(TextView textView, String text) {
             textView.setText(text);
         }
     }
@@ -174,9 +184,30 @@ public class CarpaccioManagerTest {
 
         carpaccioManager.executeActionsOnViews();
 
-        verify(controller,atLeastOnce()).setText(eq(textView), eq("florent"));
-        verify(textView,atLeastOnce()).setText(eq("florent"));
+        verify(controller, atLeastOnce()).setText(eq(textView), eq("florent"));
+        verify(textView, atLeastOnce()).setText(eq("florent"));
     }
+
+    @Test
+    public void testExecuteActionsOnViews_mapped() throws Exception {
+        carpaccioManager.mappingManager = mock(MappingManager.class);
+        doReturn(true).when(carpaccioManager.mappingManager).isCallMapping(any(String[].class));
+        doNothing().when(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class));
+
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("setText(florent)").when(textView).getTag();
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnViews();
+
+        verify(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class));
+    }
+
+
 
     @Test
     public void testExecuteActionsOnViews2() throws Exception {
@@ -190,8 +221,8 @@ public class CarpaccioManagerTest {
 
         carpaccioManager.executeActionsOnViews();
 
-        verify(controller,never()).setText(eq(textView), eq("florent"));
-        verify(textView,never()).setText(eq("florent"));
+        verify(controller, never()).setText(eq(textView), eq("florent"));
+        verify(textView, never()).setText(eq("florent"));
     }
 
     @Test
@@ -199,7 +230,7 @@ public class CarpaccioManagerTest {
         Controller controller = spy(new Controller());
         TextView textView = mock(TextView.class);
 
-        carpaccioManager.callFunctionOnControllers("setText",textView,new String[]{"florent"});
+        carpaccioManager.callFunctionOnControllers("setText", textView, new String[]{"florent"});
 
         verify(controller, never()).setText(eq(textView), eq("florent"));
     }
@@ -210,6 +241,6 @@ public class CarpaccioManagerTest {
         Object object = new Object();
 
         carpaccioManager.mapObject(name, object);
-        verify(carpaccioManager.mappingManager,atLeastOnce()).mapObject(eq(name),eq(object));
+        verify(carpaccioManager.mappingManager, atLeastOnce()).mapObject(eq(name), eq(object));
     }
 }
