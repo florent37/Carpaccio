@@ -11,11 +11,13 @@
             com.github.florent37.carpacciocontrollers.ImageViewController;
         ">
 
-        <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:tag="registerParallax()">
+            android:tag="
+                registerParallax();
+            ">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -52,7 +54,7 @@
             </FrameLayout>
 
 
-        </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
+        </ScrollView>
 
     </com.github.florent37.carpaccio.Carpaccio>
 

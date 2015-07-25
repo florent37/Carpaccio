@@ -2,6 +2,8 @@
 
 Make your view smarter !
 
+Your view evolved and now can call functions
+
 #Usage
 
 ```xml

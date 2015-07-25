@@ -1,7 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    >
 
     <com.github.florent37.carpaccio.Carpaccio
         android:id="@+id/carpaccio"
@@ -31,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hi, how are you ?"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:textSize="20sp"
                 android:tag="
                     animateEnterX(-1000,1000,easeIn);
@@ -43,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Fine and you ?"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:textSize="20sp"
                 android:tag="
                     animateAphaIn(3000,easeOut);
@@ -55,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Original view"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:textSize="20sp"
                 android:tag="
                     replace(R.layout.view_replaced);

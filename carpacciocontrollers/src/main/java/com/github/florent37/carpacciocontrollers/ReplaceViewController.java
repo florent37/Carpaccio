@@ -19,24 +19,27 @@ public class ReplaceViewController {
 
     public static final String TAG = "ReplaceViewController";
 
-    public void replace(View view, String viewIdentifier) {
+    public <T extends View> T replace(View view, String viewIdentifier) {
         Context context = view.getContext();
         View newView = null;
         if(viewIdentifier.startsWith("R.layout.") || !viewIdentifier.contains("."))
-            replaceByLayout(context, view,viewIdentifier);
+            newView = replaceByLayout(context, view,viewIdentifier);
         else
-            replaceByViewClass(context, view,viewIdentifier);
+            newView = replaceByViewClass(context, view,viewIdentifier);
 
         if(newView != null) {
             ViewGroup parent = (ViewGroup) view.getParent();
 
             newView.setLayoutParams(view.getLayoutParams());
             newView.setId(view.getId());
-            newView.setBackgroundDrawable(view.getBackground());
+            if(view.getBackground() != null)
+                newView.setBackgroundDrawable(view.getBackground());
 
             parent.removeView(view);
             parent.addView(newView);
         }
+
+        return (T)newView;
 
         //TODO inject params (text, etc)
     }
