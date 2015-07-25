@@ -33,6 +33,8 @@ allprojects {
         maven {
             url  "http://dl.bintray.com/florent37/maven"
         }
+        maven {
+            url "http://dl.bintray.com/wasabeef/maven"
+        }
     }
 }
-

@@ -22,15 +22,6 @@ public class AnimationViewController {
     private static final String DESCELERATE = "easeOut";
     private static final String ACCELERATE_DESCELERATE = "easeInOut";
 
-    protected static Long stringToLong(String s) {
-        try {
-            return Long.parseLong(s);
-        } catch (NumberFormatException e) {
-            Log.d(TAG, s + " is not a long", e);
-            return null;
-        }
-    }
-
     protected static BaseInterpolator stringToInterpolator(String s) {
         if (s != null) {
             switch (s) {
@@ -71,7 +62,7 @@ public class AnimationViewController {
     }
 
     public void animateAphaIn(View view, String duration, String easing) {
-        Long dur = stringToLong(duration);
+        Long dur = CommonViewController.stringToLong(duration);
         if (dur != null) {
             animate(view, "alpha", 0, 1, dur, easing);
         }
@@ -82,7 +73,7 @@ public class AnimationViewController {
     }
 
     public void animateScaleUp(View view, String duration, String easing) {
-        Long dur = stringToLong(duration);
+        Long dur = CommonViewController.stringToLong(duration);
         if (dur != null) {
             animate(view, "scaleX", 0, 1, dur, easing);
             animate(view, "scaleY", 0, 1, dur, easing);
@@ -96,8 +87,8 @@ public class AnimationViewController {
     }
 
     public void animateEnterY(View view, String translationY, String duration, String easing) {
-        Long ty = stringToLong(translationY);
-        Long dur = stringToLong(duration);
+        Long ty = CommonViewController.stringToLong(translationY);
+        Long dur = CommonViewController.stringToLong(duration);
         if (dur != null && ty != null) {
             animate(view, "translationY", ty.intValue(), 0, dur, easing);
         }
@@ -112,8 +103,8 @@ public class AnimationViewController {
     }
 
     public void animateEnterX(View view, String translationX, String duration, String easing) {
-        Long tx = stringToLong(translationX);
-        Long dur = stringToLong(duration);
+        Long tx = CommonViewController.stringToLong(translationX);
+        Long dur = CommonViewController.stringToLong(duration);
         if (dur != null && tx != null) {
             animate(view, "translationX", tx.intValue(), 0, dur, easing);
         }

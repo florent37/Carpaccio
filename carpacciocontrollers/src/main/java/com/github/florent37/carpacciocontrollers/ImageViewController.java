@@ -34,15 +34,6 @@ public class ImageViewController {
 
     List<ImageViewToAnimateMaterial> imageViewToAnimateMaterial = new ArrayList<>();
 
-    private static Integer stringToInt(String s) {
-        try {
-            return Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            Log.d(TAG, s + " is not an integer", e);
-            return null;
-        }
-    }
-
     public void url(final ImageView imageView, String url) {
         Picasso.with(imageView.getContext()).load(url).into(imageView, new Callback() {
             @Override
@@ -84,7 +75,7 @@ public class ImageViewController {
     }
 
     public void animateMaterial(ImageView imageView, String duration) {
-        Integer dur = stringToInt(duration);
+        Integer dur = CommonViewController.stringToInt(duration);
         if (dur != null) {
             if (imageView.getDrawable() == null) {
                 imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, dur));
