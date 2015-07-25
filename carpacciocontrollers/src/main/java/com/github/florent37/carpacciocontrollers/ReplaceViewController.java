@@ -31,7 +31,6 @@ public class ReplaceViewController {
             ViewGroup parent = (ViewGroup) view.getParent();
 
             newView.setLayoutParams(view.getLayoutParams());
-            newView.setTag(view.getId());
             newView.setId(view.getId());
             newView.setBackgroundDrawable(view.getBackground());
 
