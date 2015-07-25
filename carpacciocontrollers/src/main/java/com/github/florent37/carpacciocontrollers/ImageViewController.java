@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.squareup.picasso.Callback;
 
@@ -91,6 +92,11 @@ public class ImageViewController {
                 startAnimateMaterialImageView(imageView, dur);
             }
         }
+    }
+
+    public void kenburns(ImageView imageView) {
+        ReplaceViewController replaceViewController = new ReplaceViewController();
+        KenBurnsView kenBurnsView = replaceViewController.replace(imageView,"com.flaviofaria.kenburnsview.KenBurnsView");
     }
 
 }

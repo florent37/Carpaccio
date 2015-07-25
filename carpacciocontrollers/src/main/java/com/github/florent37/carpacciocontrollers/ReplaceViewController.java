@@ -32,8 +32,29 @@ public class ReplaceViewController {
 
             newView.setLayoutParams(view.getLayoutParams());
             newView.setId(view.getId());
+            newView.setTag(view.getTag().toString().replace("replace("+viewIdentifier+")",""));
+
+
             if(view.getBackground() != null)
                 newView.setBackgroundDrawable(view.getBackground());
+
+            if(view instanceof ImageView && newView instanceof ImageView){
+                ImageView imgView = (ImageView) view;
+                ImageView imgNewView = (ImageView) newView;
+
+                if(imgView.getDrawable() != null)
+                    imgNewView.setImageDrawable(imgView.getDrawable());
+            }
+
+            if(view instanceof TextView && newView instanceof TextView){
+                TextView txtView = (TextView) view;
+                TextView txtNewView = (TextView) newView;
+
+                if(txtView.getText() != null)
+                    txtNewView.setText(txtView.getText());
+                if(txtView.getHint() != null)
+                    txtNewView.setHint(txtView.getText());
+            }
 
             parent.removeView(view);
             parent.addView(newView);
