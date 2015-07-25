@@ -62,7 +62,7 @@ public class ReplaceViewController {
 
         return (T)newView;
 
-        //TODO inject params (text, etc)
+        //TODO register to Carpaccio
     }
 
     protected View replaceByViewClass(Context context, View view, String viewClassName) { //com.github.florent37.materialviewpager.MaterialViewPager
