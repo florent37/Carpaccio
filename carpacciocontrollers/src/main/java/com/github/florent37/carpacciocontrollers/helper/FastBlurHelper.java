@@ -9,17 +9,8 @@ import android.widget.ImageView;
  */
 public final class FastBlurHelper {
 
-    public static Bitmap getBitmapFromView(View view) {
-        view.setDrawingCacheEnabled(true);
-
-        Bitmap returnedBitmap = Bitmap.createBitmap(view.getDrawingCache());
-
-        view.setDrawingCacheEnabled(false);
-        return returnedBitmap;
-    }
-
     public static Bitmap getBitmapBlurFromView(View view,int radius) {
-        Bitmap bitmap = getBitmapFromView(view);
+        Bitmap bitmap = ViewHelper.getBitmapFromView(view);
         Bitmap newBitmap = FastBlurHelper.doBlur(bitmap, radius, false);
         if(bitmap != newBitmap){
             bitmap.recycle();

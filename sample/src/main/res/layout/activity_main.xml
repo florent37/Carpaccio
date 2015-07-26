@@ -15,7 +15,6 @@
             com.github.florent37.carpacciocontrollers.TextViewController;
             com.github.florent37.carpacciocontrollers.AnimationViewController;
             com.github.florent37.carpacciocontrollers.ReplaceViewController;
-            com.github.florent37.carpacciocontrollers.BlurViewController;
         ">
 
         <LinearLayout
@@ -28,6 +27,7 @@
                 android:layout_height="200dp"
                 android:tag="
                     animateMaterial(3000);
+                    willGrayScale();
                     willBlur(30);
                     url(http://i.imgur.com/DvpvklR.png);
                 " />

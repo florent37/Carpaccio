@@ -1,11 +1,15 @@
 package com.github.florent37.carpacciocontrollers;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.github.florent37.carpacciocontrollers.helper.FastBlurHelper;
+import com.github.florent37.carpacciocontrollers.helper.GrayScaleHelper;
 import com.github.florent37.carpacciocontrollers.transformation.BlurTransformation;
+import com.github.florent37.carpacciocontrollers.transformation.GrayScaleTransformation;
 import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.squareup.picasso.Callback;
 
@@ -114,4 +118,39 @@ public class ImageViewController {
         addTransformation(imageView,new BlurTransformation(CommonViewController.stringToInt(radius)));
     }
 
+    public void willGrayScale(ImageView imageView){
+        addTransformation(imageView,new GrayScaleTransformation());
+    }
+
+    public void blur(final ImageView imageView, final String radiusString) {
+
+        imageView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Bitmap newBitmap = FastBlurHelper.getBitmapBlurFromView(imageView, CommonViewController.stringToInt(radiusString));
+                    imageView.setImageBitmap(newBitmap);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage(), e);
+                }
+            }
+        }, 10);
+
+    }
+
+    public void greyScale(final ImageView imageView, final String radiusString) {
+
+        imageView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Bitmap newBitmap = GrayScaleHelper.getBitmapGreyScaleFromView(imageView);
+                    imageView.setImageBitmap(newBitmap);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage(), e);
+                }
+            }
+        }, 10);
+
+    }
 }
