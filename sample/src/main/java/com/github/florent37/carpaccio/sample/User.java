@@ -6,13 +6,19 @@ package com.github.florent37.carpaccio.sample;
 public class User {
 
     String name;
+    String image;
 
-    public User(String name) {
+    public User(String name, String image) {
         this.name = name;
+        this.image = image;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     @Override

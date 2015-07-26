@@ -301,4 +301,13 @@ public class CarpaccioHelperTest {
         verify(spyObject, never()).getPseudo();
         verify(spyObject, never()).getName(any(View.class), anyString());
     }
+
+    @Test
+    public void testIsNumber() throws Exception {
+        assertTrue(CarpaccioHelper.isNumber(Integer.class));
+        assertTrue(CarpaccioHelper.isNumber(Float.class));
+        assertTrue(CarpaccioHelper.isNumber(Double.class));
+        assertTrue(CarpaccioHelper.isNumber(Long.class));
+    }
+
 }

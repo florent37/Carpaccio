@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Carpaccio carpaccio = (Carpaccio) findViewById(R.id.carpaccio);
-        carpaccio.mapObject("user1",new User("florent"));
-        carpaccio.mapObject("user2",new User("champigny"));
+        carpaccio.mapObject("user1",new User("florent","http://i.imgur.com/DvpvklR.png"));
+        carpaccio.mapObject("user2",new User("champigny",null));
     }
 
 
