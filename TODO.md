@@ -2,4 +2,5 @@
 [ ] setText($user.name)
 [ ] willKenBurns
 [ ] after replace, register view -> getParent instanceOf Carpaccio
-[ ] inject parameters as int/long/float ...
+[x] inject parameters as int/long/float ...
+[ ] url($user.imageUrl())

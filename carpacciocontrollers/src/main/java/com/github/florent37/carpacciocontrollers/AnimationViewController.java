@@ -1,17 +1,12 @@
 package com.github.florent37.carpacciocontrollers;
 
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BaseInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
 
-import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.nineoldandroids.animation.ObjectAnimator;
-
-import static com.github.florent37.carpaccio.CarpaccioHelper.stringToLong;
 
 /**
  * Created by florentchampigny on 22/07/15.
@@ -59,57 +54,43 @@ public class AnimationViewController {
     }
 
 
-    public void animateAphaIn(View view, String duration) {
+    public void animateAphaIn(View view, long duration) {
         animateAphaIn(view, duration, null);
     }
 
-    public void animateAphaIn(View view, String duration, String easing) {
-        Long dur = stringToLong(duration);
-        if (dur != null) {
-            animate(view, "alpha", 0, 1, dur, easing);
-        }
+    public void animateAphaIn(View view, long duration, String easing) {
+        animate(view, "alpha", 0, 1, duration, easing);
     }
 
-    public void animateScaleUp(View view, String duration) {
+    public void animateScaleUp(View view, long duration) {
         animateScaleUp(view, duration, null);
     }
 
-    public void animateScaleUp(View view, String duration, String easing) {
-        Long dur = stringToLong(duration);
-        if (dur != null) {
-            animate(view, "scaleX", 0, 1, dur, easing);
-            animate(view, "scaleY", 0, 1, dur, easing);
-        }
+    public void animateScaleUp(View view, long duration, String easing) {
+        animate(view, "scaleX", 0, 1, duration, easing);
+        animate(view, "scaleY", 0, 1, duration, easing);
     }
 
 
-    public void animateEnter(View view, String translationX, String translationY, String duration) {
+    public void animateEnter(View view, int translationX, int translationY, long duration) {
         animateEnterY(view, translationY, duration);
-        animateEnterX(view, translationY, duration);
+        animateEnterX(view, translationX, duration);
     }
 
-    public void animateEnterY(View view, String translationY, String duration, String easing) {
-        Long ty = stringToLong(translationY);
-        Long dur = stringToLong(duration);
-        if (dur != null && ty != null) {
-            animate(view, "translationY", ty.intValue(), 0, dur, easing);
-        }
+    public void animateEnterY(View view, int translationY, long duration, String easing) {
+        animate(view, "translationY", translationY, 0, duration, easing);
     }
 
-    public void animateEnterY(View view, String translationY, String duration) {
+    public void animateEnterY(View view, int translationY, long duration) {
         animateEnterY(view, translationY, duration, null);
     }
 
-    public void animateEnterX(View view, String translationX, String duration) {
+    public void animateEnterX(View view, int translationX, long duration) {
         animateEnterX(view, translationX, duration, null);
     }
 
-    public void animateEnterX(View view, String translationX, String duration, String easing) {
-        Long tx = stringToLong(translationX);
-        Long dur = stringToLong(duration);
-        if (dur != null && tx != null) {
-            animate(view, "translationX", tx.intValue(), 0, dur, easing);
-        }
+    public void animateEnterX(View view, int translationX, long duration, String easing) {
+        animate(view, "translationX", translationX, 0, duration, easing);
     }
 
 }

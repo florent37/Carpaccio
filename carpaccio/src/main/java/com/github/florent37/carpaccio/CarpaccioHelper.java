@@ -278,15 +278,15 @@ public class CarpaccioHelper {
         else if(Float.class.equals(destinationClass))
             return stringToFloat(s);
         else if(destinationClass.getName().equals("float"))
-            return stringToInt(s).floatValue();
+            return stringToFloat(s).floatValue();
         else if(Long.class.equals(destinationClass))
             return stringToLong(s);
         else if(destinationClass.getName().equals("long"))
-            return stringToInt(s).longValue();
+            return stringToLong(s).longValue();
         else if(Double.class.equals(destinationClass))
             return stringToDouble(s);
         else if(destinationClass.getName().equals("double"))
-            return stringToInt(s).doubleValue();
+            return stringToDouble(s).doubleValue();
         else
             return null;
     }

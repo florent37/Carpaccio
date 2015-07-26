@@ -12,9 +12,6 @@ import com.github.florent37.carpacciocontrollers.transformation.BlurTransformati
 import com.github.florent37.carpacciocontrollers.transformation.GrayScaleTransformation;
 import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.squareup.picasso.Callback;
-
-import android.widget.ImageView;
-
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Transformation;
@@ -22,8 +19,6 @@ import com.squareup.picasso.Transformation;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.github.florent37.carpaccio.CarpaccioHelper.stringToInt;
 
 /**
  * Created by florentchampigny on 21/07/15.
@@ -44,11 +39,11 @@ public class ImageViewController {
 
 
     List<ImageViewToAnimateMaterial> imageViewToAnimateMaterial = new ArrayList<>();
-    HashMap<View,List<Transformation>> transformations = new HashMap<>();
+    HashMap<View, List<Transformation>> transformations = new HashMap<>();
 
-    protected void addTransformation(View view,Transformation transformation){
+    protected void addTransformation(View view, Transformation transformation) {
         List<Transformation> list = transformations.get(view);
-        if(list == null) {
+        if (list == null) {
             list = new ArrayList<>();
             transformations.put(view, list);
         }
@@ -57,7 +52,7 @@ public class ImageViewController {
 
     public void url(final ImageView imageView, String url) {
         RequestCreator requestCreator = Picasso.with(imageView.getContext()).load(url);
-        if(transformations.get(imageView) != null) {
+        if (transformations.get(imageView) != null) {
             requestCreator = requestCreator.transform(transformations.get(imageView));
             transformations.remove(imageView);
         }
@@ -100,14 +95,11 @@ public class ImageViewController {
         }
     }
 
-    public void animateMaterial(ImageView imageView, String duration) {
-        Integer dur = stringToInt(duration);
-        if (dur != null) {
-            if (imageView.getDrawable() == null) {
-                imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, dur));
-            } else {
-                startAnimateMaterialImageView(imageView, dur);
-            }
+    public void animateMaterial(ImageView imageView, int duration) {
+        if (imageView.getDrawable() == null) {
+            imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, duration));
+        } else {
+            startAnimateMaterialImageView(imageView, duration);
         }
     }
 
@@ -116,12 +108,12 @@ public class ImageViewController {
         KenBurnsView kenBurnsView = replaceViewController.replace(imageView, "com.flaviofaria.kenburnsview.KenBurnsView");
     }
 
-    public void willBlur(ImageView imageView, String radius){
-        addTransformation(imageView,new BlurTransformation(stringToInt(radius)));
+    public void willBlur(ImageView imageView, int radius) {
+        addTransformation(imageView, new BlurTransformation(radius));
     }
 
-    public void willGrayScale(ImageView imageView){
-        addTransformation(imageView,new GrayScaleTransformation());
+    public void willGrayScale(ImageView imageView) {
+        addTransformation(imageView, new GrayScaleTransformation());
     }
 
     public void blur(final ImageView imageView, final int radiusString) {
