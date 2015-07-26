@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -40,7 +41,7 @@
                     blur(30);
                     //kenburns();
                 " />
-
+                -->
 
             <TextView
                 android:layout_width="match_parent"
@@ -63,7 +64,7 @@
                 android:tag="
                     animateAphaIn(3000,easeOut);
                     font(Roboto-Black.ttf);
-                    setText($user2.name);
+                    setText($user2.getName());
                 "/>
 
             <TextView
@@ -75,6 +76,13 @@
                 android:tag="
                     replace(R.layout.view_replaced);
                 "/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$user3.name"
+                android:layout_margin="10dp"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

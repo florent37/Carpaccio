@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         Carpaccio carpaccio = (Carpaccio) findViewById(R.id.carpaccio);
         carpaccio.mapObject("user1",new User("florent","http://i.imgur.com/DvpvklR.png"));
         carpaccio.mapObject("user2",new User("champigny",null));
+        carpaccio.mapObject("user3",new User("FROM android:text",null));
     }
 
 

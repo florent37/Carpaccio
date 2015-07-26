@@ -66,6 +66,13 @@ public class CarpaccioManagerTest {
     }
 
     @Test
+    public void testIsCarpaccioControlledView_textView() throws Exception {
+        TextView view = mock(TextView.class);
+        doReturn("$user.getName()").when(view).getText();
+        assertTrue(carpaccioManager.isCarpaccioControlledView(view));
+    }
+
+    @Test
     public void testIsCarpaccioControlledView_column() throws Exception {
         View view = mock(View.class);
         doReturn("setColor();").when(view).getTag();
