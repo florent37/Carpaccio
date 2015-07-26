@@ -29,7 +29,7 @@
                     animateMaterial(3000);
                     willGrayScale();
                     willBlur(30);
-                    url($user1.getImage());
+                    url($user1.image);
                 " />
 
             <ImageView
@@ -63,7 +63,7 @@
                 android:tag="
                     animateAphaIn(3000,easeOut);
                     font(Roboto-Black.ttf);
-                    setText($user2.getName());
+                    setText($user2.name);
                 "/>
 
             <TextView

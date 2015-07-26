@@ -68,7 +68,16 @@ public class MappingManager {
      * From user.getName() return "getName"
      */
     protected static String getFunctionName(String call){
-        return call.substring(call.indexOf(".") + 1, call.indexOf("("));
+        if(call.contains("(") && call.contains(")"))
+            return call.substring(call.indexOf(".") + 1, call.indexOf("("));
+        else
+        {
+            String[] split = call.split("\\.");
+            String firstLetter = split[1].substring(0,1).toUpperCase();
+            String lastLetters = split[1].substring(1,split[1].length());
+
+            return "get"+firstLetter+lastLetters;
+        }
     }
 
     /**

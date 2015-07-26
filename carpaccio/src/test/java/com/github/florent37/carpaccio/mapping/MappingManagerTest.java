@@ -63,6 +63,11 @@ public class MappingManagerTest {
         assertEquals("getName", MappingManager.getFunctionName("user.getName()"));
     }
 
+    @Test
+    public void testGetFunctionName2() throws Exception {
+        assertEquals("getName", MappingManager.getFunctionName("user.name"));
+    }
+
     public class User{
         String name;
 
@@ -99,6 +104,26 @@ public class MappingManagerTest {
         {
             mappingManager.mappingWaitings.put("user", Arrays.asList(
                     new MappingWaiting(view,"setText","user.getName()","user")
+            ));
+        }
+
+        mappingManager.mapObject(name,user);
+
+        assertTrue(mappingManager.mappedObjects.containsKey(name));
+        assertEquals(user, mappingManager.mappedObjects.get(name));
+
+        verify(callback,atLeastOnce()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"florent"}));
+    }
+
+    @Test
+    public void testMapObject2() throws Exception {
+        User user = new User("florent");
+        String name = "user";
+
+        View view = mock(View.class);
+        {
+            mappingManager.mappingWaitings.put("user", Arrays.asList(
+                    new MappingWaiting(view,"setText","user.name","user")
             ));
         }
 

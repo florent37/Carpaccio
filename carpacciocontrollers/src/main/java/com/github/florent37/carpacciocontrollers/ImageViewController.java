@@ -103,17 +103,17 @@ public class ImageViewController {
         }
     }
 
-    public void kenburns(ImageView imageView) {
-        ReplaceViewController replaceViewController = new ReplaceViewController();
-        KenBurnsView kenBurnsView = replaceViewController.replace(imageView, "com.flaviofaria.kenburnsview.KenBurnsView");
-    }
-
     public void willBlur(ImageView imageView, int radius) {
         addTransformation(imageView, new BlurTransformation(radius));
     }
 
     public void willGrayScale(ImageView imageView) {
         addTransformation(imageView, new GrayScaleTransformation());
+    }
+
+    public void kenburns(ImageView imageView) {
+        ReplaceViewController replaceViewController = new ReplaceViewController();
+        KenBurnsView kenBurnsView = replaceViewController.replace(imageView, "com.flaviofaria.kenburnsview.KenBurnsView");
     }
 
     public void blur(final ImageView imageView, final int radiusString) {
