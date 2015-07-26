@@ -54,6 +54,7 @@ compile ('com.github.florent37:carpaccio:1.0.0'){
             setText($user)
        "/>
 ```
+( Which will call user.toString )
 
 In your activity / fragment :
 
@@ -68,6 +69,15 @@ You can also specify a method (must return a String)
 <TextView
        android:tag="
             setText($user.getName())
+       "/>
+```
+
+And simplify the method name
+
+```xml
+<TextView
+       android:tag="
+            setText($user.name)
        "/>
 ```
 
