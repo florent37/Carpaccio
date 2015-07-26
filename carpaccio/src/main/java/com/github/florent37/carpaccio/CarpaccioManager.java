@@ -52,15 +52,17 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
             String tag = view.getTag().toString().trim();
             String[] calls = CarpaccioHelper.trim(tag.split(";"));
             for (String call : calls) {
-                String function = CarpaccioHelper.getFunctionName(call);
-                String[] args = CarpaccioHelper.getAttributes(call);
+                if(!call.startsWith("//")) {
+                    String function = CarpaccioHelper.getFunctionName(call);
+                    String[] args = CarpaccioHelper.getAttributes(call);
 
-                //if it's a mapped function ex: setText($user)
-                if (mappingManager != null && mappingManager.isCallMapping(args))
-                    mappingManager.callMapping(function, view, args);
-                else
-                    //an usual function setText(florent)
-                    callFunctionOnControllers(function, view, args);
+                    //if it's a mapped function ex: setText($user)
+                    if (mappingManager != null && mappingManager.isCallMapping(args))
+                        mappingManager.callMapping(function, view, args);
+                    else
+                        //an usual function setText(florent)
+                        callFunctionOnControllers(function, view, args);
+                }
             }
         }
     }

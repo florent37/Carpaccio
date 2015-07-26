@@ -5,14 +5,18 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.github.florent37.carpacciocontrollers.transformation.BlurTransformation;
 import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.squareup.picasso.Callback;
 
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
+import com.squareup.picasso.Transformation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -32,10 +36,24 @@ public class ImageViewController {
         }
     }
 
+
     List<ImageViewToAnimateMaterial> imageViewToAnimateMaterial = new ArrayList<>();
+    HashMap<View,List<Transformation>> transformations = new HashMap<>();
+
+    protected void addTransformation(View view,Transformation transformation){
+        List<Transformation> list = transformations.get(view);
+        if(list == null) {
+            list = new ArrayList<>();
+            transformations.put(view,list);
+        }
+        list.add(transformation);
+    }
 
     public void url(final ImageView imageView, String url) {
-        Picasso.with(imageView.getContext()).load(url).into(imageView, new Callback() {
+        RequestCreator requestCreator = Picasso.with(imageView.getContext()).load(url);
+        if(transformations.get(imageView) != null)
+            requestCreator = requestCreator.transform(transformations.get(imageView));
+        requestCreator.transform(transformations.get(imageView)).into(imageView, new Callback() {
             @Override
             public void onSuccess() {
                 onImageLoadedFromUrl(imageView);
@@ -87,7 +105,11 @@ public class ImageViewController {
 
     public void kenburns(ImageView imageView) {
         ReplaceViewController replaceViewController = new ReplaceViewController();
-        KenBurnsView kenBurnsView = replaceViewController.replace(imageView,"com.flaviofaria.kenburnsview.KenBurnsView");
+        KenBurnsView kenBurnsView = replaceViewController.replace(imageView, "com.flaviofaria.kenburnsview.KenBurnsView");
+    }
+
+    public void willBlur(ImageView imageView, String radius){
+        addTransformation(imageView,new BlurTransformation(CommonViewController.stringToInt(radius)));
     }
 
 }
