@@ -71,12 +71,12 @@ public class CarpaccioHelper {
         }
 
         for (int i = 0; i < args.length; ++i) {
-            Class paramClass = parametersType[i+1];
+            Class paramClass = parametersType[i + 1];
             Object param = args[i];
 
-            if(param instanceof String && isNumber(paramClass)){
-                out[i+1] = stringToNumber((String)param,paramClass);
-            }else {
+            if (param instanceof String && isNumber(paramClass)) {
+                out[i + 1] = stringToNumber((String) param, paramClass);
+            } else {
                 try {
                     out[i + 1] = paramClass.cast(param);
                 } catch (ClassCastException e) {
@@ -122,7 +122,7 @@ public class CarpaccioHelper {
                 if (registerObject != null) {
                     boolean called = CarpaccioHelper.callFunction(registerObject, function, view, args);
                     if (called) {
-                            Log.d(TAG, "Called " + function + " on " + registerObject.getClass().getName());
+                        Log.d(TAG, "Called " + function + " on " + registerObject.getClass().getName());
                         return true;
                     }
                 }
@@ -160,7 +160,7 @@ public class CarpaccioHelper {
                     method.invoke(object, getArgumentsWithView(view, method.getParameterTypes(), args));
                     return true;
                 } catch (Exception e) {
-                        Log.e(TAG, object.getClass() + " cannot invoke method " + name);
+                    Log.e(TAG, object.getClass() + " cannot invoke method " + name);
                 }
             } else {
                 if (LOG_FAILURES)
@@ -189,7 +189,7 @@ public class CarpaccioHelper {
             try {
                 return (T) method.invoke(object);
             } catch (Exception e) {
-                    Log.e(TAG, object.getClass() + " cannot invoke method " + name);
+                Log.e(TAG, object.getClass() + " cannot invoke method " + name);
             }
         }
         return null;
@@ -203,7 +203,7 @@ public class CarpaccioHelper {
         Method method = null;
 
         try {
-            method = object.getClass().getMethod(name,getClasses(args));
+            method = object.getClass().getMethod(name, getClasses(args));
         } catch (Exception e) {
             if (LOG_FAILURES)
                 Log.v(TAG, object.getClass() + " does not contains the method " + name);
@@ -211,9 +211,9 @@ public class CarpaccioHelper {
 
         if (method != null) {
             try {
-                return (T) method.invoke(object,args);
+                return (T) method.invoke(object, args);
             } catch (Exception e) {
-                    Log.e(TAG, object.getClass() + " cannot invoke method " + name);
+                Log.e(TAG, object.getClass() + " cannot invoke method " + name);
             }
         }
         return null;
@@ -255,7 +255,7 @@ public class CarpaccioHelper {
         }
     }
 
-    public static boolean isNumber(Class destinationClass){
+    public static boolean isNumber(Class destinationClass) {
         return
                 Integer.class.equals(destinationClass) ||
                         destinationClass.getName().equals("int") ||
@@ -270,25 +270,40 @@ public class CarpaccioHelper {
                         destinationClass.getName().equals("double");
     }
 
-    public static Object stringToNumber(String s, Class destinationClass){
-        if(Integer.class.equals(destinationClass))
+    public static Object stringToNumber(String s, Class destinationClass) {
+        if (Integer.class.equals(destinationClass))
             return stringToInt(s);
-        else if(destinationClass.getName().equals("int"))
+        else if (destinationClass.getName().equals("int"))
             return stringToInt(s).intValue();
-        else if(Float.class.equals(destinationClass))
+        else if (Float.class.equals(destinationClass))
             return stringToFloat(s);
-        else if(destinationClass.getName().equals("float"))
+        else if (destinationClass.getName().equals("float"))
             return stringToFloat(s).floatValue();
-        else if(Long.class.equals(destinationClass))
+        else if (Long.class.equals(destinationClass))
             return stringToLong(s);
-        else if(destinationClass.getName().equals("long"))
+        else if (destinationClass.getName().equals("long"))
             return stringToLong(s).longValue();
-        else if(Double.class.equals(destinationClass))
+        else if (Double.class.equals(destinationClass))
             return stringToDouble(s);
-        else if(destinationClass.getName().equals("double"))
+        else if (destinationClass.getName().equals("double"))
             return stringToDouble(s).doubleValue();
         else
             return null;
+    }
+
+    public static <T extends View> T findParentOfClass(View view, Class<T> theClass) {
+        if (view.getClass().equals(theClass))
+            return (T) view;
+        else if (view.getParent() != null && view.getParent() instanceof View)
+            return findParentOfClass((View) view.getParent(), theClass);
+        else
+            return null;
+    }
+
+    public static void registerToParentCarpaccio(View view) {
+        Carpaccio carpaccio = findParentOfClass(view,Carpaccio.class);
+        if(carpaccio != null)
+            carpaccio.getCarpaccioManager().executeActionsOnView(view);
     }
 
 }

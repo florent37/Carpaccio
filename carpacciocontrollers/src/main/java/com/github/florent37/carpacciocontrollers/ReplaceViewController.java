@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.florent37.carpaccio.CarpaccioHelper;
+
 import java.lang.reflect.Constructor;
 
 /**
@@ -60,9 +62,9 @@ public class ReplaceViewController {
             parent.addView(newView);
         }
 
-        return (T)newView;
+        CarpaccioHelper.registerToParentCarpaccio(newView);
 
-        //TODO register to Carpaccio
+        return (T)newView;
     }
 
     protected View replaceByViewClass(Context context, View view, String viewClassName) { //com.github.florent37.materialviewpager.MaterialViewPager

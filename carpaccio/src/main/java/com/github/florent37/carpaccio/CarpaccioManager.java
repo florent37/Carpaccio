@@ -27,14 +27,13 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     }
 
     public boolean isCarpaccioControlledView(View view) {
-        if(view.getTag() != null){
+        if (view.getTag() != null) {
             String tag = view.getTag().toString();
             return !tag.isEmpty() && tag.contains("(") && tag.contains(")"); //TODO use matcher
-        }else if(view instanceof TextView && ((TextView) view).getText() != null){
-            String text = ((TextView)view).getText().toString();
+        } else if (view instanceof TextView && ((TextView) view).getText() != null) {
+            String text = ((TextView) view).getText().toString();
             return !text.isEmpty() && text.trim().startsWith("$");
-        }
-        else
+        } else
             return false;
     }
 
@@ -54,30 +53,34 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
     public void executeActionsOnViews() {
         for (View view : carpaccioViews) {
-            if(view.getTag() != null) {
-                String tag = view.getTag().toString().trim();
-                String[] calls = CarpaccioHelper.trim(tag.split(";"));
-                for (String call : calls) {
-                    if (!call.startsWith("//")) {
-                        String function = CarpaccioHelper.getFunctionName(call);
-                        String[] args = CarpaccioHelper.getAttributes(call);
+            executeActionsOnView(view);
+        }
+    }
 
-                        //if it's a mapped function ex: setText($user)
-                        if (mappingManager != null && mappingManager.isCallMapping(args))
-                            mappingManager.callMapping(function, view, args);
-                        else
-                            //an usual function setText(florent)
-                            callFunctionOnControllers(function, view, args);
-                    }
+    public void executeActionsOnView(View view) {
+        if (view.getTag() != null) {
+            String tag = view.getTag().toString().trim();
+            String[] calls = CarpaccioHelper.trim(tag.split(";"));
+            for (String call : calls) {
+                if (!call.startsWith("//")) {
+                    String function = CarpaccioHelper.getFunctionName(call);
+                    String[] args = CarpaccioHelper.getAttributes(call);
+
+                    //if it's a mapped function ex: setText($user)
+                    if (mappingManager != null && mappingManager.isCallMapping(args))
+                        mappingManager.callMapping(function, view, args);
+                    else
+                        //an usual function setText(florent)
+                        callFunctionOnControllers(function, view, args);
                 }
             }
+        }
 
-            if(view instanceof TextView && ((TextView) view).getText() != null){
-                String text = ((TextView)view).getText().toString().trim();
+        if (view instanceof TextView && ((TextView) view).getText() != null) {
+            String text = ((TextView) view).getText().toString().trim();
 
-                if(text.startsWith("$")) {
-                    mappingManager.callMapping("setText", view, new String[]{text});
-                }
+            if (text.startsWith("$")) {
+                mappingManager.callMapping("setText", view, new String[]{text});
             }
         }
     }
