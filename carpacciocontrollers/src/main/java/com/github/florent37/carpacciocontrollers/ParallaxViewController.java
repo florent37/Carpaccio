@@ -11,6 +11,8 @@ import com.nineoldandroids.view.ViewHelper;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.github.florent37.carpaccio.CarpaccioHelper.stringToFloat;
+
 /**
  * Created by florentchampigny on 22/07/15.
  */
@@ -40,10 +42,25 @@ public class ParallaxViewController implements ObservableScrollViewCallbacks {
             ((ObservableScrollView) view).setScrollViewCallbacks(this);
     }
 
+    public void followScroll(View view) {
+        parallaxY(view,"1");
+    }
+
+    public void quickReturn(View view){
+        quickReturnTop(view);
+    }
+
+    public void quickReturnBottom(View view){
+        //TODO
+    }
+
+    public void quickReturnTop(View view){
+        //TODO
+    }
+
     public void parallaxY(View view, String y) {
         try {
-            Float yFloat = Float.valueOf(y);
-            viewsToMove.put(view, yFloat);
+            viewsToMove.put(view, stringToFloat(y));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

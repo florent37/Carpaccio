@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.nineoldandroids.animation.ObjectAnimator;
 
+import static com.github.florent37.carpaccio.CarpaccioHelper.stringToLong;
+
 /**
  * Created by florentchampigny on 22/07/15.
  */
@@ -62,7 +64,7 @@ public class AnimationViewController {
     }
 
     public void animateAphaIn(View view, String duration, String easing) {
-        Long dur = CommonViewController.stringToLong(duration);
+        Long dur = stringToLong(duration);
         if (dur != null) {
             animate(view, "alpha", 0, 1, dur, easing);
         }
@@ -73,7 +75,7 @@ public class AnimationViewController {
     }
 
     public void animateScaleUp(View view, String duration, String easing) {
-        Long dur = CommonViewController.stringToLong(duration);
+        Long dur = stringToLong(duration);
         if (dur != null) {
             animate(view, "scaleX", 0, 1, dur, easing);
             animate(view, "scaleY", 0, 1, dur, easing);
@@ -87,8 +89,8 @@ public class AnimationViewController {
     }
 
     public void animateEnterY(View view, String translationY, String duration, String easing) {
-        Long ty = CommonViewController.stringToLong(translationY);
-        Long dur = CommonViewController.stringToLong(duration);
+        Long ty = stringToLong(translationY);
+        Long dur = stringToLong(duration);
         if (dur != null && ty != null) {
             animate(view, "translationY", ty.intValue(), 0, dur, easing);
         }
@@ -103,8 +105,8 @@ public class AnimationViewController {
     }
 
     public void animateEnterX(View view, String translationX, String duration, String easing) {
-        Long tx = CommonViewController.stringToLong(translationX);
-        Long dur = CommonViewController.stringToLong(duration);
+        Long tx = stringToLong(translationX);
+        Long dur = stringToLong(duration);
         if (dur != null && tx != null) {
             animate(view, "translationX", tx.intValue(), 0, dur, easing);
         }

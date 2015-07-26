@@ -27,6 +27,8 @@ dependencies {
     compile 'com.flaviofaria:kenburnsview:1.0.6'
     compile 'jp.wasabeef:blurry:0.0.3'
 
+    compile project(":carpaccio")
+
     compile ('com.github.florent37:materialimageloading:1.0.1'){
         transitive=true
     }

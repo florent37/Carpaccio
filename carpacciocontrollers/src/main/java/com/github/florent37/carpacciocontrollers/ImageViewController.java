@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.github.florent37.carpaccio.CarpaccioHelper.stringToInt;
+
 /**
  * Created by florentchampigny on 21/07/15.
  */
@@ -48,7 +50,7 @@ public class ImageViewController {
         List<Transformation> list = transformations.get(view);
         if(list == null) {
             list = new ArrayList<>();
-            transformations.put(view,list);
+            transformations.put(view, list);
         }
         list.add(transformation);
     }
@@ -99,7 +101,7 @@ public class ImageViewController {
     }
 
     public void animateMaterial(ImageView imageView, String duration) {
-        Integer dur = CommonViewController.stringToInt(duration);
+        Integer dur = stringToInt(duration);
         if (dur != null) {
             if (imageView.getDrawable() == null) {
                 imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, dur));
@@ -115,20 +117,19 @@ public class ImageViewController {
     }
 
     public void willBlur(ImageView imageView, String radius){
-        addTransformation(imageView,new BlurTransformation(CommonViewController.stringToInt(radius)));
+        addTransformation(imageView,new BlurTransformation(stringToInt(radius)));
     }
 
     public void willGrayScale(ImageView imageView){
         addTransformation(imageView,new GrayScaleTransformation());
     }
 
-    public void blur(final ImageView imageView, final String radiusString) {
-
+    public void blur(final ImageView imageView, final int radiusString) {
         imageView.postDelayed(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Bitmap newBitmap = FastBlurHelper.getBitmapBlurFromView(imageView, CommonViewController.stringToInt(radiusString));
+                    Bitmap newBitmap = FastBlurHelper.getBitmapBlurFromView(imageView, radiusString);
                     imageView.setImageBitmap(newBitmap);
                 } catch (Exception e) {
                     Log.e(TAG, e.getMessage(), e);
@@ -138,8 +139,7 @@ public class ImageViewController {
 
     }
 
-    public void greyScale(final ImageView imageView, final String radiusString) {
-
+    public void greyScale(final ImageView imageView) {
         imageView.postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -81,9 +81,24 @@ public class CarpaccioHelperTest {
 
         String[] args = new String[]{"value1","value2"};
 
-        Object[] outArgs = CarpaccioHelper.getArgumentsWithView(viewClass, (View)textView, args);
+        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View)textView, new Class[]{TextView.class,String.class,String.class}, args);
 
         Object[] expectedArgs = new Object[]{textView,"value1","value2"};
+
+        assertArrayEquals(expectedArgs,outArgs);
+        assertTrue(outArgs[0] instanceof TextView);
+    }
+
+    @Test
+    public void testGetArguments_numeric() throws Exception {
+        Class viewClass = TextView.class;
+        TextView textView = Mockito.mock(TextView.class);
+
+        String[] args = new String[]{"value1","1","1.2"};
+
+        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View)textView, new Class[]{TextView.class,String.class,Integer.class,Float.class}, args);
+
+        Object[] expectedArgs = new Object[]{textView,"value1",1,1.2f};
 
         assertArrayEquals(expectedArgs,outArgs);
         assertTrue(outArgs[0] instanceof TextView);
@@ -96,7 +111,7 @@ public class CarpaccioHelperTest {
 
         String[] args = new String[]{"value1","value2"};
 
-        Object[] outArgs = CarpaccioHelper.getArgumentsWithView(viewClass, (View)textView, args);
+        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View)textView,new Class[]{TextView.class,String.class,String.class}, args);
 
         Object[] expectedArgs = new Object[]{textView,"value1","value2"};
 

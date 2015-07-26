@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+<!--
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -31,6 +31,7 @@
                     willBlur(30);
                     url(http://i.imgur.com/DvpvklR.png);
                 " />
+-->
 
             <ImageView
                 android:layout_width="match_parent"
@@ -41,6 +42,7 @@
                     //kenburns();
                 " />
 
+            <!--
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,7 +76,7 @@
                 android:tag="
                     replace(R.layout.view_replaced);
                 "/>
-
+-->
         </LinearLayout>
 
     </com.github.florent37.carpaccio.Carpaccio>

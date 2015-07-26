@@ -58,20 +58,34 @@ public class CarpaccioHelper {
      * From arg=["arg1","arg2"] and viewClass= TextView.class and view instance of TextView (but given as a view)
      * return [(TextView)view,"arg1","arg2")];
      */
-    public static Object[] getArgumentsWithView(Class viewClass, View view, Object[] args) {
+    public static Object[] getArgumentsWithView(View view, Class[] parametersType, Object[] args) {
         Object[] out = new Object[args.length + 1];
 
         //add the view on the first parameter
         try {
-            out[0] = viewClass.cast(view);
+            out[0] = parametersType[0].cast(view);
         } catch (ClassCastException e) {
             if (LOG_FAILURES)
-                Log.e(TAG, view.getClass().toString() + " cannot be cast to " + viewClass.toString(), e);
+                Log.e(TAG, view.getClass().toString() + " cannot be cast to " + parametersType[0].getClass().toString(), e);
             out[0] = view;
         }
 
-        for (int i = 0; i < args.length; ++i)
-            out[i + 1] = args[i];
+        for (int i = 0; i < args.length; ++i) {
+            Class paramClass = parametersType[i+1];
+            Object param = args[i];
+
+            if(param instanceof String && isNumber(paramClass)){
+                out[i+1] = stringToNumber((String)param,paramClass);
+            }else {
+                try {
+                    out[i + 1] = paramClass.cast(param);
+                } catch (ClassCastException e) {
+                    if (LOG_FAILURES)
+                        Log.e(TAG, param.getClass().toString() + " cannot be cast to " + paramClass.toString(), e);
+                    out[i + 1] = param;
+                }
+            }
+        }
 
         return out;
     }
@@ -131,7 +145,6 @@ public class CarpaccioHelper {
             for (Method containedMethods : object.getClass().getMethods()) {
                 if (name.equals(containedMethods.getName()) && containedMethods.getParameterTypes().length == args.length + 1) { //+1 for the view
                     method = containedMethods;
-                    viewClass = method.getParameterTypes()[0];
                     break;
                 }
             }
@@ -144,7 +157,7 @@ public class CarpaccioHelper {
 
             if (method != null) {
                 try {
-                    method.invoke(object, getArgumentsWithView(viewClass, view, args));
+                    method.invoke(object, getArgumentsWithView(view, method.getParameterTypes(), args));
                     return true;
                 } catch (Exception e) {
                         Log.e(TAG, object.getClass() + " cannot invoke method " + name);
@@ -204,6 +217,78 @@ public class CarpaccioHelper {
             }
         }
         return null;
+    }
+
+    public static Integer stringToInt(String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            android.util.Log.d(TAG, s + " is not an integer", e);
+            return null;
+        }
+    }
+
+    public static Double stringToDouble(String s) {
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException e) {
+            android.util.Log.d(TAG, s + " is not an double", e);
+            return null;
+        }
+    }
+
+    public static Long stringToLong(String s) {
+        try {
+            return Long.parseLong(s);
+        } catch (NumberFormatException e) {
+            android.util.Log.d(TAG, s + " is not a long", e);
+            return null;
+        }
+    }
+
+    public static Float stringToFloat(String s) {
+        try {
+            return Float.parseFloat(s);
+        } catch (NumberFormatException e) {
+            android.util.Log.d(TAG, s + " is not a long", e);
+            return null;
+        }
+    }
+
+    public static boolean isNumber(Class destinationClass){
+        return
+                Integer.class.equals(destinationClass) ||
+                        destinationClass.getName().equals("int") ||
+
+                        Float.class.equals(destinationClass) ||
+                        destinationClass.getName().equals("float") ||
+
+                        Long.class.equals(destinationClass) ||
+                        destinationClass.getName().equals("long") ||
+
+                        Double.class.equals(destinationClass) ||
+                        destinationClass.getName().equals("double");
+    }
+
+    public static Object stringToNumber(String s, Class destinationClass){
+        if(Integer.class.equals(destinationClass))
+            return stringToInt(s);
+        else if(destinationClass.getName().equals("int"))
+            return stringToInt(s).intValue();
+        else if(Float.class.equals(destinationClass))
+            return stringToFloat(s);
+        else if(destinationClass.getName().equals("float"))
+            return stringToInt(s).floatValue();
+        else if(Long.class.equals(destinationClass))
+            return stringToLong(s);
+        else if(destinationClass.getName().equals("long"))
+            return stringToInt(s).longValue();
+        else if(Double.class.equals(destinationClass))
+            return stringToDouble(s);
+        else if(destinationClass.getName().equals("double"))
+            return stringToInt(s).doubleValue();
+        else
+            return null;
     }
 
 }

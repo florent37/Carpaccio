@@ -170,6 +170,9 @@ public class CarpaccioManagerTest {
         public void setText(TextView textView, String text) {
             textView.setText(text);
         }
+
+        public void setColor(View view, int color) {
+        }
     }
 
     @Test
@@ -186,6 +189,21 @@ public class CarpaccioManagerTest {
 
         verify(controller, atLeastOnce()).setText(eq(textView), eq("florent"));
         verify(textView, atLeastOnce()).setText(eq("florent"));
+    }
+
+    @Test
+    public void testExecuteActionsOnViews_int() throws Exception {
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("setColor(1)").when(textView).getTag();
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnViews();
+
+        verify(controller, atLeastOnce()).setColor(eq(textView), eq(1));
     }
 
     @Test
