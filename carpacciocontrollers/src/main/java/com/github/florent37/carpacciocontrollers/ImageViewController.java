@@ -51,9 +51,11 @@ public class ImageViewController {
 
     public void url(final ImageView imageView, String url) {
         RequestCreator requestCreator = Picasso.with(imageView.getContext()).load(url);
-        if(transformations.get(imageView) != null)
+        if(transformations.get(imageView) != null) {
             requestCreator = requestCreator.transform(transformations.get(imageView));
-        requestCreator.transform(transformations.get(imageView)).into(imageView, new Callback() {
+            transformations.remove(imageView);
+        }
+        requestCreator.into(imageView, new Callback() {
             @Override
             public void onSuccess() {
                 onImageLoadedFromUrl(imageView);
