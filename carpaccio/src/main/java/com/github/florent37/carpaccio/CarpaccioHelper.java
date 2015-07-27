@@ -300,6 +300,10 @@ public class CarpaccioHelper {
             return null;
     }
 
+    public static Carpaccio findParentCarpaccio(View view) {
+        return findParentOfClass(view,Carpaccio.class);
+    }
+
     public static void registerToParentCarpaccio(View view) {
         Carpaccio carpaccio = findParentOfClass(view,Carpaccio.class);
         if(carpaccio != null) {

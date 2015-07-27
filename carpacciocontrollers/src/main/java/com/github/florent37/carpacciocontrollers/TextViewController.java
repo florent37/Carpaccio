@@ -49,4 +49,8 @@ public class TextViewController {
         }
     }
 
+    public void lorem(TextView textView){
+        //TODO
+    }
+
 }

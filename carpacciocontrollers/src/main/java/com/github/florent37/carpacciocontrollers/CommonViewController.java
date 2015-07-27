@@ -4,12 +4,23 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.github.florent37.carpaccio.Carpaccio;
+import com.github.florent37.carpaccio.CarpaccioHelper;
+import com.github.florent37.carpacciocontrollers.adapter.CarpaccioRecyclerViewAdapter;
+
+import java.util.List;
 
 /**
  * Created by florentchampigny on 21/07/15.
@@ -45,6 +56,30 @@ public class CommonViewController {
                     (int)pxFromDp(view.getContext(), marginBottom)
             );
             view.setLayoutParams(lp);
+        }
+    }
+
+    public void adapter(View view, String mappedName, String layoutName){
+        Context context = view.getContext();
+
+        if(layoutName.startsWith("R.layout."))
+            layoutName = layoutName.replace("R.layout.","");
+
+        final int layoutResId = context.getResources().getIdentifier(layoutName, "layout", context.getPackageName());
+        if(layoutResId == 0) {
+            Log.e(TAG, "failed to find view layout " + layoutName);
+            return;
+        }
+
+        final Carpaccio carpaccio = CarpaccioHelper.findParentCarpaccio(view);
+
+        if(carpaccio != null) {
+            if (view instanceof RecyclerView) {
+                ((RecyclerView) view).setLayoutManager(new LinearLayoutManager(view.getContext()));
+                ((RecyclerView) view).setAdapter(new CarpaccioRecyclerViewAdapter(carpaccio, layoutResId, mappedName));
+            } else if (view instanceof AdapterView) {
+
+            }
         }
     }
 }

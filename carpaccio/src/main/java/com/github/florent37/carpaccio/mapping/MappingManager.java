@@ -15,6 +15,7 @@ import java.util.Map;
  */
 public class MappingManager {
     protected Map<String, Object> mappedObjects = new HashMap<>();
+    protected Map<String, List> mappedLists = new HashMap<>();
     protected Map<String, List<MappingWaiting>> mappingWaitings = new HashMap<>();
 
     public interface MappingManagerCallback{
@@ -64,6 +65,14 @@ public class MappingManager {
         }
     }
 
+    public void mapList(String name, List list){
+        mappedLists.put(name,list);
+    }
+
+    public List getMappedList(Object adapter,String name) {
+        return mappedLists.get(name);
+    }
+
     /**
      * From user.getName() return "getName"
      */
@@ -102,8 +111,8 @@ public class MappingManager {
                 call = objectName; // "user"
             }
 
-
-            { //add to waiting
+            {
+                //add to waiting
                 List<MappingWaiting> waitings = mappingWaitings.get(objectName);
                 if (waitings == null)
                     waitings = new ArrayList<>();
@@ -119,6 +128,10 @@ public class MappingManager {
 
     public void setMappingManagerCallback(MappingManagerCallback mappingManagerCallback) {
         this.mappingManagerCallback = mappingManagerCallback;
+    }
+
+    public void bindListItem(String mapName, int position) {
+        mapObject(mapName, mappedLists.get(mapName).get(position));
     }
 
 }

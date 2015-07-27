@@ -9,23 +9,15 @@ import android.widget.FrameLayout;
 
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * Created by florentchampigny on 21/07/15.
  */
 public class Carpaccio extends FrameLayout {
 
     protected CarpaccioManager carpaccioManager;
-
-    protected void findCarpaccioControlledViews(View view) {
-        if (carpaccioManager.isCarpaccioControlledView(view))
-            carpaccioManager.addView(view);
-
-        if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = ViewGroup.class.cast(view);
-            for (int i = 0; i < viewGroup.getChildCount(); ++i)
-                findCarpaccioControlledViews(viewGroup.getChildAt(i));
-        }
-    }
 
     protected void handleAttributes(Context context, AttributeSet attrs) {
         if (isInEditMode()) {
@@ -64,9 +56,9 @@ public class Carpaccio extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        findCarpaccioControlledViews(this);
 
         if (carpaccioManager != null)
+            carpaccioManager.findCarpaccioControlledViews(this);
             carpaccioManager.executeActionsOnViews();
     }
 
@@ -79,4 +71,28 @@ public class Carpaccio extends FrameLayout {
             carpaccioManager.mapObject(name, object);
     }
 
+    //region mapList
+
+    public void registerAdapter(String mappedName,Object adapter) {
+        if (carpaccioManager != null)
+            carpaccioManager.registerAdapter(mappedName,adapter);
+    }
+
+    public void mapList(String name,List list){
+        if (carpaccioManager != null)
+            carpaccioManager.mapList(name, list);
+    }
+
+    public List getMappedList(Object adapter,String mapName){
+        if (carpaccioManager != null)
+            return carpaccioManager.getMappedList(adapter,mapName);
+        return null;
+    }
+
+    public void bindView(View view, String mapName, int position){
+        if (carpaccioManager != null)
+            carpaccioManager.bindView(view,mapName,position);
+    }
+
+    //endregion
 }
