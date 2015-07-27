@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.florent37.carpaccio.sample.R;
+import com.github.florent37.carpaccio.sample.model.AndroidVersion;
 
 import java.util.ArrayList;
 import java.util.List;

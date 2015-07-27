@@ -25,6 +25,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:'+ project.SUPPORT_VERSION
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
 
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.2'
     compile project(':carpaccio')

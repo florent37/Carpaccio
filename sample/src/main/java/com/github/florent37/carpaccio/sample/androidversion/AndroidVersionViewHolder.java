@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.florent37.carpaccio.sample.R;
+import com.github.florent37.carpaccio.sample.model.AndroidVersion;
 import com.squareup.picasso.Picasso;
 
 /**

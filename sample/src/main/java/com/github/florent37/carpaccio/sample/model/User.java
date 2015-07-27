@@ -1,4 +1,4 @@
-package com.github.florent37.carpaccio.sample;
+package com.github.florent37.carpaccio.sample.model;
 
 /**
  * Created by florentchampigny on 23/07/15.

@@ -1,5 +1,7 @@
 package com.github.florent37.carpaccio.sample.androidversion;
 
+import com.github.florent37.carpaccio.sample.model.AndroidVersion;
+
 import java.util.List;
 
 import retrofit.Callback;

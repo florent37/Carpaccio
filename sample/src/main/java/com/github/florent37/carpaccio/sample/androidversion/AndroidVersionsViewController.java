@@ -3,6 +3,9 @@ package com.github.florent37.carpaccio.sample.androidversion;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.github.florent37.carpaccio.sample.model.AndroidVersion;
+
 import java.util.List;
 
 import retrofit.Callback;

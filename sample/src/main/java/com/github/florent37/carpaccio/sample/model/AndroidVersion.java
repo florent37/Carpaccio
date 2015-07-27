@@ -1,4 +1,4 @@
-package com.github.florent37.carpaccio.sample.androidversion;
+package com.github.florent37.carpaccio.sample.model;
 
 /**
  * Created by florentchampigny on 19/03/15.
