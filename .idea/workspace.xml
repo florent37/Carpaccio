@@ -11,13 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioManagerTest.java" afterPath="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/adapter/CarpaccioRecyclerViewAdapter.java" afterPath="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/adapter/CarpaccioRecyclerViewAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java" afterPath="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/sample.iml" afterPath="$PROJECT_DIR$/sample/sample.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Carpaccio.iws" />
@@ -70,38 +67,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_main_recyclerview.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main_scroll.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_scroll.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.034483">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java">
+      <file leaf-file-name="ReplaceViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ReplaceViewController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Carpaccio.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5962733">
+              <caret line="102" column="50" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1866#1867#0" expanded="true" />
+                <element signature="e#1905#1906#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,50 +95,24 @@
         <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="9" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
                 <element signature="e#965#966#0" expanded="true" />
                 <element signature="e#1005#1006#0" expanded="true" />
                 <element signature="e#2024#2025#0" expanded="true" />
                 <element signature="e#2083#2084#0" expanded="true" />
+                <element signature="e#2318#2319#0" expanded="true" />
+                <element signature="e#2366#2367#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Carpaccio.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java">
+      <file leaf-file-name="CarpaccioHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27122152">
-              <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main_recyclerview_mapping.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.344828">
-              <caret line="20" column="47" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cell_user.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.310345">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -165,8 +124,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8965516">
-              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+            <state vertical-scroll-proportion="-4.6551723">
+              <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -2432,7 +2391,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7189185931000" />
+        <entry key="$PROJECT_DIR$" value="7189204096000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3116,7 +3075,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ReplaceViewController.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java" />
         <option value="$PROJECT_DIR$/TODO.md" />
         <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/TextViewController.java" />
         <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/CommonViewController.java" />
@@ -3124,12 +3082,13 @@
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" />
         <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/adapter/CarpaccioRecyclerViewAdapter.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioManagerTest.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java" />
       </list>
     </option>
   </component>
@@ -3144,9 +3103,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="75" />
+    <option name="x" value="4" />
     <option name="y" value="23" />
-    <option name="width" value="1365" />
+    <option name="width" value="1436" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -3564,9 +3523,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3577,6 +3534,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3992,8 +3951,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="23" width="1365" height="877" extended-state="0" />
-    <editor active="false" />
+    <frame x="4" y="23" width="1436" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4005,19 +3964,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39947438" sideWeight="0.5028694" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.50784314" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.50784314" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32424676" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3285151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3285151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23507181" sideWeight="0.49215686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23457676" sideWeight="0.49215686" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285151" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32424676" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -4028,16 +3987,16 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.50784314" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.50784314" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998565" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964131" sideWeight="0.49215686" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -4050,8 +4009,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -4087,8 +4046,14 @@
           <properties />
           <option name="timeStamp" value="79" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java</url>
+          <line>103</line>
+          <properties />
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="136" />
+      <option name="time" value="143" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Remote">
@@ -4103,19 +4068,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/3f998a26355e4138e3e7a880a5dac57fc4370339/picasso-2.5.2-sources.jar!/com/squareup/picasso/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33195022">
-          <caret line="441" column="19" selection-start-line="441" selection-start-column="19" selection-end-line="441" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/3f998a26355e4138e3e7a880a5dac57fc4370339/picasso-2.5.2-sources.jar!/com/squareup/picasso/RequestCreator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36307055">
           <caret line="311" column="12" selection-start-line="311" selection-start-column="12" selection-end-line="311" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4123,12 +4079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43568465">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#425#426#0" expanded="false" />
-            <element signature="e#694#695#0" expanded="false" />
-            <element signature="e#737#738#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4136,9 +4086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-          <folding>
-            <element signature="e#449#450#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4146,9 +4093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.888889">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4156,9 +4100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.12033195">
           <caret line="14" column="51" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4166,9 +4107,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15189#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4176,9 +4115,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18038#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4186,9 +4123,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.925926">
           <caret line="241" column="0" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#7248#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4196,7 +4131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8240109">
           <caret line="177" column="6" selection-start-line="177" selection-start-column="6" selection-end-line="177" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4228,7 +4162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4237,7 +4170,7 @@
         <state vertical-scroll-proportion="-6.3426576">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4254,7 +4187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4263,7 +4195,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="306" column="37" selection-start-line="306" selection-start-column="37" selection-end-line="306" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4272,7 +4204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40456432">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4280,7 +4211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.4444447">
           <caret line="1826" column="73" selection-start-line="1826" selection-start-column="55" selection-end-line="1826" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4288,10 +4218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="120" selection-start-line="35" selection-start-column="120" selection-end-line="35" selection-end-column="120" />
-          <folding>
-            <element signature="e#2191#2192#0" expanded="false" />
-            <element signature="e#2242#2243#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4299,7 +4225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3328786">
           <caret line="96" column="53" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4318,7 +4243,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.586207">
           <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4329,7 +4253,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.021306818">
           <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4337,7 +4260,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33255813">
           <caret line="498" column="16" selection-start-line="498" selection-start-column="16" selection-end-line="498" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4353,7 +4275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4361,7 +4282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8888888">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4369,7 +4289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7157676">
           <caret line="24" column="27" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4381,21 +4300,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ReplaceViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25518674">
-          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/carpaccio/build/intermediates/mockable-android-22.jar!/android/view/ViewDebug.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#4471#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4441,14 +4350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6630287">
-          <caret line="310" column="58" selection-start-line="310" selection-start-column="58" selection-end-line="310" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/adapter/CarpaccioRecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5497954">
@@ -4463,9 +4364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.020463847">
           <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4488,6 +4386,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -4504,31 +4424,20 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.034483">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/android/view/ViewGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.344828">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.310345">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="39" />
-          <folding />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="3698" column="16" selection-start-line="3698" selection-start-column="16" selection-end-line="3698" selection-end-column="16" />
+          <folding>
+            <element signature="e#140690#140691#0" expanded="false" />
+            <element signature="e#140724#140725#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -4537,16 +4446,32 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8965516">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        <state vertical-scroll-proportion="-4.6551723">
+          <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ReplaceViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.15113872">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -4554,22 +4479,26 @@
     <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="9" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#965#966#0" expanded="true" />
             <element signature="e#1005#1006#0" expanded="true" />
             <element signature="e#2024#2025#0" expanded="true" />
             <element signature="e#2083#2084#0" expanded="true" />
+            <element signature="e#2318#2319#0" expanded="true" />
+            <element signature="e#2366#2367#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27122152">
-          <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.5962733">
+          <caret line="102" column="50" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1866#1867#0" expanded="true" />
+            <element signature="e#1905#1906#0" expanded="true" />
           </folding>
         </state>
       </provider>

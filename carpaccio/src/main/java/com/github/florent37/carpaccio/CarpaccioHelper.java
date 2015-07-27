@@ -307,8 +307,7 @@ public class CarpaccioHelper {
     public static void registerToParentCarpaccio(View view) {
         Carpaccio carpaccio = findParentOfClass(view,Carpaccio.class);
         if(carpaccio != null) {
-            carpaccio.getCarpaccioManager().addView(view);
-            carpaccio.getCarpaccioManager().executeActionsOnView(view);
+            carpaccio.addCarpaccioView(view);
         }
     }
 

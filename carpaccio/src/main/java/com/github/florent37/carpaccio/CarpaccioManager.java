@@ -62,18 +62,16 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     }
 
     public void executeActionsOnViews(List<View> views, Object mappedObject) {
-        synchronized (views) {
-            for (View view : views) {
-                executeActionsOnView(view, mappedObject);
-            }
+        for (View view : views) {
+            executeActionsOnView(view, mappedObject);
         }
     }
 
     public void executeActionsOnView(View view) {
-        executeActionsOnView(view,null);
+        executeActionsOnView(view, null);
     }
 
-    public void executeActionsOnView(View view,Object mappedObject) {
+    public void executeActionsOnView(View view, Object mappedObject) {
         if (view.getTag() != null) {
             String tag = view.getTag().toString().trim();
             String[] calls = CarpaccioHelper.trim(tag.split(";"));
@@ -113,7 +111,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
     //region mapList
 
-    protected Map<View,List<View>> carpaccioSubViews = new HashMap<>();
+    protected Map<View, List<View>> carpaccioSubViews = new HashMap<>();
 
     public void mapList(String mappedName, List list) {
         if (mappingManager != null) {
@@ -137,9 +135,9 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     public void addChildViews(View view) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
-            if(subViews == null) {
+            if (subViews == null) {
                 subViews = new ArrayList<>();
-                carpaccioSubViews.put(view,subViews);
+                carpaccioSubViews.put(view, subViews);
             }
             findCarpaccioControlledViews(view, subViews);
         }
@@ -148,8 +146,8 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     public void bindView(View view, String mapName, int position) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
-            Object mappedObject = mappingManager.getMappedListsObject(mapName,position);
-            executeActionsOnViews(subViews,mappedObject);
+            Object mappedObject = mappingManager.getMappedListsObject(mapName, position);
+            executeActionsOnViews(subViews, mappedObject);
         }
     }
 
@@ -164,7 +162,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     }
 
     public void findCarpaccioControlledViews(View view) {
-        findCarpaccioControlledViews(view,this.carpaccioViews);
+        findCarpaccioControlledViews(view, this.carpaccioViews);
     }
 
     public void findCarpaccioControlledViews(View view, List<View> listAddTo) {

@@ -55,9 +55,10 @@ public class Carpaccio extends FrameLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        if (carpaccioManager != null)
+        if (carpaccioManager != null) {
             carpaccioManager.findCarpaccioControlledViews(this);
-        carpaccioManager.executeActionsOnViews();
+            carpaccioManager.executeActionsOnViews();
+        }
     }
 
     public CarpaccioManager getCarpaccioManager() {
@@ -95,6 +96,13 @@ public class Carpaccio extends FrameLayout {
     public void bindView(View view, String mapName, int position) {
         if (carpaccioManager != null)
             carpaccioManager.bindView(view, mapName, position);
+    }
+
+    public void addCarpaccioView(View view) {
+        if(carpaccioManager != null) {
+            //carpaccioManager.addView(view); TODO
+            carpaccioManager.executeActionsOnView(view);
+        }
     }
 
     //endregion

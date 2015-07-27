@@ -14,30 +14,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-//
-        //Carpaccio carpaccio = (Carpaccio) findViewById(R.id.carpaccio);
-        //carpaccio.mapObject("user1",new User("florent","http://i.imgur.com/DvpvklR.png"));
-        //carpaccio.mapObject("user2",new User("champigny",null));
-        //carpaccio.mapObject("user3",new User("FROM android:text",null));
+        testActivityMain();
 
-        //setContentView(R.layout.activity_main_recyclerview_mapping);
-//
-        //Carpaccio carpaccio = (Carpaccio) findViewById(R.id.carpaccio);
-        //carpaccio.mapList("user",generateUserList());
 
     }
 
-    protected List<Object> generateUserList(){
+    public void testActivityMain() {
+        setContentView(R.layout.activity_main);
+
+        Carpaccio carpaccio = (Carpaccio) findViewById(R.id.carpaccio);
+        carpaccio.mapObject("user1", new User("florent", "http://i.imgur.com/DvpvklR.png"));
+        carpaccio.mapObject("user2", new User("champigny", null));
+        carpaccio.mapObject("user3", new User("FROM android:text", null));
+    }
+
+    public void testActivityRecyclerMap() {
+        setContentView(R.layout.activity_main_recyclerview_mapping);
+
+        Carpaccio carpaccio = (Carpaccio) findViewById(R.id.carpaccio);
+        carpaccio.mapList("user", generateUserList());
+    }
+
+
+    protected List<Object> generateUserList() {
         List<Object> users = new ArrayList<>();
-        for(int i=0;i<20;++i){
-            users.add(new User("User"+i,"http://lorempixel.com/"+generateRandom()+"/"+generateRandom()+"/"));
+        for (int i = 0; i < 20; ++i) {
+            users.add(new User("User" + i, "http://lorempixel.com/" + generateRandom() + "/" + generateRandom() + "/"));
         }
         return users;
     }
 
-    private int generateRandom(){
-        return (int)(400 + (Math.random() * 100));
+    private int generateRandom() {
+        return (int) (400 + (Math.random() * 100));
     }
 
 }
