@@ -179,7 +179,7 @@ public class MappingManagerTest {
     public void testCallMapping() throws Exception {
         View view = mock(View.class);
 
-        mappingManager.callMapping("setText",view,new String[]{"$user"});
+        mappingManager.callMapping("setText",view,new String[]{"$user"}, null);
 
         assertTrue(mappingManager.mappingWaitings.containsKey("user"));
 
@@ -195,7 +195,7 @@ public class MappingManagerTest {
     public void testCallMapping_withFunction() throws Exception {
         View view = mock(View.class);
 
-        mappingManager.callMapping("setText",view,new String[]{"$user.getName()"});
+        mappingManager.callMapping("setText",view,new String[]{"$user.getName()"}, null);
 
         assertTrue(mappingManager.mappingWaitings.containsKey("user"));
 

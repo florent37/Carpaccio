@@ -36,13 +36,13 @@ public class CarpaccioRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View cellView = LayoutInflater.from(parent.getContext()).inflate(layoutResId, parent, false);
-        carpaccio.getCarpaccioManager().bindChildViews(cellView);
+        carpaccio.addChildViews(cellView);
         return new Holder(cellView);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        carpaccio.getCarpaccioManager().bindView(holder.itemView, mappedName, position);
+        carpaccio.bindView(holder.itemView, mappedName, position);
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.github.florent37.carpaccio.mapping;
 
 import android.view.View;
 
-import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioHelper;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class MappingManager {
     protected Map<String, List> mappedLists = new HashMap<>();
     protected Map<String, List<MappingWaiting>> mappingWaitings = new HashMap<>();
 
-    public interface MappingManagerCallback{
+    public interface MappingManagerCallback {
         void callFunctionOnControllers(String function, View view, String[] args);
     }
 
@@ -39,7 +38,8 @@ public class MappingManager {
     /**
      * Add an object to the mapper
      * When the object is added, call all the mappingWaitings (views which need this object)
-     * @param name the mapped object name, ex : for function($user), the name will be "user"
+     *
+     * @param name   the mapped object name, ex : for function($user), the name will be "user"
      * @param object the mapped object
      */
     public void mapObject(String name, Object object) {
@@ -50,14 +50,14 @@ public class MappingManager {
         if (waitings != null) {
             for (MappingWaiting mappingWaiting : waitings) {
                 String value = null;
-                if(mappingWaiting.call.equals(name)) { //"user"
+                if (mappingWaiting.call.equals(name)) { //"user"
                     value = object.toString();
-                }else if(mappingWaiting.call.startsWith(name)){ //"user.getName()"
+                } else if (mappingWaiting.call.startsWith(name)) { //"user.getName()"
                     String functionName = getFunctionName(mappingWaiting.call);
                     value = CarpaccioHelper.callFunction(object, functionName);
                 }
 
-                if(value != null && mappingManagerCallback != null) {
+                if (value != null && mappingManagerCallback != null) {
                     mappingManagerCallback.callFunctionOnControllers(mappingWaiting.function, mappingWaiting.view, new String[]{value});
                     mappingWaitings.remove(name);
                 }
@@ -65,53 +65,65 @@ public class MappingManager {
         }
     }
 
-    public void mapList(String name, List list){
-        mappedLists.put(name,list);
+    public void mapList(String name, List list) {
+        mappedLists.put(name, list);
     }
 
-    public List getMappedList(Object adapter,String name) {
+    public List getMappedList(Object adapter, String name) {
         return mappedLists.get(name);
     }
 
     /**
      * From user.getName() return "getName"
      */
-    protected static String getFunctionName(String call){
-        if(call.contains("(") && call.contains(")"))
+    protected static String getFunctionName(String call) {
+        if (call.contains("(") && call.contains(")"))
             return call.substring(call.indexOf(".") + 1, call.indexOf("("));
-        else
-        {
+        else {
             String[] split = call.split("\\.");
-            String firstLetter = split[1].substring(0,1).toUpperCase();
-            String lastLetters = split[1].substring(1,split[1].length());
+            String firstLetter = split[1].substring(0, 1).toUpperCase();
+            String lastLetters = split[1].substring(1, split[1].length());
 
-            return "get"+firstLetter+lastLetters;
+            return "get" + firstLetter + lastLetters;
         }
     }
 
     /**
      * Called when a view loaded and call a mapping function
-     * @param function the function name, eg "setText($user)"
-     * @param view the calling view
-     * @param args args, eg : [$user] or [$user.getName()]
+     *
+     * @param function     the function name, eg "setText($user)"
+     * @param view         the calling view
+     * @param args         args, eg : [$user] or [$user.getName()]
+     * @param mappedObject If available, the object to map with the view. Else add the view to mappingWaitings
      */
-    public void callMapping(String function, View view, String[] args) {
+    public void callMapping(String function, View view, String[] args, Object mappedObject ) {
         if (isCallMapping(args)) {
             String arg = args[0];
 
             String objectName = null;
 
             String call;
-            if(arg.contains(".")) { //"$user.getName()"
+            if (arg.contains(".")) { //"$user.getName()"
                 call = arg.substring(1, arg.length()); // "user.getName()"
-                objectName = call.substring(0, arg.indexOf(".")-1); // "user"
-            }
-            else {
+                objectName = call.substring(0, arg.indexOf(".") - 1); // "user"
+            } else {
                 objectName = arg.substring(1, arg.length()); // "user"
                 call = objectName; // "user"
             }
 
-            {
+            //if you already have the object
+            if (mappedObject != null) {
+                String value = null;
+                if (call.equals(objectName)) { //"user"
+                    value = mappedObject.toString();
+                } else if (call.startsWith(objectName)) { //"user.getName()"
+                    String functionName = getFunctionName(call);
+                    value = CarpaccioHelper.callFunction(mappedObject, functionName);
+                }
+                mappingManagerCallback.callFunctionOnControllers(function, view, new String[]{value});
+            }
+
+            else{
                 //add to waiting
                 List<MappingWaiting> waitings = mappingWaitings.get(objectName);
                 if (waitings == null)
@@ -134,4 +146,7 @@ public class MappingManager {
         mapObject(mapName, mappedLists.get(mapName).get(position));
     }
 
+    public Object getMappedListsObject(String name, int position) {
+        return mappedLists.get(name).get(position);
+    }
 }

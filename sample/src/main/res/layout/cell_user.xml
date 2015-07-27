@@ -16,6 +16,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="$user.name"/>
+        android:tag="setText($user.name)"
+        tools:text="UserName"
+        />
+
+    <!-- do not use android:text="$user.name" in recyclerview item -->
 
 </LinearLayout>

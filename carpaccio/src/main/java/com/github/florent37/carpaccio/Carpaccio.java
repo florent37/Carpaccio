@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -59,7 +57,7 @@ public class Carpaccio extends FrameLayout {
 
         if (carpaccioManager != null)
             carpaccioManager.findCarpaccioControlledViews(this);
-            carpaccioManager.executeActionsOnViews();
+        carpaccioManager.executeActionsOnViews();
     }
 
     public CarpaccioManager getCarpaccioManager() {
@@ -73,25 +71,30 @@ public class Carpaccio extends FrameLayout {
 
     //region mapList
 
-    public void registerAdapter(String mappedName,Object adapter) {
+    public void registerAdapter(String mappedName, Object adapter) {
         if (carpaccioManager != null)
-            carpaccioManager.registerAdapter(mappedName,adapter);
+            carpaccioManager.registerAdapter(mappedName, adapter);
     }
 
-    public void mapList(String name,List list){
+    public void mapList(String name, List list) {
         if (carpaccioManager != null)
             carpaccioManager.mapList(name, list);
     }
 
-    public List getMappedList(Object adapter,String mapName){
+    public List getMappedList(Object adapter, String mapName) {
         if (carpaccioManager != null)
-            return carpaccioManager.getMappedList(adapter,mapName);
+            return carpaccioManager.getMappedList(adapter, mapName);
         return null;
     }
 
-    public void bindView(View view, String mapName, int position){
+    public void addChildViews(View view) {
         if (carpaccioManager != null)
-            carpaccioManager.bindView(view,mapName,position);
+            carpaccioManager.addChildViews(view);
+    }
+
+    public void bindView(View view, String mapName, int position) {
+        if (carpaccioManager != null)
+            carpaccioManager.bindView(view, mapName, position);
     }
 
     //endregion

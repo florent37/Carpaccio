@@ -58,16 +58,22 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     }
 
     public void executeActionsOnViews() {
-        executeActionsOnViews(carpaccioViews);
+        executeActionsOnViews(carpaccioViews, null);
     }
 
-    public void executeActionsOnViews(List<View> views) {
-        for (View view : views) {
-            executeActionsOnView(view);
+    public void executeActionsOnViews(List<View> views, Object mappedObject) {
+        synchronized (views) {
+            for (View view : views) {
+                executeActionsOnView(view, mappedObject);
+            }
         }
     }
 
     public void executeActionsOnView(View view) {
+        executeActionsOnView(view,null);
+    }
+
+    public void executeActionsOnView(View view,Object mappedObject) {
         if (view.getTag() != null) {
             String tag = view.getTag().toString().trim();
             String[] calls = CarpaccioHelper.trim(tag.split(";"));
@@ -78,7 +84,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
                     //if it's a mapped function ex: setText($user)
                     if (mappingManager != null && mappingManager.isCallMapping(args))
-                        mappingManager.callMapping(function, view, args);
+                        mappingManager.callMapping(function, view, args, mappedObject);
                     else
                         //an usual function setText(florent)
                         callFunctionOnControllers(function, view, args);
@@ -90,7 +96,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
             String text = ((TextView) view).getText().toString().trim();
 
             if (text.startsWith("$")) {
-                mappingManager.callMapping("setText", view, new String[]{text});
+                mappingManager.callMapping("setText", view, new String[]{text}, mappedObject);
             }
         }
     }
@@ -128,23 +134,22 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
-    public void bindChildViews(View view) {
+    public void addChildViews(View view) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
             if(subViews == null) {
                 subViews = new ArrayList<>();
                 carpaccioSubViews.put(view,subViews);
             }
-            findCarpaccioControlledViews(view,subViews);
-            executeActionsOnViews(subViews);
+            findCarpaccioControlledViews(view, subViews);
         }
     }
 
     public void bindView(View view, String mapName, int position) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
-            mappingManager.bindListItem(mapName, position);
-            executeActionsOnViews(subViews);
+            Object mappedObject = mappingManager.getMappedListsObject(mapName,position);
+            executeActionsOnViews(subViews,mappedObject);
         }
     }
 

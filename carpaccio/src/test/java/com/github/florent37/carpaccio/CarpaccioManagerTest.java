@@ -217,7 +217,7 @@ public class CarpaccioManagerTest {
     public void testExecuteActionsOnViews_mapped() throws Exception {
         carpaccioManager.mappingManager = mock(MappingManager.class);
         doReturn(true).when(carpaccioManager.mappingManager).isCallMapping(any(String[].class));
-        doNothing().when(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class));
+        doNothing().when(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class), null);
 
         Controller controller = spy(new Controller());
 
@@ -229,7 +229,7 @@ public class CarpaccioManagerTest {
 
         carpaccioManager.executeActionsOnViews();
 
-        verify(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class));
+        verify(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class), null);
     }
 
 
