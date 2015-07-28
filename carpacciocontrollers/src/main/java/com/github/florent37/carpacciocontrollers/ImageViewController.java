@@ -97,10 +97,15 @@ public class ImageViewController {
 
     public void animateMaterial(ImageView imageView, int duration) {
         if (imageView.getDrawable() == null) {
-            imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, duration));
+            willAnimateMaterial(imageView, duration);
         } else {
             startAnimateMaterialImageView(imageView, duration);
         }
+    }
+
+
+    public void willAnimateMaterial(ImageView imageView, int duration) {
+        imageViewToAnimateMaterial.add(new ImageViewToAnimateMaterial(imageView, duration));
     }
 
     public void willBlur(ImageView imageView, int radius) {

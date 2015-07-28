@@ -29,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:tag="
-                        animateMaterial(3000);
+                        willAnimateMaterial(3000);
                         willGrayScale();
                         willBlur(30);
                         url($user1.image);
