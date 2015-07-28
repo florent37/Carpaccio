@@ -10,10 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
+            com.github.florent37.carpacciocontrollers.CommonViewController;
             com.github.florent37.carpacciocontrollers.ImageViewController;
             com.github.florent37.carpacciocontrollers.TextViewController;
             com.github.florent37.carpacciocontrollers.AnimationViewController;
-            com.github.florent37.carpacciocontrollers.ReplaceViewController;
         ">
 
         <ScrollView

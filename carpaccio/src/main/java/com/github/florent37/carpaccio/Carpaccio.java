@@ -82,9 +82,9 @@ public class Carpaccio extends FrameLayout {
             carpaccioManager.mapList(name, list);
     }
 
-    public List getMappedList(Object adapter, String mapName) {
+    public List getMappedList(String mapName) {
         if (carpaccioManager != null)
-            return carpaccioManager.getMappedList(adapter, mapName);
+            return carpaccioManager.getMappedList(mapName);
         return null;
     }
 

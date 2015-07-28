@@ -5,6 +5,8 @@ import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.github.florent37.carpacciocontrollers.helper.LoremHelper;
+
 /**
  * Created by florentchampigny on 21/07/15.
  */
@@ -12,22 +14,11 @@ public class TextViewController {
 
     private static LruCache<String, Typeface> TYPEFACE_CACHE = new LruCache<String, Typeface>(12);
 
-    //public void font(View view, String typeface){
-    //    if(view instanceof TextView) {
-    //        TextView textView = (TextView) view;
-    //        setTypeFace(textView,typeface);
-    //    }
-    //}
-
-    public void font(TextView textView, String typeface) {
-        setTypeFace(textView, typeface);
-    }
-
     public void setText(TextView textView, String value) {
         textView.setText(value);
     }
 
-    protected void setTypeFace(TextView textView, String fontName) {
+    public void font(TextView textView, String fontName) {
         if (fontName != null) {
             try {
                 //on regarde dans le cache si cette police est présente
@@ -50,7 +41,7 @@ public class TextViewController {
     }
 
     public void lorem(TextView textView){
-        //TODO
+        textView.setText(LoremHelper.LOREM);
     }
 
 }

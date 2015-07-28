@@ -86,7 +86,7 @@ public class MappingManager {
         mappedLists.put(name, list);
     }
 
-    public List getMappedList(Object adapter, String name) {
+    public List getMappedList(String name) {
         return mappedLists.get(name);
     }
 
@@ -152,10 +152,6 @@ public class MappingManager {
 
     public void setMappingManagerCallback(MappingManagerCallback mappingManagerCallback) {
         this.mappingManagerCallback = mappingManagerCallback;
-    }
-
-    public void bindListItem(String mapName, int position) {
-        mapObject(mapName, mappedLists.get(mapName).get(position));
     }
 
     public Object getMappedListsObject(String name, int position) {

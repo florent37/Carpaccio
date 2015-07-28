@@ -123,10 +123,6 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
-    public void callFunctionOnControllers(final String function, final View view, final String[] args) {
-        //CarpaccioHelper.callFunctionOnObjects(savedControllers, this.registerControllers, function, view, args);
-    }
-
     public void callActionOnView(CarpaccioAction action, View view) {
         //find the controller for this call
         ObjectAndMethod objectAndMethod = action.getObjectAndMethod();
@@ -165,9 +161,9 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
-    public List getMappedList(Object adapter, String name) {
+    public List getMappedList(String name) {
         if (mappingManager != null)
-            return mappingManager.getMappedList(adapter, name);
+            return mappingManager.getMappedList(name);
         return null;
     }
 

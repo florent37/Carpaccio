@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
  * Created by florentchampigny on 24/07/15.
  */
 public class CarpaccioManagerTest {
-
+/*
     @Mock
     MappingManager mappingManager;
 
@@ -268,4 +268,5 @@ public class CarpaccioManagerTest {
         carpaccioManager.mapObject(name, object);
         verify(carpaccioManager.mappingManager, atLeastOnce()).mapObject(eq(name), eq(object));
     }
+    */
 }

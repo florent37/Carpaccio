@@ -135,25 +135,6 @@ public class CarpaccioHelper {
         return strings;
     }
 
-    public static boolean callFunctionOnObjects(Map<String, CarpaccioSavedController> savedControllers, List<Object> objects, final String function, final View view, final String[] args) {
-        if (objects != null && function != null && view != null && args != null) {
-            CarpaccioSavedController savedController = savedControllers.get(function);
-            if (savedController != null) {
-                CarpaccioHelper.callMethod(savedController.getController(), savedController.getMethod(), function, view, args);
-            } else for (Object registerObject : objects) {
-                if (registerObject != null) {
-                    Method method = CarpaccioHelper.callFunction(registerObject, function, view, args);
-                    if (method != null) {
-                        Log.d(TAG, "Called " + function + " on " + registerObject.getClass().getName());
-                        savedControllers.put(function, new CarpaccioSavedController(function, objects, method));
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
     /**
      *
      */

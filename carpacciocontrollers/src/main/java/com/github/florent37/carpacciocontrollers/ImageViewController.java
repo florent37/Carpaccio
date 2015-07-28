@@ -112,7 +112,7 @@ public class ImageViewController {
     }
 
     public void kenburns(ImageView imageView) {
-        ReplaceViewController replaceViewController = new ReplaceViewController();
+        CommonViewController replaceViewController = new CommonViewController();
         KenBurnsView kenBurnsView = replaceViewController.replace(imageView, "com.flaviofaria.kenburnsview.KenBurnsView");
     }
 

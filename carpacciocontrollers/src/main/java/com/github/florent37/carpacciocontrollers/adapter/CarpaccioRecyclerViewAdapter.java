@@ -47,7 +47,7 @@ public class CarpaccioRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        List mappedList = carpaccio.getMappedList(this,mappedName);
+        List mappedList = carpaccio.getMappedList(mappedName);
         if (mappedList == null) return 0;
         else return mappedList.size();
     }
