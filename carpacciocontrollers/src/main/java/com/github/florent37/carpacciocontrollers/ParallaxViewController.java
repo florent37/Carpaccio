@@ -27,7 +27,7 @@ public class ParallaxViewController implements ObservableScrollViewCallbacks {
     public void registerParallax(ScrollView view, boolean replaceWithObservableScrollView) {
         if (replaceWithObservableScrollView && !(view instanceof ObservableScrollView)) {
             CommonViewController replaceViewController = new CommonViewController();
-            ObservableScrollView newView = replaceViewController.replace(view, "com.github.ksoichiro.android.observablescrollview.ObservableScrollView");
+            ObservableScrollView newView = replaceViewController.replaceViewithTagToRemove(view, "com.github.ksoichiro.android.observablescrollview.ObservableScrollView", "registerParallax()");
 
             if (view.getChildCount() > 0) {
                 View scrollViewChild = view.getChildAt(0);

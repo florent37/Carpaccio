@@ -7,6 +7,7 @@ import com.github.florent37.carpaccio.model.CarpaccioAction;
 import com.github.florent37.carpaccio.model.ObjectAndMethod;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -112,8 +113,9 @@ public class CarpaccioHelper {
     }
 
     public static Object removeTag(View view, String actionName) {
-        if (view.getTag() != null && view.getTag() instanceof List) {
+        if (view.getTag() != null && view.getTag() instanceof List && actionName!= null) {
             List<CarpaccioAction> actions = (List<CarpaccioAction>) view.getTag();
+            List<CarpaccioAction> newActions = new ArrayList<>(actions);
             int index = -1;
             int count = actions.size();
             for (int i = 0; i < count; ++i) {
@@ -121,7 +123,9 @@ public class CarpaccioHelper {
                     index = i;
             }
             if (index != -1)
-                actions.remove(index);
+                newActions.remove(index);
+
+            return newActions;
         }
         return view.getTag();
     }

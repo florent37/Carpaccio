@@ -138,6 +138,10 @@ public class CommonViewController {
     }
 
     public <T extends View> T replace(View view, String viewIdentifier) {
+        return replaceViewithTagToRemove(view, viewIdentifier, "replace(" + viewIdentifier + ")");
+    }
+
+    public <T extends View> T replaceViewithTagToRemove(View view, String viewIdentifier, String tagToRemove) {
         Context context = view.getContext();
         View newView = null;
         if(viewIdentifier.startsWith("R.layout.") || !viewIdentifier.contains("."))
@@ -151,7 +155,7 @@ public class CommonViewController {
             newView.setLayoutParams(view.getLayoutParams());
             newView.setId(view.getId());
 
-            newView.setTag(CarpaccioHelper.removeTag(view,"replace(" + viewIdentifier + ")"));
+            newView.setTag(CarpaccioHelper.removeTag(view,tagToRemove));
 
             if(view.getBackground() != null)
                 newView.setBackgroundDrawable(view.getBackground());
@@ -174,8 +178,9 @@ public class CommonViewController {
                     txtNewView.setHint(txtView.getText());
             }
 
+            int index = parent.indexOfChild(view);
+            parent.addView(newView,index);
             parent.removeView(view);
-            parent.addView(newView);
         }
 
         CarpaccioHelper.registerToParentCarpaccio(newView);

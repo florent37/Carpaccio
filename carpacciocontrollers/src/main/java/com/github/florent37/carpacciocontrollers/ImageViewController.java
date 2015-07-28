@@ -113,7 +113,7 @@ public class ImageViewController {
 
     public void kenburns(ImageView imageView) {
         CommonViewController replaceViewController = new CommonViewController();
-        KenBurnsView kenBurnsView = replaceViewController.replace(imageView, "com.flaviofaria.kenburnsview.KenBurnsView");
+        KenBurnsView kenBurnsView = replaceViewController.replaceViewithTagToRemove(imageView, "com.flaviofaria.kenburnsview.KenBurnsView", "kenburns()");
     }
 
     public void blur(final ImageView imageView, final int radiusString) {
