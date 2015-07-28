@@ -11,18 +11,10 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.carpaccio) Carpaccio carpaccio;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ButterKnife.bind(this);
-
-        carpaccio.mapObject("user1", new User("florent", "http://i.imgur.com/DvpvklR.png"));
-        carpaccio.mapObject("user2", new User("champigny", null));
-        carpaccio.mapObject("user3", new User("FROM android:text", null));
     }
 
 

@@ -10,83 +10,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
-            com.github.florent37.carpacciocontrollers.ImageViewController;
-            com.github.florent37.carpacciocontrollers.TextViewController;
-            com.github.florent37.carpacciocontrollers.AnimationViewController;
-            com.github.florent37.carpacciocontrollers.ReplaceViewController;
+            com.github.florent37.carpacciocontrollers.CommonViewController;
         ">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivitySample)"
+                android:text="Sample" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:tag="
-                        animateMaterial(3000);
-                        willGrayScale();
-                        willBlur(30);
-                        url($user1.image);
-                    " />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivityParallax)"
+                android:text="Parallax" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:src="@drawable/night"
-                    android:tag="
-                        blur(30);
-                        //kenburns();
-                    " />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivityRecycler)"
+                android:text="Recycler + Bind" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:tag="
-                        animateEnterX(-1000,1000,easeIn);
-                        font(Roboto-Light.ttf);
-                        setText($user1);
-                    "
-                    android:text="Hi, how are you ?"
-                    android:textSize="20sp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivityRecyclerRetrofit)"
+                android:text="RecyclerRetrofit" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:tag="
-                        animateAphaIn(3000,easeOut);
-                        font(Roboto-Black.ttf);
-                        setText($user2.getName());
-                    "
-                    android:text="Fine and you ?"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:tag="
-                        replace(R.layout.view_replaced);
-                    "
-                    android:text="Original view"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="$user3.name"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
 
     </com.github.florent37.carpaccio.Carpaccio>
 

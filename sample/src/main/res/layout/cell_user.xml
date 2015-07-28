@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:tag="url($user.image)"
+        android:tag="url($user.image);"
         android:layout_marginRight="20dp"
         tools:background="#AAA"/>
 

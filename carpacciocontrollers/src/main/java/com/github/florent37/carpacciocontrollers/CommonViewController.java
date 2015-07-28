@@ -1,6 +1,7 @@
 package com.github.florent37.carpacciocontrollers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;
@@ -81,5 +82,24 @@ public class CommonViewController {
 
             }
         }
+    }
+
+    public void clickStartActivity(final View view, final String activityName){
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Class<?> c = null;
+                if(activityName != null) {
+                    try {
+                        c = Class.forName(activityName);
+
+                        view.getContext().startActivity(new Intent(view.getContext(),c));
+                    } catch (ClassNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 }

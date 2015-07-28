@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class UserFactory {
 
-    protected static List<Object> generateUserList() {
+    public static List<Object> generateUserList() {
         List<Object> users = new ArrayList<>();
         for (int i = 0; i < 20; ++i) {
             users.add(new User("User" + i, "http://lorempixel.com/" + generateRandom() + "/" + generateRandom() + "/"));
