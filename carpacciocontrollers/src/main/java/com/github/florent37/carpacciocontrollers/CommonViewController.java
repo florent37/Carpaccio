@@ -3,6 +3,7 @@ package com.github.florent37.carpacciocontrollers;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,6 +25,7 @@ import com.github.florent37.carpaccio.CarpaccioHelper;
 import com.github.florent37.carpacciocontrollers.adapter.CarpaccioRecyclerViewAdapter;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.util.List;
 
 /**
@@ -38,6 +41,37 @@ public class CommonViewController {
 
     public static float pxFromDp(final Context context, final float dp) {
         return dp * context.getResources().getDisplayMetrics().density;
+    }
+
+    public static int getLayoutIdentifierFromString(Context context, String layoutName){
+        if(layoutName.startsWith("R.layout."))
+            layoutName = layoutName.replace("R.layout.","");
+
+        final int layoutResId = context.getResources().getIdentifier(layoutName, "layout", context.getPackageName());
+        if(layoutResId == 0) {
+            Log.e(TAG, "failed to find view layout " + layoutName);
+            return -1;
+        }
+        return layoutResId;
+    }
+
+    public void forInclude(ViewGroup viewGroup, int number) throws  Exception{
+
+        //used viewstup because R.layout... does not provides anything on AndroidStudio EditMode
+        if(viewGroup.getChildCount() > 0) {
+            View view = viewGroup.getChildAt(0);
+            if( view instanceof ViewStub) {
+                int layoutResId = ((ViewStub) view).getLayoutResource();
+                viewGroup.removeView(view);
+
+                if (layoutResId != -1) {
+                    LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
+                    for (int i = 0; i < number; ++i) {
+                        layoutInflater.inflate(layoutResId, viewGroup, true);
+                    }
+                }
+            }
+        }
     }
 
     public void padding(View view, int paddingLeft, int paddingTop, int paddingRight, int paddingBottom){
@@ -63,25 +97,16 @@ public class CommonViewController {
     }
 
     public void adapter(View view, String mappedName, String layoutName){
-        Context context = view.getContext();
+        final int layoutResId = getLayoutIdentifierFromString(view.getContext(),layoutName);
+        if(layoutResId != -1) {
+            final Carpaccio carpaccio = CarpaccioHelper.findParentCarpaccio(view);
+            if (carpaccio != null ) {
+                if (view instanceof RecyclerView) {
+                    ((RecyclerView) view).setLayoutManager(new LinearLayoutManager(view.getContext()));
+                    ((RecyclerView) view).setAdapter(new CarpaccioRecyclerViewAdapter(carpaccio, layoutResId, mappedName));
+                } else if (view instanceof AdapterView) {
 
-        if(layoutName.startsWith("R.layout."))
-            layoutName = layoutName.replace("R.layout.","");
-
-        final int layoutResId = context.getResources().getIdentifier(layoutName, "layout", context.getPackageName());
-        if(layoutResId == 0) {
-            Log.e(TAG, "failed to find view layout " + layoutName);
-            return;
-        }
-
-        final Carpaccio carpaccio = CarpaccioHelper.findParentCarpaccio(view);
-
-        if(carpaccio != null) {
-            if (view instanceof RecyclerView) {
-                ((RecyclerView) view).setLayoutManager(new LinearLayoutManager(view.getContext()));
-                ((RecyclerView) view).setAdapter(new CarpaccioRecyclerViewAdapter(carpaccio, layoutResId, mappedName));
-            } else if (view instanceof AdapterView) {
-
+                }
             }
         }
     }
@@ -92,8 +117,15 @@ public class CommonViewController {
             public void onClick(View v) {
                 Class<?> c = null;
                 if (activityName != null) {
+
+                    String acivityPath = activityName;
+
+                    if(acivityPath.startsWith(".")){
+                        acivityPath = view.getContext().getPackageName()+acivityPath;
+                    }
+
                     try {
-                        c = Class.forName(activityName);
+                        c = Class.forName(acivityPath);
 
                         view.getContext().startActivity(new Intent(view.getContext(), c));
                     } catch (ClassNotFoundException e) {

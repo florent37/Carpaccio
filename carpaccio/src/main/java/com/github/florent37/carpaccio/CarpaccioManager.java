@@ -103,8 +103,12 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                 for (CarpaccioAction action : actions) {
 
                     //if it's a mapped function ex: setText($user)
-                    if (mappingManager != null && action.isCallMapping())
-                        mappingManager.callMappingOnView(action,view, mappedObject);
+                    if (mappingManager != null && action.isCallMapping()) {
+                        mappingManager.callMappingOnView(action, view, mappedObject);
+
+                        if(Carpaccio.IN_EDIT_MODE)
+                            callActionOnView(action, view);
+                    }
                     else //an usual function setText(florent)
                         callActionOnView(action, view);
                 }

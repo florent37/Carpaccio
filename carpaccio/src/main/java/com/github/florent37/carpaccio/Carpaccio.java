@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
@@ -16,11 +17,9 @@ import java.util.List;
 public class Carpaccio extends FrameLayout {
 
     protected CarpaccioManager carpaccioManager;
+    public static boolean IN_EDIT_MODE = false;
 
     protected void handleAttributes(Context context, AttributeSet attrs) {
-        if (isInEditMode()) {
-            return;
-        }
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.BadView);
 
         {
@@ -31,7 +30,6 @@ public class Carpaccio extends FrameLayout {
         }
 
         styledAttrs.recycle();
-
     }
 
     public Carpaccio(Context context) {
@@ -54,6 +52,8 @@ public class Carpaccio extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+
+        IN_EDIT_MODE = isInEditMode();
 
         if (carpaccioManager != null) {
             carpaccioManager.findCarpaccioControlledViews(this);

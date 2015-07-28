@@ -1,8 +1,10 @@
 package com.github.florent37.carpacciocontrollers;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ScrollView;
 
+import com.github.florent37.carpaccio.Carpaccio;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;

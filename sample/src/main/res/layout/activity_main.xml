@@ -21,25 +21,25 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivitySample)"
+                android:tag="clickStartActivity(.MainActivitySample)"
                 android:text="Sample" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivityParallax)"
+                android:tag="clickStartActivity(.MainActivityParallax)"
                 android:text="Parallax" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivityRecycler)"
+                android:tag="clickStartActivity(.MainActivityRecycler)"
                 android:text="Recycler + Bind" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivityRecyclerRetrofit)"
+                android:tag="clickStartActivity(.MainActivityRecyclerRetrofit)"
                 android:text="RecyclerRetrofit" />
 
         </LinearLayout>
