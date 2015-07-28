@@ -5,6 +5,7 @@ import android.view.View;
 
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by florentchampigny on 21/07/15.
@@ -116,13 +117,17 @@ public class CarpaccioHelper {
         return strings;
     }
 
-    public static boolean callFunctionOnObjects(List<Object> objects, final String function, final View view, final String[] args) {
+    public static boolean callFunctionOnObjects(Map<String, CarpaccioSavedController> savedControllers, List<Object> objects, final String function, final View view, final String[] args) {
         if (objects != null && function != null && view != null && args != null) {
-            for (Object registerObject : objects) {
+            CarpaccioSavedController savedController = savedControllers.get(function);
+            if (savedController != null) {
+                CarpaccioHelper.callMethod(savedController.getController(), savedController.getMethod(), function, view, args);
+            } else for (Object registerObject : objects) {
                 if (registerObject != null) {
-                    boolean called = CarpaccioHelper.callFunction(registerObject, function, view, args);
-                    if (called) {
+                    Method method = CarpaccioHelper.callFunction(registerObject, function, view, args);
+                    if (method != null) {
                         Log.d(TAG, "Called " + function + " on " + registerObject.getClass().getName());
+                        savedControllers.put(function, new CarpaccioSavedController(function,objects,method));
                         return true;
                     }
                 }
@@ -134,7 +139,7 @@ public class CarpaccioHelper {
     /**
      *
      */
-    public static boolean callFunction(Object object, String name, View view, Object[] args) {
+    public static Method callFunction(Object object, String name, View view, Object[] args) {
         if (object != null && name != null && view != null && args != null) {
 
             Method method = null;
@@ -155,20 +160,26 @@ public class CarpaccioHelper {
             //    Log.v(TAG,object.getClass()+" does not contains the method "+name);
             //}
 
-            if (method != null) {
-                try {
-                    method.invoke(object, getArgumentsWithView(view, method.getParameterTypes(), args));
-                    return true;
-                } catch (Exception e) {
-                    Log.e(TAG, object.getClass() + " cannot invoke method " + name);
-                }
-            } else {
-                if (LOG_FAILURES)
-                    Log.v(TAG, object.getClass() + " does not contains the method " + name);
-            }
+            return callMethod(object,method,name,view,args);
         }
 
-        return false;
+        return null;
+    }
+
+    public static Method callMethod(Object object, Method method, String name, View view, Object[] args){
+        if (method != null) {
+            try {
+                method.invoke(object, getArgumentsWithView(view, method.getParameterTypes(), args));
+                return method;
+            } catch (Exception e) {
+                Log.e(TAG, object.getClass() + " cannot invoke method " + name);
+            }
+        } else {
+            if (LOG_FAILURES)
+                Log.v(TAG, object.getClass() + " does not contains the method " + name);
+        }
+
+        return null;
     }
 
     /**
@@ -301,12 +312,12 @@ public class CarpaccioHelper {
     }
 
     public static Carpaccio findParentCarpaccio(View view) {
-        return findParentOfClass(view,Carpaccio.class);
+        return findParentOfClass(view, Carpaccio.class);
     }
 
     public static void registerToParentCarpaccio(View view) {
-        Carpaccio carpaccio = findParentOfClass(view,Carpaccio.class);
-        if(carpaccio != null) {
+        Carpaccio carpaccio = findParentOfClass(view, Carpaccio.class);
+        if (carpaccio != null) {
             carpaccio.addCarpaccioView(view);
         }
     }

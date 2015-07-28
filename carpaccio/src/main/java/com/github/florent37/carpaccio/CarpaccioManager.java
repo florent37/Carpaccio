@@ -20,6 +20,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
     protected List<View> carpaccioViews = new ArrayList<>();
     protected Map<String, Object> registerAdapters = new HashMap<>();
+    protected Map<String, Object> functionCorrespondToController = new HashMap<>();
     protected List<Object> registerControllers = new ArrayList<>();
     protected MappingManager mappingManager;
 
@@ -99,9 +100,10 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
+    Map<String, CarpaccioSavedController> savedControllers = new HashMap<>();
 
     public void callFunctionOnControllers(final String function, final View view, final String[] args) {
-        CarpaccioHelper.callFunctionOnObjects(this.registerControllers, function, view, args);
+        CarpaccioHelper.callFunctionOnObjects(savedControllers,this.registerControllers, function, view, args);
     }
 
     public void mapObject(String name, Object object) {
