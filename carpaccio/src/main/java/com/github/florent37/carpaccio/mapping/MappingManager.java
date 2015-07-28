@@ -3,6 +3,7 @@ package com.github.florent37.carpaccio.mapping;
 import android.view.View;
 
 import com.github.florent37.carpaccio.CarpaccioHelper;
+import com.github.florent37.carpaccio.model.CarpaccioAction;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ public class MappingManager {
     protected Map<String, List<MappingWaiting>> mappingWaitings = new HashMap<>();
 
     public interface MappingManagerCallback {
-        void callFunctionOnControllers(String function, View view, String[] args);
+        void callActionOnView(CarpaccioAction action, View view);
     }
 
     protected MappingManagerCallback mappingManagerCallback;
@@ -36,6 +37,23 @@ public class MappingManager {
     }
 
     /**
+     * @param name   the mapped object name, ex : for function($user), the name will be "user"
+     * @param object the mapped object
+     */
+    public String evaluateValue(Object object, String call, String name){
+        String value = null;
+
+        if (call.equals(name)) { //"user"
+            value = object.toString();
+        } else if (call.startsWith(name)) { //"user.getName()"
+            String functionName = getFunctionName(call); // "getName"
+            value = CarpaccioHelper.callFunction(object, functionName);
+        }
+
+        return value;
+    }
+
+    /**
      * Add an object to the mapper
      * When the object is added, call all the mappingWaitings (views which need this object)
      *
@@ -46,22 +64,21 @@ public class MappingManager {
         mappedObjects.put(name, object);
 
         //call the waiting objects
-        List<MappingWaiting> waitings = mappingWaitings.get(name);
-        if (waitings != null) {
-            for (MappingWaiting mappingWaiting : waitings) {
-                String value = null;
-                if (mappingWaiting.call.equals(name)) { //"user"
-                    value = object.toString();
-                } else if (mappingWaiting.call.startsWith(name)) { //"user.getName()"
-                    String functionName = getFunctionName(mappingWaiting.call);
-                    value = CarpaccioHelper.callFunction(object, functionName);
-                }
+        List<MappingWaiting> waitingsForThisName = mappingWaitings.get(name);
+        if (waitingsForThisName != null) {
+            for (MappingWaiting mappingWaiting : waitingsForThisName) {
+                String value = evaluateValue(object,mappingWaiting.getCall(),name);
 
                 if (value != null && mappingManagerCallback != null) {
-                    mappingManagerCallback.callFunctionOnControllers(mappingWaiting.function, mappingWaiting.view, new String[]{value});
-                    mappingWaitings.remove(name);
+                    mappingWaiting.getCarpaccioAction().setValues(new String[]{value}); //TODO
+
+                    mappingManagerCallback.callActionOnView(mappingWaiting.getCarpaccioAction(), mappingWaiting.getView());
                 }
             }
+
+            //remove all waitings for this name
+            waitingsForThisName.clear();
+            mappingWaitings.remove(name);
         }
     }
 
@@ -91,14 +108,12 @@ public class MappingManager {
     /**
      * Called when a view loaded and call a mapping function
      *
-     * @param function     the function name, eg "setText($user)"
      * @param view         the calling view
-     * @param args         args, eg : [$user] or [$user.getName()]
      * @param mappedObject If available, the object to map with the view. Else add the view to mappingWaitings
      */
-    public void callMapping(String function, View view, String[] args, Object mappedObject ) {
-        if (isCallMapping(args)) {
-            String arg = args[0];
+    public void callMappingOnView(CarpaccioAction action, View view, Object mappedObject ) {
+        if (action.isCallMapping()) {
+            String arg = action.getArgs()[0]; //only map the first argument
 
             String objectName = null;
 
@@ -113,22 +128,19 @@ public class MappingManager {
 
             //if you already have the object
             if (mappedObject != null) {
-                String value = null;
-                if (call.equals(objectName)) { //"user"
-                    value = mappedObject.toString();
-                } else if (call.startsWith(objectName)) { //"user.getName()"
-                    String functionName = getFunctionName(call);
-                    value = CarpaccioHelper.callFunction(mappedObject, functionName);
-                }
-                mappingManagerCallback.callFunctionOnControllers(function, view, new String[]{value});
+                String value = evaluateValue(mappedObject,call,objectName);
+
+                action.setValues(new String[]{value}); //TODO
+
+                mappingManagerCallback.callActionOnView(action, view);
             }
 
             else{
                 //add to waiting
-                List<MappingWaiting> waitings = mappingWaitings.get(objectName);
+                List<MappingWaiting> waitings = mappingWaitings.get(objectName); //["user"] = List<MappingWaiting>
                 if (waitings == null)
                     waitings = new ArrayList<>();
-                waitings.add(new MappingWaiting(view, function, call, objectName));
+                waitings.add(new MappingWaiting(view, action,call,objectName));
                 mappingWaitings.put(objectName, waitings);
             }
         }

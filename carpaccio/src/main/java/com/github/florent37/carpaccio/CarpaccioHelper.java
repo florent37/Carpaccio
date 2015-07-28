@@ -3,6 +3,9 @@ package com.github.florent37.carpaccio;
 import android.support.v4.util.LruCache;
 import android.view.View;
 
+import com.github.florent37.carpaccio.model.CarpaccioAction;
+import com.github.florent37.carpaccio.model.ObjectAndMethod;
+
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
@@ -108,6 +111,21 @@ public class CarpaccioHelper {
         return trim(attributes.split(","));
     }
 
+    public static Object removeTag(View view, String actionName) {
+        if (view.getTag() != null && view.getTag() instanceof List) {
+            List<CarpaccioAction> actions = (List<CarpaccioAction>) view.getTag();
+            int index = -1;
+            int count = actions.size();
+            for (int i = 0; i < count; ++i) {
+                if (actions.get(i).getCompleteCall().equals(actionName))
+                    index = i;
+            }
+            if (index != -1)
+                actions.remove(index);
+        }
+        return view.getTag();
+    }
+
     /**
      * Trim an array of String (each element)
      */
@@ -127,7 +145,7 @@ public class CarpaccioHelper {
                     Method method = CarpaccioHelper.callFunction(registerObject, function, view, args);
                     if (method != null) {
                         Log.d(TAG, "Called " + function + " on " + registerObject.getClass().getName());
-                        savedControllers.put(function, new CarpaccioSavedController(function,objects,method));
+                        savedControllers.put(function, new CarpaccioSavedController(function, objects, method));
                         return true;
                     }
                 }
@@ -160,13 +178,13 @@ public class CarpaccioHelper {
             //    Log.v(TAG,object.getClass()+" does not contains the method "+name);
             //}
 
-            return callMethod(object,method,name,view,args);
+            return callMethod(object, method, name, view, args);
         }
 
         return null;
     }
 
-    public static Method callMethod(Object object, Method method, String name, View view, Object[] args){
+    public static Method callMethod(Object object, Method method, String name, View view, Object[] args) {
         if (method != null) {
             try {
                 method.invoke(object, getArgumentsWithView(view, method.getParameterTypes(), args));
@@ -322,4 +340,22 @@ public class CarpaccioHelper {
         }
     }
 
+    public static ObjectAndMethod findObjectWithThisMethod(List<Object> objects, String function, int numberOfParams) {
+        if (objects != null && function != null) {
+            Method method;
+            Object object;
+            int numberOfObjects = objects.size();
+            for (int j = 0; j < numberOfObjects; ++j) {
+                object = objects.get(j);
+                int methodCount = object.getClass().getMethods().length;
+                for (int i = 0; i < methodCount; ++i) {
+                    method = object.getClass().getMethods()[i];
+                    if (function.equals(method.getName()) && method.getParameterTypes().length == numberOfParams) {
+                        return new ObjectAndMethod(object, method);
+                    }
+                }
+            }
+        }
+        return null;
+    }
 }

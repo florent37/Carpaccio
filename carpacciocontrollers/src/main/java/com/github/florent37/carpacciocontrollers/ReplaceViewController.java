@@ -11,8 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.florent37.carpaccio.CarpaccioHelper;
+import com.github.florent37.carpaccio.model.CarpaccioAction;
 
 import java.lang.reflect.Constructor;
+import java.util.List;
 
 /**
  * Created by florentchampigny on 21/07/15.
@@ -34,8 +36,8 @@ public class ReplaceViewController {
 
             newView.setLayoutParams(view.getLayoutParams());
             newView.setId(view.getId());
-            newView.setTag(view.getTag().toString().replace("replace("+viewIdentifier+")",""));
 
+            newView.setTag(CarpaccioHelper.removeTag(view,"replace(" + viewIdentifier + ")"));
 
             if(view.getBackground() != null)
                 newView.setBackgroundDrawable(view.getBackground());

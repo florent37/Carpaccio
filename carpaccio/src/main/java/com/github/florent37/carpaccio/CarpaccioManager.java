@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.github.florent37.carpaccio.mapping.MappingManager;
+import com.github.florent37.carpaccio.model.CarpaccioAction;
+import com.github.florent37.carpaccio.model.ObjectAndMethod;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,9 +22,10 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
     protected List<View> carpaccioViews = new ArrayList<>();
     protected Map<String, Object> registerAdapters = new HashMap<>();
-    protected Map<String, Object> functionCorrespondToController = new HashMap<>();
     protected List<Object> registerControllers = new ArrayList<>();
     protected MappingManager mappingManager;
+    protected Map<String, ObjectAndMethod> savedControllers = new HashMap<>();
+
 
     public CarpaccioManager(MappingManager mappingManager) {
         this.mappingManager = mappingManager;
@@ -72,38 +75,78 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         executeActionsOnView(view, null);
     }
 
+
     public void executeActionsOnView(View view, Object mappedObject) {
         if (view.getTag() != null) {
-            String tag = view.getTag().toString().trim();
-            String[] calls = CarpaccioHelper.trim(tag.split(";"));
-            for (String call : calls) {
-                if (!call.startsWith("//")) {
-                    String function = CarpaccioHelper.getFunctionName(call);
-                    String[] args = CarpaccioHelper.getAttributes(call);
+
+            List<CarpaccioAction> actions;
+
+            if (view.getTag() instanceof List) { //if already splitted
+                actions = (List<CarpaccioAction>) view.getTag();
+            } else { //only do this work the first time
+                actions = new ArrayList<>();
+
+                String tag = view.getTag().toString().trim();
+                String[] tagCalls = CarpaccioHelper.trim(tag.split(";"));
+                for (String call : tagCalls) {
+                    if (!call.startsWith("//")) { //skip the "//function(args)"
+                        CarpaccioAction carpaccioAction = new CarpaccioAction(call);
+
+                        actions.add(carpaccioAction);
+                    }
+                }
+
+                view.setTag(actions); //save into view tags, replace the string with the list
+            }
+
+            if (actions != null)
+                for (CarpaccioAction action : actions) {
 
                     //if it's a mapped function ex: setText($user)
-                    if (mappingManager != null && mappingManager.isCallMapping(args))
-                        mappingManager.callMapping(function, view, args, mappedObject);
-                    else
-                        //an usual function setText(florent)
-                        callFunctionOnControllers(function, view, args);
+                    if (mappingManager != null && action.isCallMapping())
+                        mappingManager.callMappingOnView(action,view, mappedObject);
+                    else //an usual function setText(florent)
+                        callActionOnView(action, view);
                 }
-            }
+
         }
 
         if (view instanceof TextView && ((TextView) view).getText() != null) {
             String text = ((TextView) view).getText().toString().trim();
 
             if (text.startsWith("$")) {
-                mappingManager.callMapping("setText", view, new String[]{text}, mappedObject);
+                if(mappingManager != null) {
+                    CarpaccioAction carpaccioAction = new CarpaccioAction("setText("+text+")");
+                    mappingManager.callMappingOnView(carpaccioAction, view, null);
+                }
             }
         }
     }
 
-    Map<String, CarpaccioSavedController> savedControllers = new HashMap<>();
-
     public void callFunctionOnControllers(final String function, final View view, final String[] args) {
-        CarpaccioHelper.callFunctionOnObjects(savedControllers,this.registerControllers, function, view, args);
+        //CarpaccioHelper.callFunctionOnObjects(savedControllers, this.registerControllers, function, view, args);
+    }
+
+    public void callActionOnView(CarpaccioAction action, View view) {
+        //find the controller for this call
+        ObjectAndMethod objectAndMethod = action.getObjectAndMethod();
+        if(objectAndMethod == null){
+            //check if cached it
+            String key = action.getFunction() + (action.getArgs().length + 1);
+
+            objectAndMethod = savedControllers.get(key);
+
+            if(objectAndMethod == null) { //if not cached,
+                objectAndMethod = CarpaccioHelper.findObjectWithThisMethod(this.registerControllers, action.getFunction(), action.getArgs().length + 1); //+1 for the view
+                savedControllers.put(key,objectAndMethod);
+            }
+            action.setObjectAndMethod(objectAndMethod);
+        }
+
+        if(objectAndMethod != null){
+            //call !
+            CarpaccioHelper.callMethod(action.getObjectAndMethod().getObject(), action.getObjectAndMethod().getMethod(), action.getFunction(), view, action.getValues());
+        }
     }
 
     public void mapObject(String name, Object object) {

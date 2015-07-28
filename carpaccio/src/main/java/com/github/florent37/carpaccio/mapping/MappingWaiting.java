@@ -2,19 +2,37 @@ package com.github.florent37.carpaccio.mapping;
 
 import android.view.View;
 
+import com.github.florent37.carpaccio.model.CarpaccioAction;
+
 /**
  * Created by florentchampigny on 23/07/15.
  */
-public class MappingWaiting { //for setText($user.getName())
+public class MappingWaiting {
     public View view;
-    public String function; //the function name : setText
-    public String call; //the complete call : user.getName()
-    public String objectName; //the mapped name : user
+    public CarpaccioAction carpaccioAction;
+    public String call; // "user.getName()"
+    public String objectName; //"user"
 
-    public MappingWaiting(View view, String function, String call, String objectName) {
+    public MappingWaiting(View view, CarpaccioAction carpaccioAction, String call, String objectName) {
         this.view = view;
-        this.function = function;
+        this.carpaccioAction = carpaccioAction;
         this.call = call;
         this.objectName = objectName;
+    }
+
+    public View getView() {
+        return view;
+    }
+
+    public CarpaccioAction getCarpaccioAction() {
+        return carpaccioAction;
+    }
+
+    public String getCall() {
+        return call;
+    }
+
+    public String getObjectName() {
+        return objectName;
     }
 }
