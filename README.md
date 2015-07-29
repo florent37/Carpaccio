@@ -220,7 +220,7 @@ Usage :
       " />
 ```
 
-[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/bind_list/screenshot/blur_small.png)]
+[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/blur_small.png)]
 
 You can greyScale an ImageView
 
@@ -242,7 +242,7 @@ Usage :
       " />
 ```
 
-[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/bind_list/screenshot/greyscale_small.png)]
+[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/greyscale_small.png)]
 
 And display your image with a material animation
 Usage : **animateMaterial(duration)**
