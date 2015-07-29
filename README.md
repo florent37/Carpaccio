@@ -1,8 +1,9 @@
 # Carpaccio
 
-Make your view smarter !
+Data Mapping framework for android
 
-Your view evolved and now can call functions
+With Carpaccio, your views became smarter, instead of calling functions on views, now your views can call functions !
+You no longer need to extend a view to set a custom behavior
 
 #Usage
 
