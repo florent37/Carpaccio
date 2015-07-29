@@ -286,3 +286,50 @@ Usage :
 
 </com.github.florent37.carpaccio.Carpaccio>
 ```
+
+##CommonViewController
+
+Usage :
+
+* **adapter(listMappedName,cellLayoutName)**
+
+```xml
+<android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:tag="
+                adapter(user,R.layout.cell_user)
+            "
+            />
+```
+
+* **clickStartActivity(activityName) **
+
+```xml
+<Button
+      android:tag="clickStartActivity(.MainActivitySample)"
+      />
+
+<Button
+      android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivitySample)"
+      />
+
+<Button
+      android:tag="clickStartActivity($activity1)"
+      />
+```
+
+* **margin(top,right,bottom,left)** & **padding(top,right,bottom,left)**
+
+```xml
+<View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:tag="
+                margin(0,10,0,0);
+                padding(5,0,5,0);
+            "
+            />
+```
