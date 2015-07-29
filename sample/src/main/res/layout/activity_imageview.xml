@@ -18,7 +18,6 @@
             android:layout_height="250dp"
             android:layout_gravity="center"
             android:tag="
-                    kenburns();
                     url(http://i.imgur.com/DvpvklR.png);
             " />
 

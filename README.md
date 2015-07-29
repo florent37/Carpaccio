@@ -188,6 +188,8 @@ Usage : **url(imageUrl)**
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/url_small.png)
+
 Usage : **kenburns()**
 
 ```xml
@@ -220,7 +222,7 @@ Usage :
       " />
 ```
 
-[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/blur_small.png)]
+![blur](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/blur_small.png)
 
 You can greyScale an ImageView
 
@@ -242,7 +244,7 @@ Usage :
       " />
 ```
 
-[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/greyscale_small.png)]
+![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/greyscale_small.png)
 
 And display your image with a material animation
 Usage : **animateMaterial(duration)**
