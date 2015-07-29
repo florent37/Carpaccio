@@ -19,9 +19,11 @@ public class MainActivitySample extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        carpaccio.mapObject("user1", new User("florent", "http://i.imgur.com/DvpvklR.png"));
-        carpaccio.mapObject("user2", new User("champigny", null));
-        carpaccio.mapObject("user3", new User("FROM android:text", null));
+        carpaccio.mapObject("user", new User("florent", "http://imgur.com/DSjXNox"));
+
+        //carpaccio.mapObject("user1", new User("florent", "http://i.imgur.com/DvpvklR.png"));
+        //carpaccio.mapObject("user2", new User("champigny", null));
+        //carpaccio.mapObject("user3", new User("FROM android:text", null));
     }
 
 

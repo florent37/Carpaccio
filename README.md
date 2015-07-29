@@ -17,24 +17,23 @@ Your view evolved and now can call functions
         ">
 
         <ImageView
-             android:layout_width="match_parent"
-             android:layout_height="150dp"
-             android:tag="
-                 url(http://i.imgur.com/DvpvklR.png)
-             " />
+               android:layout_width="match_parent"
+               android:layout_height="150dp"
+               android:scaleType="centerCrop"
+               android:tag="url(http://i.imgur.com/DSjXNox.jpg)" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hi, how are you ?"
             android:textSize="20sp"
             android:tag="
-                font(Roboto-Light.ttf);
-                setText($user.getName())
-            "/>
+                font(Roboto-Thin.ttf);
+                setText($user.name);"/>
 
 </com.github.florent37.carpaccio.Carpaccio>
 ```
+
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/sample_small.png)
 
 #Download
 

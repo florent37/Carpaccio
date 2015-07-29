@@ -1,9 +1,49 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/carpaccio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    app:register="
+            com.github.florent37.carpacciocontrollers.ImageViewController;
+            com.github.florent37.carpacciocontrollers.TextViewController
+        ">
+
+    <android.support.v7.widget.CardView
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:tag="
+                    url(http://i.imgur.com/DSjXNox.jpg)
+                " />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:padding="10dp"
+                android:tag="
+                    font(Roboto-Thin.ttf);
+                    setText($user.name);
+                "
+                android:textSize="20sp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</com.github.florent37.carpaccio.Carpaccio>
+
+    <!--
 
     <com.github.florent37.carpaccio.Carpaccio
         android:id="@+id/carpaccio"
@@ -89,4 +129,4 @@
 
     </com.github.florent37.carpaccio.Carpaccio>
 
-</RelativeLayout>
+    -->
