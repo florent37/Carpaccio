@@ -34,7 +34,7 @@ You no longer need to extend a view to set a custom behavior
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
-![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/sample_small.png)
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/sample_crop.png)
 
 #Download
 
