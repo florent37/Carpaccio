@@ -1,9 +1,12 @@
 # Carpaccio
 
-Data Mapping framework for android
+**Data Mapping & Smarter Views framework for android**
 
 With Carpaccio, your views became smarter, instead of calling functions on views, now your views can call functions !
 You no longer need to extend a view to set a custom behavior
+
+Carpaccio also come with a mapping
+
 
 #Usage
 
@@ -63,7 +66,7 @@ Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
 carpaccio.mapObject("user",new User("florent"));
 ```
 
-![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/set_text.png)
+![set_text](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/set_text.png)
 
 You can also specify a method (must return a String)
 
@@ -85,7 +88,9 @@ And simplify the method name
 
 ##ListView / RecyclerView
 
-[![Video](http://share.gifyoutube.com/yAp6Lw.gif)](https://youtu.be/alE3Pewmulo)
+You dreamed it, Carpaccio did it ! You can now bind a List with a RecyclerView !
+
+![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_small.png)
 
 R.layout.activity_main_recyclerview_mapping
 ```xml
@@ -126,6 +131,8 @@ setContentView(R.layout.activity_main_recyclerview_mapping);
 Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
 carpaccio.mapList("user", this.users);
 ```
+
+[![Video](http://share.gifyoutube.com/yAp6Lw.gif)](https://youtu.be/alE3Pewmulo)
 
 #Customize
 
@@ -290,16 +297,10 @@ And provides a data binding setText
 Usage : **setText($variable)** or **setText($variable.function())**
 
 ```xml
-<com.github.florent37.carpaccio.Carpaccio
-        app:register="
-            com.github.florent37.carpacciocontrollers.TextViewController;
-        ">
-
-        <TextView
-             android:tag="
-                 setText($user)
-             "/>
-</com.github.florent37.carpaccio.Carpaccio>
+<TextView
+     android:tag="
+         setText($user)
+     "/>
 ```
 
 ##ParallaxViewController
