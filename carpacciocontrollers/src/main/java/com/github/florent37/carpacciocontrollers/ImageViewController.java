@@ -1,11 +1,16 @@
 package com.github.florent37.carpacciocontrollers;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpacciocontrollers.helper.FastBlurHelper;
 import com.github.florent37.carpacciocontrollers.helper.GrayScaleHelper;
 import com.github.florent37.carpacciocontrollers.transformation.BlurTransformation;
@@ -16,6 +21,10 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Transformation;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,22 +60,37 @@ public class ImageViewController {
     }
 
     public void url(final ImageView imageView, String url) {
-        RequestCreator requestCreator = Picasso.with(imageView.getContext()).load(url);
-        if (transformations.get(imageView) != null) {
-            requestCreator = requestCreator.transform(transformations.get(imageView));
-            transformations.remove(imageView);
+
+        if(Carpaccio.IN_EDIT_MODE) {
+            try {
+                URL src = new URL(url);
+                HttpURLConnection connection = (HttpURLConnection) src.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                imageView.setImageBitmap(myBitmap);
+            } catch (Exception e) {
+                imageView.setImageDrawable(new ColorDrawable(Color.parseColor("#3E3E3E")));
+            }
+        }else {
+            RequestCreator requestCreator = Picasso.with(imageView.getContext()).load(url);
+            if (transformations.get(imageView) != null) {
+                requestCreator = requestCreator.transform(transformations.get(imageView));
+                transformations.remove(imageView);
+            }
+            requestCreator.into(imageView, new Callback() {
+                @Override
+                public void onSuccess() {
+                    onImageLoadedFromUrl(imageView);
+                }
+
+                @Override
+                public void onError() {
+
+                }
+            });
         }
-        requestCreator.into(imageView, new Callback() {
-            @Override
-            public void onSuccess() {
-                onImageLoadedFromUrl(imageView);
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
     }
 
     //can be overrided
