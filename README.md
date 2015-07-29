@@ -7,7 +7,7 @@
 With Carpaccio, your views became smarter, instead of calling functions on views, now your views can call functions !
 You no longer need to extend a view to set a custom behavior
 
-Carpaccio also come with a mapping
+Carpaccio also come with a beautiful mapping engine !
 
 
 #Usage
@@ -153,7 +153,8 @@ carpaccio.mapList("user", this.users);
 
 #Customize
 
-Create a custom ViewControllers, for example **MyViewController**
+You can add you own functions to Carpaccio, simply create a custom ViewControllers,
+for example **MyViewController**
 
 ```java
 public class MyViewController{
@@ -184,7 +185,7 @@ Then you can use it into your layout
 
 #ViewControllers
 
-Carpaccio provide some ViewControllers, you can import them directly into your project
+Carpaccio provide some awesome ViewControllers, you can import them directly into your project
 
 Add into your **build.gradle**
 
@@ -390,7 +391,7 @@ Usage :
 
 Open an activity onClick
 
-Usage :
+
 * **clickStartActivity(activityName) **
 
 ```xml
@@ -407,7 +408,19 @@ Usage :
       />
 ```
 
-Usage :
+Replace by another View class
+
+```xml
+<ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+
+      android:tag="
+          replace(com.github.ksoichiro.android.observablescrollview.ObservableScrollView);
+      "
+      />
+```
+
 
 * **margin(top,right,bottom,left)** & **padding(top,right,bottom,left)**
 
