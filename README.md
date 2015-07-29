@@ -315,6 +315,15 @@ Usage : **setText($variable)** or **setText($variable.function())**
      "/>
 ```
 
+Or directly on the android:text
+
+Usage : **android:text="$variable"**
+
+```xml
+<TextView
+     android:text="$user"/>
+```
+
 ##ParallaxViewController
 
 ParallaxViewController can add a parallax effect on ScrollView childs
