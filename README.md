@@ -53,6 +53,8 @@ compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
 }
 ```
 
+------------
+
 #DataBinding
 
 ```xml
@@ -89,6 +91,8 @@ And simplify the method name
             setText($user.name)
        "/>
 ```
+
+------------
 
 ##RecyclerView Mapping
 
