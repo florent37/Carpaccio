@@ -11,11 +11,11 @@ You no longer need to extend a view to set a custom behavior
 
 Carpaccio also come with a beautiful mapping engine !
 
-#Magic
+#This is kind of magic !
 
 You can preview custom fonts & image loaded from url directly from Android Studio Preview !
 
-![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_font_small.png)
+![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_ttf_small.png)
 ![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
 
 #Usage
