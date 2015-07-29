@@ -1,6 +1,8 @@
 package com.github.florent37.carpaccio;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.florent37.carpaccio.mapping.MappingManager;
@@ -10,22 +12,30 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyBoolean;
+import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by florentchampigny on 24/07/15.
@@ -41,6 +51,7 @@ public class CarpaccioManagerTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         Log.ENABLE_LOG = false;
+        Carpaccio.IN_EDIT_MODE = false;
         carpaccioManager = new CarpaccioManager(mappingManager);
     }
 
@@ -48,6 +59,7 @@ public class CarpaccioManagerTest {
     public void testAddView() throws Exception {
         View view = mock(View.class);
         doReturn("setColor()").when(view).getTag();
+
         carpaccioManager.addView(view);
 
         assertTrue(carpaccioManager.carpaccioViews.contains(view));
@@ -192,6 +204,7 @@ public class CarpaccioManagerTest {
 
         TextView textView = mock(TextView.class);
         doReturn("setText(florent)").when(textView).getTag();
+        doReturn("setText(florent)").when(textView).getTag();
 
         carpaccioManager.carpaccioViews.add(textView);
         carpaccioManager.registerControllers.add(controller);
@@ -200,6 +213,80 @@ public class CarpaccioManagerTest {
 
         verify(controller, atLeastOnce()).setText(eq(textView), eq("florent"));
         verify(textView, atLeastOnce()).setText(eq("florent"));
+    }
+
+    Object tmpTag;
+
+    @Test
+    public void testExecuteActionsOnViews_text() throws Exception {
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("$user.name").when(textView).getText();
+
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                tmpTag = invocation.getArguments()[0];
+                return null;
+            }
+        }).when(textView).setTag(any());
+
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnViews();
+
+        assertNotNull(tmpTag);
+    }
+
+    @Test
+    public void testExecuteActionsOnViews_text_tagString() throws Exception {
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("$user.name").when(textView).getText();
+        doReturn("setFont(font)").when(textView).getTag();
+
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                tmpTag = invocation.getArguments()[0];
+                return null;
+            }
+        }).when(textView).setTag(any());
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnViews();
+
+        assertEquals("setFont(font);setText($user.name)", tmpTag);
+    }
+
+    @Test
+    public void testExecuteActionsOnViews_text_tagList() throws Exception {
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("$user.name").when(textView).getText();
+
+        List<CarpaccioAction> actions = new ArrayList<>();
+        actions.add(new CarpaccioAction("setFont(font)"));
+
+        doReturn(actions).when(textView).getTag();
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnViews();
+
+        List<CarpaccioAction> expected = new ArrayList<>();
+        expected.add(new CarpaccioAction("setFont(font)"));
+        expected.add(new CarpaccioAction("setText($user.name)"));
+
+        assertEquals(expected,textView.getTag());
     }
 
     @Test
@@ -215,6 +302,41 @@ public class CarpaccioManagerTest {
         carpaccioManager.executeActionsOnView(textView);
 
         verify(controller, atLeastOnce()).setColor(eq(textView), eq(1));
+    }
+
+    @Test
+    public void testExecuteActionsOnView_mapping() throws Exception {
+        Controller controller = spy(new Controller());
+
+        TextView textView = mock(TextView.class);
+        doReturn("setText($user.name)").when(textView).getTag();
+        doNothing().when(mappingManager).callMappingOnView(any(CarpaccioAction.class),any(View.class),anyObject());
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnView(textView);
+
+        verify(mappingManager, atLeastOnce()).callMappingOnView(any(CarpaccioAction.class), any(View.class), anyObject());
+        verify(controller, never()).setText(eq(textView), anyString());
+    }
+
+    @Test
+    public void testExecuteActionsOnView_mapping_EDIT_MODE() throws Exception {
+        Controller controller = spy(new Controller());
+
+        Carpaccio.IN_EDIT_MODE = true;
+
+        TextView textView = mock(TextView.class);
+        doReturn("setText($user.name)").when(textView).getTag();
+        doNothing().when(mappingManager).callMappingOnView(any(CarpaccioAction.class), any(View.class), anyObject());
+
+        carpaccioManager.carpaccioViews.add(textView);
+        carpaccioManager.registerControllers.add(controller);
+
+        carpaccioManager.executeActionsOnView(textView);
+
+        verify(controller, atLeastOnce()).setText(eq(textView), eq("$user.name"));
     }
 
     @Test
@@ -260,4 +382,67 @@ public class CarpaccioManagerTest {
         verify(carpaccioManager.mappingManager, atLeastOnce()).mapObject(eq(name), eq(object));
     }
 
+    @Test
+    public void testMapList() throws Exception {
+        List list = new ArrayList();
+
+        RecyclerView.Adapter adapter = mock(RecyclerView.Adapter.class);
+
+        carpaccioManager.registerAdapters.put("users", adapter);
+
+        try {
+            carpaccioManager.mapList("users", list);
+        }catch (Exception e){
+            //adapter.notifyDataSetChanged() throws exception on tests
+        }
+        verify(mappingManager).mapList(eq("users"), eq(list));
+    }
+
+    @Test
+    public void testGetMappedList() throws Exception {
+        carpaccioManager.getMappedList("users");
+        verify(mappingManager).getMappedList(eq("users"));
+    }
+
+    @Test
+    public void testGetMappedList_null() throws Exception {
+        carpaccioManager.getMappedList(null);
+        verify(mappingManager,never()).getMappedList(eq("users"));
+    }
+
+    @Test
+    public void testRegisterAdapter() throws Exception {
+        RecyclerView.Adapter adapter = mock(RecyclerView.Adapter.class);
+
+        carpaccioManager.registerAdapter("users", adapter);
+
+        assertEquals(adapter, carpaccioManager.registerAdapters.get("users"));
+    }
+
+    @Test
+    public void findCarpaccioControlledViews() throws Exception {
+        View view = mock(View.class);
+
+        doReturn("setText(florent)").when(view).getTag();
+
+        carpaccioManager.findCarpaccioControlledViews(view);
+
+        assertTrue(carpaccioManager.carpaccioViews.contains(view));
+    }
+
+    @Test
+    public void findCarpaccioControlledViews_viewGroup() throws Exception {
+
+        ViewGroup viewGroup = mock(ViewGroup.class);
+        doReturn(1).when(viewGroup).getChildCount();
+        View view = mock(View.class);
+        doReturn(view).when(viewGroup).getChildAt(0);
+
+        doReturn("setText(florent)").when(view).getTag();
+
+        carpaccioManager.findCarpaccioControlledViews(viewGroup);
+
+        assertTrue(carpaccioManager.carpaccioViews.contains(view));
+        assertFalse(carpaccioManager.carpaccioViews.contains(viewGroup));
+    }
 }

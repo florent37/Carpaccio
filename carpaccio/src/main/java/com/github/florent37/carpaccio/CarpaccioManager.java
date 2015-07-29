@@ -20,6 +20,7 @@ import java.util.Map;
  */
 public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
+    private static final String TAG = "CarpaccioManager";
     protected List<View> carpaccioViews = new ArrayList<>();
     protected Map<String, Object> registerAdapters = new HashMap<>();
     protected List<Object> registerControllers = new ArrayList<>();
@@ -106,10 +107,9 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                     if (mappingManager != null && action.isCallMapping()) {
                         mappingManager.callMappingOnView(action, view, mappedObject);
 
-                        if(Carpaccio.IN_EDIT_MODE)
+                        if (Carpaccio.IN_EDIT_MODE)
                             callActionOnView(action, view);
-                    }
-                    else //an usual function setText(florent)
+                    } else //an usual function setText(florent)
                         callActionOnView(action, view);
                 }
 
@@ -119,16 +119,16 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
             String text = ((TextView) view).getText().toString().trim();
 
             if (text.startsWith("$")) {
-                if(mappingManager != null) {
-                    String textAction = "setText("+text+")";
+                if (mappingManager != null) {
+                    String textAction = "setText(" + text + ")";
                     CarpaccioAction carpaccioAction = new CarpaccioAction(textAction);
-                    if(view.getTag() != null) {
+                    if (view.getTag() != null) {
                         if (view.getTag() instanceof String)
                             view.setTag(view.getTag() + ";" + textAction);
-                        else if(view.getTag() instanceof List){
-                            ((List)view.getTag()).add(carpaccioAction);
+                        else if (view.getTag() instanceof List) {
+                            ((List) view.getTag()).add(carpaccioAction);
                         }
-                    }else{
+                    } else {
                         List<CarpaccioAction> actions = new ArrayList<>();
                         actions.add(carpaccioAction);
                         view.setTag(actions);
@@ -142,20 +142,20 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     public void callActionOnView(CarpaccioAction action, View view) {
         //find the controller for this call
         ObjectAndMethod objectAndMethod = action.getObjectAndMethod();
-        if(objectAndMethod == null){
+        if (objectAndMethod == null) {
             //check if cached it
             String key = action.getFunction() + (action.getArgs().length + 1);
 
             objectAndMethod = savedControllers.get(key);
 
-            if(objectAndMethod == null) { //if not cached,
+            if (objectAndMethod == null) { //if not cached,
                 objectAndMethod = CarpaccioHelper.findObjectWithThisMethod(this.registerControllers, action.getFunction(), action.getArgs().length + 1); //+1 for the view
-                savedControllers.put(key,objectAndMethod);
+                savedControllers.put(key, objectAndMethod);
             }
             action.setObjectAndMethod(objectAndMethod);
         }
 
-        if(objectAndMethod != null){
+        if (objectAndMethod != null) {
             //call !
             CarpaccioHelper.callMethod(action.getObjectAndMethod().getObject(), action.getObjectAndMethod().getMethod(), action.getFunction(), view, action.getValues());
         }
@@ -211,9 +211,17 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     public void notifyAdapterDataSetChanded(Object adapter) {
         if (adapter != null) {
             if (adapter instanceof RecyclerView.Adapter) {
-                ((RecyclerView.Adapter) adapter).notifyDataSetChanged();
+                try {
+                    ((RecyclerView.Adapter) adapter).notifyDataSetChanged();
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage(), e);
+                }
             } else if (adapter instanceof BaseAdapter) {
-                ((BaseAdapter) adapter).notifyDataSetChanged();
+                try {
+                    ((BaseAdapter) adapter).notifyDataSetChanged();
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage(), e);
+                }
             }
         }
     }
