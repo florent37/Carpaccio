@@ -210,14 +210,14 @@ Usage :
 
 ```xml
 <ImageView
-      android:tag="`
+      android:tag="
            willBlur();
            url(http://i.imgur.com/DvpvklR.png);
       " />
 
 <ImageView
       android:src="@drawable/my_image"
-      android:tag="`
+      android:tag="
            blur()
       " />
 ```
@@ -232,14 +232,14 @@ Usage :
 
 ```xml
 <ImageView
-      android:tag="`
+      android:tag="
            willGreyScale();
            url(http://i.imgur.com/DvpvklR.png);
       " />
 
 <ImageView
       android:src="@drawable/my_image"
-      android:tag="`
+      android:tag="
            greyScale()
       " />
 ```
@@ -251,7 +251,7 @@ Usage : **animateMaterial(duration)**
 
 ```xml
 <ImageView
-      android:tag="`
+      android:tag="
            animateMaterial(6000);
            url(http://i.imgur.com/DvpvklR.png);
       " />
