@@ -1,5 +1,7 @@
 # Carpaccio
 
+![logo](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/carpaccio.png)
+
 **Data Mapping & Smarter Views framework for android**
 
 With Carpaccio, your views became smarter, instead of calling functions on views, now your views can call functions !

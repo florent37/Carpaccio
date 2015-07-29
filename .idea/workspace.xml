@@ -27,8 +27,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/screenshot/carpaccio.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Carpaccio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,8 +96,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82435596">
-              <caret line="426" column="42" selection-start-line="426" selection-start-column="42" selection-end-line="426" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.07025761">
+              <caret line="2" column="89" selection-start-line="2" selection-start-column="89" selection-end-line="2" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -3764,8 +3764,8 @@
       <recent name="com.github.florent37.carpacciocontrollers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/sample/src/main/assets/fonts" />
       <recent name="$PROJECT_DIR$/screenshot" />
+      <recent name="$PROJECT_DIR$/sample/src/main/assets/fonts" />
       <recent name="$PROJECT_DIR$/sample/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers" />
       <recent name="$PROJECT_DIR$/sample/src/main/res/drawable" />
@@ -4744,8 +4744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82435596">
-          <caret line="426" column="42" selection-start-line="426" selection-start-column="42" selection-end-line="426" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.07025761">
+          <caret line="2" column="89" selection-start-line="2" selection-start-column="89" selection-end-line="2" selection-end-column="89" />
           <folding />
         </state>
       </provider>
