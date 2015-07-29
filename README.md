@@ -49,6 +49,9 @@ Add into your **build.gradle**
 compile ('com.github.florent37:carpaccio:1.0.0'){
     transitive=true
 }
+compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
+    transitive=true
+}
 ```
 
 #DataBinding
