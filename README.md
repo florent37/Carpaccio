@@ -249,7 +249,7 @@ Usage : **animateMaterial(duration)**
       " />
 ```
 
-
+[![Video](http://i.giphy.com/3oEdv8AgTYjjVmONhK.gif)](https://youtu.be/A0eyvpNh5wM)
 
 ##TextViewController
 
