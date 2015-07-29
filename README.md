@@ -94,14 +94,24 @@ You dreamed it, Carpaccio did it ! You can now bind a List with a RecyclerView !
 
 R.layout.activity_main_recyclerview_mapping
 ```xml
-<android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+<com.github.florent37.carpaccio.Carpaccio
+        android:id="@+id/carpaccio"
+        app:register="
+            com.github.florent37.carpacciocontrollers.CommonViewController;
+            com.github.florent37.carpacciocontrollers.ImageViewController;
+            com.github.florent37.carpacciocontrollers.TextViewController;
+        ">
 
-            android:tag="
-                adapter(user,R.layout.cell_user)
-            "
-            />
+        <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:tag="
+                        adapter(user,R.layout.cell_user)
+                    "
+                    />
+
+</com.github.florent37.carpaccio.Carpaccio>
 ```
 
 R.layout.cell_user
