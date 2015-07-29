@@ -126,6 +126,8 @@ R.layout.cell_user
 </LinearLayout>
 ```
 
+Finally, in your activiy/fragment you just have to indicate the List to map !
+
 ```java
 setContentView(R.layout.activity_main_recyclerview_mapping);
 Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
