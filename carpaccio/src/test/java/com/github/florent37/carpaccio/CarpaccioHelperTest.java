@@ -456,5 +456,4 @@ public class CarpaccioHelperTest {
         assertNull(CarpaccioHelper.stringToNumber("3",String.class));
     }
 
-
 }
