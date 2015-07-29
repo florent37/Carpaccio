@@ -415,5 +415,15 @@ Usage :
 
 ##AnimationViewController
 
+Easings :
+* easeIn : accelerate
+* easeOut : descelerate
+* easeInOut : accelerate then descelerate
+
+* **animateAphaIn(duration,easing)**
+* **animateScaleUp(duration,easing)**
+* **animateEnterY(translationY,duration,easing)**
+* **animateEnterX(translationX,duration,easing)**
+* **animateEnter(translationX,translationY,duration,easing)**
 
 
