@@ -91,7 +91,6 @@ public class CarpaccioHelper {
                 }
             }
         }
-
         return out;
     }
 
@@ -115,15 +114,11 @@ public class CarpaccioHelper {
     public static Object removeTag(View view, String actionName) {
         if (view.getTag() != null && view.getTag() instanceof List && actionName!= null) {
             List<CarpaccioAction> actions = (List<CarpaccioAction>) view.getTag();
-            List<CarpaccioAction> newActions = new ArrayList<>(actions);
-            int index = -1;
-            int count = actions.size();
-            for (int i = 0; i < count; ++i) {
-                if (actions.get(i).getCompleteCall().equals(actionName))
-                    index = i;
+            List<CarpaccioAction> newActions = new ArrayList<>();
+            for (int i = 0, count = actions.size(); i < count; ++i) {
+                if (!actions.get(i).getCompleteCall().equals(actionName))
+                    newActions.add(actions.get(i));
             }
-            if (index != -1)
-                newActions.remove(index);
 
             return newActions;
         }
@@ -137,6 +132,28 @@ public class CarpaccioHelper {
         for (int i = 0; i < strings.length; ++i)
             strings[i] = strings[i].trim();
         return strings;
+    }
+
+    public static ObjectAndMethod findObjectWithThisMethod(List<Object> objects, String function, int numberOfParams) {
+        if (objects != null && function != null) {
+            Method method;
+            Object object;
+            int numberOfObjects = objects.size();
+            for (int j = 0; j < numberOfObjects; ++j) {
+                object = objects.get(j);
+                int methodCount = object.getClass().getMethods().length;
+                for (int i = 0; i < methodCount; ++i) {
+                    method = object.getClass().getMethods()[i];
+                    if (function.equals(method.getName()) && method.getParameterTypes().length == numberOfParams) {
+                        return new ObjectAndMethod(object, method);
+                    }
+                }
+            }
+
+            Log.v(TAG, "can't find controller with the method " + function+" , controllers="+objects.toString());
+        }
+
+        return null;
     }
 
     /**
@@ -170,16 +187,13 @@ public class CarpaccioHelper {
     }
 
     public static Method callMethod(Object object, Method method, String name, View view, Object[] args) {
-        if (method != null) {
+        if (method != null && object != null) {
             try {
                 method.invoke(object, getArgumentsWithView(view, method.getParameterTypes(), args));
                 return method;
             } catch (Exception e) {
                 Log.e(TAG, object.getClass() + " cannot invoke method " + name);
             }
-        } else {
-            if (LOG_FAILURES)
-                Log.v(TAG, object.getClass() + " does not contains the method " + name);
         }
 
         return null;
@@ -237,7 +251,7 @@ public class CarpaccioHelper {
         try {
             return Integer.parseInt(s);
         } catch (NumberFormatException e) {
-            android.util.Log.d(TAG, s + " is not an integer", e);
+            Log.e(TAG, s + " is not an integer", e);
             return null;
         }
     }
@@ -246,7 +260,7 @@ public class CarpaccioHelper {
         try {
             return Double.parseDouble(s);
         } catch (NumberFormatException e) {
-            android.util.Log.d(TAG, s + " is not an double", e);
+            Log.e(TAG, s + " is not an double", e);
             return null;
         }
     }
@@ -255,7 +269,7 @@ public class CarpaccioHelper {
         try {
             return Long.parseLong(s);
         } catch (NumberFormatException e) {
-            android.util.Log.d(TAG, s + " is not a long", e);
+            Log.e(TAG, s + " is not a long", e);
             return null;
         }
     }
@@ -264,7 +278,7 @@ public class CarpaccioHelper {
         try {
             return Float.parseFloat(s);
         } catch (NumberFormatException e) {
-            android.util.Log.d(TAG, s + " is not a long", e);
+            Log.e(TAG, s + " is not a long", e);
             return null;
         }
     }
@@ -306,7 +320,7 @@ public class CarpaccioHelper {
     }
 
     public static <T extends View> T findParentOfClass(View view, Class<T> theClass) {
-        if (view.getClass().equals(theClass))
+        if (theClass.isAssignableFrom(view.getClass()))
             return (T) view;
         else if (view.getParent() != null && view.getParent() instanceof View)
             return findParentOfClass((View) view.getParent(), theClass);
@@ -323,24 +337,5 @@ public class CarpaccioHelper {
         if (carpaccio != null) {
             carpaccio.addCarpaccioView(view);
         }
-    }
-
-    public static ObjectAndMethod findObjectWithThisMethod(List<Object> objects, String function, int numberOfParams) {
-        if (objects != null && function != null) {
-            Method method;
-            Object object;
-            int numberOfObjects = objects.size();
-            for (int j = 0; j < numberOfObjects; ++j) {
-                object = objects.get(j);
-                int methodCount = object.getClass().getMethods().length;
-                for (int i = 0; i < methodCount; ++i) {
-                    method = object.getClass().getMethods()[i];
-                    if (function.equals(method.getName()) && method.getParameterTypes().length == numberOfParams) {
-                        return new ObjectAndMethod(object, method);
-                    }
-                }
-            }
-        }
-        return null;
     }
 }

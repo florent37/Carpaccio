@@ -1,19 +1,26 @@
 package com.github.florent37.carpaccio;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.github.florent37.carpaccio.model.CarpaccioAction;
+import com.github.florent37.carpaccio.model.ObjectAndMethod;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -21,15 +28,17 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 /**
  * Created by florentchampigny on 24/07/15.
  */
 public class CarpaccioHelperTest {
-/*
+
     @Before
     public void setUp() throws Exception {
         Log.ENABLE_LOG = false;
@@ -56,9 +65,9 @@ public class CarpaccioHelperTest {
 
     @Test
     public void testGetClasses() throws Exception {
-        Class[] expectedClasses = new Class[]{String.class,Integer.class,Float.class};
+        Class[] expectedClasses = new Class[]{String.class, Integer.class, Float.class};
 
-        Object[] objects = new Object[]{"florent",Integer.valueOf(1),Float.valueOf(2.0f)};
+        Object[] objects = new Object[]{"florent", Integer.valueOf(1), Float.valueOf(2.0f)};
 
         Class[] outClasses = CarpaccioHelper.getClasses(objects);
         assertArrayEquals(expectedClasses, outClasses);
@@ -66,9 +75,9 @@ public class CarpaccioHelperTest {
 
     @Test
     public void testGetClassesWithHeaderClass() throws Exception {
-        Class[] expectedClasses = new Class[]{View.class, String.class,Integer.class,Float.class};
+        Class[] expectedClasses = new Class[]{View.class, String.class, Integer.class, Float.class};
 
-        Object[] objects = new Object[]{"florent",Integer.valueOf(1),Float.valueOf(2.0f)};
+        Object[] objects = new Object[]{"florent", Integer.valueOf(1), Float.valueOf(2.0f)};
 
         Class[] outClasses = CarpaccioHelper.getClassesWithHeaderClass(objects, View.class);
         assertArrayEquals(expectedClasses, outClasses);
@@ -77,43 +86,43 @@ public class CarpaccioHelperTest {
     @Test
     public void testGetArguments() throws Exception {
         Class viewClass = TextView.class;
-        TextView textView = Mockito.mock(TextView.class);
+        TextView textView = mock(TextView.class);
 
-        String[] args = new String[]{"value1","value2"};
+        String[] args = new String[]{"value1", "value2"};
 
-        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View)textView, new Class[]{TextView.class,String.class,String.class}, args);
+        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View) textView, new Class[]{TextView.class, String.class, String.class}, args);
 
-        Object[] expectedArgs = new Object[]{textView,"value1","value2"};
+        Object[] expectedArgs = new Object[]{textView, "value1", "value2"};
 
-        assertArrayEquals(expectedArgs,outArgs);
+        assertArrayEquals(expectedArgs, outArgs);
         assertTrue(outArgs[0] instanceof TextView);
     }
 
     @Test
     public void testGetArguments_numeric() throws Exception {
         Class viewClass = TextView.class;
-        TextView textView = Mockito.mock(TextView.class);
+        TextView textView = mock(TextView.class);
 
-        String[] args = new String[]{"value1","1","1.2"};
+        String[] args = new String[]{"value1", "1", "1.2"};
 
-        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View)textView, new Class[]{TextView.class,String.class,Integer.class,Float.class}, args);
+        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View) textView, new Class[]{TextView.class, String.class, Integer.class, Float.class}, args);
 
-        Object[] expectedArgs = new Object[]{textView,"value1",1,1.2f};
+        Object[] expectedArgs = new Object[]{textView, "value1", 1, 1.2f};
 
-        assertArrayEquals(expectedArgs,outArgs);
+        assertArrayEquals(expectedArgs, outArgs);
         assertTrue(outArgs[0] instanceof TextView);
     }
 
     @Test
     public void testGetArguments_fail() throws Exception {
         Class viewClass = ImageView.class;
-        TextView textView = Mockito.mock(TextView.class);
+        TextView textView = mock(TextView.class);
 
-        String[] args = new String[]{"value1","value2"};
+        String[] args = new String[]{"value1", "value2"};
 
-        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View)textView,new Class[]{TextView.class,String.class,String.class}, args);
+        Object[] outArgs = CarpaccioHelper.getArgumentsWithView((View) textView, new Class[]{TextView.class, String.class, String.class}, args);
 
-        Object[] expectedArgs = new Object[]{textView,"value1","value2"};
+        Object[] expectedArgs = new Object[]{textView, "value1", "value2"};
 
         assertArrayEquals(expectedArgs, outArgs);
         assertTrue(outArgs[0] instanceof TextView);
@@ -122,12 +131,12 @@ public class CarpaccioHelperTest {
     @Test
     public void testGetFunctionName() throws Exception {
         String tag = "myFunction(arg1,arg2)";
-        assertEquals("myFunction",CarpaccioHelper.getFunctionName(tag));
+        assertEquals("myFunction", CarpaccioHelper.getFunctionName(tag));
     }
 
     @Test
     public void testGetAttributes() throws Exception {
-        String[] expectedStrings = new String[]{"arg1","arg2"};
+        String[] expectedStrings = new String[]{"arg1", "arg2"};
 
         String tag = "myFunction(arg1,arg2)";
         assertArrayEquals(expectedStrings, CarpaccioHelper.getAttributes(tag));
@@ -142,101 +151,106 @@ public class CarpaccioHelperTest {
     }
 
     @Test
-    public void testTrim() throws Exception {
-        String[] inString = new String[]{"     string1     ","     string2     "};
+    public void testRemoveTag() throws Exception {
 
-        String[] expectedStrings = new String[]{"string1","string2"};
+        List<CarpaccioAction> carpaccioActions = new ArrayList<>();
+        View view = mock(View.class);
+        doReturn(carpaccioActions).when(view).getTag();
+
+        carpaccioActions.add(new CarpaccioAction("setColor(red)"));
+        carpaccioActions.add(new CarpaccioAction("setText(florent)"));
+        carpaccioActions.add(new CarpaccioAction("setBackground(blue)"));
+
+        List<CarpaccioAction> expected = new ArrayList<>();
+        expected.add(new CarpaccioAction("setColor(red)"));
+        expected.add(new CarpaccioAction("setBackground(blue)"));
+
+        assertEquals(expected, CarpaccioHelper.removeTag(view, "setText(florent)"));
+    }
+
+    @Test
+    public void testRemoveTag_null() throws Exception {
+        View view = mock(View.class);
+        doReturn(null).when(view).getTag();
+
+        assertNull(CarpaccioHelper.removeTag(view, "setText"));
+    }
+
+    @Test
+    public void testTrim() throws Exception {
+        String[] inString = new String[]{"     string1     ", "     string2     "};
+
+        String[] expectedStrings = new String[]{"string1", "string2"};
 
         assertArrayEquals(expectedStrings, CarpaccioHelper.trim(inString));
     }
 
-    public class TestObject{
-        public void getName(View view, String argument1){}
-        public String getPseudo(){return "florent";}
-        public String getFamily(String family){return "hello "+family;}
+    public class TestObject {
+        public void getName(View view, String argument1) {
+        }
+
+        public String getPseudo() {
+            return "florent";
+        }
+
+        public String getFamily(String family) {
+            return "hello " + family;
+        }
     }
 
-    public class TestObjectFail{
-        public void getName(View view, String argument1){throw new UnknownError();}
-        public String getPseudo(){throw new UnknownError();}
+    public class TestObjectFail {
+        public void getName(View view, String argument1) {
+            throw new UnknownError();
+        }
+
+        public String getPseudo() {
+            throw new UnknownError();
+        }
     }
 
     @Test
     public void testCallFunctionOnObjects() throws Exception {
-        View mockView = Mockito.mock(View.class);
+        View mockView = mock(View.class);
 
-        TestObject spyObject1 = Mockito.spy(new TestObject());
-        TestObject spyObject2 = Mockito.spy(new TestObject());
-
-        String[] args = new String[]{"value1"};
-
-        List<Object> objects = new ArrayList<>();
-        objects.add(spyObject1);
-        objects.add(spyObject2);
-
-        boolean called = CarpaccioHelper.callFunctionOnObjects(objects, "getName", mockView, args);
-
-        assertTrue(called);
-
-        verify(spyObject1, atLeastOnce()).getName(eq(mockView), eq("value1"));
-        verify(spyObject2, never()).getName(eq(mockView),eq("value1"));
-    }
-
-    @Test
-    public void testCallFunctionOnObjects_second() throws Exception {
-        View mockView = Mockito.mock(View.class);
-
-        Object spyObject1 = Mockito.spy(new Object());
-        TestObject spyObject2 = Mockito.spy(new TestObject());
+        TestObject spyObject = spy(new TestObject());
 
         String[] args = new String[]{"value1"};
 
-        List<Object> objects = new ArrayList<>();
-        objects.add(spyObject1);
-        objects.add(spyObject2);
+        Method method = CarpaccioHelper.callFunction(spyObject, "getName", mockView, args);
 
-        boolean called = CarpaccioHelper.callFunctionOnObjects(objects, "getName", mockView, args);
+        assertNotNull(method);
 
-        assertTrue(called);
+        verify(spyObject, atLeastOnce()).getName(eq(mockView), eq("value1"));
+    }
 
-        verify(spyObject2, atLeastOnce()).getName(eq(mockView),eq("value1"));
+
+    @Test
+    public void testCallMethod() throws Exception {
+        TestObject testObject = spy(new TestObject());
+        View view = mock(View.class);
+        String arg1 = "florent";
+
+        Method method = testObject.getClass().getMethod("getName", new Class[]{View.class, String.class});
+
+        assertNotNull(CarpaccioHelper.callMethod(testObject, method, "getName", view, new Object[]{arg1}));
+        verify(testObject,atLeastOnce()).getName(eq(view),eq(arg1));
     }
 
     @Test
-    public void testCallFunctionOnObjects_null() throws Exception {
-        CarpaccioHelper.callFunctionOnObjects(null, null, null, null); //test not crash
+    public void testCallMethod_fail() throws Exception {
+        TestObject testObject = spy(new TestObject());
+        View view = mock(View.class);
+        String arg1 = "florent";
+
+        Method method = null;
+
+        assertNull(CarpaccioHelper.callMethod(testObject, method, "getName", view, new Object[]{arg1}));
+        verify(testObject,never()).getName(eq(view), eq(arg1));
     }
 
     @Test
     public void testCallFunction() throws Exception {
-        View mockView = Mockito.mock(View.class);
-
-        TestObject spyObject = Mockito.spy(new TestObject());
-
-        String[] args = new String[]{"value1"};
-
-        boolean called = CarpaccioHelper.callFunction(spyObject,"getName",mockView,args);
-
-        assertTrue(called);
-
-        verify(spyObject, atLeastOnce()).getName(eq(mockView), eq("value1"));
-        verify(spyObject, never()).getFamily(anyString());
-        verify(spyObject, never()).getPseudo();
-    }
-
-    @Test
-    public void testCallFunction_fail() throws Exception {
-        View mockView = Mockito.mock(View.class);
-
-        TestObjectFail spyObject = Mockito.spy(new TestObjectFail());
-
-        assertFalse(CarpaccioHelper.callFunction(spyObject, "getName", mockView, new String[]{"florent"}));
-
-    }
-
-    @Test
-    public void testCallFunction1() throws Exception {
-        TestObject spyObject = Mockito.spy(new TestObject());
+        TestObject spyObject = spy(new TestObject());
 
         String pseudo = CarpaccioHelper.callFunction(spyObject, "getPseudo");
 
@@ -247,8 +261,8 @@ public class CarpaccioHelperTest {
     }
 
     @Test
-    public void testCallFunction1_fail() throws Exception {
-        TestObject spyObject = Mockito.spy(new TestObject());
+    public void testCallFunction_fail() throws Exception {
+        TestObject spyObject = spy(new TestObject());
 
         String pseudo = CarpaccioHelper.callFunction(spyObject, "getEmptyNooooo");
         assertNull(pseudo);
@@ -259,12 +273,12 @@ public class CarpaccioHelperTest {
     }
 
     @Test
-    public void testCallFunction2() throws Exception {
-        TestObject spyObject = Mockito.spy(new TestObject());
+    public void testCallFunction1() throws Exception {
+        TestObject spyObject = spy(new TestObject());
 
         String[] args = new String[]{"florent"};
 
-        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily",args);
+        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily", args);
 
         assertEquals("hello florent", pseudo);
 
@@ -274,12 +288,12 @@ public class CarpaccioHelperTest {
     }
 
     @Test
-    public void testCallFunction2_fail() throws Exception {
-        TestObject spyObject = Mockito.spy(new TestObject());
+    public void testCallFunction1_fail() throws Exception {
+        TestObject spyObject = spy(new TestObject());
 
-        String[] args = new String[]{"florent","florent"};
+        String[] args = new String[]{"florent", "florent"};
 
-        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily",args);
+        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily", args);
 
         assertNull(pseudo);
 
@@ -290,11 +304,11 @@ public class CarpaccioHelperTest {
 
     @Test
     public void testCallFunction2_fail2() throws Exception {
-        TestObjectFail spyObject = Mockito.spy(new TestObjectFail());
+        TestObjectFail spyObject = spy(new TestObjectFail());
 
-        String[] args = new String[]{"florent","florent"};
+        String[] args = new String[]{"florent", "florent"};
 
-        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily",args);
+        String pseudo = CarpaccioHelper.callFunction(spyObject, "getFamily", args);
 
         assertNull(pseudo);
 
@@ -310,5 +324,137 @@ public class CarpaccioHelperTest {
         assertTrue(CarpaccioHelper.isNumber(Long.class));
     }
 
-    */
+    @Test
+    public void testFindParentOfClass() throws Exception {
+        LinearLayout linearLayout = mock(LinearLayout.class);
+        ViewGroup viewGroup = mock(ViewGroup.class);
+        View view = mock(View.class);
+        doReturn(viewGroup).when(view).getParent();
+        doReturn(linearLayout).when(viewGroup).getParent();
+
+        assertEquals(linearLayout, CarpaccioHelper.findParentOfClass(view, LinearLayout.class));
+    }
+
+    @Test
+    public void testFindParentOfClass_fail() throws Exception {
+        LinearLayout linearLayout = mock(LinearLayout.class);
+        ViewGroup viewGroup = mock(ViewGroup.class);
+        View view = mock(View.class);
+        doReturn(viewGroup).when(view).getParent();
+        doReturn(linearLayout).when(viewGroup).getParent();
+
+        assertNull(CarpaccioHelper.findParentOfClass(view, RelativeLayout.class));
+    }
+
+    @Test
+    public void testFindParentCarpaccio() throws Exception {
+        Carpaccio carpaccio = mock(Carpaccio.class);
+        ViewGroup viewGroup = mock(ViewGroup.class);
+        View view = mock(View.class);
+        doReturn(viewGroup).when(view).getParent();
+        doReturn(carpaccio).when(viewGroup).getParent();
+
+        assertEquals(carpaccio, CarpaccioHelper.findParentCarpaccio(view));
+    }
+
+    @Test
+    public void registerToParentCarpaccio() throws Exception {
+        Carpaccio carpaccio = mock(Carpaccio.class);
+        ViewGroup viewGroup = mock(ViewGroup.class);
+        View view = mock(View.class);
+        doReturn(viewGroup).when(view).getParent();
+        doReturn(carpaccio).when(viewGroup).getParent();
+
+        CarpaccioHelper.registerToParentCarpaccio(view);
+
+        verify(carpaccio, atLeastOnce()).addCarpaccioView(eq(view));
+    }
+
+    public class Controller1 {
+        public void setText(View view, String text) {
+        }
+    }
+
+    public class Controller2 {
+        public void setColor(View view, String color) {
+        }
+
+        public void setText(View view, String text, String color) {
+        }
+    }
+
+    @Test
+    public void testFindObjectWithThisMethod() throws Exception {
+        Controller1 testObject = new Controller1();
+        Controller2 testObjectfail = new Controller2();
+
+        ObjectAndMethod objectAndMethod = CarpaccioHelper.findObjectWithThisMethod(Arrays.asList(testObjectfail, testObject), "setText", 2);
+
+        assertNotNull(objectAndMethod);
+        assertEquals(testObject, objectAndMethod.getObject());
+        assertEquals("setText", objectAndMethod.getMethod().getName());
+        assertEquals(2, objectAndMethod.getMethod().getParameterTypes().length);
+    }
+
+    @Test
+    public void testFindObjectWithThisMethod_fail() throws Exception {
+        Controller2 testObjectfail1 = new Controller2();
+        Controller2 testObjectfail2 = new Controller2();
+
+        List<Object> arrayList = new ArrayList<>();
+        arrayList.add(testObjectfail1);
+        arrayList.add(testObjectfail2);
+
+        ObjectAndMethod objectAndMethod = CarpaccioHelper.findObjectWithThisMethod(arrayList, "setText", 2);
+
+        assertNull(objectAndMethod);
+    }
+
+    @Test
+    public void testStringToInt() throws Exception {
+        assertEquals(Integer.valueOf(1), CarpaccioHelper.stringToInt("1"));
+    }
+
+    @Test
+    public void testStringToInt_fail() throws Exception {
+        assertNull(CarpaccioHelper.stringToInt("aa"));
+    }
+
+    @Test
+    public void testStringToDouble() throws Exception {
+        assertEquals(Double.valueOf(2), CarpaccioHelper.stringToDouble("2"));
+    }
+
+    @Test
+    public void testStringToDouble_fail() throws Exception {
+        assertNull(CarpaccioHelper.stringToDouble("aa"));
+    }
+
+
+    @Test
+    public void testStringToFloat() throws Exception {
+        assertEquals(Float.valueOf(2.1f), CarpaccioHelper.stringToFloat("2.1"));
+    }
+
+    @Test
+    public void testStringToFloat_fail() throws Exception {
+        assertNull(CarpaccioHelper.stringToFloat("aa"));
+    }
+
+
+    @Test
+    public void testStringToLong() throws Exception {
+        assertEquals(Long.valueOf(3), CarpaccioHelper.stringToLong("3"));
+    }
+
+    @Test
+    public void testStringToNumber() throws Exception {
+        assertEquals(Integer.valueOf(3),CarpaccioHelper.stringToNumber("3",Integer.class));
+        assertEquals(Long.valueOf(3),CarpaccioHelper.stringToNumber("3",Long.class));
+        assertEquals(Float.valueOf(3),CarpaccioHelper.stringToNumber("3",Float.class));
+        assertEquals(Double.valueOf(3),CarpaccioHelper.stringToNumber("3",Double.class));
+        assertNull(CarpaccioHelper.stringToNumber("3",String.class));
+    }
+
+
 }

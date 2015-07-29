@@ -71,4 +71,20 @@ public class CarpaccioAction{
     public void setValues(String[] values) {
         this.values = values;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CarpaccioAction)) return false;
+
+        CarpaccioAction that = (CarpaccioAction) o;
+
+        return !(completeCall != null ? !completeCall.equals(that.completeCall) : that.completeCall != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return completeCall != null ? completeCall.hashCode() : 0;
+    }
 }
