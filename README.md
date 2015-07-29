@@ -9,7 +9,6 @@ You no longer need to extend a view to set a custom behavior
 
 Carpaccio also come with a beautiful mapping engine !
 
-
 #Usage
 
 ```xml
@@ -151,6 +150,8 @@ carpaccio.mapList("user", this.users);
 
 [![Video](http://share.gifyoutube.com/yAp6Lw.gif)](https://youtu.be/alE3Pewmulo)
 
+------------
+
 #Customize
 
 You can add you own functions to Carpaccio, simply create a custom ViewControllers,
@@ -182,6 +183,7 @@ Then you can use it into your layout
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
+------------
 
 #ViewControllers
 
