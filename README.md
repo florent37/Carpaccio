@@ -86,11 +86,11 @@ And simplify the method name
        "/>
 ```
 
-##ListView / RecyclerView
+##RecyclerView Mapping
 
 You dreamed it, Carpaccio did it ! You can now bind a List with a RecyclerView !
 
-![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_small.png)
+![recycler](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_small.png)
 
 R.layout.activity_main_recyclerview_mapping
 ```xml
@@ -342,7 +342,7 @@ Usage :
 
 ##CommonViewController
 
-Bind a list/recyclerview (see DataBinding)
+Bind a RecyclerView (see DataBinding)
 
 Usage :
 
@@ -393,3 +393,8 @@ Usage :
       "
       />
 ```
+
+##AnimationViewController
+
+
+
