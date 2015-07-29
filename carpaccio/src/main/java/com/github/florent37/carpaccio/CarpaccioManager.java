@@ -120,7 +120,19 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
             if (text.startsWith("$")) {
                 if(mappingManager != null) {
-                    CarpaccioAction carpaccioAction = new CarpaccioAction("setText("+text+")");
+                    String textAction = "setText("+text+")";
+                    CarpaccioAction carpaccioAction = new CarpaccioAction(textAction);
+                    if(view.getTag() != null) {
+                        if (view.getTag() instanceof String)
+                            view.setTag(view.getTag() + ";" + textAction);
+                        else if(view.getTag() instanceof List){
+                            ((List)view.getTag()).add(carpaccioAction);
+                        }
+                    }else{
+                        List<CarpaccioAction> actions = new ArrayList<>();
+                        actions.add(carpaccioAction);
+                        view.setTag(actions);
+                    }
                     mappingManager.callMappingOnView(carpaccioAction, view, null);
                 }
             }

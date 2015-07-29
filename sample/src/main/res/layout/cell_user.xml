@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
@@ -10,16 +9,11 @@
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:tag="url($user.image);"
-        android:layout_marginRight="20dp"
-        tools:background="#AAA"/>
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:tag="setText($user.name)"
-        tools:text="UserName"
-        />
-
-    <!-- do not use android:text="$user.name" in recyclerview item -->
+        android:tag="setText($user.name)" />
 
 </LinearLayout>

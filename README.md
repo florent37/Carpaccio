@@ -81,6 +81,50 @@ And simplify the method name
        "/>
 ```
 
+##ListView / RecyclerView
+
+R.layout.activity_main_recyclerview_mapping
+```xml
+<android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:tag="
+                adapter(user,R.layout.cell_user)
+            "
+            />
+```
+
+R.layout.cell_user
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:tag="url($user.image);"
+        android:layout_marginRight="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tag="setText($user.name)" />
+
+</LinearLayout>
+```
+
+```java
+setContentView(R.layout.activity_main_recyclerview_mapping);
+Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
+carpaccio.mapList("user", this.users);
+```
+
+**ADD IMAGE HERE !!!!**
+
 #Customize
 
 Create a custom ViewControllers, for example **MyViewController**
