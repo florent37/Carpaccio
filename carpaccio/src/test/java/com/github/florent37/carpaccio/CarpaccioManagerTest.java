@@ -4,11 +4,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.github.florent37.carpaccio.mapping.MappingManager;
+import com.github.florent37.carpaccio.model.CarpaccioAction;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -27,7 +31,7 @@ import static org.mockito.Mockito.verify;
  * Created by florentchampigny on 24/07/15.
  */
 public class CarpaccioManagerTest {
-/*
+
     @Mock
     MappingManager mappingManager;
 
@@ -199,7 +203,7 @@ public class CarpaccioManagerTest {
     }
 
     @Test
-    public void testExecuteActionsOnViews_int() throws Exception {
+    public void testExecuteActionsOnView() throws Exception {
         Controller controller = spy(new Controller());
 
         TextView textView = mock(TextView.class);
@@ -208,31 +212,28 @@ public class CarpaccioManagerTest {
         carpaccioManager.carpaccioViews.add(textView);
         carpaccioManager.registerControllers.add(controller);
 
-        carpaccioManager.executeActionsOnViews();
+        carpaccioManager.executeActionsOnView(textView);
 
         verify(controller, atLeastOnce()).setColor(eq(textView), eq(1));
     }
 
     @Test
-    public void testExecuteActionsOnViews_mapped() throws Exception {
-        carpaccioManager.mappingManager = mock(MappingManager.class);
-        doReturn(true).when(carpaccioManager.mappingManager).isCallMapping(any(String[].class));
-        doNothing().when(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class), null);
-
+    public void testExecuteActionsOnView_list() throws Exception {
         Controller controller = spy(new Controller());
 
         TextView textView = mock(TextView.class);
-        doReturn("setText(florent)").when(textView).getTag();
+
+        List<CarpaccioAction> carpaccioActionList = new ArrayList<>();
+        carpaccioActionList.add(new CarpaccioAction("setText(florent)"));
+        doReturn(carpaccioActionList).when(textView).getTag();
 
         carpaccioManager.carpaccioViews.add(textView);
         carpaccioManager.registerControllers.add(controller);
 
-        carpaccioManager.executeActionsOnViews();
+        carpaccioManager.executeActionsOnView(textView);
 
-        verify(carpaccioManager.mappingManager).callMapping(anyString(), any(View.class), any(String[].class), null);
+        verify(controller, atLeastOnce()).setText(eq(textView), eq("florent"));
     }
-
-
 
     @Test
     public void testExecuteActionsOnViews2() throws Exception {
@@ -251,16 +252,6 @@ public class CarpaccioManagerTest {
     }
 
     @Test
-    public void testCallFunctionOnControllers() throws Exception {
-        Controller controller = spy(new Controller());
-        TextView textView = mock(TextView.class);
-
-        carpaccioManager.callFunctionOnControllers("setText", textView, new String[]{"florent"});
-
-        verify(controller, never()).setText(eq(textView), eq("florent"));
-    }
-
-    @Test
     public void testMapObject() throws Exception {
         String name = "name";
         Object object = new Object();
@@ -268,5 +259,5 @@ public class CarpaccioManagerTest {
         carpaccioManager.mapObject(name, object);
         verify(carpaccioManager.mappingManager, atLeastOnce()).mapObject(eq(name), eq(object));
     }
-    */
+
 }
