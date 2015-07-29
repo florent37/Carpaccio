@@ -171,6 +171,8 @@ compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
 
 ##ImageViewController
 
+###Url
+
 ImageViewController can directly set an image source from an url
 
 Usage : **url(imageUrl)**
@@ -202,6 +204,7 @@ Usage : **kenburns()**
 
 [![Video](http://share.gifyoutube.com/vpMYjp.gif)](https://youtu.be/4b84gswKGkA)
 
+###Blur
 You can blur an ImageView
 
 Usage :
@@ -224,7 +227,7 @@ Usage :
 
 ![blur](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/blur_small.png)
 
-You can greyScale an ImageView
+###GreyScale
 
 Usage :
 * **willGreyScale()** if use url(www...)
@@ -246,7 +249,9 @@ Usage :
 
 ![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/greyscale_small.png)
 
-And display your image with a material animation
+###AnimateMaterial
+
+Display your image with a material animation
 Usage : **animateMaterial(duration)**
 
 ```xml
