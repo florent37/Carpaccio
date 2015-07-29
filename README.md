@@ -291,7 +291,7 @@ Usage : **animateMaterial(duration)**
 
 TextViewController can set a custom font (from assets/fonts/) to a TextView
 
-WORKS WITH ANDROID STUDIO PREVIEW !!!
+**WORKS WITH ANDROID STUDIO PREVIEW !!!**
 
 ![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_font_small.png)
 

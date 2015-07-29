@@ -56,10 +56,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/screenshot/custom_font.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_sample.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_sample.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Carpaccio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -127,8 +124,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3353028">
-              <caret line="295" column="97" selection-start-line="295" selection-start-column="97" selection-end-line="295" selection-end-column="97" />
+            <state vertical-scroll-proportion="0.29098967">
+              <caret line="293" column="41" selection-start-line="293" selection-start-column="41" selection-end-line="293" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -4781,8 +4778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3353028">
-          <caret line="295" column="97" selection-start-line="295" selection-start-column="97" selection-end-line="295" selection-end-column="97" />
+        <state vertical-scroll-proportion="0.29098967">
+          <caret line="293" column="41" selection-start-line="293" selection-start-column="41" selection-end-line="293" selection-end-column="41" />
           <folding />
         </state>
       </provider>
