@@ -198,6 +198,8 @@ Usage : **kenburns()**
       " />
 ```
 
+[![Video](http://share.gifyoutube.com/vpMYjp.gif)](https://youtu.be/4b84gswKGkA)
+
 You can blur an ImageView
 
 Usage :
@@ -218,7 +220,9 @@ Usage :
       " />
 ```
 
-You can blur an ImageView
+[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/bind_list/screenshot/blur_small.png)]
+
+You can greyScale an ImageView
 
 Usage :
 * **willGreyScale()** if use url(www...)
@@ -238,6 +242,8 @@ Usage :
       " />
 ```
 
+[![screen](https://raw.githubusercontent.com/florent37/Carpaccio/bind_list/screenshot/greyscale_small.png)]
+
 And display your image with a material animation
 Usage : **animateMaterial(duration)**
 
@@ -249,7 +255,7 @@ Usage : **animateMaterial(duration)**
       " />
 ```
 
-[![Video](http://i.giphy.com/3oEdv8AgTYjjVmONhK.gif)](https://youtu.be/A0eyvpNh5wM)
+[![Video](http://share.gifyoutube.com/mGz9OZ.gif)](https://youtu.be/A0eyvpNh5wM)
 
 ##TextViewController
 
