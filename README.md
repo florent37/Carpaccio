@@ -430,6 +430,7 @@ Easings :
 * easeOut : descelerate
 * easeInOut : accelerate then descelerate
 
+Functions :
 * **animateAphaIn(duration,easing)**
 * **animateScaleUp(duration,easing)**
 * **animateEnterY(translationY,duration,easing)**
