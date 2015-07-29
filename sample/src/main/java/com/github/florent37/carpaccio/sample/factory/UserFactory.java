@@ -13,7 +13,7 @@ public class UserFactory {
     public static List<Object> generateUserList() {
         List<Object> users = new ArrayList<>();
         for (int i = 0; i < 20; ++i) {
-            users.add(new User("User" + i, "http://lorempixel.com/" + generateRandom() + "/" + generateRandom() + "/"));
+            users.add(new User("Username n°" + i, "http://lorempixel.com/" + generateRandom() + "/" + generateRandom() + "/"));
         }
         return users;
     }

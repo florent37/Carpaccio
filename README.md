@@ -83,6 +83,8 @@ And simplify the method name
 
 ##ListView / RecyclerView
 
+[![Video](http://share.gifyoutube.com/yAp6Lw.gif)](https://youtu.be/alE3Pewmulo)
+
 R.layout.activity_main_recyclerview_mapping
 ```xml
 <android.support.v7.widget.RecyclerView
@@ -122,8 +124,6 @@ setContentView(R.layout.activity_main_recyclerview_mapping);
 Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
 carpaccio.mapList("user", this.users);
 ```
-
-**ADD IMAGE HERE !!!!**
 
 #Customize
 
@@ -302,12 +302,12 @@ Usage : **setText($variable)** or **setText($variable.function())**
 
 ##ParallaxViewController
 
-ParallaxViewController can add a parallax effect on ObservableScrollView childs
+ParallaxViewController can add a parallax effect on ScrollView childs
 
 Usage :
 
-* ObservableScrollView : **registerParallax()**
-* ObservableScrollView childs : **parallaxY(float)**
+* ScrollView : **registerParallax()**
+* ScrollView childs : **parallaxY(float)**
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
@@ -315,7 +315,7 @@ Usage :
             com.github.florent37.carpacciocontrollers.ParallaxViewController;
         ">
 
-        <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+        <ScrollView
                     android:tag="registerParallax()">
 
               <View
@@ -328,10 +328,12 @@ Usage :
                         parallaxY(1.5);
                     " />
 
-        </com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+        </ScrollView
 
 </com.github.florent37.carpaccio.Carpaccio>
 ```
+
+[![Video](http://share.gifyoutube.com/mLOpk7.gif)](https://youtu.be/DB_aHUGNwLQ)
 
 ##CommonViewController
 
