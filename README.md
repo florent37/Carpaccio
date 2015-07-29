@@ -197,6 +197,8 @@ compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
 }
 ```
 
+------------
+
 ##TextViewController
 
 TextViewController can set a custom font (from assets/fonts/) to a TextView
@@ -240,6 +242,8 @@ Usage : **android:text="$variable"**
 <TextView
      android:text="$user"/>
 ```
+
+------------
 
 ##ImageViewController
 
@@ -336,6 +340,8 @@ Usage : **animateMaterial(duration)**
 
 [![Video](http://share.gifyoutube.com/mGz9OZ.gif)](https://youtu.be/A0eyvpNh5wM)
 
+------------
+
 ##ParallaxViewController
 
 ParallaxViewController can add a parallax effect on ScrollView childs
@@ -370,6 +376,8 @@ Usage :
 ```
 
 [![Video](http://share.gifyoutube.com/mLOpk7.gif)](https://youtu.be/DB_aHUGNwLQ)
+
+------------
 
 ##CommonViewController
 
@@ -436,6 +444,8 @@ Replace by another View class
       "
       />
 ```
+
+------------
 
 ##AnimationViewController
 
