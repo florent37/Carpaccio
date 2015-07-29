@@ -60,8 +60,10 @@ In your activity / fragment :
 
 ```java
 Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
-carpaccio.mapObject("user1",new User("florent"));
+carpaccio.mapObject("user",new User("florent"));
 ```
+
+![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/set_text.png)
 
 You can also specify a method (must return a String)
 
