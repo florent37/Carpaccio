@@ -203,8 +203,10 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     public void bindView(View view, String mapName, int position) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
-            Object mappedObject = mappingManager.getMappedListsObject(mapName, position);
-            executeActionsOnViews(subViews, mappedObject);
+            if(subViews != null) {
+                Object mappedObject = mappingManager.getMappedListsObject(mapName, position);
+                executeActionsOnViews(subViews, mappedObject);
+            }
         }
     }
 

@@ -16,6 +16,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -406,7 +407,7 @@ public class CarpaccioManagerTest {
 
     @Test
     public void testGetMappedList_null() throws Exception {
-        carpaccioManager.getMappedList(null);
+        carpaccioManager.mappingManager = null;
         verify(mappingManager,never()).getMappedList(eq("users"));
     }
 
@@ -444,5 +445,34 @@ public class CarpaccioManagerTest {
 
         assertTrue(carpaccioManager.carpaccioViews.contains(view));
         assertFalse(carpaccioManager.carpaccioViews.contains(viewGroup));
+    }
+
+    @Test
+    public void testAddChildViews() throws Exception {
+        ViewGroup viewGroup = mock(ViewGroup.class);
+        doReturn(1).when(viewGroup).getChildCount();
+        View view = mock(View.class);
+        doReturn(view).when(viewGroup).getChildAt(0);
+        doReturn("setText(florent)").when(view).getTag();
+
+        carpaccioManager.addChildViews(viewGroup);
+
+        assertTrue(carpaccioManager.carpaccioSubViews.get(viewGroup).contains(view));
+    }
+
+    @Test
+    public void testBindViews() throws Exception {
+        ViewGroup viewGroup = mock(ViewGroup.class);
+        View view = mock(View.class);
+
+        doReturn(new Object()).when(mappingManager).getMappedListsObject("users",0);
+
+        carpaccioManager.carpaccioSubViews.put(viewGroup, Arrays.asList(view));
+
+        carpaccioManager.bindView(viewGroup, "users", 0);
+
+        verify(mappingManager, atLeastOnce()).getMappedListsObject(eq("users"), eq(0));
+        verify(view,atLeastOnce()).getTag();
+
     }
 }
