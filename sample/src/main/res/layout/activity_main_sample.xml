@@ -25,6 +25,7 @@
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 android:tag="
+                    enablePreview();
                     url(http://i.imgur.com/DSjXNox.jpg)
                 " />
 
