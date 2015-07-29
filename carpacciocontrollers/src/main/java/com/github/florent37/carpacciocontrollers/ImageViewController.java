@@ -28,6 +28,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by florentchampigny on 21/07/15.
@@ -35,6 +36,9 @@ import java.util.List;
 public class ImageViewController {
 
     private static final String TAG = "ImageViewController";
+    public static ConcurrentHashMap<String,Bitmap> PREVIEW_BITMAPS = new ConcurrentHashMap<>();
+
+    public boolean ENABLE_PREVIEW = false;
 
     class ImageViewToAnimateMaterial {
         ImageView imageView;
@@ -59,20 +63,32 @@ public class ImageViewController {
         list.add(transformation);
     }
 
+    public void enablePreview(ImageView imageView){
+        ENABLE_PREVIEW = true;
+    }
+
     public void url(final ImageView imageView, String url) {
 
-        if(Carpaccio.IN_EDIT_MODE) {
+        if(Carpaccio.IN_EDIT_MODE && ENABLE_PREVIEW) {
+            Bitmap bitmap = PREVIEW_BITMAPS.get(url);
             try {
-                URL src = new URL(url);
-                HttpURLConnection connection = (HttpURLConnection) src.openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream input = connection.getInputStream();
-                Bitmap myBitmap = BitmapFactory.decodeStream(input);
-                imageView.setImageBitmap(myBitmap);
+                if(bitmap == null){
+                    URL src = new URL(url);
+                    HttpURLConnection connection = (HttpURLConnection) src.openConnection();
+                    connection.setDoInput(true);
+                    connection.connect();
+                    InputStream input = connection.getInputStream();
+                    bitmap = BitmapFactory.decodeStream(input);
+
+                    if(bitmap != null)
+                        PREVIEW_BITMAPS.put(url,bitmap);
+                }
             } catch (Exception e) {
                 imageView.setImageDrawable(new ColorDrawable(Color.parseColor("#3E3E3E")));
             }
+
+            if(bitmap != null)
+                imageView.setImageBitmap(bitmap);
         }else {
             RequestCreator requestCreator = Picasso.with(imageView.getContext()).load(url);
             if (transformations.get(imageView) != null) {

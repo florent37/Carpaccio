@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.github.florent37.carpaccio.Carpaccio
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/carpaccio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-    <com.github.florent37.carpaccio.Carpaccio
-        android:id="@+id/carpaccio"
-        app:register="
+    app:register="
             com.github.florent37.carpacciocontrollers.ImageViewController;
-        "
+        ">
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:tag="
+             enablePreview();
+             url(http://i.imgur.com/DvpvklR.png);
+        " />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:tag="
-                    url(http://i.imgur.com/DvpvklR.png);
-            " />
-
-    </com.github.florent37.carpaccio.Carpaccio>
-
-</LinearLayout>
+</com.github.florent37.carpaccio.Carpaccio>

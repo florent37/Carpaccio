@@ -11,6 +11,13 @@ You no longer need to extend a view to set a custom behavior
 
 Carpaccio also come with a beautiful mapping engine !
 
+#Magic
+
+You can preview custom fonts & image loaded from url directly from Android Studio Preview !
+
+![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_font_small.png)
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
+
 #Usage
 
 ```xml
@@ -276,6 +283,28 @@ Usage : **url(imageUrl)**
 ```
 
 ![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/url_small.png)
+
+**WORKS WITH ANDROID STUDIO PREVIEW !!!**
+
+Preview an url image
+
+Usage : **enablePreview();url(imageUrl);**
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.github.florent37.carpacciocontrollers.ImageViewController;
+        ">
+
+        <ImageView
+             android:tag="
+                enablePreview();
+                 url(http://i.imgur.com/DvpvklR.png);
+             " />
+</com.github.florent37.carpaccio.Carpaccio>
+```
+
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
 
 Usage : **kenburns()**
 
