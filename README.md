@@ -195,6 +195,49 @@ compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
 }
 ```
 
+##TextViewController
+
+TextViewController can set a custom font (from assets/fonts/) to a TextView
+
+**WORKS WITH ANDROID STUDIO PREVIEW !!!**
+
+![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_font_small.png)
+
+
+Usage : **font(fontName)**
+
+```xml
+<com.github.florent37.carpaccio.Carpaccio
+        app:register="
+            com.github.florent37.carpacciocontrollers.TextViewController;
+        ">
+
+        <TextView
+             android:tag="
+                 font(Roboto-Light.ttf)
+             "/>
+</com.github.florent37.carpaccio.Carpaccio>
+```
+
+And provides a data binding setText
+
+Usage : **setText($variable)** or **setText($variable.function())**
+
+```xml
+<TextView
+     android:tag="
+         setText($user)
+     "/>
+```
+
+Or directly on the android:text
+
+Usage : **android:text="$variable"**
+
+```xml
+<TextView
+     android:text="$user"/>
+```
 
 ##ImageViewController
 
@@ -290,50 +333,6 @@ Usage : **animateMaterial(duration)**
 ```
 
 [![Video](http://share.gifyoutube.com/mGz9OZ.gif)](https://youtu.be/A0eyvpNh5wM)
-
-##TextViewController
-
-TextViewController can set a custom font (from assets/fonts/) to a TextView
-
-**WORKS WITH ANDROID STUDIO PREVIEW !!!**
-
-![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_font_small.png)
-
-
-Usage : **font(fontName)**
-
-```xml
-<com.github.florent37.carpaccio.Carpaccio
-        app:register="
-            com.github.florent37.carpacciocontrollers.TextViewController;
-        ">
-
-        <TextView
-             android:tag="
-                 font(Roboto-Light.ttf)
-             "/>
-</com.github.florent37.carpaccio.Carpaccio>
-```
-
-And provides a data binding setText
-
-Usage : **setText($variable)** or **setText($variable.function())**
-
-```xml
-<TextView
-     android:tag="
-         setText($user)
-     "/>
-```
-
-Or directly on the android:text
-
-Usage : **android:text="$variable"**
-
-```xml
-<TextView
-     android:text="$user"/>
-```
 
 ##ParallaxViewController
 
