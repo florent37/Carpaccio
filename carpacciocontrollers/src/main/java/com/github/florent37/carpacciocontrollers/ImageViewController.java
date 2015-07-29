@@ -96,10 +96,12 @@ public class ImageViewController {
     }
 
     public void animateMaterial(ImageView imageView, int duration) {
-        if (imageView.getDrawable() == null) {
-            willAnimateMaterial(imageView, duration);
-        } else {
-            startAnimateMaterialImageView(imageView, duration);
+        if(!imageView.isInEditMode()) {
+            if (imageView.getDrawable() == null) {
+                willAnimateMaterial(imageView, duration);
+            } else {
+                startAnimateMaterialImageView(imageView, duration);
+            }
         }
     }
 

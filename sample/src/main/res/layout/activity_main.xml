@@ -27,6 +27,12 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:tag="clickStartActivity(.ActivityImageView)"
+                android:text="ImageView sample" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:tag="clickStartActivity(.MainActivityParallax)"
                 android:text="Parallax" />
 

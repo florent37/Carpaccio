@@ -192,31 +192,64 @@ Usage : **kenburns()**
 
 ```xml
 <ImageView
-      android:tag="`
-           kenburns()
-           url(http://i.imgur.com/DvpvklR.png)
+      android:tag="
+           kenburns();
+           url(http://i.imgur.com/DvpvklR.png);
       " />
 ```
 
-Usage : **blur()**
+You can blur an ImageView
+
+Usage :
+* **willBlur()** if use url(www...)
+* **blur()** else
 
 ```xml
 <ImageView
       android:tag="`
-           kenburns()
-           url(http://i.imgur.com/DvpvklR.png)
+           willBlur();
+           url(http://i.imgur.com/DvpvklR.png);
+      " />
+
+<ImageView
+      android:src="@drawable/my_image"
+      android:tag="`
+           blur()
       " />
 ```
 
+You can blur an ImageView
+
+Usage :
+* **willGreyScale()** if use url(www...)
+* **greyScale()** else
+
+```xml
+<ImageView
+      android:tag="`
+           willGreyScale();
+           url(http://i.imgur.com/DvpvklR.png);
+      " />
+
+<ImageView
+      android:src="@drawable/my_image"
+      android:tag="`
+           greyScale()
+      " />
+```
+
+And display your image with a material animation
 Usage : **animateMaterial(duration)**
 
 ```xml
 <ImageView
       android:tag="`
-           animateMaterial(3000)
-           url(http://i.imgur.com/DvpvklR.png)
+           animateMaterial(6000);
+           url(http://i.imgur.com/DvpvklR.png);
       " />
 ```
+
+
 
 ##TextViewController
 
@@ -256,7 +289,7 @@ Usage : **setText($variable)** or **setText($variable.function())**
 
 ##ParallaxViewController
 
-ParallaxViewController can add a paralax effect on ObservableScrollView childs
+ParallaxViewController can add a parallax effect on ObservableScrollView childs
 
 Usage :
 
@@ -289,21 +322,26 @@ Usage :
 
 ##CommonViewController
 
+Bind a list/recyclerview (see DataBinding)
+
 Usage :
 
 * **adapter(listMappedName,cellLayoutName)**
 
 ```xml
 <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
 
-            android:tag="
-                adapter(user,R.layout.cell_user)
-            "
-            />
+     android:tag="
+         adapter(user,R.layout.cell_user)
+     "
+     />
 ```
 
+Open an activity onClick
+
+Usage :
 * **clickStartActivity(activityName) **
 
 ```xml
@@ -320,16 +358,18 @@ Usage :
       />
 ```
 
+Usage :
+
 * **margin(top,right,bottom,left)** & **padding(top,right,bottom,left)**
 
 ```xml
 <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
 
-            android:tag="
-                margin(0,10,0,0);
-                padding(5,0,5,0);
-            "
-            />
+      android:tag="
+          margin(0,10,0,0);
+          padding(5,0,5,0);
+      "
+      />
 ```
