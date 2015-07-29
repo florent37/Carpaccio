@@ -22,9 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Carpaccio.iws" />
@@ -137,11 +135,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.88326">
-              <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+            <state vertical-scroll-proportion="-9.448276">
+              <caret line="195" column="11" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
+              <caret line="196" column="11" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -173,24 +172,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_main_recyclerview_mapping.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.965517">
-              <caret line="22" column="14" selection-start-line="15" selection-start-column="8" selection-end-line="22" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageViewController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ImageViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ImageViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.888889">
-              <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.44665012">
+              <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -3161,12 +3147,12 @@
         <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ParallaxViewController.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_sample.xml" />
-        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ImageViewController.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" />
         <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/CommonViewController.java" />
         <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/TextViewController.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ImageViewController.java" />
       </list>
     </option>
   </component>
@@ -4067,7 +4053,13 @@
       <option name="project" value="LOCAL" />
       <updated>1438121609747</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated readme">
+      <created>1438155007939</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1438155007939</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4080,14 +4072,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.49713057" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3981603" sideWeight="0.49713057" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3981603" sideWeight="0.49713057" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39947438" sideWeight="0.5028694" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.50784314" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3285151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -4150,7 +4142,8 @@
     <MESSAGE value="so much optimisations !" />
     <MESSAGE value="updated replace" />
     <MESSAGE value="updated imageviewcontroller" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated imageviewcontroller" />
+    <MESSAGE value="updated readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4534,16 +4527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ImageViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.888889">
-          <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4578,17 +4561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.965517">
-          <caret line="22" column="14" selection-start-line="15" selection-start-column="8" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/TextViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4599,14 +4571,6 @@
             <element signature="e#1411#1412#0" expanded="true" />
             <element signature="e#1462#1463#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4621,15 +4585,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6365639">
+          <caret line="22" column="14" selection-start-line="15" selection-start-column="8" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.88326">
-          <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+        <state vertical-scroll-proportion="-9.448276">
+          <caret line="195" column="11" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
+          <caret line="196" column="11" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ImageViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44665012">
+          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

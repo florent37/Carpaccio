@@ -188,6 +188,36 @@ Usage : **url(imageUrl)**
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
+Usage : **kenburns()**
+
+```xml
+<ImageView
+      android:tag="`
+           kenburns()
+           url(http://i.imgur.com/DvpvklR.png)
+      " />
+```
+
+Usage : **blur()**
+
+```xml
+<ImageView
+      android:tag="`
+           kenburns()
+           url(http://i.imgur.com/DvpvklR.png)
+      " />
+```
+
+Usage : **animateMaterial(duration)**
+
+```xml
+<ImageView
+      android:tag="`
+           animateMaterial(3000)
+           url(http://i.imgur.com/DvpvklR.png)
+      " />
+```
+
 ##TextViewController
 
 TextViewController can set a custom font (from assets/fonts/) to a TextView
