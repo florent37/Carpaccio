@@ -1,5 +1,7 @@
 # Carpaccio
 
+Developed to facilitate integration on Android ( Designers can thanks me :D )
+
 ![logo](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/carpaccio.png)
 
 **Data Mapping & Smarter Views framework for android**
