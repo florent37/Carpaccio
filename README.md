@@ -1,5 +1,7 @@
 # Carpaccio
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Carpaccio-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2211)
+
 Developed to facilitate integration on Android ( Designers can thanks me :D )
 
 ![logo](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/carpaccio_small.png)
