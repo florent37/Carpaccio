@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
+import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
 import java.util.List;
@@ -77,6 +79,19 @@ public class Carpaccio extends FrameLayout {
             carpaccioManager.registerAdapter(mappedName, adapter);
     }
 
+    public CarpaccioRecyclerViewAdapter getAdapter(String mappedName) {
+        if (carpaccioManager != null)
+            return carpaccioManager.getAdapter(mappedName);
+        return null;
+    }
+
+    public void onItemClick(String mappedName,OnItemClickListener onItemClickListener) {
+        CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
+        if(adapter != null){
+            adapter.setOnItemClickListener(onItemClickListener);
+        }
+    }
+
     public void mapList(String name, List list) {
         if (carpaccioManager != null)
             carpaccioManager.mapList(name, list);
@@ -93,9 +108,10 @@ public class Carpaccio extends FrameLayout {
             carpaccioManager.addChildViews(view);
     }
 
-    public void bindView(View view, String mapName, int position) {
+    public Object bindView(View view, String mapName, int position) {
         if (carpaccioManager != null)
-            carpaccioManager.bindView(view, mapName, position);
+            return carpaccioManager.bindView(view, mapName, position);
+        return null;
     }
 
     public void addCarpaccioView(View view) {

@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
 import com.github.florent37.carpaccio.mapping.MappingManager;
 import com.github.florent37.carpaccio.model.CarpaccioAction;
 import com.github.florent37.carpaccio.model.ObjectAndMethod;
@@ -189,6 +190,10 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
+    public <T> T getAdapter(String mappedName) {
+        return (T)this.registerAdapters.get(mappedName);
+    }
+
     public void addChildViews(View view) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
@@ -200,14 +205,16 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
-    public void bindView(View view, String mapName, int position) {
+    public Object bindView(View view, String mapName, int position) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
             if(subViews != null) {
                 Object mappedObject = mappingManager.getMappedListsObject(mapName, position);
                 executeActionsOnViews(subViews, mappedObject);
+                return mappedObject;
             }
         }
+        return null;
     }
 
     public void notifyAdapterDataSetChanded(Object adapter) {
