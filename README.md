@@ -1,8 +1,7 @@
 # Carpaccio
 
-[![Join the chat at https://gitter.im/florent37/Carpaccio](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/florent37/Carpaccio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Carpaccio-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2211)
+[![Join the chat at https://gitter.im/florent37/Carpaccio](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/florent37/Carpaccio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Developed to facilitate integration on Android ( Designers can thanks me :D )
 
