@@ -8,9 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
-            com.github.florent37.carpacciocontrollers.CommonViewController;
-            com.github.florent37.carpacciocontrollers.ParallaxViewController;
-            com.github.florent37.carpacciocontrollers.ImageViewController;
+            com.github.florent37.carpaccio.controllers.CommonViewController;
+            com.github.florent37.carpaccio.controllers.ParallaxViewController;
+            com.github.florent37.carpaccio.controllers.ImageViewController;
         ">
 
         <ScrollView

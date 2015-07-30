@@ -1,1 +1,1 @@
-include ':carpaccio', ':sample', ':carpacciocontrollers'
+include ':carpaccio', ':sample'

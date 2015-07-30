@@ -1,4 +1,4 @@
-package com.github.florent37.carpacciocontrollers.helper;
+package com.github.florent37.carpaccio.controllers.helper;
 
 /**
  * Created by florentchampigny on 28/07/15.

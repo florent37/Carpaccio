@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:register="
-            com.github.florent37.carpacciocontrollers.TextViewController;
+            com.github.florent37.carpaccio.controllers.TextViewController;
         ">
 
     <TextView
@@ -18,6 +18,7 @@
         android:gravity="center"
         android:tag="
              font(Pacifico.ttf);
+             lorem();
         " />
 
 </com.github.florent37.carpaccio.Carpaccio>

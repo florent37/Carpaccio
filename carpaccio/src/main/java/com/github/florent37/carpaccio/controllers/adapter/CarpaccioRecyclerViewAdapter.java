@@ -1,4 +1,4 @@
-package com.github.florent37.carpacciocontrollers.adapter;
+package com.github.florent37.carpaccio.controllers.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

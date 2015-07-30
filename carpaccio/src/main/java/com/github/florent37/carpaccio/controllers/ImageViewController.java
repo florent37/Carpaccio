@@ -1,4 +1,4 @@
-package com.github.florent37.carpacciocontrollers;
+package com.github.florent37.carpaccio.controllers;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,10 +11,10 @@ import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.github.florent37.carpaccio.Carpaccio;
-import com.github.florent37.carpacciocontrollers.helper.FastBlurHelper;
-import com.github.florent37.carpacciocontrollers.helper.GrayScaleHelper;
-import com.github.florent37.carpacciocontrollers.transformation.BlurTransformation;
-import com.github.florent37.carpacciocontrollers.transformation.GrayScaleTransformation;
+import com.github.florent37.carpaccio.controllers.helper.FastBlurHelper;
+import com.github.florent37.carpaccio.controllers.helper.GrayScaleHelper;
+import com.github.florent37.carpaccio.controllers.transformation.BlurTransformation;
+import com.github.florent37.carpaccio.controllers.transformation.GrayScaleTransformation;
 import com.github.florent37.materialimageloading.MaterialImageLoading;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

@@ -1,4 +1,4 @@
-package com.github.florent37.carpacciocontrollers.helper;
+package com.github.florent37.carpaccio.controllers.helper;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

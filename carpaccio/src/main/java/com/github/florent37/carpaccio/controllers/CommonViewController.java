@@ -1,4 +1,4 @@
-package com.github.florent37.carpacciocontrollers;
+package com.github.florent37.carpaccio.controllers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioHelper;
-import com.github.florent37.carpacciocontrollers.adapter.CarpaccioRecyclerViewAdapter;
+import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

@@ -10,7 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/carpaccio" />
-            <option value="$PROJECT_DIR$/carpacciocontrollers" />
             <option value="$PROJECT_DIR$/sample" />
           </set>
         </option>

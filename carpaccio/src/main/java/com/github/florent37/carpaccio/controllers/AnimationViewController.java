@@ -1,4 +1,4 @@
-package com.github.florent37.carpacciocontrollers;
+package com.github.florent37.carpaccio.controllers;
 
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;

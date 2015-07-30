@@ -1,11 +1,11 @@
-package com.github.florent37.carpacciocontrollers;
+package com.github.florent37.carpaccio.controllers;
 
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.github.florent37.carpacciocontrollers.helper.LoremHelper;
+import com.github.florent37.carpaccio.controllers.helper.LoremHelper;
 
 /**
  * Created by florentchampigny on 21/07/15.

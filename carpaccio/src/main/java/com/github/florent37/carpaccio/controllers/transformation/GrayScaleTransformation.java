@@ -1,8 +1,8 @@
-package com.github.florent37.carpacciocontrollers.transformation;
+package com.github.florent37.carpaccio.controllers.transformation;
 
 import android.graphics.Bitmap;
 
-import com.github.florent37.carpacciocontrollers.helper.GrayScaleHelper;
+import com.github.florent37.carpaccio.controllers.helper.GrayScaleHelper;
 import com.squareup.picasso.Transformation;
 
 /**

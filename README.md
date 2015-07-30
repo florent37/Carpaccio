@@ -29,8 +29,8 @@ You can preview custom fonts & image loaded from url directly from Android Studi
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
-            com.github.florent37.carpacciocontrollers.ImageViewController;
-            com.github.florent37.carpacciocontrollers.TextViewController
+            com.github.florent37.carpaccio.controllers.ImageViewController;
+            com.github.florent37.carpaccio.controllers.TextViewController
         ">
 
         <ImageView
@@ -57,13 +57,9 @@ You can preview custom fonts & image loaded from url directly from Android Studi
 Add into your **build.gradle**
 
 [![Download](https://api.bintray.com/packages/florent37/maven/Carpaccio/images/download.svg)](https://bintray.com/florent37/maven/Carpaccio/_latestVersion)
-[![Download](https://api.bintray.com/packages/florent37/maven/CarpaccioControllers/images/download.svg)](https://bintray.com/florent37/maven/CarpaccioControllers/_latestVersion)
 
 ```groovy
-compile ('com.github.florent37:carpaccio:1.0.0'){
-    transitive=true
-}
-compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
+compile ('com.github.florent37:carpaccio:1.0.0@aar'){
     transitive=true
 }
 ```
@@ -120,9 +116,9 @@ R.layout.activity_main_recyclerview_mapping
 <com.github.florent37.carpaccio.Carpaccio
         android:id="@+id/carpaccio"
         app:register="
-            com.github.florent37.carpacciocontrollers.CommonViewController;
-            com.github.florent37.carpacciocontrollers.ImageViewController;
-            com.github.florent37.carpacciocontrollers.TextViewController;
+            com.github.florent37.carpaccio.controllers.CommonViewController;
+            com.github.florent37.carpaccio.controllers.ImageViewController;
+            com.github.florent37.carpaccio.controllers.TextViewController;
         ">
 
         <android.support.v7.widget.RecyclerView
@@ -206,15 +202,7 @@ Then you can use it into your layout
 
 #ViewControllers
 
-Carpaccio provide some awesome ViewControllers, you can import them directly into your project
-
-Add into your **build.gradle**
-
-```groovy
-compile ('com.github.florent37:carpacciocontrollers:1.0.0'){
-    transitive=true
-}
-```
+Carpaccio provide some awesome ViewControllers, you can use them directly into your project
 
 ------------
 
@@ -232,7 +220,7 @@ Usage : **font(fontName)**
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         app:register="
-            com.github.florent37.carpacciocontrollers.TextViewController;
+            com.github.florent37.carpaccio.controllers.TextViewController;
         ">
 
         <TextView
@@ -262,6 +250,17 @@ Usage : **android:text="$variable"**
      android:text="$user"/>
 ```
 
+Fill your TextView with a Lorem Ipsum
+
+Usage : **lorem()**
+
+```xml
+<TextView
+     android:tag="
+              lorem()
+          "/>
+```
+
 ------------
 
 ##ImageViewController
@@ -275,7 +274,7 @@ Usage : **url(imageUrl)**
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         app:register="
-            com.github.florent37.carpacciocontrollers.ImageViewController;
+            com.github.florent37.carpaccio.controllers.ImageViewController;
         ">
 
         <ImageView
@@ -296,7 +295,7 @@ Usage : **enablePreview();url(imageUrl);**
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         app:register="
-            com.github.florent37.carpacciocontrollers.ImageViewController;
+            com.github.florent37.carpaccio.controllers.ImageViewController;
         ">
 
         <ImageView
@@ -395,7 +394,7 @@ Usage :
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         app:register="
-            com.github.florent37.carpacciocontrollers.ParallaxViewController;
+            com.github.florent37.carpaccio.controllers.ParallaxViewController;
         ">
 
         <ScrollView
