@@ -95,6 +95,13 @@ public class ImageViewController {
                 requestCreator = requestCreator.transform(transformations.get(imageView));
                 transformations.remove(imageView);
             }
+
+            if(imageView.getScaleType() == ImageView.ScaleType.CENTER_CROP)
+                requestCreator = requestCreator.centerCrop().fit();
+
+            if(imageView.getScaleType() == ImageView.ScaleType.CENTER_INSIDE)
+                requestCreator = requestCreator.centerInside().fit();
+
             requestCreator.into(imageView, new Callback() {
                 @Override
                 public void onSuccess() {
