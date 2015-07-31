@@ -184,10 +184,17 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         return null;
     }
 
-    public void registerAdapter(String mapName, Object adapter) {
+    public Object registerAdapter(String mapName, Object adapter) {
         if (adapter instanceof RecyclerView.Adapter || adapter instanceof BaseAdapter) {
-            this.registerAdapters.put(mapName, adapter);
+            if(!registerAdapters.containsKey(mapName)) {
+                this.registerAdapters.put(mapName, adapter);
+                return adapter;
+            }
+            else{
+                return this.registerAdapters.get(mapName);
+            }
         }
+        return null;
     }
 
     public <T> T getAdapter(String mappedName) {

@@ -29,10 +29,10 @@ dependencies {
 
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.2'
 
-    //compile project (":carpaccio")
+    compile project (":carpaccio")
 
-    compile ('com.github.florent37:carpaccio:1.0.0@aar'){
-        transitive=true
-    }
+    //compile ('com.github.florent37:carpaccio:1.0.1@aar'){
+    //    transitive=true
+    //}
 
 }

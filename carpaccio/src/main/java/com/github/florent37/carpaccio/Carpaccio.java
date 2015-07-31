@@ -74,9 +74,10 @@ public class Carpaccio extends FrameLayout {
 
     //region mapList
 
-    public void registerAdapter(String mappedName, Object adapter) {
+    public <T> T registerAdapter(String mappedName, Object adapter) {
         if (carpaccioManager != null)
-            carpaccioManager.registerAdapter(mappedName, adapter);
+            return (T)carpaccioManager.registerAdapter(mappedName, adapter);
+        return null;
     }
 
     public CarpaccioRecyclerViewAdapter getAdapter(String mappedName) {

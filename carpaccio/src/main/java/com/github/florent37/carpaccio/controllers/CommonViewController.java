@@ -79,16 +79,18 @@ public class CommonViewController {
         }
     }
 
-    public void adapter(View view, String mappedName, String layoutName){
+    public void adapter(View view, String mappedName, String layoutName) throws Exception {
         final int layoutResId = getLayoutIdentifierFromString(view.getContext(),layoutName);
         if(layoutResId != -1) {
             final Carpaccio carpaccio = CarpaccioHelper.findParentCarpaccio(view);
             if (carpaccio != null ) {
                 if (view instanceof RecyclerView) {
                     ((RecyclerView) view).setLayoutManager(new LinearLayoutManager(view.getContext()));
-                    ((RecyclerView) view).setAdapter(new CarpaccioRecyclerViewAdapter(carpaccio, layoutResId, mappedName));
+                    CarpaccioRecyclerViewAdapter adapter = new CarpaccioRecyclerViewAdapter(carpaccio, layoutResId, mappedName);
+                    adapter = carpaccio.registerAdapter(mappedName, adapter); //carpaccio register only 1 adapter;
+                    ((RecyclerView) view).setAdapter(adapter);
                 } else if (view instanceof AdapterView) {
-
+                    throw new Exception("not implemented on ListViews");
                 }
             }
         }
