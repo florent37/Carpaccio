@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -79,18 +80,35 @@ public class CommonViewController {
         }
     }
 
-    public void adapter(View view, String mappedName, String layoutName) throws Exception {
+    public void columns(View view, int number){
+        if (view instanceof RecyclerView) {
+            RecyclerView recyclerView = (RecyclerView)view;
+            recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),number));
+        }
+    }
+
+    public void adapter(View view, String mappedName, String layoutName) {
         final int layoutResId = getLayoutIdentifierFromString(view.getContext(),layoutName);
         if(layoutResId != -1) {
             final Carpaccio carpaccio = CarpaccioHelper.findParentCarpaccio(view);
             if (carpaccio != null ) {
                 if (view instanceof RecyclerView) {
-                    ((RecyclerView) view).setLayoutManager(new LinearLayoutManager(view.getContext()));
+                    RecyclerView recyclerView = (RecyclerView)view;
+                    if(recyclerView.getLayoutManager() == null)
+                        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
                     CarpaccioRecyclerViewAdapter adapter = new CarpaccioRecyclerViewAdapter(carpaccio, layoutResId, mappedName);
                     adapter = carpaccio.registerAdapter(mappedName, adapter); //carpaccio register only 1 adapter;
-                    ((RecyclerView) view).setAdapter(adapter);
-                } else if (view instanceof AdapterView) {
-                    throw new Exception("not implemented on ListViews");
+                    recyclerView.setAdapter(adapter);
+
+                    if(Carpaccio.IN_EDIT_MODE) {
+                        LinearLayout linearLayout = replace(recyclerView,LinearLayout.class.getName());
+                        linearLayout.setOrientation(LinearLayout.VERTICAL);
+                        for(int i=0;i<10;++i){
+                            View subView = LayoutInflater.from(linearLayout.getContext()).inflate(layoutResId, linearLayout, false);
+                            carpaccio.addCarpaccioView(subView);
+                            linearLayout.addView(subView);
+                        }
+                    }
                 }
             }
         }

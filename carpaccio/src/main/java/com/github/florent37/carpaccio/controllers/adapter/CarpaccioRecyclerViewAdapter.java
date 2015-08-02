@@ -76,9 +76,16 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         return new Holder<T>(cellView);
     }
 
+    public T getItemForRow(View view, int position){
+        if(Carpaccio.IN_EDIT_MODE){
+            return (T)new Object();
+        }
+        return (T)carpaccio.bindView(view, mappedName, position);
+    }
+
     @Override
     public void onBindViewHolder(final Holder<T> holder, final int position) {
-        final T mappedObject = (T)carpaccio.bindView(holder.itemView, mappedName, position);
+        final T mappedObject = getItemForRow(holder.itemView,position);
         holder.onItemClickListener = onItemClickListener;
         holder.position = position;
         holder.mappedObject = mappedObject;
@@ -91,8 +98,22 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
 
     @Override
     public int getItemCount() {
-        List mappedList = carpaccio.getMappedList(mappedName);
-        if (mappedList == null) return 0;
-        else return mappedList.size();
+        if(Carpaccio.IN_EDIT_MODE){
+            return previewCount;
+        }else {
+            List mappedList = carpaccio.getMappedList(mappedName);
+            if (mappedList == null) return 0;
+            else return mappedList.size();
+        }
+    }
+
+    int previewCount = 10;
+
+    public int getPreviewCount() {
+        return previewCount;
+    }
+
+    public void setPreviewCount(int previewCount) {
+        this.previewCount = previewCount;
     }
 }

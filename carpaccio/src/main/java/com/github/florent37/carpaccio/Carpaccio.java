@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewA
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -117,8 +119,10 @@ public class Carpaccio extends FrameLayout {
 
     public void addCarpaccioView(View view) {
         if(carpaccioManager != null) {
-            //carpaccioManager.addView(view); TODO
-            carpaccioManager.executeActionsOnView(view);
+            //carpaccioManager.addView(view); //TODO
+            List<View> childrens = new ArrayList<>();
+            carpaccioManager.findCarpaccioControlledViews(view,childrens);
+            carpaccioManager.executeActionsOnViews(childrens,null);
         }
     }
 

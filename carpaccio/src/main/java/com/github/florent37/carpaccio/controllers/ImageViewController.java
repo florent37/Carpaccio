@@ -67,8 +67,12 @@ public class ImageViewController {
         ENABLE_PREVIEW = true;
     }
 
-    public void url(final ImageView imageView, String url) {
+    public void previewUrl(final ImageView imageView, String url) {
+        if(Carpaccio.IN_EDIT_MODE && ENABLE_PREVIEW)
+            url(imageView,url);
+    }
 
+    public void url(final ImageView imageView, String url) {
         if(Carpaccio.IN_EDIT_MODE && ENABLE_PREVIEW) {
             Bitmap bitmap = PREVIEW_BITMAPS.get(url);
             try {
@@ -84,7 +88,8 @@ public class ImageViewController {
                         PREVIEW_BITMAPS.put(url,bitmap);
                 }
             } catch (Exception e) {
-                imageView.setImageDrawable(new ColorDrawable(Color.parseColor("#3E3E3E")));
+                if(imageView.getDrawable() == null)
+                    imageView.setImageDrawable(new ColorDrawable(Color.parseColor("#3E3E3E")));
             }
 
             if(bitmap != null)
