@@ -341,7 +341,7 @@ Usage : **circle()**
       " />
 ```
 
-![circle](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/circle_small.png)
+![circle](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/circle_small_2.png)
 
 ###Blur
 You can blur an ImageView

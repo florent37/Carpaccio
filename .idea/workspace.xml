@@ -60,7 +60,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="" />
+    <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot/circle_small.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
     <ignored path="Carpaccio.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -185,8 +188,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37783375">
-              <caret line="343" column="8" selection-start-line="343" selection-start-column="8" selection-end-line="343" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.34005037">
+              <caret line="343" column="96" selection-start-line="343" selection-start-column="96" selection-end-line="343" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -4309,8 +4312,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37783375">
-          <caret line="343" column="8" selection-start-line="343" selection-start-column="8" selection-end-line="343" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.34005037">
+          <caret line="343" column="96" selection-start-line="343" selection-start-column="96" selection-end-line="343" selection-end-column="96" />
           <folding />
         </state>
       </provider>
