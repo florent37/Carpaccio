@@ -141,16 +141,23 @@ R.layout.cell_user
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:tag="url($user.image);"
-        android:layout_marginRight="20dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:tag="
+                enablePreview();
+                previewUrl(http://lorempixel.com/400/400/);
+                url($user.image);
+                " />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:tag="setText($user.name)" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="
+                setText($user.name);
+                setFont(Roboto-Black.ttf);"
+            />
 
 </LinearLayout>
 ```
@@ -164,6 +171,10 @@ carpaccio.mapList("user", this.users);
 ```
 
 [![Video](http://share.gifyoutube.com/yAp6Lw.gif)](https://youtu.be/alE3Pewmulo)
+
+**WORKS WITH ANDROID STUDIO PREVIEW !!!**
+
+![recycler_preview](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_preview_small.png)
 
 ------------
 

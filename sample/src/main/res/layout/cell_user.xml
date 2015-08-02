@@ -11,13 +11,16 @@
         android:layout_marginRight="20dp"
         android:tag="
             enablePreview();
-            previewUrl(http://i.imgur.com/DvpvklR.png);
+            previewUrl(http://lorempixel.com/400/400/);
             url($user.image);
             " />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:tag="setText($user.name); setFont(Roboto-Black.ttf);" />
+        android:tag="
+            setText($user.name);
+            setFont(Roboto-Black.ttf);"
+        />
 
 </LinearLayout>
