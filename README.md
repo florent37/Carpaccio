@@ -59,7 +59,7 @@ Add into your **build.gradle**
 [![Download](https://api.bintray.com/packages/florent37/maven/Carpaccio/images/download.svg)](https://bintray.com/florent37/maven/Carpaccio/_latestVersion)
 
 ```groovy
-compile ('com.github.florent37:carpaccio:1.0.0@aar'){
+compile ('com.github.florent37:carpaccio:1.0.2@aar'){
     transitive=true
 }
 ```
@@ -490,6 +490,20 @@ Open an activity onClick
       android:tag="clickStartActivity($activity1)"
       />
 ```
+
+Fill a view with dummy content
+* **forInclude( LAYOUT_NAME , NUMBER)**
+
+```xml
+<LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="150dp"
+      android:orientation="vertical"
+      android:tag="forInclude(R.layout.card_view,10);"/>
+```
+
+![forInclude](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/forInclude_small.png)
 
 Replace by another View class
 

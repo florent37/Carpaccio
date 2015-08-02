@@ -41,15 +41,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="150dp"
                     android:orientation="vertical"
-                    android:tag="forInclude(10);"
-                        >
-
-                    <ViewStub
-                        android:layout="@layout/card_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
+                    android:tag="forInclude(R.layout.card_view,10);"
+                        />
 
             </FrameLayout>
 
