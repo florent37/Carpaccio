@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     app:register="
             com.github.florent37.carpaccio.controllers.ImageViewController;
+            com.github.florent37.carpaccio.controllers.CommonViewController;
         ">
 
     <ImageView
@@ -14,6 +15,7 @@
         android:layout_height="250dp"
         android:layout_gravity="center"
         android:tag="
+             circle();
              enablePreview();
              url(http://i.imgur.com/DvpvklR.png);
         " />

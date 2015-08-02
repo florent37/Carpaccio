@@ -172,7 +172,11 @@ public class CommonViewController {
             parent.removeView(view);
         }
 
-        CarpaccioHelper.registerToParentCarpaccio(newView);
+        Carpaccio carpaccio = CarpaccioHelper.registerToParentCarpaccio(newView);
+        if(carpaccio != null){
+            carpaccio.getCarpaccioManager().executeActionsOnView(newView);
+        }
+
 
         return (T) newView;
     }

@@ -308,6 +308,17 @@ Usage : **enablePreview();url(imageUrl);**
 
 ![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
 
+You can set a specific image preview Url
+
+```xml
+<ImageView
+     android:tag="
+        enablePreview();
+        previewUrl(http://i.imgur.com/DvpvklR.png);
+        url($user.image);
+     " />
+```
+
 Usage : **kenburns()**
 
 ```xml
@@ -319,6 +330,18 @@ Usage : **kenburns()**
 ```
 
 [![Video](http://share.gifyoutube.com/vpMYjp.gif)](https://youtu.be/4b84gswKGkA)
+
+Usage : **circle()**
+
+```xml
+<ImageView
+      android:tag="
+           circle();
+           url(http://i.imgur.com/DvpvklR.png);
+      " />
+```
+
+![circle](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/circle_small.png)
 
 ###Blur
 You can blur an ImageView

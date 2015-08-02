@@ -115,13 +115,14 @@ public class CarpaccioHelper {
         if (view.getTag() != null && view.getTag() instanceof List && actionName!= null) {
             List<CarpaccioAction> actions = (List<CarpaccioAction>) view.getTag();
             List<CarpaccioAction> newActions = new ArrayList<>();
-            for (int i = 0, count = actions.size(); i < count; ++i) {
+
+            for (int i = 0, count = actions.size(); i < count; ++i)
                 if (!actions.get(i).getCompleteCall().equals(actionName))
                     newActions.add(actions.get(i));
-            }
 
             return newActions;
         }
+
         return view.getTag();
     }
 
@@ -332,10 +333,12 @@ public class CarpaccioHelper {
         return findParentOfClass(view, Carpaccio.class);
     }
 
-    public static void registerToParentCarpaccio(View view) {
+    public static Carpaccio registerToParentCarpaccio(View view) {
         Carpaccio carpaccio = findParentOfClass(view, Carpaccio.class);
         if (carpaccio != null) {
             carpaccio.addCarpaccioView(view);
+            return carpaccio;
         }
+        return null;
     }
 }
