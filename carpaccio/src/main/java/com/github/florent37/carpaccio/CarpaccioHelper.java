@@ -105,7 +105,7 @@ public class CarpaccioHelper {
      * from "myFunction(arg1,arg2)", return ["arg1","arg2"]
      */
     public static String[] getAttributes(String tag) {
-        String attributes = tag.substring(tag.indexOf('(') + 1, tag.indexOf(')'));
+        String attributes = tag.substring(tag.indexOf('(') + 1, tag.lastIndexOf(')'));
         if (attributes.isEmpty())
             return new String[0];
         return trim(attributes.split(","));

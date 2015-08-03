@@ -3,11 +3,15 @@ package com.github.florent37.carpaccio.mapping;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.florent37.carpaccio.Carpaccio;
+import com.github.florent37.carpaccio.model.CarpaccioAction;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
@@ -22,7 +26,6 @@ import static org.mockito.Mockito.verify;
  */
 public class MappingManagerTest {
 
-    /*
     @Mock MappingManager.MappingManagerCallback callback;
 
     MappingManager mappingManager;
@@ -101,11 +104,12 @@ public class MappingManagerTest {
         User user = new User("florent");
         String name = "user";
 
+        CarpaccioAction carpaccioAction = new CarpaccioAction("setText($user.getName())");
         View view = mock(View.class);
         {
-            mappingManager.mappingWaitings.put("user", Arrays.asList(
-                    new MappingWaiting(view,"setText","user.getName()","user")
-            ));
+            ArrayList list = new ArrayList();
+            list.add(new MappingWaiting(view,carpaccioAction,"user.getName()","user"));
+            mappingManager.mappingWaitings.put("user", list);
         }
 
         mappingManager.mapObject(name,user);
@@ -113,7 +117,8 @@ public class MappingManagerTest {
         assertTrue(mappingManager.mappedObjects.containsKey(name));
         assertEquals(user, mappingManager.mappedObjects.get(name));
 
-        verify(callback,atLeastOnce()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"florent"}));
+        verify(callback,atLeastOnce()).callActionOnView(eq(carpaccioAction), eq(view));
+        assertEquals("florent", carpaccioAction.getValues()[0]);
     }
 
     @Test
@@ -122,18 +127,20 @@ public class MappingManagerTest {
         String name = "user";
 
         View view = mock(View.class);
+        CarpaccioAction carpaccioAction = new CarpaccioAction("setText($user.name)");
         {
-            mappingManager.mappingWaitings.put("user", Arrays.asList(
-                    new MappingWaiting(view,"setText","user.name","user")
-            ));
+            ArrayList list = new ArrayList();
+            list.add(new MappingWaiting(view,carpaccioAction,"user.getName()","user"));
+            mappingManager.mappingWaitings.put("user", list);
         }
 
-        mappingManager.mapObject(name,user);
+        mappingManager.mapObject(name, user);
 
         assertTrue(mappingManager.mappedObjects.containsKey(name));
         assertEquals(user, mappingManager.mappedObjects.get(name));
 
-        verify(callback,atLeastOnce()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"florent"}));
+        verify(callback,atLeastOnce()).callActionOnView(eq(carpaccioAction), eq(view));
+        assertEquals("florent", carpaccioAction.getValues()[0]);
     }
 
     @Test
@@ -142,10 +149,11 @@ public class MappingManagerTest {
         String name = "user";
 
         View view = mock(View.class);
+        CarpaccioAction carpaccioAction = new CarpaccioAction("setText($user)");
         {
-            mappingManager.mappingWaitings.put("user", Arrays.asList(
-                    new MappingWaiting(view,"setText","user","user")
-            ));
+            ArrayList list = new ArrayList();
+            list.add(new MappingWaiting(view,carpaccioAction,"user","user"));
+            mappingManager.mappingWaitings.put("user", list);
         }
 
         mappingManager.mapObject(name,user);
@@ -153,7 +161,9 @@ public class MappingManagerTest {
         assertTrue(mappingManager.mappedObjects.containsKey(name));
         assertEquals(user, mappingManager.mappedObjects.get(name));
 
-        verify(callback,atLeastOnce()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"nameToString"}));
+        verify(callback,atLeastOnce()).callActionOnView(eq(carpaccioAction), eq(view));
+        verify(callback,atLeastOnce()).callActionOnView(eq(carpaccioAction), eq(view));
+        assertEquals("nameToString", carpaccioAction.getValues()[0]);
     }
 
     @Test
@@ -162,33 +172,36 @@ public class MappingManagerTest {
         String name = "user";
 
         View view = mock(View.class);
+        CarpaccioAction carpaccioAction = new CarpaccioAction("setTexteu($user.getName())");
         {
-            mappingManager.mappingWaitings.put("user", Arrays.asList(
-                    new MappingWaiting(view,"setTexteu","user.getName()","user")
-            ));
+            ArrayList list = new ArrayList();
+            list.add(new MappingWaiting(view,carpaccioAction,"setTexteu","user"));
+            mappingManager.mappingWaitings.put("user", list);
         }
 
-        mappingManager.mapObject(name,user);
+
+        mappingManager.mapObject(name, user);
 
         assertTrue(mappingManager.mappedObjects.containsKey(name));
         assertEquals(user, mappingManager.mappedObjects.get(name));
 
-        verify(callback,never()).callFunctionOnControllers(eq("setText"),eq(view),eq(new String[]{"florent"}));
+        verify(callback,never()).callActionOnView(eq(carpaccioAction), eq(view));
     }
 
     @Test
     public void testCallMapping() throws Exception {
         View view = mock(View.class);
 
-        mappingManager.callMapping("setText",view,new String[]{"$user"}, null);
+        CarpaccioAction carpaccioAction = new CarpaccioAction("setText($user)");
+        mappingManager.callMappingOnView(carpaccioAction,view,null);
 
         assertTrue(mappingManager.mappingWaitings.containsKey("user"));
 
         MappingWaiting addedWaiting = mappingManager.mappingWaitings.get("user").get(0);
         assertNotNull(addedWaiting);
         assertEquals("user", addedWaiting.objectName);
-        assertEquals("setText", addedWaiting.function);
-        assertEquals("user",addedWaiting.call);
+        assertEquals("user", addedWaiting.call);
+        assertEquals(carpaccioAction, addedWaiting.carpaccioAction);
         assertEquals(view, addedWaiting.view);
     }
 
@@ -196,16 +209,17 @@ public class MappingManagerTest {
     public void testCallMapping_withFunction() throws Exception {
         View view = mock(View.class);
 
-        mappingManager.callMapping("setText",view,new String[]{"$user.getName()"}, null);
+        CarpaccioAction carpaccioAction = new CarpaccioAction("setText($user.getName())");
+        mappingManager.callMappingOnView(carpaccioAction,view,null);
 
         assertTrue(mappingManager.mappingWaitings.containsKey("user"));
 
         MappingWaiting addedWaiting = mappingManager.mappingWaitings.get("user").get(0);
         assertNotNull(addedWaiting);
         assertEquals("user", addedWaiting.objectName);
-        assertEquals("setText",addedWaiting.function);
-        assertEquals("user.getName()",addedWaiting.call);
-        assertEquals(view,addedWaiting.view);
+        assertEquals("user.getName()", addedWaiting.call);
+        assertEquals(carpaccioAction, addedWaiting.carpaccioAction);
+        assertEquals(view, addedWaiting.view);
     }
 
     @Test
@@ -218,5 +232,4 @@ public class MappingManagerTest {
         mappingManager.setMappingManagerCallback(callback);
         assertEquals(callback,mappingManager.mappingManagerCallback);
     }
-    */
 }
