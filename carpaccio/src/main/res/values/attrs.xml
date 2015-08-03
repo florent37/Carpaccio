@@ -3,6 +3,6 @@
     <declare-styleable name="Carpaccio">
         <attr name="register" format="string" />
         <attr name="packages" format="string" />
-        <attr name="onlyForPrefiew" format="boolean" />
+        <attr name="onlyForPreview" format="boolean" />
     </declare-styleable>
 </resources>

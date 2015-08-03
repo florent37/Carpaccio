@@ -29,7 +29,7 @@ public class Carpaccio extends FrameLayout {
         {
             String register = styledAttrs.getString(R.styleable.Carpaccio_register);
 
-            onlyForPreview = styledAttrs.getBoolean(R.styleable.Carpaccio_onlyForPrefiew, false);
+            onlyForPreview = styledAttrs.getBoolean(R.styleable.Carpaccio_onlyForPreview, false);
 
             if((onlyForPreview && IN_EDIT_MODE) || !IN_EDIT_MODE){
                 if (register != null && carpaccioManager != null)
