@@ -142,7 +142,7 @@ public class MappingManager {
 
         if (action.isCallMapping()) {
 
-                CarpaccioLogger.d(TAG, "callMappingOnView mapping=" + mappedObject + " action=" + action.getCompleteCall() + " view=" + view);
+                CarpaccioLogger.d(TAG, "callMappingOnView mapping=" + mappedObject + " action=" + action.getCompleteCall() + " view=" + view.getClass().getName());
 
             String arg = action.getArgs()[0]; //only map the first argument
 

@@ -1,6 +1,7 @@
 package com.github.florent37.carpaccio;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -108,7 +109,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                 view.setTag(actions); //save into view tags, replace the string with the list
             }
 
-            CarpaccioLogger.d(TAG, view + " has actions " + actions);
+            CarpaccioLogger.d(TAG, view.getClass().getName() + " has actions " + actions);
 
             if (actions != null)
                 for (CarpaccioAction action : actions) {
@@ -117,8 +118,13 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                     if (mappingManager != null && action.isCallMapping()) {
                         mappingManager.callMappingOnView(action, view, mappedObject);
 
-                        if (Carpaccio.IN_EDIT_MODE)
-                            callActionOnView(action, view);
+                        if (Carpaccio.IN_EDIT_MODE) {
+                            try {
+                                callActionOnView(action, view);
+                            }catch (Exception e){
+                                Log.e(TAG,e.getMessage(),e);
+                            }
+                        }
                     } else //an usual function setText(florent)
                         callActionOnView(action, view);
                 }
