@@ -190,7 +190,7 @@ public class CarpaccioHelper {
 
         if (method != null && object != null) {
 
-            CarpaccioLogger.d(TAG, view + " call method " + name + " on " + object);
+            CarpaccioLogger.d(TAG, view.getClass().getName() + " call method " + name + " on " + object);
 
             try {
                 method.invoke(object, getArgumentsWithView(view, method.getParameterTypes(), args));
