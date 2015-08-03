@@ -36,22 +36,33 @@ public class MappingManager {
         return args.length == 1 && args[0].startsWith("$");
     }
 
-    /**
-     * @param name   the mapped object name, ex : for function($user), the name will be "user"
-     * @param object the mapped object
-     */
-    public String evaluateValue(Object object, String call, String name){
-        String value = null;
+    //object.image.getUrl()
+    public String evaluate(Object object, String call){
+        if (!call.contains(".")) { //"object"
+            return object.toString();
+        } else {
+            String function = call.substring(call.indexOf('.')+1); //image.getUrl(); or //image
+            String callToGetObject;
+            if(function.contains(".")){
+                callToGetObject = function.substring(0,function.indexOf('.')); //image
+            }else{
+                callToGetObject = function; //image
+            }
+            String realCallToGetObject = getFunctionName(callToGetObject);
+            Object newObject = CarpaccioHelper.callFunction(object, realCallToGetObject);
 
-        if (call.equals(name)) { //"user"
-            value = object.toString();
-        } else if (call.startsWith(name)) { //"user.getName()"
-            String functionName = getFunctionName(call); // "getName"
-            value = CarpaccioHelper.callFunction(object, functionName);
+            if(newObject instanceof String){
+                return (String)newObject;
+            }else if(newObject instanceof Number){
+                return String.valueOf(newObject);
+            }
+            else
+                return evaluate(newObject,function);
         }
-
-        return value;
     }
+
+
+
 
     /**
      * Add an object to the mapper
@@ -67,7 +78,7 @@ public class MappingManager {
         List<MappingWaiting> waitingsForThisName = mappingWaitings.get(name);
         if (waitingsForThisName != null) {
             for (MappingWaiting mappingWaiting : waitingsForThisName) {
-                String value = evaluateValue(object,mappingWaiting.getCall(),name);
+                String value = evaluate(object,mappingWaiting.getCall());
 
                 if (value != null && mappingManagerCallback != null) {
                     mappingWaiting.getCarpaccioAction().setValues(new String[]{value}); //TODO
@@ -91,15 +102,15 @@ public class MappingManager {
     }
 
     /**
-     * From user.getName() return "getName"
+     * From getName() return getName()
+     * From name return getName()
      */
     protected static String getFunctionName(String call) {
         if (call.contains("(") && call.contains(")"))
-            return call.substring(call.indexOf(".") + 1, call.indexOf("("));
+            return call.replace("()","");
         else {
-            String[] split = call.split("\\.");
-            String firstLetter = split[1].substring(0, 1).toUpperCase();
-            String lastLetters = split[1].substring(1, split[1].length());
+            String firstLetter = call.substring(0, 1).toUpperCase();
+            String lastLetters = call.substring(1, call.length());
 
             return "get" + firstLetter + lastLetters;
         }
@@ -128,7 +139,7 @@ public class MappingManager {
 
             //if you already have the object
             if (mappedObject != null) {
-                String value = evaluateValue(mappedObject,call,objectName);
+                String value = evaluate(mappedObject, call);
 
                 action.setValues(new String[]{value}); //TODO
 

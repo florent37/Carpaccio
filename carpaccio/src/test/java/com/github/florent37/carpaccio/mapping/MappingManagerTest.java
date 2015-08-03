@@ -64,12 +64,12 @@ public class MappingManagerTest {
 
     @Test
     public void testGetFunctionName() throws Exception {
-        assertEquals("getName", MappingManager.getFunctionName("user.getName()"));
+        assertEquals("getName", MappingManager.getFunctionName("getName()"));
     }
 
     @Test
     public void testGetFunctionName2() throws Exception {
-        assertEquals("getName", MappingManager.getFunctionName("user.name"));
+        assertEquals("getName", MappingManager.getFunctionName("name"));
     }
 
     public class User{
@@ -185,7 +185,7 @@ public class MappingManagerTest {
         assertTrue(mappingManager.mappedObjects.containsKey(name));
         assertEquals(user, mappingManager.mappedObjects.get(name));
 
-        verify(callback,never()).callActionOnView(eq(carpaccioAction), eq(view));
+        verify(callback,atLeastOnce()).callActionOnView(eq(carpaccioAction), eq(view));
     }
 
     @Test
@@ -231,5 +231,91 @@ public class MappingManagerTest {
     public void testSetMappingManagerCallback() throws Exception {
         mappingManager.setMappingManagerCallback(callback);
         assertEquals(callback,mappingManager.mappingManagerCallback);
+    }
+
+    public class SubClassToEvaluate{
+        public String getUrl(){
+            return "www.MyImage";
+        }
+
+        public String toString(){
+            return "IamAnImage";
+        }
+    }
+
+    public class ObjectToEvaluate{
+
+        protected SubClassToEvaluate image = new SubClassToEvaluate();
+
+        public String toString(){
+            return "ThisIsMyToString";
+        }
+
+        public String getName(){
+            return "florent";
+        }
+
+        public int getCount(){
+            return 3;
+        }
+
+        public SubClassToEvaluate getImage() {
+            return image;
+        }
+    }
+
+    @Test
+    public void testEvaluateExpression(){
+        ObjectToEvaluate object = new ObjectToEvaluate();
+
+        String value = mappingManager.evaluate(object, "object.getName()");
+
+        assertEquals("florent",value);
+    }
+
+
+    @Test
+    public void testEvaluateExpression_reduce(){
+        ObjectToEvaluate object = new ObjectToEvaluate();
+
+        String value = mappingManager.evaluate(object, "object.name");
+
+        assertEquals("florent",value);
+    }
+
+    @Test
+    public void testEvaluateExpression_toString(){
+        ObjectToEvaluate object = new ObjectToEvaluate();
+
+        String value = mappingManager.evaluate(object,"object");
+
+        assertEquals("ThisIsMyToString",value);
+    }
+
+    @Test
+    public void testEvaluateExpression_multiple_toString(){
+        ObjectToEvaluate object = new ObjectToEvaluate();
+
+        String value = mappingManager.evaluate(object, "object.image");
+
+        assertEquals("IamAnImage",value);
+    }
+
+    @Test
+    public void testEvaluateExpression_multiple_value(){
+        ObjectToEvaluate object = new ObjectToEvaluate();
+
+        String value = mappingManager.evaluate(object, "object.image.getUrl()");
+
+        assertEquals("www.MyImage",value);
+    }
+
+    @Test
+    public void testEvaluateExpression_int(){
+        ObjectToEvaluate object = new ObjectToEvaluate();
+
+        String value = mappingManager.evaluate(object, "object.count");
+
+        assertEquals("3",value);
     }
 }
