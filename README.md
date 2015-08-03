@@ -178,39 +178,6 @@ carpaccio.mapList("user", this.users);
 
 ------------
 
-#Customize
-
-You can add you own functions to Carpaccio, simply create a custom ViewControllers,
-for example **MyViewController**
-
-```java
-public class MyViewController{
-
-    public void myFunction(View view, String argument1){
-        //your usage
-    }
-
-}
-```
-
-Then you can use it into your layout
-
-```xml
-<com.github.florent37.carpaccio.Carpaccio
-        app:register="
-            com.mypackage.MyViewController
-        ">
-
-        <View
-            android:tag="
-               myFunction(theValueOfMyArgument)
-            "/>
-
-</com.github.florent37.carpaccio.Carpaccio>
-```
-
-------------
-
 #ViewControllers
 
 Carpaccio provide some awesome ViewControllers, you can use them directly into your project
@@ -225,9 +192,6 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView
 
 ![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_font_small.png)
 
-
-Usage : **font(fontName)**
-
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
         app:register="
@@ -241,35 +205,16 @@ Usage : **font(fontName)**
 </com.github.florent37.carpaccio.Carpaccio>
 ```
 
-And provides a data binding setText
-
-Usage : **setText($variable)** or **setText($variable.function())**
+And provides a data binding to set text
 
 ```xml
 <TextView
      android:tag="
          setText($user)
      "/>
-```
 
-Or directly on the android:text
-
-Usage : **android:text="$variable"**
-
-```xml
 <TextView
-     android:text="$user"/>
-```
-
-Fill your TextView with a Lorem Ipsum
-
-Usage : **lorem()**
-
-```xml
-<TextView
-     android:tag="
-              lorem()
-          "/>
+     android:text="$user.getName()"/>
 ```
 
 ------------
@@ -301,36 +246,15 @@ Usage : **url(imageUrl)**
 
 Preview an url image
 
-Usage : **enablePreview();url(imageUrl);**
-
-```xml
-<com.github.florent37.carpaccio.Carpaccio
-        app:register="
-            com.github.florent37.carpaccio.controllers.ImageViewController;
-        ">
-
-        <ImageView
-             android:tag="
-                enablePreview();
-                 url(http://i.imgur.com/DvpvklR.png);
-             " />
-</com.github.florent37.carpaccio.Carpaccio>
-```
-
-![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
-
-You can set a specific image preview Url
-
 ```xml
 <ImageView
      android:tag="
         enablePreview();
-        previewUrl(http://i.imgur.com/DvpvklR.png);
-        url($user.image);
+        url(http://i.imgur.com/DvpvklR.png);
      " />
 ```
 
-Usage : **kenburns()**
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
 
 ```xml
 <ImageView
@@ -341,8 +265,6 @@ Usage : **kenburns()**
 ```
 
 [![Video](http://share.gifyoutube.com/vpMYjp.gif)](https://youtu.be/4b84gswKGkA)
-
-Usage : **circle()**
 
 ```xml
 <ImageView
@@ -450,103 +372,4 @@ Usage :
 ```
 
 [![Video](http://share.gifyoutube.com/mLOpk7.gif)](https://youtu.be/DB_aHUGNwLQ)
-
-------------
-
-##CommonViewController
-
-Bind a RecyclerView (see DataBinding)
-
-Usage :
-
-* **adapter(listMappedName,cellLayoutName)**
-
-```xml
-<android.support.v7.widget.RecyclerView
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-
-     android:tag="
-         adapter(user,R.layout.cell_user)
-     "
-     />
-```
-
-Open an activity onClick
-
-
-* **clickStartActivity(activityName) **
-
-```xml
-<Button
-      android:tag="clickStartActivity(.MainActivitySample)"
-      />
-
-<Button
-      android:tag="clickStartActivity(com.github.florent37.carpaccio.sample.MainActivitySample)"
-      />
-
-<Button
-      android:tag="clickStartActivity($activity1)"
-      />
-```
-
-Fill a view with dummy content
-* **forInclude( LAYOUT_NAME , NUMBER)**
-
-```xml
-<LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_marginTop="150dp"
-      android:orientation="vertical"
-      android:tag="forInclude(R.layout.card_view,10);"/>
-```
-
-![forInclude](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/forInclude_small.png)
-
-Replace by another View class
-
-```xml
-<ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-
-      android:tag="
-          replace(com.github.ksoichiro.android.observablescrollview.ObservableScrollView);
-      "
-      />
-```
-
-
-* **margin(top,right,bottom,left)** & **padding(top,right,bottom,left)**
-
-```xml
-<View
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-
-      android:tag="
-          margin(0,10,0,0);
-          padding(5,0,5,0);
-      "
-      />
-```
-
-------------
-
-##AnimationViewController
-
-Easings :
-* easeIn : accelerate
-* easeOut : descelerate
-* easeInOut : accelerate then descelerate
-
-Functions :
-* **animateAphaIn(duration,easing)**
-* **animateScaleUp(duration,easing)**
-* **animateEnterY(translationY,duration,easing)**
-* **animateEnterX(translationX,duration,easing)**
-* **animateEnter(translationX,translationY,duration,easing)**
-
 
