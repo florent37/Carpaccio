@@ -18,6 +18,14 @@ public class TextViewController {
         textView.setText(value);
     }
 
+    public void text(TextView textView, String value) {
+        setText(textView, value);
+    }
+
+    public void setFont(TextView textView, String fontName) {
+        font(textView, fontName);
+    }
+
     public void font(TextView textView, String fontName) {
         if (fontName != null) {
             try {
@@ -40,7 +48,7 @@ public class TextViewController {
         }
     }
 
-    public void lorem(TextView textView){
+    public void lorem(TextView textView) {
         textView.setText(LoremHelper.LOREM);
     }
 

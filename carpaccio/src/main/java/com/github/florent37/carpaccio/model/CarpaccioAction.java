@@ -87,4 +87,9 @@ public class CarpaccioAction{
     public int hashCode() {
         return completeCall != null ? completeCall.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return completeCall;
+    }
 }

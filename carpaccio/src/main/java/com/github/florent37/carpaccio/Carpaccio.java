@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
@@ -20,16 +18,22 @@ import java.util.List;
  */
 public class Carpaccio extends FrameLayout {
 
+    private static final String TAG = "Carpaccio";
     protected CarpaccioManager carpaccioManager;
     public static boolean IN_EDIT_MODE = false;
+    protected boolean onlyForPreview = false; //is a normal FrameLayout on device, only effective on Preview
 
     protected void handleAttributes(Context context, AttributeSet attrs) {
-        TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.BadView);
+        TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.Carpaccio);
 
         {
-            String register = styledAttrs.getString(R.styleable.BadView_register);
-            if (register != null && carpaccioManager != null) {
-                carpaccioManager.registerControllers(register);
+            String register = styledAttrs.getString(R.styleable.Carpaccio_register);
+
+            onlyForPreview = styledAttrs.getBoolean(R.styleable.Carpaccio_onlyForPrefiew, false);
+
+            if((onlyForPreview && IN_EDIT_MODE) || !IN_EDIT_MODE){
+                if (register != null && carpaccioManager != null)
+                    carpaccioManager.registerControllers(register);
             }
         }
 
@@ -59,6 +63,18 @@ public class Carpaccio extends FrameLayout {
 
         IN_EDIT_MODE = isInEditMode();
 
+        if (onlyForPreview) {
+            if(IN_EDIT_MODE) {
+                execute();
+            }else{
+                CarpaccioLogger.d(TAG, "This Carpaccio is only effective on preview");
+            }
+        }else{
+            execute();
+        }
+    }
+
+    public void execute() {
         if (carpaccioManager != null) {
             carpaccioManager.findCarpaccioControlledViews(this);
             carpaccioManager.executeActionsOnViews();
@@ -78,7 +94,7 @@ public class Carpaccio extends FrameLayout {
 
     public <T> T registerAdapter(String mappedName, Object adapter) {
         if (carpaccioManager != null)
-            return (T)carpaccioManager.registerAdapter(mappedName, adapter);
+            return (T) carpaccioManager.registerAdapter(mappedName, adapter);
         return null;
     }
 
@@ -88,9 +104,9 @@ public class Carpaccio extends FrameLayout {
         return null;
     }
 
-    public void onItemClick(String mappedName,OnItemClickListener onItemClickListener) {
+    public void onItemClick(String mappedName, OnItemClickListener onItemClickListener) {
         CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
-        if(adapter != null){
+        if (adapter != null) {
             adapter.setOnItemClickListener(onItemClickListener);
         }
     }
@@ -118,11 +134,11 @@ public class Carpaccio extends FrameLayout {
     }
 
     public void addCarpaccioView(View view) {
-        if(carpaccioManager != null) {
+        if (carpaccioManager != null) {
             //carpaccioManager.addView(view); //TODO
             List<View> childrens = new ArrayList<>();
-            carpaccioManager.findCarpaccioControlledViews(view,childrens);
-            carpaccioManager.executeActionsOnViews(childrens,null);
+            carpaccioManager.findCarpaccioControlledViews(view, childrens);
+            carpaccioManager.executeActionsOnViews(childrens, null);
         }
     }
 

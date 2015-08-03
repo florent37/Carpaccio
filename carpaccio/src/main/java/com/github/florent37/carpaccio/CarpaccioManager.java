@@ -1,13 +1,11 @@
 package com.github.florent37.carpaccio;
 
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
 import com.github.florent37.carpaccio.mapping.MappingManager;
 import com.github.florent37.carpaccio.model.CarpaccioAction;
 import com.github.florent37.carpaccio.model.ObjectAndMethod;
@@ -59,9 +57,17 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         String[] registers = registerString.split(";");
         for (String s : registers) {
             String reg = s.trim().replace(";", "");
-            if (!reg.isEmpty())
-                registerController(CarpaccioHelper.construct(reg));
+            if (!reg.isEmpty()) {
+                Object controller = CarpaccioHelper.construct(reg);
+
+                if (controller != null)
+                    registerController(controller);
+                else
+                    CarpaccioLogger.d(TAG, "cannot find controller " + reg);
+            }
         }
+
+        CarpaccioLogger.d(TAG, "registered controllers = " + savedControllers.toString());
     }
 
     public void executeActionsOnViews() {
@@ -101,6 +107,8 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
                 view.setTag(actions); //save into view tags, replace the string with the list
             }
+
+            CarpaccioLogger.d(TAG, view + " has actions " + actions);
 
             if (actions != null)
                 for (CarpaccioAction action : actions) {
@@ -152,6 +160,13 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
             if (objectAndMethod == null) { //if not cached,
                 objectAndMethod = CarpaccioHelper.findObjectWithThisMethod(this.registerControllers, action.getFunction(), action.getArgs().length + 1); //+1 for the view
+
+                if(objectAndMethod != null) {
+                    CarpaccioLogger.d(TAG, objectAndMethod.getObject() + " used for " + action.getCompleteCall());
+                }else{
+                    CarpaccioLogger.e(TAG, "cannot find any controller for " + action.getCompleteCall());
+                }
+
                 savedControllers.put(key, objectAndMethod);
             }
             action.setObjectAndMethod(objectAndMethod);
@@ -187,11 +202,10 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
     public Object registerAdapter(String mapName, Object adapter) {
         if (adapter instanceof RecyclerView.Adapter || adapter instanceof BaseAdapter) {
-            if(!registerAdapters.containsKey(mapName)) {
+            if (!registerAdapters.containsKey(mapName)) {
                 this.registerAdapters.put(mapName, adapter);
                 return adapter;
-            }
-            else{
+            } else {
                 return this.registerAdapters.get(mapName);
             }
         }
@@ -199,7 +213,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     }
 
     public <T> T getAdapter(String mappedName) {
-        return (T)this.registerAdapters.get(mappedName);
+        return (T) this.registerAdapters.get(mappedName);
     }
 
     public void addChildViews(View view) {
@@ -216,8 +230,9 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     public Object bindView(View view, String mapName, int position) {
         if (mappingManager != null) {
             List<View> subViews = carpaccioSubViews.get(view);
-            if(subViews != null) {
+            if (subViews != null) {
                 Object mappedObject = mappingManager.getMappedListsObject(mapName, position);
+                CarpaccioLogger.d(TAG, "bindView " + mapName + " position=" + position + " object=" + mappedObject);
                 executeActionsOnViews(subViews, mappedObject);
                 return mappedObject;
             }
@@ -231,13 +246,13 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                 try {
                     ((RecyclerView.Adapter) adapter).notifyDataSetChanged();
                 } catch (Exception e) {
-                    Log.e(TAG, e.getMessage(), e);
+                    CarpaccioLogger.e(TAG, e.getMessage(), e);
                 }
             } else if (adapter instanceof BaseAdapter) {
                 try {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 } catch (Exception e) {
-                    Log.e(TAG, e.getMessage(), e);
+                    CarpaccioLogger.e(TAG, e.getMessage(), e);
                 }
             }
         }

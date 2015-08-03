@@ -3,6 +3,7 @@ package com.github.florent37.carpaccio.mapping;
 import android.view.View;
 
 import com.github.florent37.carpaccio.CarpaccioHelper;
+import com.github.florent37.carpaccio.CarpaccioLogger;
 import com.github.florent37.carpaccio.model.CarpaccioAction;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.Map;
  * Created by florentchampigny on 23/07/15.
  */
 public class MappingManager {
+    private static final String TAG = "CarpaccioMappingManager";
     protected Map<String, Object> mappedObjects = new HashMap<>();
     protected Map<String, List> mappedLists = new HashMap<>();
     protected Map<String, List<MappingWaiting>> mappingWaitings = new HashMap<>();
@@ -37,31 +39,37 @@ public class MappingManager {
     }
 
     //object.image.getUrl()
-    public String evaluate(Object object, String call){
+    public String evaluate(Object object, String call) {
         if (!call.contains(".")) { //"object"
+            CarpaccioLogger.d(TAG, "call " + call + " on " + object.getClass().getName());
             return object.toString();
         } else {
-            String function = call.substring(call.indexOf('.')+1); //image.getUrl(); or //image
+            String function = call.substring(call.indexOf('.') + 1); //image.getUrl(); or //image
             String callToGetObject;
-            if(function.contains(".")){
-                callToGetObject = function.substring(0,function.indexOf('.')); //image
-            }else{
+            if (function.contains(".")) {
+                callToGetObject = function.substring(0, function.indexOf('.')); //image
+            } else {
                 callToGetObject = function; //image
             }
             String realCallToGetObject = getFunctionName(callToGetObject);
             Object newObject = CarpaccioHelper.callFunction(object, realCallToGetObject);
 
-            if(newObject instanceof String){
-                return (String)newObject;
-            }else if(newObject instanceof Number){
-                return String.valueOf(newObject);
+            if (newObject != null) {
+                CarpaccioLogger.d(TAG, "call " + realCallToGetObject + " return =" + newObject.getClass().getName());
+
+                if (newObject instanceof String) {
+                    return (String) newObject;
+                } else if (newObject instanceof Number) {
+                    return String.valueOf(newObject);
+                } else
+                    return evaluate(newObject, function);
+            } else {
+                CarpaccioLogger.d(TAG, "call " + realCallToGetObject + " return = NULL");
+
+                return null;
             }
-            else
-                return evaluate(newObject,function);
         }
     }
-
-
 
 
     /**
@@ -74,11 +82,18 @@ public class MappingManager {
     public void mapObject(String name, Object object) {
         mappedObjects.put(name, object);
 
+        CarpaccioLogger.d(TAG, "map object [" + name + "," + object.getClass().getName() + "]");
+
         //call the waiting objects
         List<MappingWaiting> waitingsForThisName = mappingWaitings.get(name);
         if (waitingsForThisName != null) {
             for (MappingWaiting mappingWaiting : waitingsForThisName) {
-                String value = evaluate(object,mappingWaiting.getCall());
+
+                CarpaccioLogger.d(TAG, "call waiting mapped " + mappingWaiting.getCarpaccioAction().getCompleteCall());
+
+                String value = evaluate(object, mappingWaiting.getCall());
+
+                CarpaccioLogger.d(TAG, "call waiting value =  " + value);
 
                 if (value != null && mappingManagerCallback != null) {
                     mappingWaiting.getCarpaccioAction().setValues(new String[]{value}); //TODO
@@ -94,6 +109,7 @@ public class MappingManager {
     }
 
     public void mapList(String name, List list) {
+        CarpaccioLogger.d(TAG, "map list " + name + " size=" + list.size());
         mappedLists.put(name, list);
     }
 
@@ -107,7 +123,7 @@ public class MappingManager {
      */
     protected static String getFunctionName(String call) {
         if (call.contains("(") && call.contains(")"))
-            return call.replace("()","");
+            return call.replace("()", "");
         else {
             String firstLetter = call.substring(0, 1).toUpperCase();
             String lastLetters = call.substring(1, call.length());
@@ -122,8 +138,12 @@ public class MappingManager {
      * @param view         the calling view
      * @param mappedObject If available, the object to map with the view. Else add the view to mappingWaitings
      */
-    public void callMappingOnView(CarpaccioAction action, View view, Object mappedObject ) {
+    public void callMappingOnView(CarpaccioAction action, View view, Object mappedObject) {
+
         if (action.isCallMapping()) {
+
+                CarpaccioLogger.d(TAG, "callMappingOnView mapping=" + mappedObject + " action=" + action.getCompleteCall() + " view=" + view);
+
             String arg = action.getArgs()[0]; //only map the first argument
 
             String objectName = null;
@@ -141,17 +161,20 @@ public class MappingManager {
             if (mappedObject != null) {
                 String value = evaluate(mappedObject, call);
 
+                CarpaccioLogger.d(TAG, "callMappingOnView evaluate(" + call + ")" + " on " + mappedObject.getClass().getName() + " returned " + value);
+
                 action.setValues(new String[]{value}); //TODO
 
                 mappingManagerCallback.callActionOnView(action, view);
-            }
-
-            else{
+            } else {
                 //add to waiting
                 List<MappingWaiting> waitings = mappingWaitings.get(objectName); //["user"] = List<MappingWaiting>
                 if (waitings == null)
                     waitings = new ArrayList<>();
-                waitings.add(new MappingWaiting(view, action,call,objectName));
+                waitings.add(new MappingWaiting(view, action, call, objectName));
+
+                CarpaccioLogger.d(TAG, "added to waiting " + call + " for " + view.getClass().getName());
+
                 mappingWaitings.put(objectName, waitings);
             }
         }

@@ -73,6 +73,10 @@ public class ImageViewController {
         new CommonViewController().replaceViewithTagToRemove(imageView, "de.hdodenhof.circleimageview.CircleImageView", "circle()");
     }
 
+    public void setUrl(final ImageView imageView, String url) {
+        url(imageView,url);
+    }
+
     public void url(final ImageView imageView, String url) {
         if (Carpaccio.IN_EDIT_MODE && ENABLE_PREVIEW) {
             Bitmap bitmap = PREVIEW_BITMAPS.get(url);

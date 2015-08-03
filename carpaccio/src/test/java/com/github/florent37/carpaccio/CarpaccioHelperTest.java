@@ -12,7 +12,6 @@ import com.github.florent37.carpaccio.model.ObjectAndMethod;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ public class CarpaccioHelperTest {
 
     @Before
     public void setUp() throws Exception {
-        Log.ENABLE_LOG = false;
+        CarpaccioLogger.ENABLE_LOG = false;
         CarpaccioHelper.LOG_FAILURES = true;
     }
 

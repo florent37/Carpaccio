@@ -3,8 +3,8 @@ package com.github.florent37.carpaccio;
 /**
  * Created by florentchampigny on 24/07/15.
  */
-class Log {
-    public static boolean ENABLE_LOG = true;
+public class CarpaccioLogger {
+    public static boolean ENABLE_LOG = false;
 
     public static void i(String tag, String string) {
         if (ENABLE_LOG) android.util.Log.i(tag, string);
