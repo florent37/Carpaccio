@@ -200,6 +200,13 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
+    public void appendList(String mappedName, List list) {
+        if (mappingManager != null) {
+            mappingManager.appendList(mappedName, list);
+            notifyAdapterDataSetChanded(registerAdapters.get(mappedName));
+        }
+    }
+
     public List getMappedList(String name) {
         if (mappingManager != null)
             return mappingManager.getMappedList(name);

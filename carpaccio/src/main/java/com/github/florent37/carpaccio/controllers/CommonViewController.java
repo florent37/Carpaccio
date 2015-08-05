@@ -73,8 +73,8 @@ public class CommonViewController {
         }
     }
 
-    public void adapter(View view, String mappedName, String layoutName) {
-        final int layoutResId = getLayoutIdentifierFromString(view.getContext(), layoutName);
+    public void setAdapterForRecyclerView(View view, String mappedName, String layoutName, CarpaccioRecyclerViewAdapter adapter){
+        final int layoutResId = ControllerHelper.getLayoutIdentifierFromString(view.getContext(), layoutName);
         if (layoutResId != -1) {
             final Carpaccio carpaccio = CarpaccioHelper.findParentCarpaccio(view);
             if (carpaccio != null) {
@@ -82,8 +82,12 @@ public class CommonViewController {
                     RecyclerView recyclerView = (RecyclerView) view;
                     if (recyclerView.getLayoutManager() == null)
                         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-                    CarpaccioRecyclerViewAdapter adapter = new CarpaccioRecyclerViewAdapter(carpaccio, layoutResId, mappedName);
+
+                    adapter.setCarpaccio(carpaccio);
+                    adapter.setLayoutResId(layoutResId);
+
                     adapter = carpaccio.registerAdapter(mappedName, adapter); //carpaccio register only 1 adapter;
+
                     recyclerView.setAdapter(adapter);
 
                     if (Carpaccio.IN_EDIT_MODE) {
@@ -98,6 +102,10 @@ public class CommonViewController {
                 }
             }
         }
+    }
+
+    public void adapter(View view, String mappedName, String layoutName) {
+        setAdapterForRecyclerView(view,mappedName,layoutName,new CarpaccioRecyclerViewAdapter(mappedName));
     }
 
     public void clickStartActivity(final View view, final String activityName) {
@@ -181,7 +189,7 @@ public class CommonViewController {
         return (T) newView;
     }
 
-    protected View replaceByViewClass(Context context, View view, String viewClassName) { //com.github.florent37.materialviewpager.MaterialViewPager
+    protected View  replaceByViewClass(Context context, View view, String viewClassName) { //com.github.florent37.materialviewpager.MaterialViewPager
         View newView = null;
         try {
             Class viewClass = Class.forName(viewClassName);

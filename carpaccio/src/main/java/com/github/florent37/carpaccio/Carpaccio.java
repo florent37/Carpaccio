@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 
 import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
+import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallback;
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
 import java.util.ArrayList;
@@ -111,9 +112,21 @@ public class Carpaccio extends FrameLayout {
         }
     }
 
+    public void setRecyclerViewCallback(String mappedName, RecyclerViewCallback recyclerViewCallback) {
+        CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
+        if (adapter != null) {
+            adapter.setRecyclerViewCallback(recyclerViewCallback);
+        }
+    }
+
     public void mapList(String name, List list) {
         if (carpaccioManager != null)
             carpaccioManager.mapList(name, list);
+    }
+
+    public void appendList(String name, List list){
+        if (carpaccioManager != null)
+            carpaccioManager.appendList(name, list);
     }
 
     public List getMappedList(String mapName) {

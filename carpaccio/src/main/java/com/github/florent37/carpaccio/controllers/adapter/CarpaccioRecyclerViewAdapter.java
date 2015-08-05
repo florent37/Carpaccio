@@ -28,6 +28,18 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         carpaccio.registerAdapter(mappedName, this);
     }
 
+    public CarpaccioRecyclerViewAdapter(String mappedName) {
+        this.mappedName = mappedName;
+    }
+
+    public void setCarpaccio(Carpaccio carpaccio) {
+        this.carpaccio = carpaccio;
+    }
+
+    public void setLayoutResId(int layoutResId) {
+        this.layoutResId = layoutResId;
+    }
+
     public OnItemClickListener<T> getOnItemClickListener() {
         return onItemClickListener;
     }

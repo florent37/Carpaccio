@@ -113,6 +113,16 @@ public class MappingManager {
         mappedLists.put(name, list);
     }
 
+    public void appendList(String mappedName, List list) {
+        List savedList = mappedLists.get(mappedName);
+        if(savedList == null){
+            CarpaccioLogger.e(TAG,"No list found for ["+mappedName+"]");
+        }else{
+            savedList.addAll(list);
+        }
+    }
+
+
     public List getMappedList(String name) {
         return mappedLists.get(name);
     }
