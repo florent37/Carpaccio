@@ -166,7 +166,7 @@ carpaccio.mapList("user", this.users);
 #ViewControllers
 
 Carpaccio provide some awesome ViewControllers, you can use them directly into your project
-Read the Wiki to have a list of all provided viewControllers [Wiki][https://github.com/florent37/Carpaccio/wiki]
+**Read the Wiki to have a list of all provided viewControllers** [Wiki][https://github.com/florent37/Carpaccio/wiki]
 
 ------------
 
@@ -174,7 +174,7 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView and 
 
 **WORKS WITH ANDROID STUDIO PREVIEW !!!**
 
-![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_font_small.png)
+![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_ttf_small.png)
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
@@ -184,7 +184,7 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView and 
 
         <TextView
              android:tag="
-                 font(Roboto-Light.ttf);
+                 font(Pacifico.ttf);
                  android:text="$user.getName()"
              "/>
 </com.github.florent37.carpaccio.Carpaccio>
@@ -193,9 +193,6 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView and 
 ------------
 
 ##ImageViewController
-
-###Url
-
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
