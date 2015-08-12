@@ -52,7 +52,7 @@ Add into your **build.gradle**
 [![Download](https://api.bintray.com/packages/florent37/maven/Carpaccio/images/download.svg)](https://bintray.com/florent37/maven/Carpaccio/_latestVersion)
 
 ```groovy
-compile ('com.github.florent37:carpaccio:1.0.0@aar'){
+compile ('com.github.florent37:carpaccio:1.0.2@aar'){
     transitive=true
 }
 ```
