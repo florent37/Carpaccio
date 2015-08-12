@@ -26,9 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screenshot/recycler_preview.png" afterPath="$PROJECT_DIR$/screenshot/recycler_preview.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screenshot/recycler.png" afterPath="$PROJECT_DIR$/screenshot/recycler.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screenshot/recycler_small.png" afterPath="$PROJECT_DIR$/screenshot/recycler_small.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="Carpaccio.iws" />
     <ignored path=".idea/workspace.xml" />
