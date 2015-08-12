@@ -95,6 +95,7 @@ carpaccio.mapObject("user",new User("florent", "www."));
 ##RecyclerView Mapping
 
 You dreamed it, Carpaccio did it ! You can now bind a List with a RecyclerView !
+
 **WORKS WITH ANDROID STUDIO PREVIEW !!!**, don't hesitate to refresh your preview
 ![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/refresh.png)
 
