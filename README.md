@@ -165,7 +165,7 @@ carpaccio.mapList("user", this.users);
 
 #ViewControllers
 
-Carpaccio provide some awesome ViewControllers, you can use them directly into your project
+Carpaccio provide some awesome ViewControllers, you can use them directly into your project.
 [Read the Wiki to have a list of all provided viewControllers](https://github.com/florent37/Carpaccio/wiki)
 
 ------------
