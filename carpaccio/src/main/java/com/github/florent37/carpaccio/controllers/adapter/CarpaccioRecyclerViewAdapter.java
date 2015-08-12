@@ -203,11 +203,16 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
                 @Override
                 public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                     // callback for swipe to dismiss, removing item from data and adapter
+                    int position = viewHolder.getAdapterPosition();
+                    int positionLessHeader = viewHolder.getAdapterPosition()-getHeaderCount();
+
                     boolean remove = onItemSwipedListener.OnItemSwipedListener((T)getItem(viewHolder.getAdapterPosition()),viewHolder.getAdapterPosition(),(Holder)viewHolder, CarpaccioRecyclerViewAdapter.this);
-                    if(remove)
-                        notifyItemRemoved(viewHolder.getAdapterPosition());
+                    if(remove) {
+                        carpaccio.getMappedList(mappedName).remove(positionLessHeader);
+                        notifyItemRemoved(position);
+                    }
                     else
-                        notifyItemChanged(viewHolder.getAdapterPosition());
+                        notifyItemChanged(position);
                 }
             }).attachToRecyclerView(recyclerView);
         }
