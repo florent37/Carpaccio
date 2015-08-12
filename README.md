@@ -117,6 +117,7 @@ R.layout.activity_main_recyclerview_mapping
                     android:layout_height="match_parent"
 
                     android:tag="
+                        addHeader(header,R.layout.header_user);
                         adapter(user,R.layout.cell_user)
                     "
                     />
@@ -159,6 +160,7 @@ Finally, in your activiy/fragment you just have to indicate the List to map !
 setContentView(R.layout.activity_main_recyclerview_mapping);
 Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
 carpaccio.mapList("user", this.users);
+carpaccio.mapObject("header", this.headerObject);
 ```
 
 ------------
