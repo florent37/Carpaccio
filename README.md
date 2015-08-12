@@ -169,12 +169,11 @@ carpaccio.mapList("user", this.users);
 #ViewControllers
 
 Carpaccio provide some awesome ViewControllers, you can use them directly into your project
+Read the Wiki to have a list of all provided viewControllers [Wiki][https://github.com/florent37/Carpaccio/wiki]
 
 ------------
 
-##TextViewController
-
-TextViewController can set a custom font (from assets/fonts/) to a TextView
+TextViewController can set a custom font (from assets/fonts/) to a TextView and provide text binding
 
 **WORKS WITH ANDROID STUDIO PREVIEW !!!**
 
@@ -188,21 +187,10 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView
 
         <TextView
              android:tag="
-                 font(Roboto-Light.ttf)
+                 font(Roboto-Light.ttf);
+                 android:text="$user.getName()"
              "/>
 </com.github.florent37.carpaccio.Carpaccio>
-```
-
-And provides a data binding to set text
-
-```xml
-<TextView
-     android:tag="
-         setText($user)
-     "/>
-
-<TextView
-     android:text="$user.getName()"/>
 ```
 
 ------------
@@ -243,6 +231,8 @@ Preview an url image
      " />
 ```
 
+And some awesome customisations
+
 ![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
 
 ```xml
@@ -265,13 +255,6 @@ Preview an url image
 
 ![circle](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/circle_small_2.png)
 
-###Blur
-You can blur an ImageView
-
-Usage :
-* **willBlur()** if use url(www...)
-* **blur()** else
-
 ```xml
 <ImageView
       android:tag="
@@ -287,12 +270,6 @@ Usage :
 ```
 
 ![blur](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/blur_small.png)
-
-###GreyScale
-
-Usage :
-* **willGreyScale()** if use url(www...)
-* **greyScale()** else
 
 ```xml
 <ImageView
@@ -310,11 +287,6 @@ Usage :
 
 ![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/greyscale_small.png)
 
-###AnimateMaterial
-
-Display your image with a material animation
-Usage : **animateMaterial(duration)**
-
 ```xml
 <ImageView
       android:tag="
@@ -324,43 +296,6 @@ Usage : **animateMaterial(duration)**
 ```
 
 [![Video](http://share.gifyoutube.com/mGz9OZ.gif)](https://youtu.be/A0eyvpNh5wM)
-
-------------
-
-##ParallaxViewController
-
-ParallaxViewController can add a parallax effect on ScrollView/Recyclerview childs
-
-Usage :
-
-* Scrollable : **registerParallax()**
-* Scrollable childs : **parallaxY(float)**
-
-```xml
-<com.github.florent37.carpaccio.Carpaccio
-        app:register="
-            com.github.florent37.carpaccio.controllers.ParallaxViewController;
-        ">
-
-        <ScrollView
-                    android:tag="registerParallax()">
-
-              <View
-                    android:tag="
-                        parallaxY(0.5);
-                    " />
-
-              <View
-                    android:tag="
-                        parallaxY(1.5);
-                    " />
-
-        </ScrollView
-
-</com.github.florent37.carpaccio.Carpaccio>
-```
-
-[![Video](http://share.gifyoutube.com/mLOpk7.gif)](https://youtu.be/DB_aHUGNwLQ)
 
 #Community
 
