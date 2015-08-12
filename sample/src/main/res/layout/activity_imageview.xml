@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:register="
-            com.github.florent37.carpaccio.controllers.ImageViewController;
-            com.github.florent37.carpaccio.controllers.CommonViewController;
+            ImageViewController;
         ">
 
     <ImageView

@@ -35,7 +35,7 @@ public class Carpaccio extends FrameLayout {
 
             if ((onlyForPreview && IN_EDIT_MODE) || !IN_EDIT_MODE) {
                 if (register != null && carpaccioManager != null)
-                    carpaccioManager.registerControllers(register);
+                    carpaccioManager.registerControllers(context,register);
             }
         }
 

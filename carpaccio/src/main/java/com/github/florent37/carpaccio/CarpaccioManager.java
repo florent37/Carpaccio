@@ -1,5 +1,6 @@
 package com.github.florent37.carpaccio;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,7 @@ import java.util.Map;
  */
 public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
-    public static class CarpaccioException extends NullPointerException{
+    public static class CarpaccioException extends NullPointerException {
         public CarpaccioException(String detailMessage) {
             super(detailMessage);
         }
@@ -63,18 +64,25 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
             registerControllers.add(controller);
     }
 
-    public void registerControllers(String registerString) {
+    public void registerControllers(Context context, String registerString) {
         String[] registers = registerString.split(";");
         for (String s : registers) {
             String reg = s.trim().replace(";", "");
             if (!reg.isEmpty()) {
+
                 Object controller = CarpaccioHelper.construct(reg);
+
+                if (controller == null)
+                    controller = CarpaccioHelper.construct("com.github.florent37.carpaccio.controllers." + reg);
+                if (controller == null && context != null)
+                    controller = CarpaccioHelper.construct(context.getPackageName() +"." + reg);
+
 
                 if (controller != null)
                     registerController(controller);
                 else {
                     CarpaccioLogger.d(TAG, "cannot find controller " + reg);
-                    throw new CarpaccioException("cannot find controller "+reg);
+                    throw new CarpaccioException("cannot find controller " + reg);
                 }
             }
         }
@@ -132,8 +140,8 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                         if (Carpaccio.IN_EDIT_MODE) {
                             try {
                                 callActionOnView(action, view);
-                            }catch (Exception e){
-                                Log.e(TAG,e.getMessage(),e);
+                            } catch (Exception e) {
+                                Log.e(TAG, e.getMessage(), e);
                             }
                         }
                     } else //an usual function setText(florent)
@@ -178,9 +186,9 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
             if (objectAndMethod == null) { //if not cached,
                 objectAndMethod = CarpaccioHelper.findObjectWithThisMethod(this.registerControllers, action.getFunction(), action.getArgs().length + 1); //+1 for the view
 
-                if(objectAndMethod != null) {
+                if (objectAndMethod != null) {
                     CarpaccioLogger.d(TAG, objectAndMethod.getObject() + " used for " + action.getCompleteCall());
-                }else{
+                } else {
                     CarpaccioLogger.e(TAG, "cannot find any controller for " + action.getCompleteCall());
                     throw new CarpaccioException("cannot find any controller for " + action.getCompleteCall());
                 }

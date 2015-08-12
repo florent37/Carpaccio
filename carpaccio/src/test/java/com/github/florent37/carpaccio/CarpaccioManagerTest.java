@@ -128,7 +128,7 @@ public class CarpaccioManagerTest {
     public void testRegisterControllers() throws Exception {
         assertTrue(carpaccioManager.registerControllers.isEmpty());
 
-        carpaccioManager.registerControllers("java.util.ArrayList");
+        carpaccioManager.registerControllers(null,"java.util.ArrayList");
 
         assertFalse(carpaccioManager.registerControllers.isEmpty());
 
@@ -139,7 +139,7 @@ public class CarpaccioManagerTest {
     public void testRegisterControllers_multiple() throws Exception {
         assertTrue(carpaccioManager.registerControllers.isEmpty());
 
-        carpaccioManager.registerControllers("java.util.ArrayList;java.util.HashMap;");
+        carpaccioManager.registerControllers(null,"java.util.ArrayList;java.util.HashMap;");
 
         assertFalse(carpaccioManager.registerControllers.isEmpty());
 
@@ -151,7 +151,7 @@ public class CarpaccioManagerTest {
     public void testRegisterControllers_fail() throws Exception {
         assertTrue(carpaccioManager.registerControllers.isEmpty());
 
-        carpaccioManager.registerControllers("java.ttttttiiillll.ArrayList");
+        carpaccioManager.registerControllers(null,"java.ttttttiiillll.ArrayList");
 
         assertTrue(carpaccioManager.registerControllers.isEmpty());
     }
@@ -160,7 +160,7 @@ public class CarpaccioManagerTest {
     public void testRegisterControllers_fail_multiple() throws Exception {
         assertTrue(carpaccioManager.registerControllers.isEmpty());
 
-        carpaccioManager.registerControllers("java.ttttttiiillll.ArrayList;java.util.HashMap;");
+        carpaccioManager.registerControllers(null,"java.ttttttiiillll.ArrayList;java.util.HashMap;");
 
         assertFalse(carpaccioManager.registerControllers.isEmpty());
         assertTrue(carpaccioManager.registerControllers.get(0) instanceof java.util.HashMap);
@@ -170,7 +170,7 @@ public class CarpaccioManagerTest {
     public void testRegisterControllers_multiple_whiteSpace() throws Exception {
         assertTrue(carpaccioManager.registerControllers.isEmpty());
 
-        carpaccioManager.registerControllers("             java.util.ArrayList;     \n    java.util.HashMap;     \n          ");
+        carpaccioManager.registerControllers(null,"             java.util.ArrayList;     \n    java.util.HashMap;     \n          ");
         assertFalse(carpaccioManager.registerControllers.isEmpty());
 
         assertTrue(carpaccioManager.registerControllers.get(0) instanceof java.util.ArrayList);
@@ -181,7 +181,7 @@ public class CarpaccioManagerTest {
     public void testRegisterControllers_multiple_commaSeparator() throws Exception {
         assertTrue(carpaccioManager.registerControllers.isEmpty());
 
-        carpaccioManager.registerControllers("java.util.ArrayList;java.util.HashMap");
+        carpaccioManager.registerControllers(null,"java.util.ArrayList;java.util.HashMap");
         assertFalse(carpaccioManager.registerControllers.isEmpty());
 
         assertTrue(carpaccioManager.registerControllers.get(0) instanceof java.util.ArrayList);
