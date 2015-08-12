@@ -67,14 +67,14 @@ compile ('com.github.florent37:carpaccio:1.0.0@aar'){
             setText($user)
        "/>
 
-<TextView
+<ImageView
        android:tag="
-            setText($user.getName())
-       "/>
+           url($user.getImageUrl())
+       " />
 
-<TextView
+<ImageView
        android:tag="
-            setText()
+            url($user.imageUrl)
        "/>
 
 <TextView
@@ -85,7 +85,7 @@ In your activity / fragment :
 
 ```java
 Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
-carpaccio.mapObject("user",new User("florent"));
+carpaccio.mapObject("user",new User("florent", "www."));
 ```
 
 ![set_text](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/set_text.png)
