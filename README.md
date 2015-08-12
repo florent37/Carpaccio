@@ -230,14 +230,6 @@ Preview an url image
 And some awesome customisations
 
 
-```xml
-<ImageView
-      android:tag="
-           kenburns();
-           url(http://i.imgur.com/DvpvklR.png);
-      " />
-```
-
 ![circle](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/circle_small_2.png)
 ![blur](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/blur_small.png)
 ![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/greyscale_small.png)
@@ -245,10 +237,9 @@ And some awesome customisations
 ```xml
 <ImageView
       android:tag="
+
            circle();
-
            blur(); OR willBlur();
-
            greyScale(); OR willGreyScale();
 
            url(http://i.imgur.com/DvpvklR.png);
