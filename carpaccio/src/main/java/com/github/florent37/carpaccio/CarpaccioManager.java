@@ -31,6 +31,8 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
         }
     }
 
+    protected boolean displayErrors = false;
+
     private static final String TAG = "CarpaccioManager";
     protected List<View> carpaccioViews = new ArrayList<>();
     protected Map<String, Object> registerAdapters = new HashMap<>();
@@ -82,7 +84,8 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                     registerController(controller);
                 else {
                     CarpaccioLogger.d(TAG, "cannot find controller " + reg);
-                    throw new CarpaccioException("cannot find controller " + reg);
+                    if(displayErrors)
+                        throw new CarpaccioException("cannot find controller " + reg);
                 }
             }
         }
@@ -190,7 +193,8 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                     CarpaccioLogger.d(TAG, objectAndMethod.getObject() + " used for " + action.getCompleteCall());
                 } else {
                     CarpaccioLogger.e(TAG, "cannot find any controller for " + action.getCompleteCall());
-                    throw new CarpaccioException("cannot find any controller for " + action.getCompleteCall());
+                    if(displayErrors)
+                        throw new CarpaccioException("cannot find any controller for " + action.getCompleteCall());
                 }
 
                 savedControllers.put(key, objectAndMethod);

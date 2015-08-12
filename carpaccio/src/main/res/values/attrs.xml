@@ -4,5 +4,6 @@
         <attr name="register" format="string" />
         <attr name="packages" format="string" />
         <attr name="onlyForPreview" format="boolean" />
+        <attr name="displayErrors" format="boolean" />
     </declare-styleable>
 </resources>

@@ -23,6 +23,7 @@ public class Carpaccio extends FrameLayout {
     private static final String TAG = "Carpaccio";
     protected CarpaccioManager carpaccioManager;
     public static boolean IN_EDIT_MODE = false;
+    protected boolean displayErrors = false;
     protected boolean onlyForPreview = false; //is a normal FrameLayout on device, only effective on Preview
 
     protected void handleAttributes(Context context, AttributeSet attrs) {
@@ -32,6 +33,10 @@ public class Carpaccio extends FrameLayout {
             String register = styledAttrs.getString(R.styleable.Carpaccio_register);
 
             onlyForPreview = styledAttrs.getBoolean(R.styleable.Carpaccio_onlyForPreview, false);
+            displayErrors = styledAttrs.getBoolean(R.styleable.Carpaccio_displayErrors, false);
+
+            if(carpaccioManager != null)
+                carpaccioManager.displayErrors = this.displayErrors;
 
             if ((onlyForPreview && IN_EDIT_MODE) || !IN_EDIT_MODE) {
                 if (register != null && carpaccioManager != null)
