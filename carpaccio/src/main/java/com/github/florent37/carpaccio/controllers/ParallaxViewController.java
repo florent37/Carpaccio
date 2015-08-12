@@ -1,5 +1,6 @@
 package com.github.florent37.carpaccio.controllers;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
@@ -16,12 +17,15 @@ import java.util.Map;
 /**
  * Created by florentchampigny on 22/07/15.
  */
-public class ParallaxViewController implements ObservableScrollViewCallbacks {
+public class ParallaxViewController {
 
     Map<View, Float> viewsToMove = new HashMap<>();
 
-    public void registerParallax(ScrollView view) {
-        registerParallax(view, true);
+    public void registerParallax(View view) {
+        if(view instanceof ScrollView)
+            registerParallax((ScrollView)view, true);
+        else if(view instanceof RecyclerView)
+            registerParallaxRecyclerView((RecyclerView) view);
     }
 
     public void registerParallax(ScrollView view, boolean replaceWithObservableScrollView) {
@@ -39,7 +43,31 @@ public class ParallaxViewController implements ObservableScrollViewCallbacks {
         }
 
         if (view != null)
-            ((ObservableScrollView) view).setScrollViewCallbacks(this);
+            ((ObservableScrollView) view).setScrollViewCallbacks(new ObservableScrollViewCallbacks() {
+                @Override
+                public void onScrollChanged(int i, boolean b, boolean b1) {
+                    scrolled(i);
+                }
+
+                @Override
+                public void onDownMotionEvent() {
+
+                }
+
+                @Override
+                public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+
+                }
+            });
+    }
+
+    public void registerParallaxRecyclerView(RecyclerView recyclerView){
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                scrolled(recyclerView.computeVerticalScrollOffset());
+            }
+        });
     }
 
     public void followScroll(View view) {
@@ -62,20 +90,10 @@ public class ParallaxViewController implements ObservableScrollViewCallbacks {
         viewsToMove.put(view, y);
     }
 
-    @Override
-    public void onScrollChanged(int i, boolean b, boolean b1) {
+    public void scrolled(int i) {
         for (View view : viewsToMove.keySet()) {
             ViewHelper.setTranslationY(view, i * viewsToMove.get(view));
         }
     }
 
-    @Override
-    public void onDownMotionEvent() {
-
-    }
-
-    @Override
-    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-
-    }
 }

@@ -11,6 +11,7 @@
             com.github.florent37.carpaccio.controllers.RecyclerViewController;
             com.github.florent37.carpaccio.controllers.TextViewController;
             com.github.florent37.carpaccio.controllers.ImageViewController;
+            com.github.florent37.carpaccio.controllers.ParallaxViewController;
         ">
 
         <android.support.v7.widget.RecyclerView
@@ -18,6 +19,7 @@
             android:layout_height="match_parent"
 
             android:tag="
+                registerParallax();
                 addHeader(userHeader,R.layout.header_user);
                 adapter(user,R.layout.cell_user);
             "

@@ -33,26 +33,10 @@ public class MainActivityRecycler extends AppCompatActivity {
 
         carpaccio.mapList("user", this.users);
         carpaccio.mapObject("userHeader", UserFactory.generateUser());
-
-        List<Object> list = carpaccio.getMappedList("user");
         carpaccio.onItemClick("user", new OnItemClickListener() {
             @Override
             public void onItemClick(Object item, int position, View view) {
                 Toast.makeText(getApplicationContext(), "position " + position, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
-        carpaccio.setRecyclerViewCallback("user", new RecyclerViewCallbackAdapter() {
-            @Override
-            public Holder onCreateViewHolder(View view, int viewType) {
-                return new Holder(view){
-                    @Override
-                    public void onBind(Object object) {
-                        super.onBind(object);
-                    }
-                };
             }
         });
     }

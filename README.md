@@ -14,13 +14,6 @@ You no longer need to extend a view to set a custom behavior
 
 Carpaccio also come with a beautiful mapping engine !
 
-#This is kind of magic !
-
-You can preview custom fonts & image loaded from url directly from Android Studio Preview !
-
-![font](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/custom_ttf_small.png)
-![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
-
 #Usage
 
 ```xml
@@ -73,8 +66,17 @@ compile ('com.github.florent37:carpaccio:1.0.0@aar'){
        android:tag="
             setText($user)
        "/>
+
+<TextView
+       android:tag="
+            setText($user.getName())
+       "/>
+
+<TextView
+       android:tag="
+            setText($user.name)
+       "/>
 ```
-( Which will call user.toString )
 
 In your activity / fragment :
 
@@ -84,24 +86,6 @@ carpaccio.mapObject("user",new User("florent"));
 ```
 
 ![set_text](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/set_text.png)
-
-You can also specify a method (must return a String)
-
-```xml
-<TextView
-       android:tag="
-            setText($user.getName())
-       "/>
-```
-
-And simplify the method name
-
-```xml
-<TextView
-       android:tag="
-            setText($user.name)
-       "/>
-```
 
 ------------
 
