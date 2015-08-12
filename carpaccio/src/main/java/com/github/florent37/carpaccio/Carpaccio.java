@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 
 import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
+import com.github.florent37.carpaccio.controllers.adapter.OnItemSwipedListener;
 import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallback;
 import com.github.florent37.carpaccio.mapping.MappingManager;
 
@@ -116,6 +117,13 @@ public class Carpaccio extends FrameLayout {
         CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
         if (adapter != null) {
             adapter.setOnItemClickListener(onItemClickListener);
+        }
+    }
+
+    public void onItemSwiped(String mappedName, OnItemSwipedListener onItemSwipedListener) {
+        CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
+        if (adapter != null) {
+            adapter.setOnItemSwipedListener(onItemSwipedListener);
         }
     }
 

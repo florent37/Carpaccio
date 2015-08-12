@@ -1,6 +1,7 @@
 package com.github.florent37.carpaccio.controllers.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,9 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
 
     List<Integer> headerViewTypes = new ArrayList<>();
     List<Header> headers = new ArrayList<>();
+
+    RecyclerView recyclerView;
+    OnItemSwipedListener<T> onItemSwipedListener;
 
     public CarpaccioRecyclerViewAdapter(Carpaccio carpaccio, int layoutResId, String mappedName) {
         this.carpaccio = carpaccio;
@@ -115,6 +119,14 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         }
     }
 
+    public <T> T getItem(int position) {
+        if (Carpaccio.IN_EDIT_MODE) {
+            return (T)new Object();
+        } else {
+            return (T)carpaccio.getMappedList(mappedName).get(position - getHeaderCount());
+        }
+    }
+
     @Override
     public void onBindViewHolder(final Holder holder, final int position) {
         final Object mappedObject = getItemForRow(holder.itemView, position);
@@ -147,4 +159,57 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         headers.add(header);
     }
 
+    public OnItemSwipedListener<T> getOnItemSwipedListener() {
+        return onItemSwipedListener;
+    }
+
+    public void setOnItemSwipedListener(OnItemSwipedListener<T> onItemSwipedListener) {
+        this.onItemSwipedListener = onItemSwipedListener;
+        attachSwipeListener();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        this.recyclerView = recyclerView;
+        attachSwipeListener();
+    }
+
+    @Override
+    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+        this.recyclerView = null;
+    }
+
+    protected void attachSwipeListener(){
+        if(onItemSwipedListener != null && recyclerView != null)
+        {
+            // init swipe to dismiss logic
+            new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                    ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
+                @Override
+                public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                    // callback for drag-n-drop, false to skip this feature
+                    return false;
+                }
+
+                @Override
+                public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                    if (viewHolder.getAdapterPosition() < getHeaderCount()) return 0;
+                    return super.getSwipeDirs(recyclerView, viewHolder);
+                }
+
+                @Override
+                public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                    // callback for swipe to dismiss, removing item from data and adapter
+                    boolean remove = onItemSwipedListener.OnItemSwipedListener((T)getItem(viewHolder.getAdapterPosition()),viewHolder.getAdapterPosition(),(Holder)viewHolder, CarpaccioRecyclerViewAdapter.this);
+                    if(remove)
+                        notifyItemRemoved(viewHolder.getAdapterPosition());
+                    else
+                        notifyItemChanged(viewHolder.getAdapterPosition());
+                }
+            }).attachToRecyclerView(recyclerView);
+        }
+    }
 }
