@@ -77,7 +77,7 @@ public class ImageViewController {
         url(imageView,url);
     }
 
-    public void url(final ImageView imageView, String url) {
+    public void url(final ImageView imageView, final String url) {
         if (Carpaccio.IN_EDIT_MODE && ENABLE_PREVIEW) {
             Bitmap bitmap = PREVIEW_BITMAPS.get(url);
             try {
@@ -115,7 +115,7 @@ public class ImageViewController {
             requestCreator.into(imageView, new Callback() {
                 @Override
                 public void onSuccess() {
-                    onImageLoadedFromUrl(imageView);
+                    onImageLoadedFromUrl(url, imageView);
                 }
 
                 @Override
@@ -127,7 +127,7 @@ public class ImageViewController {
     }
 
     //can be overrided
-    protected void onImageLoadedFromUrl(ImageView imageView) {
+    protected void onImageLoadedFromUrl(String url, ImageView imageView) {
         startWaitingAnimateMaterialImageView(imageView);
     }
 
