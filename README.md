@@ -95,8 +95,12 @@ carpaccio.mapObject("user",new User("florent", "www."));
 ##RecyclerView Mapping
 
 You dreamed it, Carpaccio did it ! You can now bind a List with a RecyclerView !
+**WORKS WITH ANDROID STUDIO PREVIEW !!!**, don't hesitate to refresh your preview
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/refresh.png)
 
 ![recycler](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_small.png)
+![recycler_preview](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_preview_small.png)
+
 
 R.layout.activity_main_recyclerview_mapping
 ```xml
@@ -157,13 +161,6 @@ Carpaccio carpaccio = (Carpaccio)findViewById("R.id.carpaccio");
 carpaccio.mapList("user", this.users);
 ```
 
-[![Video](http://share.gifyoutube.com/yAp6Lw.gif)](https://youtu.be/alE3Pewmulo)
-
-**WORKS WITH ANDROID STUDIO PREVIEW !!!**, don't hesitate to refresh your preview
-![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/refresh.png)
-
-![recycler_preview](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_preview_small.png)
-
 ------------
 
 #ViewControllers
@@ -199,9 +196,6 @@ TextViewController can set a custom font (from assets/fonts/) to a TextView and 
 
 ###Url
 
-ImageViewController can directly set an image source from an url
-
-Usage : **url(imageUrl)**
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
@@ -231,9 +225,10 @@ Preview an url image
      " />
 ```
 
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
+
 And some awesome customisations
 
-![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/preview_image_url_small.png)
 
 ```xml
 <ImageView
@@ -243,59 +238,35 @@ And some awesome customisations
       " />
 ```
 
-[![Video](http://share.gifyoutube.com/vpMYjp.gif)](https://youtu.be/4b84gswKGkA)
-
-```xml
-<ImageView
-      android:tag="
-           circle();
-           url(http://i.imgur.com/DvpvklR.png);
-      " />
-```
-
 ![circle](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/circle_small_2.png)
-
-```xml
-<ImageView
-      android:tag="
-           willBlur();
-           url(http://i.imgur.com/DvpvklR.png);
-      " />
-
-<ImageView
-      android:src="@drawable/my_image"
-      android:tag="
-           blur()
-      " />
-```
-
 ![blur](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/blur_small.png)
-
-```xml
-<ImageView
-      android:tag="
-           willGreyScale();
-           url(http://i.imgur.com/DvpvklR.png);
-      " />
-
-<ImageView
-      android:src="@drawable/my_image"
-      android:tag="
-           greyScale()
-      " />
-```
-
 ![greyscale](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/greyscale_small.png)
 
 ```xml
 <ImageView
       android:tag="
-           animateMaterial(6000);
+           circle();
+
+           blur(); OR willBlur();
+
+           greyScale(); OR willGreyScale();
+
            url(http://i.imgur.com/DvpvklR.png);
       " />
 ```
 
 [![Video](http://share.gifyoutube.com/mGz9OZ.gif)](https://youtu.be/A0eyvpNh5wM)
+[![Video](http://share.gifyoutube.com/vpMYjp.gif)](https://youtu.be/4b84gswKGkA)
+
+
+```xml
+<ImageView
+      android:tag="
+           animateMaterial(6000);
+           kenburns();
+           url(http://i.imgur.com/DvpvklR.png);
+      " />
+```
 
 #Community
 

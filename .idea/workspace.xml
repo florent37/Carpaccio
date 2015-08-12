@@ -123,12 +123,12 @@
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
+          <provider selected="true" editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1278409">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="249" column="33" selection-start-line="249" selection-start-column="33" selection-end-line="249" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -4080,12 +4080,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1278409">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="249" column="33" selection-start-line="249" selection-start-column="33" selection-end-line="249" selection-end-column="33" />
           <folding />
         </state>
       </provider>
