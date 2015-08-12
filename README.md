@@ -63,19 +63,16 @@ compile ('com.github.florent37:carpaccio:1.0.0@aar'){
 
 ```xml
 <TextView
-       android:tag="
-            setText($user)
-       "/>
+       android:tag="setText($user)"/>
 
 <TextView
-       android:tag="
-            setText($user.getName())
-       "/>
+       android:tag="setText($user.getName())"/>
 
 <TextView
-       android:tag="
-            setText($user.name)
-       "/>
+       android:tag="setText()"/>
+
+<TextView
+       android:text="$user.name"/>
 ```
 
 In your activity / fragment :
