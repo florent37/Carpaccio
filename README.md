@@ -100,7 +100,7 @@ R.layout.activity_main_recyclerview_mapping
 <com.github.florent37.carpaccio.Carpaccio
         android:id="@+id/carpaccio"
         app:register="
-            com.github.florent37.carpaccio.controllers.CommonViewController;
+            com.github.florent37.carpaccio.controllers.RecyclerViewController;
             com.github.florent37.carpaccio.controllers.ImageViewController;
             com.github.florent37.carpaccio.controllers.TextViewController;
         ">
@@ -156,7 +156,8 @@ carpaccio.mapList("user", this.users);
 
 [![Video](http://share.gifyoutube.com/yAp6Lw.gif)](https://youtu.be/alE3Pewmulo)
 
-**WORKS WITH ANDROID STUDIO PREVIEW !!!**
+**WORKS WITH ANDROID STUDIO PREVIEW !!!**, don't hesitate to refresh your preview
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/refresh.png)
 
 ![recycler_preview](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/recycler_preview_small.png)
 
@@ -226,7 +227,8 @@ Usage : **url(imageUrl)**
 
 ![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/url_small.png)
 
-**WORKS WITH ANDROID STUDIO PREVIEW !!!**
+**WORKS WITH ANDROID STUDIO PREVIEW !!!**, don't hesitate to refresh your preview
+![url](https://raw.githubusercontent.com/florent37/Carpaccio/master/screenshot/refresh.png)
 
 Preview an url image
 
@@ -324,12 +326,12 @@ Usage : **animateMaterial(duration)**
 
 ##ParallaxViewController
 
-ParallaxViewController can add a parallax effect on ScrollView childs
+ParallaxViewController can add a parallax effect on ScrollView/Recyclerview childs
 
 Usage :
 
-* ScrollView : **registerParallax()**
-* ScrollView childs : **parallaxY(float)**
+* Scrollable : **registerParallax()**
+* Scrollable childs : **parallaxY(float)**
 
 ```xml
 <com.github.florent37.carpaccio.Carpaccio
@@ -356,11 +358,6 @@ Usage :
 ```
 
 [![Video](http://share.gifyoutube.com/mLOpk7.gif)](https://youtu.be/DB_aHUGNwLQ)
-
-#TODO
-
-- Add binding with ListViews
-- Add confitionnal bindings
 
 #Community
 
