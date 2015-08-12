@@ -30,8 +30,7 @@ public class ControllerHelper {
             try {
                 Class test = Class.forName(context.getPackageName()+".R$layout");
                 Field field = test.getDeclaredField(layoutName);
-                int value = field.getInt(null);
-                return value;
+                return field.getInt(null);
             } catch (Exception e) {
                 Log.e(TAG,e.getMessage(),e);
             }

@@ -71,7 +71,6 @@ public class MappingManager {
         }
     }
 
-
     /**
      * Add an object to the mapper
      * When the object is added, call all the mappingWaitings (views which need this object)
@@ -115,9 +114,9 @@ public class MappingManager {
 
     public void appendList(String mappedName, List list) {
         List savedList = mappedLists.get(mappedName);
-        if(savedList == null){
-            CarpaccioLogger.e(TAG,"No list found for ["+mappedName+"]");
-        }else{
+        if (savedList == null) {
+            CarpaccioLogger.e(TAG, "No list found for [" + mappedName + "]");
+        } else {
             savedList.addAll(list);
         }
     }
@@ -152,7 +151,7 @@ public class MappingManager {
 
         if (action.isCallMapping()) {
 
-                CarpaccioLogger.d(TAG, "callMappingOnView mapping=" + mappedObject + " action=" + action.getCompleteCall() + " view=" + view.getClass().getName());
+            CarpaccioLogger.d(TAG, "callMappingOnView mapping=" + mappedObject + " action=" + action.getCompleteCall() + " view=" + view.getClass().getName());
 
             String arg = action.getArgs()[0]; //only map the first argument
 
@@ -200,5 +199,9 @@ public class MappingManager {
 
     public Object getMappedListsObject(String name, int position) {
         return mappedLists.get(name).get(position);
+    }
+
+    public Object getMappedObject(String name) {
+        return mappedObjects.get(name);
     }
 }

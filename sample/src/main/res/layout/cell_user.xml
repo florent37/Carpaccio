@@ -22,17 +22,17 @@
             android:layout_height="match_parent"
             android:layout_marginRight="20dp"
             android:tag="
-            enablePreview();
-            previewUrl(http://lorempixel.com/400/400/);
-            url($user.image);
+                enablePreview();
+                previewUrl(http://lorempixel.com/400/400/);
+                url($user.image);
             " />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:tag="
-            setText($user.name);
-            font(Roboto-Black.ttf);" />
+                setText($user.name);
+                font(Roboto-Black.ttf);" />
 
     </LinearLayout>
 </com.github.florent37.carpaccio.Carpaccio>

@@ -32,7 +32,7 @@ public class Carpaccio extends FrameLayout {
 
             onlyForPreview = styledAttrs.getBoolean(R.styleable.Carpaccio_onlyForPreview, false);
 
-            if((onlyForPreview && IN_EDIT_MODE) || !IN_EDIT_MODE){
+            if ((onlyForPreview && IN_EDIT_MODE) || !IN_EDIT_MODE) {
                 if (register != null && carpaccioManager != null)
                     carpaccioManager.registerControllers(register);
             }
@@ -65,12 +65,12 @@ public class Carpaccio extends FrameLayout {
         IN_EDIT_MODE = isInEditMode();
 
         if (onlyForPreview) {
-            if(IN_EDIT_MODE) {
+            if (IN_EDIT_MODE) {
                 execute();
-            }else{
+            } else {
                 CarpaccioLogger.d(TAG, "This Carpaccio is only effective on preview");
             }
-        }else{
+        } else {
             execute();
         }
     }
@@ -89,6 +89,13 @@ public class Carpaccio extends FrameLayout {
     public void mapObject(String name, Object object) {
         if (carpaccioManager != null)
             carpaccioManager.mapObject(name, object);
+    }
+
+    public Object getMappedObject(String name) {
+        if (carpaccioManager != null)
+            return carpaccioManager.getMappedObject(name);
+        else
+            return null;
     }
 
     //region mapList
@@ -124,7 +131,7 @@ public class Carpaccio extends FrameLayout {
             carpaccioManager.mapList(name, list);
     }
 
-    public void appendList(String name, List list){
+    public void appendList(String name, List list) {
         if (carpaccioManager != null)
             carpaccioManager.appendList(name, list);
     }
@@ -143,6 +150,12 @@ public class Carpaccio extends FrameLayout {
     public Object bindView(View view, String mapName, int position) {
         if (carpaccioManager != null)
             return carpaccioManager.bindView(view, mapName, position);
+        return null;
+    }
+
+    public Object bindView(View view, String mapName) {
+        if (carpaccioManager != null)
+            return carpaccioManager.bindView(view, mapName);
         return null;
     }
 

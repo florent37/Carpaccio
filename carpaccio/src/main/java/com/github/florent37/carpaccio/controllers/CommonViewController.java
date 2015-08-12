@@ -66,48 +66,6 @@ public class CommonViewController {
         }
     }
 
-    public void columns(View view, int number) {
-        if (view instanceof RecyclerView) {
-            RecyclerView recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), number));
-        }
-    }
-
-    public void setAdapterForRecyclerView(View view, String mappedName, String layoutName, CarpaccioRecyclerViewAdapter adapter){
-        final int layoutResId = ControllerHelper.getLayoutIdentifierFromString(view.getContext(), layoutName);
-        if (layoutResId != -1) {
-            final Carpaccio carpaccio = CarpaccioHelper.findParentCarpaccio(view);
-            if (carpaccio != null) {
-                if (view instanceof RecyclerView) {
-                    RecyclerView recyclerView = (RecyclerView) view;
-                    if (recyclerView.getLayoutManager() == null)
-                        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
-                    adapter.setCarpaccio(carpaccio);
-                    adapter.setLayoutResId(layoutResId);
-
-                    adapter = carpaccio.registerAdapter(mappedName, adapter); //carpaccio register only 1 adapter;
-
-                    recyclerView.setAdapter(adapter);
-
-                    if (Carpaccio.IN_EDIT_MODE) {
-                        LinearLayout linearLayout = replace(recyclerView, LinearLayout.class.getName());
-                        linearLayout.setOrientation(LinearLayout.VERTICAL);
-                        for (int i = 0; i < 10; ++i) {
-                            View subView = LayoutInflater.from(linearLayout.getContext()).inflate(layoutResId, linearLayout, false);
-                            carpaccio.addCarpaccioView(subView);
-                            linearLayout.addView(subView);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void adapter(View view, String mappedName, String layoutName) {
-        setAdapterForRecyclerView(view,mappedName,layoutName,new CarpaccioRecyclerViewAdapter(mappedName));
-    }
-
     public void clickStartActivity(final View view, final String activityName) {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,7 +147,7 @@ public class CommonViewController {
         return (T) newView;
     }
 
-    protected View  replaceByViewClass(Context context, View view, String viewClassName) { //com.github.florent37.materialviewpager.MaterialViewPager
+    protected View replaceByViewClass(Context context, View view, String viewClassName) { //com.github.florent37.materialviewpager.MaterialViewPager
         View newView = null;
         try {
             Class viewClass = Class.forName(viewClassName);

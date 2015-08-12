@@ -21,6 +21,15 @@ import java.util.Map;
  */
 public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
+    public static class CarpaccioException extends NullPointerException{
+        public CarpaccioException(String detailMessage) {
+            super(detailMessage);
+        }
+
+        public CarpaccioException() {
+        }
+    }
+
     private static final String TAG = "CarpaccioManager";
     protected List<View> carpaccioViews = new ArrayList<>();
     protected Map<String, Object> registerAdapters = new HashMap<>();
@@ -63,8 +72,10 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
 
                 if (controller != null)
                     registerController(controller);
-                else
+                else {
                     CarpaccioLogger.d(TAG, "cannot find controller " + reg);
+                    throw new CarpaccioException("cannot find controller "+reg);
+                }
             }
         }
 
@@ -171,6 +182,7 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
                     CarpaccioLogger.d(TAG, objectAndMethod.getObject() + " used for " + action.getCompleteCall());
                 }else{
                     CarpaccioLogger.e(TAG, "cannot find any controller for " + action.getCompleteCall());
+                    throw new CarpaccioException("cannot find any controller for " + action.getCompleteCall());
                 }
 
                 savedControllers.put(key, objectAndMethod);
@@ -187,6 +199,12 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
     public void mapObject(String name, Object object) {
         if (mappingManager != null)
             mappingManager.mapObject(name, object);
+    }
+
+    public Object getMappedObject(String name) {
+        if (mappingManager != null)
+            return mappingManager.getMappedObject(name);
+        else return null;
     }
 
     //region mapList
@@ -246,6 +264,19 @@ public class CarpaccioManager implements MappingManager.MappingManagerCallback {
             if (subViews != null) {
                 Object mappedObject = mappingManager.getMappedListsObject(mapName, position);
                 CarpaccioLogger.d(TAG, "bindView " + mapName + " position=" + position + " object=" + mappedObject);
+                executeActionsOnViews(subViews, mappedObject);
+                return mappedObject;
+            }
+        }
+        return null;
+    }
+
+    public Object bindView(View view, String mapName) {
+        if (mappingManager != null) {
+            List<View> subViews = carpaccioSubViews.get(view);
+            if (subViews != null) {
+                Object mappedObject = mappingManager.getMappedObject(mapName);
+                CarpaccioLogger.d(TAG, "bindView " + mapName + " object=" + mappedObject);
                 executeActionsOnViews(subViews, mappedObject);
                 return mappedObject;
             }

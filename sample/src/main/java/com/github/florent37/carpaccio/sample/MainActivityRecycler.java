@@ -32,6 +32,8 @@ public class MainActivityRecycler extends AppCompatActivity {
         this.users = UserFactory.generateUserList();
 
         carpaccio.mapList("user", this.users);
+        carpaccio.mapObject("userHeader", UserFactory.generateUser());
+
         List<Object> list = carpaccio.getMappedList("user");
         carpaccio.onItemClick("user", new OnItemClickListener() {
             @Override
@@ -40,10 +42,12 @@ public class MainActivityRecycler extends AppCompatActivity {
             }
         });
 
-        carpaccio.setRecyclerViewCallback("user", new RecyclerViewCallbackAdapter<Object>() {
+
+
+        carpaccio.setRecyclerViewCallback("user", new RecyclerViewCallbackAdapter() {
             @Override
-            public Holder<Object> onCreateViewHolder(View view, int viewType) {
-                return new Holder<Object>(view){
+            public Holder onCreateViewHolder(View view, int viewType) {
+                return new Holder(view){
                     @Override
                     public void onBind(Object object) {
                         super.onBind(object);

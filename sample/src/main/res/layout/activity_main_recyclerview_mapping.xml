@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:register="
-            com.github.florent37.carpaccio.controllers.CommonViewController;
+            com.github.florent37.carpaccio.controllers.RecyclerViewController;
             com.github.florent37.carpaccio.controllers.TextViewController;
             com.github.florent37.carpaccio.controllers.ImageViewController;
         ">
@@ -18,7 +18,8 @@
             android:layout_height="match_parent"
 
             android:tag="
-                adapter(user,R.layout.cell_user)
+                addHeader(userHeader,R.layout.header_user);
+                adapter(user,R.layout.cell_user);
             "
             />
 

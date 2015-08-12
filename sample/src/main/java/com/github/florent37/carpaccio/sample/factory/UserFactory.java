@@ -21,4 +21,8 @@ public class UserFactory {
     public static int generateRandom() {
         return (int) (400 + (Math.random() * 100));
     }
+
+    public static Object generateUser() {
+        return new User("The Username", "http://lorempixel.com/" + generateRandom() + "/" + generateRandom() + "/");
+    }
 }

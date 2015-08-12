@@ -2,54 +2,15 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config>
-        <devices>
-          <device id="Nexus 5" />
-        </devices>
-      </config>
+      <config />
     </shared>
     <layouts>
-      <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_imageview.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
         <config>
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_sample.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_scroll.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/card_view_androidversion.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/sample/src/main/res/layout/view_include.xml">
         <config>
           <theme>@style/AppTheme</theme>
         </config>
@@ -60,16 +21,24 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="view.getClass().getName()">
+    <list default="true" id="dc1f8b98-d874-47fe-a80c-94336ec7d1e6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Header.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/RecyclerViewController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/header_user.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/CarpaccioRecyclerViewAdapter.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/CarpaccioRecyclerViewAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/CommonViewController.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/CommonViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ControllerHelper.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ControllerHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Holder.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Holder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/build.gradle" afterPath="$PROJECT_DIR$/carpaccio/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/carpaccio.iml" afterPath="$PROJECT_DIR$/carpaccio/carpaccio.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/sample.iml" afterPath="$PROJECT_DIR$/sample/sample.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallback.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallback.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallbackAdapter.java" afterPath="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallbackAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/factory/UserFactory.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/factory/UserFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Carpaccio.iws" />
@@ -86,25 +55,13 @@
     <SUITE FILE_PATH="coverage/Carpaccio$MappingManagerTest_testCallMapping.coverage" NAME="MappingManagerTest.testCallMapping Coverage Results" MODIFIED="1437744776898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.github.florent37.carpaccio.mapping.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Carpaccio$MappingManagerTest.coverage" NAME="MappingManagerTest Coverage Results" MODIFIED="1437743436719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Carpaccio$MappingManagerTest.coverage" NAME="MappingManagerTest Coverage Results" MODIFIED="1437748151816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.github.florent37.carpaccio.mapping.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioManagerTest.coverage" NAME="CarpaccioManagerTest Coverage Results" MODIFIED="1438193540554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioManagerTest.coverage" NAME="CarpaccioManagerTest Coverage Results" MODIFIED="1437741397265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.github.florent37.carpaccio.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioHelperTest.coverage" NAME="CarpaccioHelperTest Coverage Results" MODIFIED="1438189023819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.github.florent37.carpaccio.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioManagerTest_testExecuteActionsOnViews_text.coverage" NAME="CarpaccioManagerTest.testExecuteActionsOnViews_text Coverage Results" MODIFIED="1438191196765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.github.florent37.carpaccio.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioManagerTest_testBindViews.coverage" NAME="CarpaccioManagerTest.testBindViews Coverage Results" MODIFIED="1438193327110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.github.florent37.carpaccio.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioManagerTest_testAddChildViews.coverage" NAME="CarpaccioManagerTest.testAddChildViews Coverage Results" MODIFIED="1438193069642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.github.florent37.carpaccio.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioManagerTest_testExecuteActionsOnView_list.coverage" NAME="CarpaccioManagerTest.testExecuteActionsOnView_list Coverage Results" MODIFIED="1438190326031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Carpaccio$CarpaccioHelperTest.coverage" NAME="CarpaccioHelperTest Coverage Results" MODIFIED="1437726679076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.github.florent37.carpaccio.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Carpaccio$MappingManagerTest_testMapObject.coverage" NAME="MappingManagerTest.testMapObject Coverage Results" MODIFIED="1437744307687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -125,20 +82,7 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view>
-          <tree_state>
-            <PATH>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="Carpaccio" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
-              </PATH_ELEMENT>
-            </PATH>
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
@@ -147,37 +91,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Carpaccio.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java">
+      <file leaf-file-name="activity_main_recyclerview_mapping.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+            <state vertical-scroll-proportion="-5.6896553">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarpaccioManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java">
+      <file leaf-file-name="CarpaccioRecyclerViewAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/CarpaccioRecyclerViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45566165">
-              <caret line="261" column="62" selection-start-line="261" selection-start-column="62" selection-end-line="261" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.54564315">
+              <caret line="109" column="32" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
               <folding>
-                <element signature="e#8587#8588#0" expanded="true" />
-                <element signature="e#8651#8652#0" expanded="true" />
+                <element signature="e#1041#1042#0" expanded="true" />
+                <element signature="e#1085#1086#0" expanded="true" />
+                <element signature="e#1231#1232#0" expanded="true" />
+                <element signature="e#1277#1278#0" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
+                <element signature="e#1381#1382#0" expanded="true" />
+                <element signature="e#1590#1591#0" expanded="true" />
+                <element signature="e#1633#1634#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MappingManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java">
+      <file leaf-file-name="RecyclerViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/RecyclerViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.259259">
-              <caret line="120" column="35" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivityRecycler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -188,9 +149,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="layoutResourceFile_vertical" />
         <option value="Class" />
-        <option value="Singleton" />
       </list>
     </option>
   </component>
@@ -2377,6 +2336,12 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.3.04/90b215f48fe42776c8c7f6e3509ec54e84fd65ef/xml-apis-1.3.04.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.ksoichiro/android-observablescrollview/1.5.2/511be4ec569431173c8c101b487eff6413f3df61/android-observablescrollview-1.5.2.aar" />
+                            <option value="$USER_HOME$/android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/21.0.0/recyclerview-v7-21.0.0.aar" />
+                            <option value="$USER_HOME$/android/sdk/extras/android/m2repository/com/android/support/support-v4/21.0.0/support-v4-21.0.0.aar" />
+                            <option value="$USER_HOME$/android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/carpacciocontrollers" />
@@ -2619,57 +2584,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/TextViewController.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/ActivityImageView.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/factory/UserFactory.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivitySample.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioHelperTest.java" />
-        <option value="$PROJECT_DIR$/local.properties" />
-        <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioManagerTest.java" />
-        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ImageViewController.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_sample.xml" />
-        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/CommonViewController.java" />
-        <option value="$PROJECT_DIR$/carpacciocontrollers/build.gradle" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/AnimationViewController.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ParallaxViewController.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/helper/FastBlurHelper.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/helper/GrayScaleHelper.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/helper/LoremHelper.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/helper/ViewHelper.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/transformation/BlurTransformation.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/transformation/GrayScaleTransformation.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_textview.xml" />
-        <option value="$PROJECT_DIR$/sample/build.gradle" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/AbstractHolder.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallback.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/OnItemClickListener.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallbackAdapter.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Holder.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ControllerHelper.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/view_include.xml" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_imageview.xml" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/ParallaxViewController.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/ImageViewController.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/viewcontroller/ImageViewController.java" />
+        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/ImageViewController.java" />
+        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/card_view.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_scroll.xml" />
-        <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/model/CarpaccioAction.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Log.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioLogger.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/AndroidVersion.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/androidversion/AndroidVersion.java" />
+        <option value="$PROJECT_DIR$/sample/build.gradle" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/card_view_androidversion.xml" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/androidversion/AndroidVersionViewHolder.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/androidversion/AndroidVersionAdapter.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview.xml" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioViewController.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/User.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/TextViewController.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ImageViewController.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/res/values/attrs.xml" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/androidversion/AndroidVersionsViewController.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/CarpaccioRecyclerViewAdapter.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/CommonViewController.java" />
         <option value="$PROJECT_DIR$/carpaccio/build.gradle" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/Log.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Log.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioHelperTest.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioManagerTest.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingWaiting.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java" />
+        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/TextViewController.java" />
+        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ImageViewController.java" />
+        <option value="$PROJECT_DIR$/carpacciocontrollers/build.gradle" />
+        <option value="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/ParallaxViewController.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/CommonViewController.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ControllerHelper.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/RatioViewController.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Holder.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallback.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallbackAdapter.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java" />
         <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java" />
-        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/header_user.xml" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/factory/UserFactory.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview_mapping.xml" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Header.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/RecyclerViewController.java" />
+        <option value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/CarpaccioRecyclerViewAdapter.java" />
       </list>
     </option>
   </component>
@@ -2684,7 +2649,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
+    <option name="x" value="16" />
     <option name="y" value="23" />
     <option name="width" value="1436" />
     <option name="height" value="877" />
@@ -2712,18 +2677,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Carpaccio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2742,9 +2696,350 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carpaccio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Carpaccio" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2761,7 +3056,7 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Android_Wear_Square_API_22" />
     <property name="android.project.structure.last.selected" value="sample" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/tests" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
@@ -2770,60 +3065,36 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="replace&#9;ACTION&#9;Replace&#10;Fas&#9;FILE&#9;file:///Users/florentchampigny/Documents/Carpaccio/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers/helper/FastBlurHelper.java" />
-    <property name="DEBUGGABLE_DEVICE" value="lge-nexus_5-0303b21208e5b188" />
+    <property name="FullScreen" value="false" />
+    <property name="DEBUGGABLE_DEVICE" value="nexus_5-0303b21208e5b188" />
     <property name="DEBUGGABLE_PROCESS" value="com.github.florent37.carpaccio.sample" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
-    <property name="FullScreen" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="139" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="141" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="145" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="939" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="139" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="141" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="145" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="939" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.github.florent37.carpaccio.mapping" />
       <recent name="com.github.florent37.carpaccio" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.github.florent37.carpaccio.controllers.adapter" />
-      <recent name="com.github.florent37.carpaccio.sample" />
-      <recent name="com.github.florent37.carpacciocontrollers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sample/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/screenshot" />
-      <recent name="$PROJECT_DIR$/sample/src/main/assets/fonts" />
+      <recent name="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample" />
       <recent name="$PROJECT_DIR$/carpacciocontrollers/src/main/java/com/github/florent37/carpacciocontrollers" />
-      <recent name="$PROJECT_DIR$/sample/src/main/res/drawable" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/screenshot" />
-      <recent name="$PROJECT_DIR$/sample/src/main" />
-      <recent name="$PROJECT_DIR$/carpacciocontrollers/src/main" />
+      <recent name="$PROJECT_DIR$/carpacciocontrollers/src/main/java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.github.florent37.carpaccio" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sample/src/main" />
+      <recent name="$PROJECT_DIR$/carpacciocontrollers/src/main" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.sample">
     <configuration default="false" name="MappingManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.github.florent37.carpaccio.mapping.*" />
           <option name="ENABLED" value="true" />
@@ -2831,14 +3102,14 @@
       </extension>
       <module name="carpaccio" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="com.github.florent37.carpaccio.mapping" />
       <option name="MAIN_CLASS_NAME" value="com.github.florent37.carpaccio.mapping.MappingManagerTest" />
-      <option name="METHOD_NAME" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -2874,7 +3145,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="MappingManagerTest.testEvaluateExpression_multiple_toString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MappingManagerTest.testCallMapping" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.github.florent37.carpaccio.mapping.*" />
@@ -2886,7 +3157,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.github.florent37.carpaccio.mapping" />
       <option name="MAIN_CLASS_NAME" value="com.github.florent37.carpaccio.mapping.MappingManagerTest" />
-      <option name="METHOD_NAME" value="testEvaluateExpression_multiple_toString" />
+      <option name="METHOD_NAME" value="testCallMapping" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -2900,7 +3171,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="MappingManagerTest.testEvaluateExpression_multiple_value" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MappingManagerTest.testCallMapping_withFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.github.florent37.carpaccio.mapping.*" />
@@ -2912,7 +3183,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.github.florent37.carpaccio.mapping" />
       <option name="MAIN_CLASS_NAME" value="com.github.florent37.carpaccio.mapping.MappingManagerTest" />
-      <option name="METHOD_NAME" value="testEvaluateExpression_multiple_value" />
+      <option name="METHOD_NAME" value="testCallMapping_withFunction" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -2926,7 +3197,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="MappingManagerTest.testEvaluateExpression_int" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MappingManagerTest.testGetFunctionName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.github.florent37.carpaccio.mapping.*" />
@@ -2938,7 +3209,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.github.florent37.carpaccio.mapping" />
       <option name="MAIN_CLASS_NAME" value="com.github.florent37.carpaccio.mapping.MappingManagerTest" />
-      <option name="METHOD_NAME" value="testEvaluateExpression_int" />
+      <option name="METHOD_NAME" value="testGetFunctionName" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -3035,15 +3306,6 @@
       <option name="PARAMETERS" value="" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -3154,17 +3416,17 @@
       <item index="0" class="java.lang.String" itemvalue="Android Application.sample" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.MappingManagerTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testMapObject" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testEvaluateExpression_multiple_toString" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testEvaluateExpression_multiple_value" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testEvaluateExpression_int" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testCallMapping" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testCallMapping_withFunction" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testGetFunctionName" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.MappingManagerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testEvaluateExpression_int" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testEvaluateExpression_multiple_value" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testEvaluateExpression_multiple_toString" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testMapObject" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testGetFunctionName" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testMapObject" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testCallMapping_withFunction" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MappingManagerTest.testCallMapping" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -3186,316 +3448,69 @@
       <option name="number" value="Default" />
       <updated>1437553924840</updated>
     </task>
-    <task id="LOCAL-00001" summary="added cache on 'find controller for method'">
-      <created>1438101202307</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1438101202307</updated>
-    </task>
-    <task id="LOCAL-00002" summary="so much optimisations !">
-      <created>1438113109282</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1438113109282</updated>
-    </task>
-    <task id="LOCAL-00003" summary="so much optimisations !">
-      <created>1438113876645</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1438113876645</updated>
-    </task>
-    <task id="LOCAL-00004" summary="so much optimisations !">
-      <created>1438119735218</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1438119735218</updated>
-    </task>
-    <task id="LOCAL-00005" summary="updated replace">
-      <created>1438121419514</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1438121419514</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updated imageviewcontroller">
-      <created>1438121609747</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1438121609747</updated>
-    </task>
-    <task id="LOCAL-00007" summary="updated readme">
-      <created>1438155007939</created>
-      <option name="number" value="00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1438155007939</updated>
-    </task>
-    <task id="LOCAL-00008" summary="updated readme">
-      <created>1438157103512</created>
-      <option name="number" value="00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1438157103512</updated>
-    </task>
-    <task id="LOCAL-00009" summary="updated readme">
-      <created>1438163583487</created>
-      <option name="number" value="00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1438163583487</updated>
-    </task>
-    <task id="LOCAL-00010" summary="updated README">
-      <created>1438171870060</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1438171870060</updated>
-    </task>
-    <task id="LOCAL-00011" summary="updated README">
-      <created>1438175198859</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1438175198859</updated>
-    </task>
-    <task id="LOCAL-00012" summary="updated README">
-      <created>1438175993013</created>
-      <option name="number" value="00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1438175993013</updated>
-    </task>
-    <task id="LOCAL-00013" summary="updated README">
-      <created>1438177647321</created>
-      <option name="number" value="00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1438177647321</updated>
-    </task>
-    <task id="LOCAL-00014" summary="updated README">
-      <created>1438177712302</created>
-      <option name="number" value="00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1438177712302</updated>
-    </task>
-    <task id="LOCAL-00015" summary="updated README">
-      <created>1438179769329</created>
-      <option name="number" value="00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1438179769329</updated>
-    </task>
-    <task id="LOCAL-00016" summary="updated README">
-      <created>1438179831473</created>
-      <option name="number" value="00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1438179831473</updated>
-    </task>
-    <task id="LOCAL-00017" summary="updated README">
-      <created>1438179966616</created>
-      <option name="number" value="00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1438179966616</updated>
-    </task>
-    <task id="LOCAL-00018" summary="updated README">
-      <created>1438180014694</created>
-      <option name="number" value="00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1438180014694</updated>
-    </task>
-    <task id="LOCAL-00019" summary="updated README">
-      <created>1438180056027</created>
-      <option name="number" value="00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1438180056027</updated>
-    </task>
-    <task id="LOCAL-00020" summary="added unit tests">
-      <created>1438189116125</created>
-      <option name="number" value="00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1438189116125</updated>
-    </task>
-    <task id="LOCAL-00021" summary="added unit tests">
-      <created>1438189330859</created>
-      <option name="number" value="00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1438189330859</updated>
-    </task>
-    <task id="LOCAL-00022" summary="updated README">
-      <created>1438189912894</created>
-      <option name="number" value="00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1438189912894</updated>
-    </task>
-    <task id="LOCAL-00023" summary="updated unit tests">
-      <created>1438190456528</created>
-      <option name="number" value="00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1438190456528</updated>
-    </task>
-    <task id="LOCAL-00024" summary="updated unit tests">
-      <created>1438192811176</created>
-      <option name="number" value="00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1438192811176</updated>
-    </task>
-    <task id="LOCAL-00025" summary="updated unit tests">
-      <created>1438193567610</created>
-      <option name="number" value="00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1438193567610</updated>
-    </task>
-    <task id="LOCAL-00026" summary="updated README">
-      <created>1438193700268</created>
-      <option name="number" value="00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1438193700268</updated>
-    </task>
-    <task id="LOCAL-00027" summary="added preview url()">
-      <created>1438205924201</created>
-      <option name="number" value="00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1438205924201</updated>
-    </task>
-    <task id="LOCAL-00028" summary="added list binding callbacks">
-      <created>1438297102493</created>
-      <option name="number" value="00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1438297102493</updated>
-    </task>
-    <task id="LOCAL-00029" summary="added list binding callbacks">
-      <created>1438373485224</created>
-      <option name="number" value="00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1438373485225</updated>
-    </task>
-    <task id="LOCAL-00030" summary="image fit">
-      <created>1438378437455</created>
-      <option name="number" value="00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1438378437455</updated>
-    </task>
-    <task id="LOCAL-00031" summary="inflate cell on recyclerview preview">
-      <created>1438549052311</created>
-      <option name="number" value="00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1438549052311</updated>
-    </task>
-    <task id="LOCAL-00032" summary="updated forInclude">
-      <created>1438549357089</created>
-      <option name="number" value="00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1438549357089</updated>
-    </task>
-    <task id="LOCAL-00033" summary="fixed mapping unit tests">
-      <created>1438610277233</created>
-      <option name="number" value="00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1438610277233</updated>
-    </task>
-    <task id="LOCAL-00034" summary="updated mapping, can call user.image.url">
-      <created>1438616208074</created>
-      <option name="number" value="00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1438616208074</updated>
-    </task>
-    <task id="LOCAL-00035" summary="come back to v1.0.0">
-      <created>1438616699991</created>
-      <option name="number" value="00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1438616699991</updated>
-    </task>
-    <task id="LOCAL-00036" summary="added logs">
-      <created>1438626738644</created>
-      <option name="number" value="00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1438626738644</updated>
-    </task>
-    <task id="LOCAL-00037" summary="added isOnlyForPreview">
-      <created>1438626986236</created>
-      <option name="number" value="00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1438626986236</updated>
-    </task>
-    <task id="LOCAL-00038" summary="view.getClass().getName()">
-      <created>1438628706227</created>
-      <option name="number" value="00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1438628706227</updated>
-    </task>
-    <task id="LOCAL-00039" summary="view.getClass().getName()">
-      <created>1438628753949</created>
-      <option name="number" value="00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1438628753949</updated>
-    </task>
-    <task id="LOCAL-00040" summary="view.getClass().getName()">
-      <created>1438629427942</created>
-      <option name="number" value="00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1438629427942</updated>
-    </task>
-    <task id="LOCAL-00041" summary="updated README">
-      <created>1438638913994</created>
-      <option name="number" value="00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1438638913994</updated>
-    </task>
-    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="23" width="1436" height="877" extended-state="6" />
+    <frame x="16" y="23" width="1436" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39947438" sideWeight="0.5028694" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39947438" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17144907" sideWeight="0.5124836" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.50784314" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4060447" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17144907" sideWeight="0.48751643" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2625538" sideWeight="0.49215686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32424676" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31205165" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325887" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3830703" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3285151" sideWeight="0.49713057" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3981603" sideWeight="0.49713057" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39947438" sideWeight="0.5028694" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17144907" sideWeight="0.5124836" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32424676" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.50784314" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31205165" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17144907" sideWeight="0.48751643" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2625538" sideWeight="0.49215686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325887" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285151" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3830703" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3285151" sideWeight="0.49713057" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3981603" sideWeight="0.49713057" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39947438" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285151" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4060447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298292" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -3510,46 +3525,29 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="added cache on 'find controller for method'" />
-    <MESSAGE value="so much optimisations !" />
-    <MESSAGE value="updated replace" />
-    <MESSAGE value="updated imageviewcontroller" />
-    <MESSAGE value="updated readme" />
-    <MESSAGE value="added unit tests" />
-    <MESSAGE value="updated unit tests" />
-    <MESSAGE value="added preview url()" />
-    <MESSAGE value="added list binding callbacks" />
-    <MESSAGE value="image fit" />
-    <MESSAGE value="inflate cell on recyclerview preview" />
-    <MESSAGE value="updated forInclude" />
-    <MESSAGE value="fixed mapping unit tests" />
-    <MESSAGE value="updated mapping, can call user.image.url" />
-    <MESSAGE value="come back to v1.0.0" />
-    <MESSAGE value="added logs" />
-    <MESSAGE value="added isOnlyForPreview" />
-    <MESSAGE value="view.getClass().getName()" />
-    <MESSAGE value="updated README" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated README" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioHelperTest.java</url>
-          <line>106</line>
+          <line>215</line>
           <properties />
-          <option name="timeStamp" value="79" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioHelperTest.java</url>
-          <line>166</line>
+          <url>file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java</url>
+          <line>104</line>
           <properties />
-          <option name="timeStamp" value="183" />
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="279" />
+      <option name="time" value="76" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Remote">
@@ -3564,270 +3562,160 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/22.2.1/recyclerview-v7-22.2.1-sources.jar!/android/support/v7/widget/RecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20538244">
-          <caret line="473" column="30" selection-start-line="473" selection-start-column="24" selection-end-line="473" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ParallaxViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.12278308">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/carpaccio/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/jars/classes.jar!/de/hdodenhof/circleimageview/CircleImageView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/AnimationViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14324693">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/android/sdk/platforms/android-22/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3148148">
-          <caret line="2311" column="29" selection-start-line="2311" selection-start-column="22" selection-end-line="2311" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33726415">
-          <caret line="19305" column="15" selection-start-line="19305" selection-start-column="15" selection-end-line="19305" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/circle.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityParallax.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/forInclude.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/util/AbstractList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33255813">
-          <caret line="117" column="16" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.962963">
-          <caret line="313" column="17" selection-start-line="313" selection-start-column="17" selection-end-line="313" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1500" column="19" selection-start-line="1500" selection-start-column="19" selection-end-line="1500" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.20463847">
-          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.0.5-beta/127c6c61df8e8d2fdd2df973b185e0e332de8113/mockito-core-2.0.5-beta-sources.jar!/org/mockito/internal/creation/cglib/MethodInterceptorFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingWaiting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/model/CarpaccioAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6816038">
-          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Carpaccio.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioLogger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/TextViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ImageViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/card_view_androidversion.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.7586207">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding />
+        <state vertical-scroll-proportion="-7.2413793">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_textview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/androidversion/AndroidVersionsViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15560167">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
       </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="225" column="44" selection-start-line="225" selection-start-column="44" selection-end-line="225" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33195022">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="1" column="0" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_scroll.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/androidversion/AndroidVersionAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.310345">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.18417463">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_sample.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.689655">
-          <caret line="40" column="42" selection-start-line="22" selection-start-column="12" selection-end-line="40" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_imageview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23127754">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="198" column="16" selection-start-line="198" selection-start-column="16" selection-end-line="198" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.33195022">
+          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/card_view.xml">
-      <provider editor-type-id="android-designer">
+      <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328786">
+          <caret line="3680" column="11" selection-start-line="3680" selection-start-column="11" selection-end-line="3680" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/android/view/ViewGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3533424">
+          <caret line="496" column="10" selection-start-line="496" selection-start-column="10" selection-end-line="496" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioHelperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="141" column="5" selection-start-line="137" selection-start-column="4" selection-end-line="141" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingWaiting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4979253">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/CarpaccioManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0842571">
+          <caret line="193" column="74" selection-start-line="193" selection-start-column="61" selection-end-line="193" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/test/java/com/github/florent37/carpaccio/mapping/MappingManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.481482">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/android/widget/FrameLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding />
+        <state vertical-scroll-proportion="0.36307055">
+          <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="47" />
-          <folding />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecyclerRetrofit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivitySample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -3838,20 +3726,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/view_include.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/model/ObjectAndMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.18417463">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/model/CarpaccioAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24556616">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -3861,16 +3761,210 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.793103">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/OnItemClickListener.java">
+    <entry file="file://$PROJECT_DIR$/carpaccio/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28301886">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/card_view.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ImageViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="52" selection-start-line="95" selection-start-column="52" selection-end-line="95" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/CommonViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8362892">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/ControllerHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5702592">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android/sdk/sources/android-22/java/lang/NullPointerException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3888131">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main_recyclerview.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06622516">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Holder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="19" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
+          <folding>
+            <element signature="e#2803#2804#0" expanded="true" />
+            <element signature="e#2842#2843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallbackAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14324693">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/rt.jar!/com/sun/xml/internal/ws/addressing/model/InvalidAddressingHeaderException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12747875">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/cell_user.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.344828">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5925927">
+          <caret line="260" column="26" selection-start-line="260" selection-start-column="18" selection-end-line="260" selection-end-column="26" />
+          <folding>
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+            <element signature="e#1521#1522#0" expanded="true" />
+            <element signature="e#2940#2941#0" expanded="true" />
+            <element signature="e#2999#3000#0" expanded="true" />
+            <element signature="e#3234#3235#0" expanded="true" />
+            <element signature="e#3282#3283#0" expanded="true" />
+            <element signature="e#9206#9207#0" expanded="true" />
+            <element signature="e#9270#9271#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-105.55556">
+          <caret line="199" column="38" selection-start-line="199" selection-start-column="18" selection-end-line="199" selection-end-column="38" />
+          <folding>
+            <element signature="e#4612#4613#0" expanded="true" />
+            <element signature="e#4656#4657#0" expanded="true" />
+            <element signature="e#7197#7198#0" expanded="true" />
+            <element signature="e#7242#7243#0" expanded="true" />
+            <element signature="e#7579#7580#0" expanded="true" />
+            <element signature="e#7625#7626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/factory/UserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/header_user.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70198673">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.10788382">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityParallax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7157676">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3879,104 +3973,33 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        <state vertical-scroll-proportion="-5.6896553">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/build.gradle">
+    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/RecyclerViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/Holder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5031056">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/RecyclerViewCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5279503">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/adapter/CarpaccioRecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="9" selection-start-line="32" selection-start-column="8" selection-end-line="34" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/carpaccio/sample/MainActivityRecycler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.54564315">
+          <caret line="109" column="32" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
           <folding>
-            <element signature="e#1766#1767#0" expanded="true" />
-            <element signature="e#1834#1835#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/controllers/CommonViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/Carpaccio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/mapping/MappingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.259259">
-          <caret line="120" column="35" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carpaccio/src/main/java/com/github/florent37/carpaccio/CarpaccioManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45566165">
-          <caret line="261" column="62" selection-start-line="261" selection-start-column="62" selection-end-line="261" selection-end-column="62" />
-          <folding>
-            <element signature="e#8587#8588#0" expanded="true" />
-            <element signature="e#8651#8652#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1231#1232#0" expanded="true" />
+            <element signature="e#1277#1278#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1381#1382#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
           </folding>
         </state>
       </provider>
