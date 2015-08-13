@@ -5,6 +5,7 @@ import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.controllers.helper.LoremHelper;
 
 /**
@@ -50,6 +51,16 @@ public class TextViewController {
 
     public void lorem(TextView textView) {
         textView.setText(LoremHelper.LOREM);
+    }
+
+    public void previewLorem(TextView textView) {
+        if(Carpaccio.IN_EDIT_MODE)
+            lorem(textView);
+    }
+
+    public void previewText(TextView textView, String text) {
+        if(Carpaccio.IN_EDIT_MODE)
+            setText(textView, text);
     }
 
 }

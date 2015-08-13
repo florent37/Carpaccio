@@ -7,5 +7,7 @@ import android.view.View;
  * Created by florentchampigny on 31/07/15.
  */
 public interface OnItemSwipedListener<T> {
-    boolean OnItemSwipedListener(T item, int position, Holder holder, RecyclerView.Adapter adapter);
+    boolean canSwipe(int position, Object object);
+
+    boolean onItemSwiped(T item, int position, Holder holder, RecyclerView.Adapter adapter);
 }

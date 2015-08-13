@@ -2,7 +2,9 @@ package com.github.florent37.carpaccio.controllers.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -28,6 +30,9 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
     RecyclerView recyclerView;
     OnItemSwipedListener<T> onItemSwipedListener;
 
+    ItemTouchHelper swipeItemTouch;
+    RecyclerView.OnItemTouchListener itemClickListener;
+
     public CarpaccioRecyclerViewAdapter(Carpaccio carpaccio, int layoutResId, String mappedName) {
         this.carpaccio = carpaccio;
         this.layoutResId = layoutResId;
@@ -48,14 +53,6 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         this.layoutResId = layoutResId;
     }
 
-    public OnItemClickListener<T> getOnItemClickListener() {
-        return onItemClickListener;
-    }
-
-    public void setOnItemClickListener(OnItemClickListener<T> onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
-
     public RecyclerViewCallback getRecyclerViewCallback() {
         return recyclerViewCallback;
     }
@@ -72,11 +69,10 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         if (itemType != -1)
             return itemType;
         else if (position < getHeaderCount()) {
-            int viewType =  Integer.MIN_VALUE + position;
+            int viewType = Integer.MIN_VALUE + position;
             headerViewTypes.add(viewType);
             return viewType;
-        }
-        else
+        } else
             return super.getItemViewType(position);
     }
 
@@ -89,7 +85,7 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
                 cellView = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
         }
 
-        if(headerViewTypes.contains(viewType)){
+        if (headerViewTypes.contains(viewType)) {
             int layoutId = headers.get(headerViewTypes.indexOf(viewType)).layoutId;
             if (layoutId > 0)
                 cellView = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
@@ -115,22 +111,21 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         } else if (position < getHeaderCount()) {
             return carpaccio.bindView(view, headers.get(position).mappedName);
         } else {
-            return carpaccio.bindView(view, mappedName, position-getHeaderCount());
+            return carpaccio.bindView(view, mappedName, position - getHeaderCount());
         }
     }
 
     public <T> T getItem(int position) {
         if (Carpaccio.IN_EDIT_MODE) {
-            return (T)new Object();
+            return (T) new Object();
         } else {
-            return (T)carpaccio.getMappedList(mappedName).get(position - getHeaderCount());
+            return (T) carpaccio.getMappedList(mappedName).get(position - getHeaderCount());
         }
     }
 
     @Override
     public void onBindViewHolder(final Holder holder, final int position) {
         final Object mappedObject = getItemForRow(holder.itemView, position);
-        holder.onItemClickListener = onItemClickListener;
         holder.position = position;
         holder.mappedObject = mappedObject;
         holder.onBind(mappedObject);
@@ -159,20 +154,31 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         headers.add(header);
     }
 
+    //region listeners
+
+    public OnItemClickListener<T> getOnItemClickListener() {
+        return onItemClickListener;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener<T> onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+        attachListeners();
+    }
+
     public OnItemSwipedListener<T> getOnItemSwipedListener() {
         return onItemSwipedListener;
     }
 
     public void setOnItemSwipedListener(OnItemSwipedListener<T> onItemSwipedListener) {
         this.onItemSwipedListener = onItemSwipedListener;
-        attachSwipeListener();
+        attachListeners();
     }
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
         this.recyclerView = recyclerView;
-        attachSwipeListener();
+        attachListeners();
     }
 
     @Override
@@ -181,40 +187,88 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         this.recyclerView = null;
     }
 
-    protected void attachSwipeListener(){
-        if(onItemSwipedListener != null && recyclerView != null)
-        {
-            // init swipe to dismiss logic
-            new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-                    ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+    protected void attachListeners() {
+        if (onItemSwipedListener != null && recyclerView != null) {
 
-                @Override
-                public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                    // callback for drag-n-drop, false to skip this feature
-                    return false;
-                }
+            if (swipeItemTouch == null) {
+                // init swipe to dismiss logic
+                swipeItemTouch = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
 
-                @Override
-                public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-                    if (viewHolder.getAdapterPosition() < getHeaderCount()) return 0;
-                    return super.getSwipeDirs(recyclerView, viewHolder);
-                }
-
-                @Override
-                public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                    // callback for swipe to dismiss, removing item from data and adapter
-                    int position = viewHolder.getAdapterPosition();
-                    int positionLessHeader = viewHolder.getAdapterPosition()-getHeaderCount();
-
-                    boolean remove = onItemSwipedListener.OnItemSwipedListener((T)getItem(viewHolder.getAdapterPosition()),viewHolder.getAdapterPosition(),(Holder)viewHolder, CarpaccioRecyclerViewAdapter.this);
-                    if(remove) {
-                        carpaccio.getMappedList(mappedName).remove(positionLessHeader);
-                        notifyItemRemoved(position);
+                    @Override
+                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                        // callback for drag-n-drop, false to skip this feature
+                        return false;
                     }
-                    else
-                        notifyItemChanged(position);
-                }
-            }).attachToRecyclerView(recyclerView);
+
+                    @Override
+                    public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                        if (viewHolder.getAdapterPosition() < getHeaderCount())
+                            return 0;
+                        else if (onItemSwipedListener != null && !onItemSwipedListener.canSwipe(viewHolder.getAdapterPosition() - getHeaderCount(), getItem(viewHolder.getAdapterPosition())))
+                            return 0;
+                        else
+                            return super.getSwipeDirs(recyclerView, viewHolder);
+                    }
+
+                    @Override
+                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                        // callback for swipe to dismiss, removing item from data and adapter
+                        int position = viewHolder.getAdapterPosition();
+                        int positionLessHeader = viewHolder.getAdapterPosition() - getHeaderCount();
+
+                        boolean remove = onItemSwipedListener.onItemSwiped((T) getItem(viewHolder.getAdapterPosition()), viewHolder.getAdapterPosition(), (Holder) viewHolder, CarpaccioRecyclerViewAdapter.this);
+                        if (remove) {
+                            carpaccio.getMappedList(mappedName).remove(positionLessHeader);
+                            notifyItemRemoved(position);
+                        } else
+                            notifyItemChanged(position);
+                    }
+                });
+                swipeItemTouch.attachToRecyclerView(recyclerView);
+            }
+        }
+
+        if (onItemClickListener != null && recyclerView != null) {
+
+            if (itemClickListener == null) {
+                itemClickListener = new RecyclerView.OnItemTouchListener() {
+
+                    GestureDetector mGestureDetector;
+
+                    @Override
+                    public boolean onInterceptTouchEvent(RecyclerView view, MotionEvent e) {
+                        View childView = view.findChildViewUnder(e.getX(), e.getY());
+                        if (mGestureDetector == null) {
+                            mGestureDetector = new GestureDetector(recyclerView.getContext(), new GestureDetector.SimpleOnGestureListener() {
+                                @Override
+                                public boolean onSingleTapUp(MotionEvent e) {
+                                    return true;
+                                }
+                            });
+                        }
+                        if (childView != null && onItemClickListener != null && mGestureDetector.onTouchEvent(e)) {
+                            int position = view.getChildAdapterPosition(childView);
+                            onItemClickListener.onItemClick((T) getItem(position), position, view.getChildViewHolder(childView).itemView);
+                            return true;
+                        }
+                        return false;
+                    }
+
+                    @Override
+                    public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+                    }
+
+                    @Override
+                    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+                    }
+                };
+                recyclerView.addOnItemTouchListener(itemClickListener);
+            }
         }
     }
+
+    //endregion
 }

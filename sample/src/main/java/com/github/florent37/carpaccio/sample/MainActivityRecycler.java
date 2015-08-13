@@ -44,7 +44,12 @@ public class MainActivityRecycler extends AppCompatActivity {
         carpaccio.onItemSwiped("user",new OnItemSwipedListener(){
 
             @Override
-            public boolean OnItemSwipedListener(Object item, int position, Holder holder, RecyclerView.Adapter adapter) {
+            public boolean canSwipe(int position, Object object) {
+                return position > 3;
+            }
+
+            @Override
+            public boolean onItemSwiped(Object item, int position, Holder holder, RecyclerView.Adapter adapter) {
                 return position%2 == 0;
             }
         });

@@ -6,25 +6,17 @@ import android.view.View;
 /**
  * Created by florentchampigny on 31/07/15.
  */
-public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class Holder extends RecyclerView.ViewHolder {
 
     int position;
     Object mappedObject;
-    OnItemClickListener onItemClickListener;
 
     public Holder(View itemView) {
         super(itemView);
-        this.itemView.setOnClickListener(this);
     }
 
     public void onBind(Object object){
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(onItemClickListener != null)
-            onItemClickListener.onItemClick(mappedObject, position, itemView);
     }
 
 }
