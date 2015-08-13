@@ -6,5 +6,6 @@ import android.view.View;
  * Created by florentchampigny on 31/07/15.
  */
 public interface OnItemClickListener<T> {
-    void onItemClick(T item, int position, View view);
+    boolean isClickable(T item, int position, Holder holder);
+    void onItemClick(T item, int position, Holder holder);
 }

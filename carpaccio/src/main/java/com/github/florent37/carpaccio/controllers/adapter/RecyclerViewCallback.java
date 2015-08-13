@@ -16,6 +16,6 @@ public interface RecyclerViewCallback {
     Holder onCreateViewHolder(View view, int viewType);
 
     //do a custom action
-    void onBind(Object object, View view, int position);
+    void onBind(Object object, Holder holder, int position);
 
 }

@@ -131,7 +131,7 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         holder.onBind(mappedObject);
 
         if (recyclerViewCallback != null) {
-            recyclerViewCallback.onBind(mappedObject, holder.itemView, position);
+            recyclerViewCallback.onBind(mappedObject, holder, position);
         }
     }
 
@@ -205,7 +205,7 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
                     public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
                         if (viewHolder.getAdapterPosition() < getHeaderCount())
                             return 0;
-                        else if (onItemSwipedListener != null && !onItemSwipedListener.canSwipe(viewHolder.getAdapterPosition() - getHeaderCount(), getItem(viewHolder.getAdapterPosition())))
+                        else if (onItemSwipedListener != null && !onItemSwipedListener.canSwipe(viewHolder.getAdapterPosition() - getHeaderCount(), (T) getItem(viewHolder.getAdapterPosition())))
                             return 0;
                         else
                             return super.getSwipeDirs(recyclerView, viewHolder);
@@ -239,18 +239,28 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
                     @Override
                     public boolean onInterceptTouchEvent(RecyclerView view, MotionEvent e) {
                         View childView = view.findChildViewUnder(e.getX(), e.getY());
-                        if (mGestureDetector == null) {
-                            mGestureDetector = new GestureDetector(recyclerView.getContext(), new GestureDetector.SimpleOnGestureListener() {
-                                @Override
-                                public boolean onSingleTapUp(MotionEvent e) {
-                                    return true;
-                                }
-                            });
-                        }
-                        if (childView != null && onItemClickListener != null && mGestureDetector.onTouchEvent(e)) {
+                        if (childView != null && onItemClickListener != null) {
                             int position = view.getChildAdapterPosition(childView);
-                            onItemClickListener.onItemClick((T) getItem(position), position, view.getChildViewHolder(childView).itemView);
-                            return true;
+
+                            if (mGestureDetector == null) {
+                                mGestureDetector = new GestureDetector(recyclerView.getContext(), new GestureDetector.SimpleOnGestureListener() {
+                                    @Override
+                                    public boolean onSingleTapUp(MotionEvent e) {
+                                        return true;
+                                    }
+                                });
+                            }
+
+                            if(position > getHeaderCount()) {
+                                T item = (T) getItem(position);
+                                Holder holder = (Holder) view.getChildViewHolder(childView);
+
+                                if (onItemClickListener.isClickable(item, position, holder))
+                                    if (mGestureDetector.onTouchEvent(e)) {
+                                        onItemClickListener.onItemClick(item, position, holder);
+                                        return true;
+                                    }
+                            }
                         }
                         return false;
                     }

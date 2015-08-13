@@ -37,9 +37,15 @@ public class MainActivityRecycler extends AppCompatActivity {
         carpaccio.mapObject("userHeader", UserFactory.generateUser());
         carpaccio.onItemClick("user", new OnItemClickListener() {
             @Override
-            public void onItemClick(Object item, int position, View view) {
+            public boolean isClickable(Object item, int position, Holder holder) {
+                return false;
+            }
+
+            @Override
+            public void onItemClick(Object item, int position, Holder holder) {
                 Toast.makeText(getApplicationContext(), "position " + position, Toast.LENGTH_SHORT).show();
             }
+
         });
         carpaccio.onItemSwiped("user",new OnItemSwipedListener(){
 

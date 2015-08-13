@@ -8,15 +8,14 @@ import android.view.View;
  */
 public class Holder extends RecyclerView.ViewHolder {
 
-    int position;
-    Object mappedObject;
+    protected int position;
+    protected Object mappedObject;
 
     public Holder(View itemView) {
         super(itemView);
     }
 
     public void onBind(Object object){
-
     }
 
 }
