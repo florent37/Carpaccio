@@ -440,7 +440,6 @@ public class CarpaccioHelperTest {
         assertNull(CarpaccioHelper.stringToFloat("aa"));
     }
 
-
     @Test
     public void testStringToLong() throws Exception {
         assertEquals(Long.valueOf(3), CarpaccioHelper.stringToLong("3"));
@@ -448,10 +447,17 @@ public class CarpaccioHelperTest {
 
     @Test
     public void testStringToNumber() throws Exception {
+        assertEquals(3,CarpaccioHelper.stringToNumber("3",int.class));
+        assertEquals(3l,CarpaccioHelper.stringToNumber("3",long.class));
+        assertEquals(3.f,CarpaccioHelper.stringToNumber("3",float.class));
+        assertEquals(3.d,CarpaccioHelper.stringToNumber("3",double.class));
+
         assertEquals(Integer.valueOf(3),CarpaccioHelper.stringToNumber("3",Integer.class));
         assertEquals(Long.valueOf(3),CarpaccioHelper.stringToNumber("3",Long.class));
         assertEquals(Float.valueOf(3),CarpaccioHelper.stringToNumber("3",Float.class));
         assertEquals(Double.valueOf(3),CarpaccioHelper.stringToNumber("3",Double.class));
+
+        assertEquals(null,CarpaccioHelper.stringToNumber(null,Integer.class));
         assertNull(CarpaccioHelper.stringToNumber("3",String.class));
     }
 

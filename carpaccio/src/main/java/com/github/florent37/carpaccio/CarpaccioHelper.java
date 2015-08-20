@@ -289,36 +289,36 @@ public class CarpaccioHelper {
 
     public static boolean isNumber(Class destinationClass) {
         return
-                Integer.class.equals(destinationClass) ||
-                        destinationClass.getName().equals("int") ||
+            Integer.class.equals(destinationClass) ||
+            int.class.equals(destinationClass) ||
 
-                        Float.class.equals(destinationClass) ||
-                        destinationClass.getName().equals("float") ||
+            Float.class.equals(destinationClass) ||
+            float.class.equals(destinationClass) ||
 
-                        Long.class.equals(destinationClass) ||
-                        destinationClass.getName().equals("long") ||
+            Long.class.equals(destinationClass) ||
+            long.class.equals(destinationClass) ||
 
-                        Double.class.equals(destinationClass) ||
-                        destinationClass.getName().equals("double");
+            Double.class.equals(destinationClass) ||
+            double.class.equals(destinationClass);
     }
 
     public static Object stringToNumber(String s, Class destinationClass) {
         if (Integer.class.equals(destinationClass))
             return stringToInt(s);
         else if (destinationClass.getName().equals("int"))
-            return stringToInt(s).intValue();
+            return stringToInt(s);
         else if (Float.class.equals(destinationClass))
             return stringToFloat(s);
         else if (destinationClass.getName().equals("float"))
-            return stringToFloat(s).floatValue();
+            return stringToFloat(s);
         else if (Long.class.equals(destinationClass))
             return stringToLong(s);
         else if (destinationClass.getName().equals("long"))
-            return stringToLong(s).longValue();
+            return stringToLong(s);
         else if (Double.class.equals(destinationClass))
             return stringToDouble(s);
         else if (destinationClass.getName().equals("double"))
-            return stringToDouble(s).doubleValue();
+            return stringToDouble(s);
         else
             return null;
     }
