@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.controllers.adapter.Holder;
+import com.github.florent37.carpaccio.controllers.adapter.OnHeaderClickListener;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemSwipedListener;
 import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallbackAdapter;
@@ -46,6 +47,12 @@ public class MainActivityRecycler extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "position " + position, Toast.LENGTH_SHORT).show();
             }
 
+        });
+        carpaccio.onHeaderClick("user", new OnHeaderClickListener() {
+            @Override
+            public void onHeaderClick(Object item, int position, Holder holder) {
+               Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_LONG).show();
+            }
         });
         carpaccio.onItemSwiped("user",new OnItemSwipedListener(){
 

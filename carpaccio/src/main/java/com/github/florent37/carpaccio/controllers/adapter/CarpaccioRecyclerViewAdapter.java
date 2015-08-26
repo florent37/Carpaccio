@@ -22,6 +22,7 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
     int layoutResId;
     String mappedName;
     OnItemClickListener<T> onItemClickListener;
+    OnHeaderClickListener onHeaderClickListener;
     RecyclerViewCallback recyclerViewCallback;
 
     List<Integer> headerViewTypes = new ArrayList<>();
@@ -165,6 +166,11 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
         attachListeners();
     }
 
+    public void setOnHeaderClickListener(OnHeaderClickListener onHeaderClickListener) {
+        this.onHeaderClickListener = onHeaderClickListener;
+        attachListeners();
+    }
+
     public OnItemSwipedListener<T> getOnItemSwipedListener() {
         return onItemSwipedListener;
     }
@@ -251,7 +257,7 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
                                 });
                             }
 
-                            if(position > getHeaderCount()) {
+                            if(position >= getHeaderCount()) {
                                 T item = (T) getItem(position);
                                 Holder holder = (Holder) view.getChildViewHolder(childView);
 
@@ -260,6 +266,9 @@ public class CarpaccioRecyclerViewAdapter<T> extends RecyclerView.Adapter<Holder
                                         onItemClickListener.onItemClick(item, position, holder);
                                         return true;
                                     }
+                            }else if(onHeaderClickListener != null){
+                                Holder holder = (Holder) view.getChildViewHolder(childView);
+                                onHeaderClickListener.onHeaderClick(holder.mappedObject,position,holder);
                             }
                         }
                         return false;

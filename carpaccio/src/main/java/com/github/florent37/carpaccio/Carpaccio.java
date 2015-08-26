@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
+import com.github.florent37.carpaccio.controllers.adapter.OnHeaderClickListener;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemSwipedListener;
 import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallback;
@@ -118,30 +119,42 @@ public class Carpaccio extends FrameLayout {
         return null;
     }
 
-    public void onItemClick(String mappedName, OnItemClickListener onItemClickListener) {
+    public Carpaccio onItemClick(String mappedName, OnItemClickListener onItemClickListener) {
         CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
         if (adapter != null) {
             adapter.setOnItemClickListener(onItemClickListener);
         }
+        return this;
     }
 
-    public void onItemSwiped(String mappedName, OnItemSwipedListener onItemSwipedListener) {
+    public Carpaccio onHeaderClick(String listMappedName, OnHeaderClickListener onHeaderClickListener) {
+        CarpaccioRecyclerViewAdapter adapter = getAdapter(listMappedName);
+        if (adapter != null) {
+            adapter.setOnHeaderClickListener(onHeaderClickListener);
+        }
+        return this;
+    }
+
+    public Carpaccio onItemSwiped(String mappedName, OnItemSwipedListener onItemSwipedListener) {
         CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
         if (adapter != null) {
             adapter.setOnItemSwipedListener(onItemSwipedListener);
         }
+        return this;
     }
 
-    public void setRecyclerViewCallback(String mappedName, RecyclerViewCallback recyclerViewCallback) {
+    public Carpaccio setRecyclerViewCallback(String mappedName, RecyclerViewCallback recyclerViewCallback) {
         CarpaccioRecyclerViewAdapter adapter = getAdapter(mappedName);
         if (adapter != null) {
             adapter.setRecyclerViewCallback(recyclerViewCallback);
         }
+        return this;
     }
 
-    public void mapList(String name, List list) {
+    public Carpaccio mapList(String name, List list) {
         if (carpaccioManager != null)
             carpaccioManager.mapList(name, list);
+        return this;
     }
 
     public void appendList(String name, List list) {
