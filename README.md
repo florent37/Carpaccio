@@ -3,8 +3,8 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Carpaccio-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2211)
 [![Join the chat at https://gitter.im/florent37/Carpaccio](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/florent37/Carpaccio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-<a href="https://play.google.com/store/apps/details?id=com.github.florent37.florent.champigny">
-  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/iqkQGAc2EFNdScAzpwZr1Sdy/florent37/Carpaccio'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/iqkQGAc2EFNdScAzpwZr1Sdy/florent37/Carpaccio.svg' />
 </a>
 
 Developed to facilitate integration on Android ( Designers can thanks me :D )
